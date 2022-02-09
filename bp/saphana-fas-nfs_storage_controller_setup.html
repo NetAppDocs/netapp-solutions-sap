@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head class="at-element-marker">
+  <title>Storage controller setup</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Storage controller setup" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_storage_controller_setup.html" />
+	<meta property="og:description" content="This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding ON..." />
+  <meta property="og:image" content="https://docs.netapp.com/us-en/netapp-solutions-sap/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding ON...">
+  <meta name="keywords" content=" storage, controller, setup, efficiency, fabricpool, disk, shelf, aggregate, configuration, hdd, nfs, nfsv3, nfsv4, sap, hana, host, systems">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/us-en/netapp-solutions-sap/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/us-en/netapp-solutions-sap/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/us-en/netapp-solutions-sap/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/us-en/netapp-solutions-sap/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/us-en/netapp-solutions-sap/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/us-en/netapp-solutions-sap/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/us-en/netapp-solutions-sap/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/us-en/netapp-solutions-sap/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/us-en/netapp-solutions-sap/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/us-en/netapp-solutions-sap/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/us-en/netapp-solutions-sap/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/us-en/netapp-solutions-sap/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/us-en/netapp-solutions-sap/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/us-en/netapp-solutions-sap/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/us-en/netapp-solutions-sap/css/tabbed-blocks.css" type="text/css">
+  <link rel="stylesheet" href='/us-en/netapp-solutions-sap/css/product-family.css' type="text/css">
+  
+
+  
+  <link rel='stylesheet' href='/us-en/netapp-solutions-sap/css/na-feature.css' type='text/css'>
+  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/us-en/netapp-solutions-sap/js/na-search.js'></script>
+  
+
+  
+  <script src='/us-en/netapp-solutions-sap/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/us-en/netapp-solutions-sap/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/us-en/netapp-solutions-sap/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/us-en/netapp-solutions-sap/js/na-utility.js'></script>
+  <script src='/us-en/netapp-solutions-sap/js/clouddocs.js'></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    var head = document.getElementsByTagName('head')[0];
+    var adobe = document.createElement("script");
+    adobe.type = "text/javascript";
+    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+    head.appendChild(adobe);
+  }
+  </script>
+  <script src='/us-en/netapp-solutions-sap/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/us-en/netapp-solutions-sap/js/toc.js'></script>
+  <script src='/us-en/netapp-solutions-sap/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+  <script src='/us-en/netapp-solutions-sap/js/version-dropdown.js'></script>
+  <script src='/us-en/netapp-solutions-sap/js/product-family.js'></script>
+  <script src='/us-en/netapp-solutions-sap/js/FileSaver.min.js'></script>
+  <script src='/us-en/netapp-solutions-sap/js/jszip-utils.min.js'></script>
+  <script src='/us-en/netapp-solutions-sap/js/jszip.min.js'></script>
+  <script src='/us-en/netapp-solutions-sap/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Product and Solutions</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Support and Training</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Community</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Customer Stories</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/us-en/netapp-solutions-sap/search.html"
+          data-type="widget" 
+          data-placeholder="Search Documentation" 
+          data-no-results-found="No results were found for {query}" 
+          data-did-you-mean="Search for {suggestion}." 
+          data-no-results-found-did-you-mean="No results found for {query}. Did you mean {suggestion}?" 
+          data-results-found="{hitCount} results found"  
+          data-sk-es-pf-indexes=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">English</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_storage_controller_setup.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/netapp-solutions-sap/bp/saphana-fas-nfs_storage_controller_setup.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/netapp-solutions-sap/bp/saphana-fas-nfs_storage_controller_setup.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/netapp-solutions-sap/bp/saphana-fas-nfs_storage_controller_setup.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>Available PDFs<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        <a target="_blank" href="/us-en/netapp-solutions-sap/pdfs/fullsite-sidebar/SAP_Business_Application_and_SAP_HANA_Database_Solutions.pdf" >
+          <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>PDF of this doc site</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Best_Practices.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Best Practices
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_on_NetApp_AFF_Systems_with_FCP_Configuration_Guide.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            SAP HANA on NetApp AFF Systems with FCP Configuration Guide
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Infrastructure_setup_and_configuration.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Infrastructure setup and configuration
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_on_NetApp_AFF_Systems_with_NFS_Configuration_Guide.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            SAP HANA on NetApp AFF Systems with NFS Configuration Guide
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Infrastructure_setup_and_configuration.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Infrastructure setup and configuration
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_on_NetApp_FAS_Systems_with_NFS_Configuration_Guide.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            SAP HANA on NetApp FAS Systems with NFS Configuration Guide
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Infrastructure_setup_and_configuration.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Infrastructure setup and configuration
+          </a>
+          
+
+
+
+
+
+
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/us-en/netapp-solutions-sap/pdfs/pages/bp/saphana-fas-nfs_storage_controller_setup.pdf" >
+    <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_on_FAS_Systems_with_FCP_Configuration_Guide.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            SAP HANA on FAS Systems with FCP Configuration Guide
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Infrastructure_setup_and_configuration.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Infrastructure setup and configuration
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Backup__Restore_and_Disaster_Recovery.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Backup, Restore and Disaster Recovery
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_System_Replication_Backup_and_Recovery_with_SnapCenter.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            SAP HANA System Replication Backup and Recovery with SnapCenter
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            SAP HANA Disaster Recovery with Azure NetApp Files
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/ANF_Cross_Region_Replication_with_SAP_HANA.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            ANF Cross-Region Replication with SAP HANA
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Disaster_recovery_testing.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Disaster recovery testing
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Disaster_recovery_failover.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Disaster recovery failover
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_backup_and_recovery_on_Azure_NetApp_Files_with_SnapCenter_Service.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            SAP HANA backup and recovery on Azure NetApp Files with SnapCenter Service
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/SnapCenter_Service_Snapshot_backup_configuration.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            SnapCenter Service Snapshot backup configuration
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Lifecycle_Management.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Lifecycle Management
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Solution_Briefs.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Solution Briefs
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/us-en/netapp-solutions-sap/images/pdf-zip.png" width="16" height="16"/>
+      <pre>Collection of separate PDF docs<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/index.html">
+        SAP Solutions
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Best Practices</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/sap-apps-azure-anf_pdf_link.html">
+        SAP Applications on Microsoft Azure Using Azure NetApp Files
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> SAP HANA on NetApp AFF Systems with FCP Configuration Guide</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html">
+        Introduction
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_architecture.html">
+        Architecture
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_storage_sizing.html">
+        Storage sizing
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Infrastructure setup and configuration</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_infrastructure_setup_and_configuration_overview.html">
+        Infrastructure setup and configuration overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_san_fabric_setup.html">
+        SAN fabric setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_time_synchronization.html">
+        Time synchronization
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_storage_controller_setup.html">
+        Storage controller setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_sap_hana_storage_connector_api.html">
+        SAP HANA storage connector API
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_host_setup.html">
+        Host setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_i_o_stack_configuration_for_sap_hana.html">
+        I/O Stack configuration for SAP HANA
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_sap_hana_software_installation.html">
+        SAP HANA software installation
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_adding_additional_data_volume_partitions_for_sap_hana_single-host_systems.html">
+        Adding additional data volume partitions for SAP HANA single-host systems
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_where_to_find_additional_information.html">
+        Where to find additional information
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_fc_update_history.html">
+        Update history
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> SAP HANA on NetApp AFF Systems with NFS Configuration Guide</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html">
+        Introduction
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_architecture.html">
+        Architecture
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_storage_sizing.html">
+        Storage sizing
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Infrastructure setup and configuration</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_infrastructure_setup_and_configuration_overview.html">
+        Infrastructure setup and configuration overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_network_setup.html">
+        Network setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_time_synchronization.html">
+        Time synchronization
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_storage_controller_setup.html">
+        Storage controller setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_host_setup.html">
+        Host setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_sap_hana_installation_preparations_for_nfsv4.html">
+        SAP HANA installation preparations for NFSv4
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_i_o_stack_configuration_for_sap_hana.html">
+        I/O stack configuration for SAP HANA
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_sap_hana_data_volume_size.html">
+        SAP HANA data volume size
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_sap_hana_software_installation.html">
+        SAP HANA software installation
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_adding_additional_data_volume_partitions.html">
+        Adding additional data volume partitions
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_where_to_find_additional_information.html">
+        Where to find additional information
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_update_history.html">
+        Update history
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> SAP HANA on NetApp FAS Systems with NFS Configuration Guide</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_introduction.html">
+        Introduction
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_architecture.html">
+        Architecture
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_storage_sizing.html">
+        Storage sizing
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Infrastructure setup and configuration</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_infrastructure_setup_and_configuration_overview.html">
+        Infrastructure setup and configuration overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_network_setup.html">
+        Network setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_time_synchronization.html">
+        Time synchronization
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_storage_controller_setup.html">
+        Storage controller setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_host_setup.html">
+        Host setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_sap_hana_installation_preparations_for_nfsv4.html">
+        SAP HANA installation preparations for NFSv4
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_i_o_stack_configuration_for_sap_hana.html">
+        I/O stack configuration for SAP HANA
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_sap_hana_data_volume_size.html">
+        SAP HANA data volume size
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_sap_hana_software_installation.html">
+        SAP HANA software installation
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_adding_additional_data_volume_partitions.html">
+        Adding additional data volume partitions
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_where_to_find_additional_information.html">
+        Where to find additional information
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_update_history.html">
+        Update history
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> SAP HANA on FAS Systems with FCP Configuration Guide</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_introduction.html">
+        Introduction
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_architecture.html">
+        Architecture
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_storage_sizing.html">
+        Storage sizing
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Infrastructure setup and configuration</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_infrastructure_setup_and_configuration_overview.html">
+        Infrastructure setup and configuration overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_san_fabric_setup.html">
+        SAN fabric setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_time_synchronization.html">
+        Time synchronization
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_storage_controller_setup.html">
+        Storage controller setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_sap_hana_storage_connector_api.html">
+        SAP HANA storage connector API
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_host_setup.html">
+        Host setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_i_o_stack_configuration_for_sap_hana.html">
+        I/O stack configuration for SAP HANA
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_sap_hana_software_installation.html">
+        SAP HANA software installation
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_adding_additional_data_volume_partitions_for_sap_hana_single-host_systems.html">
+        Adding additional data volume partitions for SAP HANA single-host systems
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_where_to_find_additional_information.html">
+        Where to find additional information
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana_fas_fc_update_history.html">
+        Update history
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/saphana-ibm-aff-nfs_pdf_link.html">
+        SAP HANA on IBM Power Systems and NetApp AFF Systems with NFS
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/sap-oracle-snapman_pdf_link.html">
+        SAP with Oracle on UNIX and NFS with NetApp ONTAP
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/bp/sap-sqls-sc_pdf_link.html">
+        SAP with Microsoft SQL Server on Windows Using ONTAP
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Backup, Restore and Disaster Recovery</div>
+      </a>
+      <ul><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> SAP HANA System Replication Backup and Recovery with SnapCenter</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html">
+        SAP HANA System Replication overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-sr-scs-storage-snapshot-backups-and-sap-system-replication.html">
+        Storage Snapshot backups and SAP System Replication
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-sr-scs-snapcenter-configuration-options-for-sap-system-replication.html">
+        SnapCenter configuration options for SAP System Replication
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-sr-scs-snapcenter-4.6-configuration-using-a-resource-group.html">
+        SnapCenter 4.6 configuration using a resource group
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html">
+        SnapCenter configuration with a single resource
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html">
+        Restore and recovery from a backup created at the other host
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-sr-scs-where-to-find-additional-information_overview.html">
+        Where to find additional information
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-sr-scs-version-history.html">
+        Version history
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> SAP HANA Disaster Recovery with Azure NetApp Files</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_data_protection_overview_overview.html">
+        Data protection overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_disaster_recovery_solution_comparison.html">
+        Disaster recovery solution comparison
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> ANF Cross-Region Replication with SAP HANA</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_anf_cross-region_replication_with_sap_hana_overview.html">
+        Cross-Rregion Replication with SAP HANA overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_configuration_options_for_cross-region_replication_with_sap_hana.html">
+        Configuration options for Cross-Region Replication with SAP HANA
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_requirements_and_best_practices.html">
+        Requirements and best practices
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_lab_setup.html">
+        Lab setup
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_configuration_steps_for_anf_cross-region_replication.html">
+        Configuration steps for ANF Cross-Region Replication
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_monitoring_anf_cross-region_replication.html">
+        Monitoring ANF Cross-Region Replication
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Disaster recovery testing</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_disaster_recovery_testing_overview.html">
+        Disaster recovery testing overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_prepare_the_target_host.html">
+        Prepare the target host
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_create_new_volumes_based_on_snapshot_backups_at_the_disaster_recovery_site.html">
+        Create new volumes based on snapshot backups at the disaster recovery site
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_mount_the_new_volumes_at_the_target_host.html">
+        Mount the new volumes at the target host
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_hana_database_recovery.html">
+        HANA database recovery
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Disaster recovery failover</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_disaster_recovery_failover_overview.html">
+        Disaster recovery failover overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_prepare_the_target_host_01.html">
+        Prepare the target host
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_break_and_delete_replication_peering.html">
+        Break and delete replication peering
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_mount_the_volumes_at_the_target_host.html">
+        Mount the volumes at the target host
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_hana_database_recovery_01.html">
+        HANA database recovery
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-anf_update_history.html">
+        Update history
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> SAP HANA backup and recovery on Azure NetApp Files with SnapCenter Service</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-overview.html">
+        Overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-the-netapp-solution.html">
+        The NetApp solution
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-architecture.html">
+        SnapCenter Service architecture
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-sap-hana-backup-solution.html">
+        SnapCenter Service SAP HANA backup solution
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-concepts-and-best-practices.html">
+        SnapCenter Service concepts and best practices
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-lab-setup-used-for-this-report.html">
+        Lab setup used for this report
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-policy-configuration.html">
+        SnapCenter Service policy configuration
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> SnapCenter Service Snapshot backup configuration</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html">
+        Overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-backup-configuration-of-sap-hana-database-backups.html">
+        Backup configuration of SAP HANA database backups
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-backup-configuration-of-sap-hana-non-data-volumes.html">
+        Backup configuration of SAP HANA non-data volumes
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-backup-configuration-of-global-non-data-volumes.html">
+        Backup configuration of global non-data volumes
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-sap-hana-database-snapshot-backups.html">
+        SAP HANA database Snapshot backups
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-file-based-backups-and-block-integrity-check.html">
+        File-based backups and block integrity check
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-restore-and-recovery.html">
+        Restore and recovery
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-additional-information.html">
+        Additional information
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-backup-anf-version-history.html">
+        Version history
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-br-sc_pdf_link.html">
+        SAP HANA Backup and Recovery with SnapCenter
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-dr-sr_pdf_link.html">
+        SAP HANA Disaster Recovery with Storage Replication
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-bandr-sc_pdf_link.html">
+        SAP HANA Backup and Recovery Using Snap Creator
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-commvault_pdf_link.html">
+        SAP HANA Backup and Recovery Using NetApp Storage and Commvault Software
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/backup/saphana-san_pdf_link.html">
+        SAP HANA on NetApp All SAN Array - Modern SAN, Data Protection, and Disaster Recovery
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Lifecycle Management</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="https://www.netapp.com/us/media/tr-4667.pdf">
+        Automating SAP System Copies Using the SnapCenter SAP HANA Plug-In
+      </a></li><li class=" "><a class="na-navbar-padding" href="https://www.netapp.com/us/media/tr-4018.pdf">
+        Integrating NetApp Storage with SAP Landscape Management
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Solution Briefs</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/briefs/saphana-lm-sb_pdf_link.html">
+        SAP HANA Lifecycle Management
+      </a></li><li class=" "><a class="na-navbar-padding" href="https://www.netapp.com/us/media/sb-3965.pdf">
+        SAP HANA Backup and Recovery
+      </a></li><li class=" "><a class="na-navbar-padding" href="https://www.netapp.com/us/media/sb-3968.pdf">
+        SAP HANA Disaster Recovery
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/flexpod/ent-db/index.html">
+        FlexPod SAP Solutions
+      </a></li><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/netapp-solutions/">
+        NetApp Solutions
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/reference_legal_notices.html">
+        Legal Notices
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container -->
+    <article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://www.netapp.com">Home</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">Documentation</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/us-en/netapp-solutions-sap/">NetApp&nbsp;Solutions&nbsp;SAP</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          Storage controller setup
+        </li>
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Storage controller setup</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-02-02 10:43:00 +0000">02/02/2022</time>
+    
+  
+
+<span>Contributors
+  <a target="_blank" href="https://github.com/netapp-mschoen">
+    <img  class="avatar avatar-small"
+          alt="netapp-mschoen"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/79312873?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+
+</p>
+
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="saphana-fas-nfs_time_synchronization.html">Previous: Time synchronization.</a></p>
+</div>
+<div class="paragraph">
+<p>This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding ONTAP setup and configuration guides.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="storage-efficiency">Storage efficiency</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Inline deduplication, cross- volume inline deduplication, inline compression, and inline compaction are supported with SAP HANA in an SSD configuration.</p>
+</div>
+<div class="paragraph">
+<p>Enabling storage efficiency features in an HDD-based configuration is not supported.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="netapp-volume-encryption">NetApp volume encryption</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The use of NetApp Volume Encryption (NVE) is supported with SAP HANA.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quality-of-service">Quality of service</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>QoS can be used to limit the storage throughput for specific SAP HANA systems or other applications on a shared-use controller. One use case would be to limit the throughput of development and test systems so that they cannot influence production systems in a mixed setup.</p>
+</div>
+<div class="paragraph">
+<p>During the sizing process, you should determine the performance requirements of a nonproduction system. Development and test systems can be sized with lower performance values, typically in the range of 20% to 50% of a production-system KPI as defined by SAP.</p>
+</div>
+<div class="paragraph">
+<p>Starting with ONTAP 9, QoS is configured on the storage volume level and uses maximum values for throughput (MBps) and the amount of I/O (IOPS).</p>
+</div>
+<div class="paragraph">
+<p>Large write I/O has the biggest performance effect on the storage system. Therefore, the QoS throughput limit should be set to a percentage of the corresponding write SAP HANA storage performance KPI values in the data and log volumes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="netapp-fabricpool">NetApp FabricPool</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp FabricPool technology must not be used for active primary file systems in SAP HANA systems. This includes the file systems for the data and log area as well as the <code>/hana/shared</code> file system. Doing so results in unpredictable performance, especially during the startup of an SAP HANA system.</p>
+</div>
+<div class="paragraph">
+<p>Using the “snapshot-only” tiering policy is possible as well as using FabricPool in general at a backup target such as a SnapVault or SnapMirror destination.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-solutions-sap/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Using FabricPool for tiering Snapshot copies at primary storage or using FabricPool at a backup target changes the required time for the restore and recovery of a database or other tasks such as creating system clones or repair systems. Take this into consideration for planning your overall lifecycle- management strategy and check to make sure that your SLAs are still being met while using this function.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>FabricPool is a good option for moving log backups to another storage tier. Moving backups affects the time needed to recover an SAP HANA database. Therefore, the option “tiering-minimum-cooling-days” should be set to a value that places log backups, which are routinely needed for recovery, on the local fast storage tier.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="storage-configuration">Storage configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following overview summarizes the required storage configuration steps. Each step is covered in detail in the subsequent sections. In this section, we assume that the storage hardware is set up and that the ONTAP software is already installed. Also, the connections between the storage ports (10GbE or faster) and the network must already be in place.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Check the correct SAS stack configuration as described in <a href="saphana-fas-nfs_storage_controller_setup.html#disk-shelf-connection">Disk shelf connection.</a></p>
+</li>
+<li>
+<p>Create and configure the required aggregates as described in <a href="saphana-fas-nfs_storage_controller_setup.html#aggregate-configuration">Aggregate configuration.</a></p>
+</li>
+<li>
+<p>Create a storage virtual machine (SVM) as described in <a href="saphana-fas-nfs_storage_controller_setup.html#storage-virtual-machine-configuration">Storage virtual machine configuration.</a></p>
+</li>
+<li>
+<p>Create LIFs as described in <a href="saphana-fas-nfs_storage_controller_setup.html#logical-interface-configuration">Logical interface configuration.</a></p>
+</li>
+<li>
+<p>Create volumes within the aggregates as described in <a href="saphana-fas-nfs_storage_controller_setup.html#volume-configuration-for-sap-hana-single-host-systems">Volume configuration for SAP HANA single-host systems</a> and <a href="saphana-fas-nfs_storage_controller_setup.html#volume-configuration-for-sap-hana-multiple-host-systems">Volume configuration for SAP HANA multiple-host systems.</a></p>
+</li>
+<li>
+<p>Set the required volume options as described in <a href="saphana-fas-nfs_storage_controller_setup.html#volume-options">Volume options.</a></p>
+</li>
+<li>
+<p>Set the required options for NFSv3 as described in <a href="saphana-fas-nfs_storage_controller_setup.html#nfs-configuration-for-nfsv3">NFS configuration for NFSv3</a> or for NFSv4 as described in <a href="saphana-fas-nfs_storage_controller_setup.html#nfs-configuration-for-nfsv4">NFS configuration for NFSv4.</a></p>
+</li>
+<li>
+<p>Mount the volumes to namespace and set export policies as described in <a href="saphana-fas-nfs_storage_controller_setup.html#mount-volumes-to-namespace-and-set-export-policies">Mount volumes to namespace and set export policies.</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="disk-shelf-connection">Disk shelf connection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With HDDs, a maximum of two DS2246 disk shelves or four DS224C disk shelves can be connected to one SAS stack to provide the required performance for the SAP HANA hosts, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./../media/saphana-fas-nfs_image13.png" alt="Error: Missing Graphic Image"></span></p>
+</div>
+<div class="paragraph">
+<p>With SSDs, a maximum of one disk shelf can be connected to one SAS stack to provide the required performance for the SAP HANA hosts, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair. With the DS224C disk shelf, quad- path SAS cabling can also be used, but is not required.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./../media/saphana-fas-nfs_image14.png" alt="Error: Missing Graphic Image"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="aggregate-configuration">Aggregate configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In general, you must configure two aggregates per controller, independent of the disk shelf or drive technology (SSD or HDD) that is used. For FAS2000 series systems, one data aggregate is enough.</p>
+</div>
+<div class="sect2">
+<h3 id="aggregate-configuration-with-hdds">Aggregate configuration with HDDs</h3>
+<div class="paragraph">
+<p>The following figure shows a configuration for eight SAP HANA hosts. Four SAP HANA hosts are attached to each storage controller. Two separate aggregates, one at each storage controller, are configured. Each aggregate is configured with 4 × 10 = 40 data disks (HDDs).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./../media/saphana-fas-nfs_image15.png" alt="Error: Missing Graphic Image"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aggregate-configuration-with-sdd-only-systems">Aggregate configuration with SDD-only systems</h3>
+<div class="paragraph">
+<p>In general, you must configure two aggregates per controller, independent of which disk shelf or disk technology (SSDs or HDDs) is used. For FAS2000 series systems, one data aggregate is enough.</p>
+</div>
+<div class="paragraph">
+<p>The following figure shows a configuration of 12 SAP HANA hosts running on a 12Gb SAS shelf configured with ADPv2. Six SAP HANA hosts are attached to each storage controller. Four separate aggregates, two at each storage controller, are configured. Each aggregate is configured with 11 disks with nine data and two parity disk partitions. For each controller, two spare partitions are available.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./../media/saphana-fas-nfs_image16.jpg" alt="Error: Missing Graphic Image"></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="storage-virtual-machine-configuration">Storage virtual machine configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Multiple SAP landscapes with SAP HANA databases can use a single SVM. An SVM can also be assigned to each SAP landscape, if necessary, in case they are managed by different teams within a company.</p>
+</div>
+<div class="paragraph">
+<p>If a QoS profile was automatically created and assigned during new SVM creation, remove the automatically created profile from the SVM to provide the required performance for SAP HANA:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>vserver modify -vserver &lt;svm-name&gt; -qos-policy-group none</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="logical-interface-configuration">Logical interface configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For SAP HANA production systems, you must use different LIFs for mounting the data volume and the log volume from the SAP HANA host. Therefore at least two LIFs are required.</p>
+</div>
+<div class="paragraph">
+<p>The data and log volume mounts of different SAP HANA hosts can share a physical storage network port by using either the same LIFs or by using individual LIFs for each mount.</p>
+</div>
+<div class="paragraph">
+<p>The maximum number of data and log volume mounts per physical interface are shown in the following table.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Ethernet port speed</th>
+<th class="tableblock halign-left valign-top">10GbE</th>
+<th class="tableblock halign-left valign-top">25GbE</th>
+<th class="tableblock halign-left valign-top">40GbE</th>
+<th class="tableblock halign-left valign-top">100GeE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum number of log or data volume mounts per physical port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-solutions-sap/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Sharing one LIF between different SAP HANA hosts might require a remount of data or log volumes to a different LIF. This change avoids performance penalties if a volume is moved to a different storage controller.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Development and test systems can use more data and volume mounts or LIFs on a physical network interface.</p>
+</div>
+<div class="paragraph">
+<p>For production, development, and test systems, the <code>/hana/shared</code> file system can use the same LIF as the data or log volume.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="volume-configuration-for-sap-hana-single-host-systems">Volume configuration for SAP HANA single-host systems</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following figure shows the volume configuration of four single-host SAP HANA systems. The data and log volumes of each SAP HANA system are distributed to different storage controllers. For example, volume <code>SID1_data_mnt00001</code> is configured on controller A, and volume <code>SID1_log_mnt00001</code> is configured on controller B.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-solutions-sap/images/note.svg" alt="Note">
+</td>
+<td class="content">
+If only one storage controller of an HA pair is used for the SAP HANA systems, data and log volumes can also be stored on the same storage controller.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-solutions-sap/images/note.svg" alt="Note">
+</td>
+<td class="content">
+If the data and log volumes are stored on the same controller, access from the server to the storage must be performed with two different LIFs: one LIF to access the data volume and one to access the log volume.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./../media/saphana-fas-nfs_image17.jpg" alt="Error: Missing Graphic Image"></span></p>
+</div>
+<div class="paragraph">
+<p>For each SAP HANA DB host, a data volume, a log volume, and a volume for <code>/hana/shared</code> are configured. The following table shows an example configuration for single-host SAP HANA systems.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Aggregate 1 at Controller A</th>
+<th class="tableblock halign-left valign-top">Aggregate 2 at Controller A</th>
+<th class="tableblock halign-left valign-top">Aggregate 1 at Controller B</th>
+<th class="tableblock halign-left valign-top">Aggregate 2 at Controller b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data, log, and shared volumes for system SID1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume: SID1_data_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared volume: SID1_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log volume: SID1_log_mnt00001</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data, log, and shared volumes for system SID2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log volume: SID2_log_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume: SID2_data_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared volume: SID2_shared</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data, log, and shared volumes for system SID3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared volume: SID3_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume: SID3_data_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log volume: SID3_log_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data, log, and shared volumes for system SID4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log volume: SID4_log_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared volume: SID4_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume: SID4_data_mnt00001</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following table shows an example of the mount point configuration for a single-host system. To place the home directory of the <code>sidadm</code> user on the central storage, the <code>/usr/sap/SID</code> file system should be mounted from the <code>SID_shared</code> volume.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Junction Path</th>
+<th class="tableblock halign-left valign-top">Directory</th>
+<th class="tableblock halign-left valign-top">Mount point at HANA host</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_data_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/data/SID/mnt00001</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_log_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/log/SID/mnt00001</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usr-sap<br>
+shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/sap/SID<br>
+/hana/shared</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="volume-configuration-for-sap-hana-multiple-host-systems">Volume configuration for SAP HANA multiple-host systems</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following figure shows the volume configuration of a 4+1 SAP HANA system. The data and log volumes of each SAP HANA host are distributed to different storage controllers. For example, volume <code>SID1_data1_mnt00001</code> is configured on controller A, and volume <code>SID1_log1_mnt00001</code> is configured on controller B.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-solutions-sap/images/note.svg" alt="Note">
+</td>
+<td class="content">
+If only one storage controller of an HA pair is used for the SAP HANA system, the data and log volumes can also be stored on the same storage controller.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-solutions-sap/images/note.svg" alt="Note">
+</td>
+<td class="content">
+If the data and log volumes are stored on the same controller, access from the server to the storage must be performed with two different LIFs: one to access the data volume and one to access the log volume.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./../media/saphana-fas-nfs_image18.jpg" alt="Error: Missing Graphic Image"></span></p>
+</div>
+<div class="paragraph">
+<p>For each SAP HANA host, a data volume and a log volume are created. The <code>/hana/shared</code> volume is used by all hosts of the SAP HANA system. The following table shows an example configuration for a multiple-host SAP HANA system with four active hosts.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Purpose</th>
+<th class="tableblock halign-left valign-top">Aggregate 1 at Controller A</th>
+<th class="tableblock halign-left valign-top">Aggregate 2 at Controller A</th>
+<th class="tableblock halign-left valign-top">Aggregate 1 at Controller B</th>
+<th class="tableblock halign-left valign-top">Aggregate 2 at Controller B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data and log volumes for node 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume: SID_data_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log volume: SID_log_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data and log volumes for node 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log volume: SID_log_mnt00002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume: SID_data_mnt00002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data and log volumes for node 3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume: SID_data_mnt00003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log volume: SID_log_mnt00003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data and log volumes for node 4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Log volume: SID_log_mnt00004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data volume: SID_data_mnt00004</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared volume for all hosts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shared volume: SID_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following table shows the configuration and the mount points of a multiple-host system with four active SAP HANA hosts. To place the home directories of the <code>sidadm</code> user of each host on the central storage, the <code>/usr/sap/SID</code> file systems are mounted from the <code>SID_shared</code> volume.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Junction path</th>
+<th class="tableblock halign-left valign-top">Directory</th>
+<th class="tableblock halign-left valign-top">Mount point at SAP HANA host</th>
+<th class="tableblock halign-left valign-top">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_data_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/data/SID/mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_log_mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/log/SID/mnt00001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_data_mnt00002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/data/SID/mnt00002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_log_mnt00002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/log/SID/mnt00002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_data_mnt00003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/data/SID/mnt00003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_log_mnt00003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/log/SID/mnt00003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_data_mnt00004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/data/SID/mnt00004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_log_mnt00004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">–</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/log/SID/mnt00004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/hana/shared/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at all hosts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usr-sap-host1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/sap/SID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at host 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usr-sap-host2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/sap/SID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at host 2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usr-sap-host3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/sap/SID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at host 3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usr-sap-host4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/sap/SID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at host 4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SID_shared</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">usr-sap-host5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/usr/sap/SID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mounted at host 5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="volume-options">Volume options</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must verify and set the volume options listed in the following table on all SVMs. For some of the commands, you must switch to the advanced privilege mode within ONTAP.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disable visibility of Snapshot directory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vol modify -vserver &lt;vserver-name&gt; -volume &lt;volname&gt; -snapdir-access false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disable automatic Snapshot copies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vol modify –vserver &lt;vserver-name&gt; -volume &lt;volname&gt; -snapshot-policy none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disable access time update except of the SID_shared volume</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>set advanced<br>
+vol modify -vserver &lt;vserver-name&gt; -volume &lt;volname&gt; -atime-update false<br>
+set admin</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nfs-configuration-for-nfsv3">NFS configuration for NFSv3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The NFS options listed in the following table must be verified and set on all storage controllers.</p>
+</div>
+<div class="paragraph">
+<p>For some of the commands shown, you must switch to the advanced privilege mode within ONTAP.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable NFSv3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nfs modify -vserver &lt;vserver-name&gt; v3.0 enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9:<br>
+Set NFS TCP maximum transfer size to 1MB</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>set advanced<br>
+nfs modify -vserver &lt;vserver_name&gt; -tcp-max-xfer-size 1048576<br>
+set admin</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 8:<br>
+Set NFS read and write size to 64KB</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>set advanced<br>
+nfs modify -vserver &lt;vserver-name&gt; -v3-tcp-max-read-size 65536<br>
+nfs modify -vserver &lt;vserver-name&gt; -v3-tcp-max-write-size 65536<br>
+set admin</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nfs-configuration-for-nfsv4">NFS configuration for NFSv4</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The NFS options listed in the following table must be verified and set on all SVMs.</p>
+</div>
+<div class="paragraph">
+<p>For some of the commands, you must switch to the advanced privilege mode within ONTAP.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enable NFSv4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nfs modify -vserver &lt;vserver-name&gt; -v4.1<br>
+enabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9:<br>
+Set NFS TCP maximum transfer size to 1MB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set advanced<br>
+nfs modify -vserver &lt;vserver_name&gt; -tcp-max-xfer-size 1048576<br>
+set admin</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 8:<br>
+Set NFS read and write size to 64KB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set advanced<br>
+nfs modify -vserver &lt;vserver_name&gt; -tcp-max-xfer-size 65536<br>
+set admin</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disable NFSv4 access control lists (ACLs)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nfs modify -vserver &lt;vserver_name&gt; -v4.1-acl disabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set NFSv4 domain ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nfs modify -vserver &lt;vserver_name&gt; -v4-id-domain &lt;domain-name&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disable NFSv4 read delegation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nfs modify -vserver &lt;vserver_name&gt; -v4.1-read-delegation disabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disable NFSv4 write delegation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nfs modify -vserver &lt;vserver_name&gt; -v4.1-write-delegation disabled</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set the NFSv4 lease time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set advanced<br>
+nfs modify -vserver &lt;vserver_name&gt; -v4-lease-seconds 10<br>
+set admin</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disable NFSv4 numeric ids</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nfs modify -vserver &lt;vserver_name&gt; -v4-numeric-ids disabled</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-solutions-sap/images/note.svg" alt="Note">
+</td>
+<td class="content">
+The NFSv4 domain ID must be set to the same value on all Linux servers (/<code>etc/idmapd.conf</code>) and SVMs, as described in <a href="saphana-fas-nfs_sap_hana_installation_preparations_for_nfsv4.html">SAP HANA installation preparations for NFSv4.</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/netapp-solutions-sap/images/note.svg" alt="Note">
+</td>
+<td class="content">
+If you are using NFSV4.1, then pNFS can be enabled and used.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Set the NFSv4 lease time at the SVM as shown in the following table if SAP HANA multiple- host systems are used.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set the NFSv4 lease time.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set advanced<br>
+nfs modify -vserver &lt;vserver_name&gt; -v4-lease-seconds 10<br>
+set admin</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Starting with HANA 2.0 SPS4, HANA provides parameters to control failover behavior. Instead of setting the lease time at the SVM level, NetApp recommends using these HANA parameters. The parameters are within <code>nameserver.ini</code> as shown in the following table. Keep the default retry interval of 10 seconds within these sections.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Section within nameserver.ini</th>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">failover</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal_retries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">distributed_watchdog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deactivation_retries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">distributed_watchdog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">takeover_retries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="mount-volumes-to-namespace-and-set-export-policies">Mount volumes to namespace and set export policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When a volume is created, the volume must be mounted to the namespace. In this document, we assume that the junction path name is the same as the volume name. By default, the volume is exported with the default policy. The export policy can be adapted if required.</p>
+</div>
+<div class="paragraph">
+<p><a href="saphana-fas-nfs_host_setup.html">Next: Host setup.</a></p>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/netapp-solutions-sap/issues/new?body=Page%3A%20[Storage controller setup](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_storage_controller_setup.html)" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-solutions-sap/images/discuss-sm.svg" class="github-icon" />Request doc changes</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/netapp-solutions-sap/blob/main/bp/saphana-fas-nfs_storage_controller_setup.adoc" class="page-nav-contribute-link" role="button"><img src="/us-en/netapp-solutions-sap/images/edit-sm.svg" class="github-icon" />Edit this page</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/us-en/netapp-solutions-sap/images/article-sm.svg" class="github-icon" />Learn how to contribute</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">ON THIS PAGE</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div style="clear: both"></div><!-- Main needs to have height -->
+</div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+
+</ul>
+</div>
+<div class="n-footer__social-links">
+<ul class="n-footer__social-link-list">
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
+<span class="n-footer__social-link-text">blog</span>
+<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+  <title>blog@</title>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#blog"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
+<span class="n-footer__social-link-text">community</span>
+<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+<title>community@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#comments"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
+<span class="n-footer__social-link-text">twitter</span>
+<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+<title>twitter@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#twitter"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
+<span class="n-footer__social-link-text">facebook</span>
+<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+<title>facebook@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#facebook"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+<span class="n-footer__social-link-text">linkedin</span>
+<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+<title>linkedin@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#linkedin"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+<span class="n-footer__social-link-text">youtube</span>
+<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+<title>youtube@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#youtube"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+<span class="n-footer__social-link-text">slideshare</span>
+<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+<title>slideshare@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#slideshare"></use>
+</svg>
+
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="n-footer__bottom-right">
+  <p class="n-footer__fine-print">Have feedback for our website?<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">Let us know</a>
+  <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright">Announcements</a>
+  </p>
+</div>
+</div>
+</div>
+</footer>
+
+      </div>
+
+      <!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/us-en/netapp-solutions-sap/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/us-en/netapp-solutions-sap/js/prism.js'></script>
+      <script type="text/javascript" src='/us-en/netapp-solutions-sap/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/us-en/netapp-solutions-sap/js/www-ntap.js'></script>
+    <script src='/us-en/netapp-solutions-sap/js/tabbed-blocks.js'></script>
+  </body>
+
+  
+</html>
