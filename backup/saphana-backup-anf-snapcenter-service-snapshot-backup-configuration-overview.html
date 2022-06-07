@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">English</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">English</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/us-en/netapp-solutions-sap/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/netapp-solutions-sap/backup/saphana-backup-anf-snapcenter-service-snapshot-backup-configuration-overview.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -1160,6 +1152,86 @@
           </a>
           
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Automating_SAP_HANA_System_Copy_and_Clone_Operations_with_SnapCenter.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Automating SAP HANA System Copy and Clone Operations with SnapCenter
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/us-en/netapp-solutions-sap/pdfs/sidebar/Automating_SAP_system_copy_operations_with_Libelle_SystemCopy.pdf" 
+            
+          >
+            <img src="/us-en/netapp-solutions-sap/images/pdf.png" width="16" height="16"/>
+            Automating SAP system copy operations with Libelle SystemCopy
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
 
 
 
@@ -1245,7 +1317,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/index.html">
         SAP Solutions
       </a></li><li class="subfolders "><a href="#">
@@ -1583,7 +1655,43 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Lifecycle Management</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="https://www.netapp.com/us/media/tr-4667.pdf">
+      <ul><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Automating SAP HANA System Copy and Clone Operations with SnapCenter</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html">
+        Introduction
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-sap-system-copy,-refresh,-and-clone-scenarios.html">
+        SAP system copy, refresh, and clone scenarios
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-use-cases-for-system-refresh-and-cloning.html">
+        Use cases for system refresh and cloning
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-refresh-workflow-with-snapcenter.html">
+        Overview of SAP system refresh workflow with SnapCenter
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-copy-workflow-with-snapcenter.html">
+        Overview of SAP system copy workflow with SnapCenter
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html">
+        Overview of SAP system clone workflow with SnapCenter
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-sap-hana-system-refresh-operation-workflows-using-storage-snapshot-backups.html">
+        SAP HANA system refresh operation workflows using storage snapshot backups
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-automation-example-scripts.html">
+        Automation example scripts
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html">
+        SAP HANA system refresh with SnapCenter
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-sap-system-clone-with-snapcenter.html">
+        SAP system clone with SnapCenter
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-where-to-find-additional-information.html">
+        Where to find additional information and version history
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Automating SAP system copy operations with Libelle SystemCopy</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html">
+        Overview
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/libelle-sc-sap-hana-system-refresh-with-lsc-and-snapcenter.html">
+        SAP HANA system refresh with LSC and SnapCenter
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/libelle-sc-sap-hana-system-refresh-with-lsc,-azacsnap,-and-azure-netapp-files.html">
+        SAP HANA system refresh with LSC, AzAcSnap, and Azure NetApp Files
+      </a></li><li class=" "><a class="na-navbar-padding" href="/us-en/netapp-solutions-sap/lifecycle/libelle-sc-where-to-find-additional-information.html">
+        Where to find additional Information and version history
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="https://www.netapp.com/us/media/tr-4667.pdf">
         Automating SAP System Copies Using the SnapCenter SAP HANA Plug-In
       </a></li><li class=" "><a class="na-navbar-padding" href="https://www.netapp.com/us/media/tr-4018.pdf">
         Integrating NetApp Storage with SAP Landscape Management
@@ -1849,4 +1957,5 @@
     </script>
     <script src='/us-en/netapp-solutions-sap/js/www-ntap.js'></script>
     <script src='/us-en/netapp-solutions-sap/js/tabbed-blocks.js'></script>
+    <script src='/us-en/netapp-solutions-sap/js/sidebar.js'></script>
   </body></html>
