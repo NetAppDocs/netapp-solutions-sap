@@ -1699,7 +1699,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-08-25 19:28:09 +0000">08/25/2021</time>
+    <time datetime="2022-07-15 18:34:16 +0000">07/15/2022</time>
     
   
 
@@ -1722,8 +1722,9 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="configure-multipathing">Configure multipathing</h3>
+<div class="sect1">
+<h2 id="configure-multipathing">Configure multipathing</h2>
+<div class="sectionbody">
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1968,8 +1969,10 @@ size=512G features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_han
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="create-lvm-volume-groups-and-logical-volumes">Create LVM volume groups and logical volumes</h3>
+</div>
+<div class="sect1">
+<h2 id="create-lvm-volume-groups-and-logical-volumes">Create LVM volume groups and logical volumes</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This step is only required if LVM is used. The following example is for 2+1 host setup using SID FC5.</p>
 </div>
@@ -2058,8 +2061,10 @@ If these commands do not find the volumes, a restart is required.
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="create-file-systems">Create file systems</h3>
+</div>
+<div class="sect1">
+<h2 id="create-file-systems">Create file systems</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To create the XFS file system on each LUN belonging to the HANA system, take one of the following actions:</p>
 </div>
@@ -2120,8 +2125,10 @@ The multiple host example commands show a 2+1 multiple-host HANA system.
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="create-mount-points">Create mount points</h3>
+</div>
+<div class="sect1">
+<h2 id="create-mount-points">Create mount points</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To create the required mount point directories, take one of the following actions:</p>
 </div>
@@ -2186,8 +2193,10 @@ The same steps must be executed for a system configuration with Linux LVM.
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="mount-file-systems">Mount file systems</h3>
+</div>
+<div class="sect1">
+<h2 id="mount-file-systems">Mount file systems</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>To mount file systems during system boot using the <code>/etc/fstab</code> configuration file, complete the following steps:</p>
 </div>
@@ -2255,6 +2264,7 @@ All the data and log file systems are mounted through the SAP HANA storage conne
 </div>
 <div class="paragraph">
 <p><a href="saphana_aff_fc_i_o_stack_configuration_for_sap_hana.html">Next: I/O Stack configuration for SAP HANA.</a></p>
+</div>
 </div>
 </div>
 

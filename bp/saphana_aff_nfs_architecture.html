@@ -1699,7 +1699,7 @@
 <p class="page-details">
   
     
-    <time datetime="2021-08-05 14:49:03 +0000">08/05/2021</time>
+    <time datetime="2022-07-15 18:34:16 +0000">07/15/2022</time>
     
   
 
@@ -1762,8 +1762,9 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="sap-hana-backup">SAP HANA backup</h3>
+<div class="sect1">
+<h2 id="sap-hana-backup">SAP HANA backup</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The ONTAP software present on all NetApp storage controllers provides a built-in mechanism to back up SAP HANA databases while in operation with no effect on performance. Storage-based NetApp Snapshot backups are a fully supported and integrated backup solution available for SAP HANA single containers and for SAP HANA Multitenant Database Containers (MDC) systems with a single tenant or multiple tenants.</p>
 </div>
@@ -1811,16 +1812,18 @@ For detailed information about the SAP HANA backup and recovery solution see <a 
 </table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="sap-hana-disaster-recovery">SAP HANA disaster recovery</h3>
+</div>
+<div class="sect1">
+<h2 id="sap-hana-disaster-recovery">SAP HANA disaster recovery</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>SAP HANA disaster recovery (DR) can be done either on the database layer by using SAP HANA system replication or on the storage layer by using storage replication technologies. The following section provides an overview of disaster recovery solutions based on storage replication.</p>
 </div>
 <div class="paragraph">
 <p>For detailed information about SAP HANA disaster recovery solutions, see <a href="https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf" target="_blank" rel="noopener">TR-4646: SAP HANA Disaster Recovery with Storage Replication</a>.</p>
 </div>
-<div class="sect3">
-<h4 id="storage-replication-based-on-snapmirror">Storage replication based on SnapMirror</h4>
+<div class="sect2">
+<h3 id="storage-replication-based-on-snapmirror">Storage replication based on SnapMirror</h3>
 <div class="paragraph">
 <p>The following figure shows a three-site disaster recovery solution using synchronous SnapMirror replication to the local DR datacenter and asynchronous SnapMirror to replicate the data to the remote DR datacenter.</p>
 </div>
@@ -1846,8 +1849,8 @@ For detailed information about the SAP HANA backup and recovery solution see <a 
 <p>Synchronous replication offers StrictSync mode. If the write to secondary storage is not completed for any reason, the application I/O fails, thereby ensuring that the primary and secondary storage systems are identical. Application I/O to the primary resumes only after the SnapMirror relationship returns to the InSync status. If the primary storage fails, application I/O can be resumed on the secondary storage after failover with no loss of data. In StrictSync mode, the RPO is always zero.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="storage-replication-based-on-metrocluster">Storage replication based on MetroCluster</h4>
+<div class="sect2">
+<h3 id="storage-replication-based-on-metrocluster">Storage replication based on MetroCluster</h3>
 <div class="paragraph">
 <p>The following figure shows a high-level overview of the solution. The storage cluster at each site provides local high availability and is used for the production workload. The data of each site is synchronously replicated to the other location and is available in case of disaster failover.</p>
 </div>
@@ -1856,6 +1859,7 @@ For detailed information about the SAP HANA backup and recovery solution see <a 
 </div>
 <div class="paragraph">
 <p><a href="saphana_aff_nfs_storage_sizing.html">Next: Storage sizing.</a></p>
+</div>
 </div>
 </div>
 </div>
