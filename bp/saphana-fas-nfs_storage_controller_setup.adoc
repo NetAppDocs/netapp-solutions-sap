@@ -369,7 +369,7 @@ set admin
 |nfs modify -vserver <vserver_name> -v4-numeric-ids disabled
 |Change amount of NFSv4.x session slots
   optional
-|set advenced 
+|set advanced 
 nfs modify  -vserver hana -v4.x-session-num-slots <value>
 set admin
 |===
