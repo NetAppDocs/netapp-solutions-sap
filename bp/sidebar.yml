@@ -31,7 +31,9 @@ entries:
           - title: Adding additional data volume partitions for SAP HANA single-host systems
             url: /bp/saphana_aff_fc_adding_additional_data_volume_partitions_for_sap_hana_single-host_systems.html
       - title: Where to find additional information
-        url: /bp/saphana_aff_fc_where_to_find_additional_information.html 
+        url: /bp/saphana_aff_fc_where_to_find_additional_information.html
+      - title: Update history
+        url: /bp/saphana_aff_fc_update_history.html 
   - title: SAP HANA on NetApp AFF Systems with NFS Configuration Guide
     type: solutions
     entries:
@@ -62,7 +64,9 @@ entries:
           - title: Adding additional data volume partitions
             url: /bp/saphana_aff_nfs_adding_additional_data_volume_partitions.html
       - title: Where to find additional information
-        url: /bp/saphana_aff_nfs_where_to_find_additional_information.html  
+        url: /bp/saphana_aff_nfs_where_to_find_additional_information.html
+      - title: Update history
+        url: /bp/saphana_aff_nfs_update_history.html  
   - title: SAP HANA on NetApp FAS Systems with NFS Configuration Guide
     type: solutions
     entries:
@@ -93,7 +97,9 @@ entries:
           - title: Adding additional data volume partitions
             url: /bp/saphana-fas-nfs_adding_additional_data_volume_partitions.html
       - title: Where to find additional information
-        url: /bp/saphana-fas-nfs_where_to_find_additional_information.html  
+        url: /bp/saphana-fas-nfs_where_to_find_additional_information.html 
+      - title: Update history
+        url: /bp/saphana-fas-nfs_update_history.html 
   - title: SAP HANA on FAS Systems with FCP Configuration Guide
     type: solutions
     entries:
@@ -124,7 +130,9 @@ entries:
           - title: Adding additional data volume partitions for SAP HANA single-host systems
             url: /bp/saphana_fas_fc_adding_additional_data_volume_partitions_for_sap_hana_single-host_systems.html
       - title: Where to find additional information
-        url: /bp/saphana_fas_fc_where_to_find_additional_information.html    
+        url: /bp/saphana_fas_fc_where_to_find_additional_information.html
+      - title: Update history
+        url: /bp/saphana_fas_fc_update_history.html    
   - title: SAP HANA on IBM Power Systems and NetApp AFF Systems with NFS
     url: /bp/saphana-ibm-aff-nfs_pdf_link.html
   - title: SAP with Oracle on UNIX and NFS with NetApp ONTAP
