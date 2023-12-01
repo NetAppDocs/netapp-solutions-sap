@@ -51,7 +51,7 @@ entries:
         url: /lifecycle/sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html
       - title: SAP system clone with SnapCenter
         url: /lifecycle/sc-copy-clone-sap-system-clone-with-snapcenter.html
-      - title: Where to find additional information and vesrion history
+      - title: Where to find additional information and version history
         url: /lifecycle/sc-copy-clone-where-to-find-additional-information.html
 #
   - title: Automating SAP system copy operations with Libelle SystemCopy
