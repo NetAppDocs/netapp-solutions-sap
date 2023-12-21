@@ -18,7 +18,6 @@ summary:
 // 2022-01-10 18:20:17.386762
 //
 
-link:saphana-sr-scs-where-to-find-additional-information_overview.html[Previous: Where to find additional information.]
 
 |===
 |Version |Date |Document Version History

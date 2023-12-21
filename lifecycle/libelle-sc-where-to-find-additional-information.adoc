@@ -4,7 +4,7 @@ permalink: lifecycle/libelle-sc-where-to-find-additional-information.html
 keywords:
 summary:
 ---
-= Where to find additional information
+= Where to find additional information and version history
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -24,3 +24,16 @@ To learn more about the information that is described in this document, review t
 * NetApp Product Documentation
 +
 https://docs.netapp.com[https://docs.netapp.com^]
+
+
+== Version history
+
+|===
+|Version |Date |Document Version History
+
+|Version 1.0
+|April 2022
+|Initial release.
+|===
+
+
