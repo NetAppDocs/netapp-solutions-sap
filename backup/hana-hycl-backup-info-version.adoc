@@ -1,4 +1,3 @@
-
 ---
 sidebar: sidebar
 permalink: backup/hana-hycl-backup-info-version.html
