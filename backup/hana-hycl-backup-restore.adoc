@@ -19,10 +19,10 @@ A restore from of the backup can only be done to an on-premises NetApp ONTAP bas
 [arabic]
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications* and choose Hybrid.
 . In the *Filter By* field, select the filter *Type* and from the drop-down select *HANA*.
-. Click *View Details* corresponding to the database that you want to restore +
+. Click *View Details* corresponding to the database that you want to restore. +
 image:hana-hycl-back-image38.jpeg[hana-hycl-back-image38,width=624,height=305]
 
-. Select the desired backup and choose Storage Export +
+. Select the desired backup and choose Storage Export. +
 image:hana-hycl-back-image39.jpeg[Ein Bild, das Text, Screenshot, Software, Computersymbol enthält. Automatisch generierte Beschreibung,width=624,height=308]
 
 . Provide the desired options: +
@@ -39,4 +39,4 @@ image:hana-hycl-back-image40.jpeg[Ein Bild, das Text, Screenshot, Software, Comp
 . Review the details and click *Restore*. +
 image:hana-hycl-back-image41.jpeg[hana-hycl-back-image41,width=624,height=309] +
  +
-This operation does only the storage export of the selected backup fot the given host. You should manually mount the filesystem and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
+This operation does only the storage export of the restored backup for the given host. You must manually mount the filesystem at the host and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
