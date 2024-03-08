@@ -67,10 +67,10 @@ entries:
       - title: Where to find additional information and version history
         url: /backup/saphana-br-scs-where-to-find-additional-information.html
 
-  - title: BlueXP Backup and recovery for SAP HANA - Cloud Object storage as backup destination 
+  - title: BlueXP Backup and Recovery for SAP HANA - Cloud Object storage as backup destination 
     type: solutions
     entries:
-      - title: BlueXP Backup and recovery for SAP HANA - Overview
+      - title: BlueXP Backup and Recovery for SAP HANA - Overview
         url: /backup/hana-hycl-backup-overview.html
       - title: Configuring BlueXP Backup and Recovery for SAP HANA
         url: /backup/hana-hycl-backup-conf.html
