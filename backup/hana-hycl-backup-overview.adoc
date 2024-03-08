@@ -22,7 +22,7 @@ This TR only describes how to enhance the On-Premises SnapCenter based SAP HANA 
 
 == BlueXP backup and recovery architecture
 
-BlueXP backup and recovery is a SaaS solution that provides data protection capabilities for applications running on NetApp on-prem Storage to the cloud. BlueXP backup and recovery enabled within NetApp BlueXP offers efficient, application consistent, policy-based protection of SAP HANA using NetApp storage. BlueXP backup and recovery provides centralized control and oversight, while delegating the ability for users to manage application-specific backup and restore operations.
+BlueXP backup and recovery is a SaaS solution that provides data protection capabilities for applications running on NetApp on-prem Storage to the cloud. It offers efficient, application consistent, policy-based protection of SAP HANA using NetApp storage. In addition, BlueXP backup and recovery provides centralized control and oversight, while delegating the ability for users to manage application-specific backup and restore operations.
 
 BlueXP backup and recovery runs as SaaS within NetApp BlueXP and leverages the framework and UI. The BlueXP working environment framework is used to configure and manage the credentials for NetApp ONTAP based on-premise storage and the NetApp SnapCenter Server.
 
