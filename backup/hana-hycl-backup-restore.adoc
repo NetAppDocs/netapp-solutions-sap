@@ -34,7 +34,7 @@ image:hana-hycl-back-image40.jpeg[Ein Bild, das Text, Screenshot, Software, Comp
 . If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
 . If there is not enough space on the source storage or the source storage is down, select *Change storage location*.
 . If you select *Change storage location*, you can append a suffix to the destination volume. If you have not selected the checkbox, then by default *_restore* is appended to the destination volume. Click *Next*.
-. If you selected Change Storage Location, specify the alternate storage location details where the data restored from the object store will be stored in the Storage mapping page and click Next.
+. If you selected Change Storage Location, specify the alternate storage location details where the data restored from the object store will be stored in the Storage mapping page and click *Next*.
 
 . Review the details and click *Restore*. +
 image:hana-hycl-back-image41.jpeg[hana-hycl-back-image41,width=624,height=309] +
