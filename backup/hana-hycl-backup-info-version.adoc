@@ -1,0 +1,34 @@
+---
+sidebar: sidebar
+permalink: backup/hana-hycl-backup-info-version.html
+keywords: BlueXP, SAP HANA, restore
+summary: This section lists where to find additional information and p´shows the version history. 
+---
+
+= Additional Information and Version History 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./../media/
+
+[.lead]
+
+== Where to find additional information
+
+To learn more about the information that is described in this document, review the following documents and/or websites:
+
+* NetApp BlueXP backup and recovery Product Documentation +
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-protect-app-data-to-cloud.html[Protect your on-premises applications data | NetApp Documentation]
+* SAP HANA backup and recovery with SnapCenter +
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html#the-netapp-solution
+
+== Version history
+
+[width="100%",cols="17%,23%,60%",options="header",]
+|===
+|Version |Date |Document version history
+|Version 1.0 |March 2024 |Initial version
+|===
+
+Refer to the http://mysupport.netapp.com/matrix[Interoperability Matrix Tool (IMT)] on the NetApp Support site to validate that the exact product and feature versions described in this document are supported for your specific environment. The NetApp IMT defines the product components and versions that can be used to construct configurations that are supported by NetApp. Specific results depend on each customer’s installation in accordance with published specifications.
