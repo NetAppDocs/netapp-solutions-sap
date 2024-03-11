@@ -16,23 +16,23 @@ summary: This section describes how to setup the working environment, how to con
 
 == Create working environment for BlueXP
 
-Add the on-premise storage system to you work environment
+Add the on-premise storage system to you work environment.
 
 [arabic]
-. At the left menu choose *Storage* -> *Canvas* -> *My Working* Environment
-. Press *+ Add Working Environment* +
+. At the left menu choose *Storage* -> *Canvas* -> *My Working* Environment.
+. Press *+ Add Working Environment*. +
 image:hana-hycl-back-image2.jpeg[hana-hycl-back-image2,width=624,height=316]
 
-. Choose *On-Premises* +
+. Choose *On-Premises*. +
 image:hana-hycl-back-image3.jpeg[Ein Bild, das Text enthält. Automatisch generierte Beschreibung,width=624,height=316]
 
-. Choose *Discover On-Premises ONTAP* +
+. Choose *Discover On-Premises ONTAP*. +
 image:hana-hycl-back-image4.jpeg[Ein Bild, das Text enthält. Automatisch generierte Beschreibung,width=624,height=316]
 
-. Add the IP address of the ONTAP cluster and the password and press *Discover* +
+. Add the IP address of the ONTAP cluster and the password and press *Discover*. +
 image:hana-hycl-back-image5.jpeg[hana-hycl-back-image5,width=624,height=316]
 
-. The ONTAP cluster is now available +
+. The ONTAP cluster is now available. +
 image:hana-hycl-back-image6.jpeg[Ein Bild, das Diagramm enthält. Automatisch generierte Beschreibung,width=624,height=316]
 
 
@@ -142,19 +142,19 @@ image:hana-hycl-back-image32.jpeg[hana-hycl-back-image32,width=624,height=315]
 
 [arabic]
 . Choose *Activate Backup* for the SAP HANA system. +
-image:hana-hycl-back-image33.jpeg[Ein Bild, das Text enthält. Automatisch generierte Beschreibung,width=624,height=316]
+image:hana-hycl-back-image33.jpeg[width=624,height=316]
 
 . Choose the previously created policy and click *Next*. +
-image:hana-hycl-back-image34.jpeg[Ein Bild, das Text enthält. Automatisch generierte Beschreibung,width=624,height=316]
+image:hana-hycl-back-image34.jpeg[width=624,height=316]
 
 . As the storage system and the connector have configured upfront the backup will be activated. +
-image:hana-hycl-back-image35.jpeg[Ein Bild, das Text enthält. Automatisch generierte Beschreibung,width=624,height=316]
+image:hana-hycl-back-image35.jpeg[width=624,height=316]
 
 . Once the job has been completed the System will be listed. +
-image:hana-hycl-back-image36.jpeg[Ein Bild, das Text enthält. Automatisch generierte Beschreibung,width=624,height=337]
+image:hana-hycl-back-image36.jpeg[width=624,height=337]
 
 . After some time the backups will be listed at the detail view of the SAP HANA System. +
 A daily backup will be listed the next day. +
 image:hana-hycl-back-image37.jpeg[hana-hycl-back-image37,width=624,height=316] 
 
-In some environments it might the necessary to remove any existing schedule settings of the snapmirror source. To do so execute the following command at the source ONTAP system: _snapmirror modify -destination-path <hana-cloud-svm>:<SID_data_mnt00001>_copy -schedule ""_
+In some environments it might the necessary to remove any existing schedule settings of the snapmirror source. To do so execute the following command at the source ONTAP system: _snapmirror modify -destination-path <hana-cloud-svm>:<SID_data_mnt00001>_copy -schedule ""_ .
