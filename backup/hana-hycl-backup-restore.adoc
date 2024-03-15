@@ -23,10 +23,10 @@ A restore from of the backup can only be done to an on-premises NetApp ONTAP bas
 image:hana-hycl-back-image38.jpeg[hana-hycl-back-image38,width=624,height=305]
 
 . Select the desired backup and choose Storage Export. +
-image:hana-hycl-back-image39.jpeg[Ein Bild, das Text, Screenshot, Software, Computersymbol enthält. Automatisch generierte Beschreibung,width=624,height=308]
+image:hana-hycl-back-image39.jpeg[width=624,height=308]
 
 . Provide the desired options: +
-image:hana-hycl-back-image40.jpeg[Ein Bild, das Text, Screenshot, Software, Computersymbol enthält. Automatisch generierte Beschreibung,width=624,height=308]
+image:hana-hycl-back-image40.jpeg[width=624,height=308]
 [loweralpha]
 
 .. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
