@@ -16,7 +16,7 @@ summary: This section describes how to setup the working environment, how to con
 
 == Create working environment for BlueXP
 
-Add the on-premise storage system to you work environment.
+Add the on-premises storage system to you work environment.
 
 [arabic]
 . At the left menu choose *Storage* -> *Canvas* -> *My Working* Environment.
@@ -38,7 +38,7 @@ image:hana-hycl-back-image6.jpeg[Ein Bild, das Diagramm enthält. Automatisch ge
 
 == Create a relationship between the on-premises storage system and an object storage bucket
 
-The relationship between the on-premises storage and the S3 bucket is done by creating a backup for an volume or by activating a backup of an application. If an existing site-to-site VPN shall be used for transferring the data from on-premises to S3, a volume backup needs to be used for creating the relationship between the on-premise storage and S3 bucket as VPC endpoints need to be used. +
+The relationship between the on-premises storage and the S3 bucket is done by creating a backup for a volume or by activating a backup of an application. If an existing site-to-site VPN shall be used for transferring the data from on-premises to S3, a volume backup needs to be used for creating the relationship between the on-premises storage and S3 bucket as VPC endpoints need to be used. +
 At creation of this documentation the application backup workflow doesn't offer to choose VPC endpoints to access S3 buckets. +
 Refer to https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html[Gateway endpoints for Amazon S3 - Amazon Virtual Private Cloud] how to setup VPC endpoints for S3 within your VPC.
 
