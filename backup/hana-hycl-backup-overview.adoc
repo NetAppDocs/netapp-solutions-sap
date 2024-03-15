@@ -36,7 +36,7 @@ image:hana-hycl-back-image1.png[Ein Bild, das Text, Screenshot, Diagramm, Kreis 
 == Overview of installation and configuration steps
 
 The required installation and configuration steps can be split in three areas. +
-Prerequisite is that the SAP HANA backup configuration has been configured at NetApp Snap Center. For setting up Snap Center for SAP HANA in the first place rever to https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-snapcenter-configuration.html[SnapCenter configuration (netapp.com)].
+Prerequisite is that the SAP HANA backup configuration has been configured at NetApp Snap Center. For setting up Snap Center for SAP HANA in the first place refer to https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-snapcenter-configuration.html[SnapCenter configuration (netapp.com)].
 
 [arabic]
 . Installation and configuration of NetApp BlueXP components.
