@@ -29,7 +29,7 @@ BlueXP backup and recovery runs as SaaS within NetApp BlueXP and leverages the f
 A BlueXP connector needs to be deployed within the customer virtual network. A connection between the on-premises environment and the cloud environment is required such as an site to site VPN connection. The communication between the NetApp SaaS components and the customer environment is exclusively done via the connector. The connector is executing the storage operations by using the ONTAP and SnapCenter management APIs.
 
 The data transfer between the on-premises storage and the cloud bucket is end-to-end protected with AES 256-bit encryption at rest, TLS/HTTPS encryption in flight, and customer-managed key (CMK) support. +
-The Backed-up data is stored in an immutable and indelible WORM state. The only way to access the data from the object storage is to restore it to NetApp ONTAP based storage including NetApp CVO.
+The Backed-up data can be stored in an immutable and indelible WORM state. The only way to access the data from the object storage is to restore it to NetApp ONTAP based storage including NetApp CVO.
 
 image:hana-hycl-back-image1.png[Ein Bild, das Text, Screenshot, Diagramm, Kreis enthält. Automatisch generierte Beschreibung,width=624,height=450]
 
