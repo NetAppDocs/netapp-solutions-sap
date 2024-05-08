@@ -66,6 +66,7 @@ This calculation is independent of the storage controller used. Adding more disk
 
 One NVMe SSDs (data) supports up to 5 SAP HANA hosts. 
 The SSDs and the SAP HANA hosts must be equally distributed between both storage controllers.
+The same applies to the internal NVMe disks of AFF A800, AFF A70, and AFF A90 systems.
 
 [NOTE]
 Adding more disk shelves does not increase the maximum number of SAP HANA hosts that a storage controller can support.
