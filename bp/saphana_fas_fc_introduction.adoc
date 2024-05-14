@@ -5,7 +5,7 @@ keywords: sap, hana, fas, systems, fibre, channel, protocol, configuration, data
 summary: The NetApp FAS product family has been certified for use with SAP HANA in TDI projects. The certified enterprise storage platform is characterized by the NetApp ONTAP operating system.
 ---
 
-= TR-4384: SAP HANA on NetApp FAS Systems with Fibre Channel Protocol Configuration Guide
+= SAP HANA on NetApp FAS Systems with Fibre Channel Protocol Configuration Guide
 
 :hardbreaks:
 :nofooter:
@@ -19,13 +19,13 @@ summary: The NetApp FAS product family has been certified for use with SAP HANA 
 // 2021-05-20 16:40:51.299953
 //
 
-Nils Bauer and Marco Schoen, NetApp
+Marco Schoen, NetApp
 
 The NetApp FAS product family has been certified for use with SAP HANA in TDI projects. The certified enterprise storage platform is characterized by the NetApp ONTAP operating system.
 
 The certification is valid for the following models:
 
-* FAS2720, FAS2750, FAS8200, FAS8300, FAS8700, FAS9000, FAS9500
+* FAS2750, FAS2820, FAS8300, FAS8700, FAS9500
 
 For a complete list of NetApp’s certified storage solutions for SAP HANA, see the https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13[certified and supported SAP HANA hardware directory^].
 
