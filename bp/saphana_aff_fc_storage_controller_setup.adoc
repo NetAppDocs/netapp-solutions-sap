@@ -14,7 +14,7 @@ summary: This section describes the configuration of the NetApp storage system. 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
 //
-// 2021-05-20 16:47:33.741099
+// 2024-06-05 16:47:33.741099
 //
 
 [.lead]
@@ -23,6 +23,10 @@ This section describes the configuration of the NetApp storage system. You must 
 == Storage efficiency
 
 Inline deduplication, cross-volume inline deduplication, inline compression, and inline compaction are supported with SAP HANA in an SSD configuration.
+
+== NetApp FlexGroup Volumes
+
+The usage of NetApp FlexGroup Volumes is not supported for SAP HANA. Due to the architecture of SAP HANA the usage of FlexGroup Volumes does not provide any benefit and may results in performance issues.
 
 == NetApp Volume and Aggregate Encryption
 
@@ -38,7 +42,7 @@ Starting with ONTAP 9, QoS is configured on the storage volume level and uses ma
 
 Large write I/O has the biggest performance effect on the storage system. Therefore, the QoS throughput limit should be set to a percentage of the corresponding write SAP HANA storage performance KPI values in the data and log volumes.
 
-=== NetApp FabricPool
+== NetApp FabricPool
 
 NetApp FabricPool technology must not be used for active primary file systems in SAP HANA systems. This includes the file systems for the data and log area as well as the `/hana/shared` file system. Doing so results in unpredictable performance, especially during the startup of an SAP HANA system.
 
