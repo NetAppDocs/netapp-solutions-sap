@@ -19,45 +19,25 @@ Landscape Management (LaMa) by using Ansible Playbooks and custom scripts.
 
 == Solution overview
 
-SAP systems are very complex. But for the companies that use SAP, these systems are central to their
-business processes. By automating recurring daily operational tasks, SAP system administrators can
-manage more systems with less effort, produce repeatable results, and reducing human error.
-This document focuses on integrating NetApp® storage systems—whether they are operated on
-premises, in a public cloud infrastructure-as-a-service (IaaS) environment, or in hybrid cloud—into SAP
-Landscape Management (LaMa) by using Ansible Playbooks and custom scripts. This integration enables
-SAP administrators to speed up SAP system refresh tasks by using NetApp Snapshot™ and NetApp
-FlexClone® technology.
+SAP systems are very complex. But for the companies that use SAP, these systems are central to their business processes. By automating recurring daily operational tasks, SAP system administrators can manage more systems with less effort, produce repeatable results, and reducing human error.
+
+This document focuses on integrating NetApp® storage systems—whether they are operated on premises, in a public cloud infrastructure-as-a-service (IaaS) environment, or in hybrid cloud—into SAP Landscape Management (LaMa) by using Ansible Playbooks and custom scripts. This integration enables SAP administrators to speed up SAP system refresh tasks by using NetApp Snapshot™ and NetApp FlexClone® technology.
 
 === Target audience
 
-This document is targeted to SAP system administrators who haven’t had much (or any) experience with
-Ansible automation. It should help you get started with Ansible, run your first playbooks, and configure
-and run your first SAP LaMa-based system refresh operation.
+This document is targeted to SAP system administrators who haven’t had much (or any) experience with Ansible automation. It should help you get started with Ansible, run your first playbooks, and configure and run your first SAP LaMa-based system refresh operation.
 
 === SAP system clone, copy, and refresh scenarios
 
-The term SAP system copy is often used as a synonym for three different processes: SAP system clone,
-SAP system copy, and SAP system refresh. It is important to distinguish between the different operations,
-because the workflows and use cases differ.
+The term SAP system copy is often used as a synonym for three different processes: SAP system clone, SAP system copy, and SAP system refresh. It is important to distinguish between the different operations, because the workflows and use cases differ.
 
-* SAP system clone. An SAP system clone is an identical clone of a source SAP system. SAP system
-clones are typically used to address logical corruption or to test disaster recovery scenarios. With a
-system clone operation, the hostname, instance number, and secure identifier (SID) remain the
-same. It is therefore important to establish proper network fencing for the target system to make sure
-that there is no communication with the production environment.
+* *SAP system clone*. An SAP system clone is an identical clone of a source SAP system. SAP system clones are typically used to address logical corruption or to test disaster recovery scenarios. With a system clone operation, the hostname, instance number, and secure identifier (SID) remain the same. It is therefore important to establish proper network fencing for the target system to make sure that there is no communication with the production environment.
 
-* SAP system copy. An SAP system copy is a setup of a new target SAP system with data from a
-source SAP system. For example, the new target system could be an additional test system with data
-from the production system. The hostname, instance number, and SID are different for the source
-and target systems.
+* *SAP system copy*. An SAP system copy is a setup of a new target SAP system with data from a source SAP system. For example, the new target system could be an additional test system with data from the production system. The hostname, instance number, and SID are different for the source and target systems.
 
-* SAP system refresh. An SAP system refresh is a refresh of an existing target SAP system with data
-from a source SAP system. The target system is typically part of an SAP transport landscape—for
-example, a quality assurance system—that is refreshed with data from the production system. The
-hostname, instance number, and SID are different for the source and target systems.
+* *SAP system refresh*. An SAP system refresh is a refresh of an existing target SAP system with data from a source SAP system. The target system is typically part of an SAP transport landscape—for example, a quality assurance system—that is refreshed with data from the production system. The hostname, instance number, and SID are different for the source and target systems.
 
-The following 1 shows SAP system clone, copy, and refresh LaMa workflow steps that are related to NetApp
-storage.
+The following image shows SAP system clone, copy, and refresh LaMa workflow steps that are related to NetApp storage.
 
 image:sap-lama-image1.png["Image showing SAP system clone, copy, and refresh LaMa workflow steps that are related to NetAppstorage"]
 
@@ -101,7 +81,7 @@ This loosely coupled architecture gives you the freedom to start workflows from 
 
 The combination of NetApp, SAP LaMa, and Ansible Automation Platform provides a powerful solution that can dramatically reduce the time and effort needed for the most complex and time-consuming tasks related to SAP system administration. This combination can also help avoid the configuration drift that human error can cause between the systems. 
 
-Because system refreshes, copies, clones, and disaster recovery testing are very sensitive procedures, implementing such a solution can free up precious administration time. It can also reinforce the trust that the rest of the organization will have in the SAP system administrators: They will see how much easier it is to copy systems for testing or other purposes, and how much troubleshoot time can be saved.
+Because system refreshes, copies, clones, and disaster recovery testing are very sensitive procedures implementing such a solution can free up precious administration time. It can also reinforce the trust that the rest of the organization will have in the SAP system administrators: They will see how much easier it is to copy systems for testing or other purposes, and how much troubleshoot time can be saved.
 
 == Where to find additional information
 

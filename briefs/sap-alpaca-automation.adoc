@@ -35,7 +35,7 @@ This document is aimed at SAP system administrators who have carried out SAP sys
 
 The term SAP system copy is often used as a synonym for three different processes: SAP system clone, SAP system copy, and SAP system refresh. It is important to distinguish between these operations, because the workflows and use cases differ.
 
-* *(SAP system clone*. An SAP system clone is an identical clone of a source SAP system. SAP system clones are typically used to address logical corruption or to test disaster recovery scenarios. With a system clone operation, the host name, instance number, and secure identifier (SID) remain the same. It is therefore important to establish proper network fencing for the target system to make sure that thereis no communication with the production environment.
+* *SAP system clone*. An SAP system clone is an identical clone of a source SAP system. SAP system clones are typically used to address logical corruption or to test disaster recovery scenarios. With a system clone operation, the host name, instance number, and secure identifier (SID) remain the same. It is therefore important to establish proper network fencing for the target system to make sure that thereis no communication with the production environment.
 
 image:sap-alpaca-image2.png[Image showing an SAP system clone]
 
