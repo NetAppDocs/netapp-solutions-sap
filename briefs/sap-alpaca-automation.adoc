@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: briefs/sap-alpaca-automation.html
 keywords: sb-xxxx, sap, alpaca, provisioning, lifecycle, management, automation, landscape
-summary: This document focuses on integrating NetApp® Snapshot™ and FlexClone® technologies into ALPACA automation workflows. 
+summary: "This document focuses on integrating NetApp® Snapshot™ and FlexClone® technologies into ALPACA automation workflows."
 ---
 
 = SB-xxxx: Automating SAP system copy, refresh, and clone workflows with ALPACA and NetApp SnapCenter

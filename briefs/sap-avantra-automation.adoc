@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: briefs/sap-avantra-automation.html
 keywords: sb-xxxx, sap, avantra, provisioning, lifecycle, management, automation, landscape
-summary: This document describes how Avantra integrates with the NetApp SnapCenter® platform. 
+summary: "This document describes how Avantra integrates with the NetApp SnapCenter® platform."
 ---
 
 = SB-xxxx: Automating SAP system copy, refresh, and clone workflows with Avantra and NetApp SnapCenter
