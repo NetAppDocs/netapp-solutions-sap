@@ -26,6 +26,10 @@ Inline deduplication, cross- volume inline deduplication, inline compression, an
 
 Enabling the storage efficiency features in an HDD configuration is not supported.
 
+== NetApp FlexGroup Volumes
+
+The usage of NetApp FlexGroup Volumes is not supported for SAP HANA. Due to the architecture of SAP HANA the usage of FlexGroup Volumes does not provide any benefit and may results in performance issues.
+
 == NetApp Volume Encryption
 
 The use of NetApp Volume Encryption (NVE) is supported for SAP HANA.

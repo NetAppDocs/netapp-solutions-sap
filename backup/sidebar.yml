@@ -64,8 +64,20 @@ entries:
         url: /backup/saphana-br-scs-restore-and-recovery.html
       - title: Advanced configuration and tuning
         url: /backup/saphana-br-scs-advanced-configuration-and-tuning.html
-      - title: Where to find additional information 
+      - title: Where to find additional information and version history
         url: /backup/saphana-br-scs-where-to-find-additional-information.html
+
+  - title: BlueXP Backup and Recovery for SAP HANA - Cloud Object storage as backup destination 
+    type: solutions
+    entries:
+      - title: BlueXP Backup and Recovery for SAP HANA - Overview
+        url: /backup/hana-hycl-backup-overview.html
+      - title: Configuring BlueXP Backup and Recovery for SAP HANA
+        url: /backup/hana-hycl-backup-conf.html
+      - title: Restoring  SAP HANA BlueXP Backups
+        url: /backup/hana-hycl-backup-restore.html
+      - title: Additional Information and Version History
+        url: /backup/hana-hycl-backup-info-version.html
 
   - title: SAP HANA System Replication Backup and Recovery with SnapCenter
     type: solutions
@@ -82,9 +94,11 @@ entries:
         url: /backup/saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html
       - title: Restore and recovery from a backup created at the other host
         url: /backup/saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html
-      - title: Where to find additional information
+      - title: Where to find additional information 
         url: /backup/saphana-sr-scs-where-to-find-additional-information_overview.html
-
+      - title: Version history
+        url: /backup/saphana-sr-scs-version-history.html
+        
   - title: SAP HANA Disaster Recovery with Azure NetApp Files
     type: solutions
     entries:
@@ -117,7 +131,7 @@ entries:
           - title: Mount the new volumes at the target host
             url: /backup/saphana-dr-anf_mount_the_new_volumes_at_the_target_host.html
           - title: HANA database recovery
-            url: /backup/saphana-dr-anf_hana_database_recovery.html
+            url: /backup/saphana-dr-anf_hana_database_recovery.html        
       - title: Disaster recovery failover
         entries:
           - title: Disaster recovery failover overview
@@ -130,7 +144,8 @@ entries:
             url: /backup/saphana-dr-anf_mount_the_volumes_at_the_target_host.html
           - title: HANA database recovery
             url: /backup/saphana-dr-anf_hana_database_recovery_01.html
-
+          - title: Update history
+            url: /backup/saphana-dr-anf_update_history.html
   - title: SAP HANA Disaster Recovery with Storage Replication
     url: /backup/saphana-dr-sr_pdf_link.html
   - title: SAP HANA Backup and Recovery Using Snap Creator

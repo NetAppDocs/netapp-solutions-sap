@@ -14,7 +14,7 @@ summary: This section describes the configuration of the NetApp storage system. 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
 //
-// 2021-05-20 16:44:23.324201
+// 2024-06-05 16:44:23.324201
 //
 
 [.lead]
@@ -23,6 +23,10 @@ This section describes the configuration of the NetApp storage system. You must 
 == Storage efficiency
 
 Inline deduplication, cross-volume inline deduplication, inline compression, and inline compaction are supported with SAP HANA in an SSD configuration.
+
+== NetApp FlexGroup Volumes
+
+The usage of NetApp FlexGroup Volumes is not supported for SAP HANA. Due to the architecture of SAP HANA the usage of FlexGroup Volumes does not provide any benefit and may results in performance issues.
 
 == NetApp Volume and Aggregate Encryption
 

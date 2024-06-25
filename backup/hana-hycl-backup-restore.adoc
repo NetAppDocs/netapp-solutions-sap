@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: backup/hana-hycl-backup-restore.html
+keywords: BlueXP, SAP HANA, restore
+summary: This section describes how to restore an SAP HANA backup with BlueXP. 
+---
+
+= Restoring  SAP HANA BlueXP Backup 
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./../media/
+
+[.lead]
+
+A restore from of the backup can only be done to an on-premises NetApp ONTAP based storage system or NetApp CVO within the cloud. A restore can be done by doing the following steps:
+
+[arabic]
+. In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications* and choose Hybrid.
+. In the *Filter By* field, select the filter *Type* and from the drop-down select *HANA*.
+. Click *View Details* corresponding to the database that you want to restore. +
+image:hana-hycl-back-image38.jpeg[hana-hycl-back-image38,width=624,height=305]
+
+. Select the desired backup and choose Storage Export. +
+image:hana-hycl-back-image39.jpeg[width=624,height=308]
+
+. Provide the desired options: +
+image:hana-hycl-back-image40.jpeg[width=624,height=308]
+[loweralpha]
+
+.. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
+.. For SAN environment, specify the initiators of the host to which LUNs of the volumes restored from object store are to be mapped.
+. If the snapshot is in archival storage, select the priority to restore your data from the archival storage.
+. If there is not enough space on the source storage or the source storage is down, select *Change storage location*.
+. If you select *Change storage location*, you can append a suffix to the destination volume. If you have not selected the checkbox, then by default *_restore* is appended to the destination volume. Click *Next*.
+. If you selected Change Storage Location, specify the alternate storage location details where the data restored from the object store will be stored in the Storage mapping page and click *Next*.
+
+. Review the details and click *Restore*. +
+image:hana-hycl-back-image41.jpeg[hana-hycl-back-image41,width=624,height=309] +
+ +
+This operation does only the storage export of the restored backup for the given host. You must manually mount the filesystem at the host and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.
