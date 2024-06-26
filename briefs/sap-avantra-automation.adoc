@@ -107,4 +107,5 @@ To learn more about the information that is described in this document, review t
 | Version 0.1 | 03.2024 | 1st draft.
 | Version 0.2 | 03.2024 | Integration of feedback from NetApp colleagues.
 | Version 0.3 | 04.2024 | Integrated requested changes to be NetApp branding compliant
+| Version 0.4 | 06.2024 | Converted to html format
 |===

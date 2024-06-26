@@ -108,4 +108,5 @@ To learn more about the information contained in this document, review the follo
 | Date
 | Update summary
 | Version 0.1 | 04.2024 | 1st draft.
+| Version 0.2 | 06.2024 | Converted to html format
 |===

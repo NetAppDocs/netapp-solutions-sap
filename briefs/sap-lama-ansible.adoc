@@ -87,17 +87,13 @@ Because system refreshes, copies, clones, and disaster recovery testing are very
 
 To learn more about the information that is described in this document, review the following documents and websites:
 
-* link:https://github.com/sap-linuxlab/demo.netapp_ontap/blob/main/netapp_ontap.md 
-[Automating ongoing day 1 and day 2 operations by using Ansible Playbooks for NetApp ONTAP®]
+* link:https://github.com/sap-linuxlab/demo.netapp_ontap/blob/main/netapp_ontap.md[Automating ongoing day 1 and day 2 operations by using Ansible Playbooks for NetApp ONTAP®]
 
-* link:https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/ 
-[NetApp specific Ansible documentation]
+* link:https://netapp.io/2018/10/08/getting-started-with-netapp-and-ansible-install-ansible/[NetApp specific Ansible documentation]
 
-* link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html 
-[NetApp ONTAP Ansible modules and full documentation]
+* link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html[NetApp ONTAP Ansible modules and full documentation]
 
-* link:https://www.redhat.com/en/technologies/management/ansible/features 
-[Red Hat Ansible Automation Platform]
+* link:https://www.redhat.com/en/technologies/management/ansible/features[Red Hat Ansible Automation Platform]
 
 == Version history
 
@@ -106,6 +102,7 @@ To learn more about the information that is described in this document, review t
 | Version
 | Date
 | Update summary
-| Version 0.1 | 03 2023 | 1st draft.
+| Version 0.1 | 03.2023 | 1st draft.
 | Version 0.2 | 01.2024 | Review and some minor corrections
+| Version 0.3 | 06.2024 | Converted to html format
 |===
