@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: briefs/sap-lama-ansible.html
-keywords: sb-xxxx, pdf, sap, hana, provisioning, lifecycle, management, automation, LaMa, landscape
+keywords: sb-4292, pdf, sap, hana, provisioning, lifecycle, management, automation, LaMa, landscape
 summary: "This document focuses on integrating NetApp® storage systems—whether they are operated on premises, in a public cloud infrastructure-as-a-service (IaaS) environment, or in hybrid cloud—into SAP Landscape Management (LaMa) by using Ansible Playbooks and custom scripts."
 ---
 
-= SB-xxxx: SAP automation with Ansible
+= SB-4292: SAP automation with Ansible
 :hardbreaks:
 :nofooter:
 :icons: font
