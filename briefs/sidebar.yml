@@ -1,9 +1,15 @@
 section: briefs
 title: Solution Briefs
 entries:
-  - title: SAP HANA Lifecycle Management
+  - title: "SAP HANA Lifecycle Management"
     url: /briefs/saphana-lm-sb_pdf_link.html
-  - title: SAP HANA Backup and Recovery
+  - title: "SAP HANA Backup and Recovery"
     url: https://www.netapp.com/us/media/sb-3965.pdf
-  - title: SAP HANA Disaster Recovery
-    url: https://www.netapp.com/us/media/sb-3968.pdf
+  - title: "SAP HANA Disaster Recovery"
+    url: https://www.netapp.com/us/media/sb-3968.pdf 
+  - title: "SAP automation with Ansible and NetApp SnapCenter"
+    url: /briefs/sap-lama-ansible.html
+  - title: "SAP automation with ALPACA and NetApp SnapCenter"
+    url: /briefs/sap-alpaca-automation.html
+  - title: "SAP automation with Avantra and NetApp SnapCenter"
+    url: /briefs/sap-avantra-automation.html
