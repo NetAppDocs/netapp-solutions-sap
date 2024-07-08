@@ -30,6 +30,9 @@ This certification is currently only valid for the following models:
 This document describes the ONTAP configuration requirements for the NFS version 3 (NFSv3) protocol or the NFS version 4 (NFSv4.1) protocol. 
 
 [NOTE]
+Only NFS versions 3 or 4.1 are supported. NFS versions 1, 2, 4.0, and 4.2 aren't supported.
+
+[NOTE]
 The configuration described in this paper is necessary to achieve the required SAP HANA KPIs and the best performance for SAP HANA. Changing any settings or using features not listed herein might cause performance degradation or unexpected behavior and should only be performed if advised by NetApp support.
 
 The configuration guides for NetApp FAS systems using FCP and for AFF systems using NFS or FC can be found at the following links:
