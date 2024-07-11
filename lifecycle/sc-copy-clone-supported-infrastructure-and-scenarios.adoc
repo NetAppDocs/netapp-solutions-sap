@@ -1,3 +1,15 @@
+
+---
+sidebar: sidebar
+permalink: lifecycle/sc-copy-clone-supported-infrastructure-and-scenarios.html
+keywords: tr4667, 4667, SAP HANA, cloning, system refresh
+summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./../media/
+---
 = Supported infrastructure and scenarios
 
 This document covers SAP system refresh and cloning scenarios for HANA systems running on on-premises NetApp systems, on Amazon FSx for NetApp ONTAP systems and on Azure NetApp Files. However not all features and scenarios are available on every storage platform. The table below summarizes the supported configurations.

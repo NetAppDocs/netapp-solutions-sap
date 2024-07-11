@@ -1,3 +1,14 @@
+---
+sidebar: sidebar
+permalink: lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html
+keywords: tr4667, 4667, SAP HANA, cloning, system refresh
+summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./../media/
+---
 = Overview of SAP system clone workflow with SnapCenter
 
 As discussed in the previous section, SnapCenter can manage clones of data sets from any existing Snapshot backup and can rapidly provision these data sets to any target system. The flexible and agile provisioning of production data to a repair system to address logical corruption is critical, since it is often necessary to reset the repair system and to choose a different production data set. FlexClone technology enables a rapid provisioning process, and provides significant capacity savings, since the repair system is typically only used for a short time.
@@ -19,6 +30,6 @@ If the system is not needed anymore, the clean-up process is performed with the 
 . Stop SAP HANA services.
 . SnapCenter clone delete workflow for the HANA shared volume.
 
-image:extracted-media/media\/sc-copy-clone-image9.png[A diagram of a computer Description automatically generated,width=624,height=339]
+image:sc-copy-clone-image9.png[A diagram of a computer Description automatically generated,width=624,height=339]
 
 The section link:sc-copy-clone-sap-system-clone-with-snapcenter.html[“SAP system clone with SnapCenter”] provides a detailed step-by-step description of the system clone workflow.

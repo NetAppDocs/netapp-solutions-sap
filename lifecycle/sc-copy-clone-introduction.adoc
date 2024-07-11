@@ -1,7 +1,13 @@
 ---
 sidebar: sidebar
 permalink: lifecycle/sc-copy-clone-introduction.html
-keywords: tr4667, 4667, overview, introduction
+keywords: tr4667, 4667, SAP HANA, cloning, system refresh
+summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./../media/
 ---
 
 = TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter
@@ -18,7 +24,7 @@ Traditional SAP lifecycle-management approaches to provision these systems are p
 
 NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems, as is shown in the following figure. These solutions are available for SAP HANA running on-premises or running in the cloud on Azure NetApp Files (ANF) or Amazon FSx for NetApp ONTAP (FSx for ONTAP).
 
-image:extracted-media/media\/sc-copy-clone-image1.png[A screenshot of a computer Description automatically generated,width=624,height=268]
+image:sc-copy-clone-image1.png[A screenshot of a computer Description automatically generated,width=624,height=268]
 
 === *Application-integrated Snapshot backup operations*
 
