@@ -4,14 +4,12 @@ permalink: lifecycle/sc-copy-clone-sap-system-clone-with-snapcenter.html
 keywords: tr4667, 4667, SAP HANA, cloning, system refresh
 summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 ---
+= SAP system clone with SnapCenter
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ./../media/
-
-
-= SAP system clone with SnapCenter
 
 This section provides a step-by-step description for the SAP system clone operation, which can be used to set up a repair system to address logical corruption.
 

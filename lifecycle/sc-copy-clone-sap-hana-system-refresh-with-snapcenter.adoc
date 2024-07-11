@@ -4,13 +4,12 @@ permalink: lifecycle/sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html
 keywords: tr4667, 4667, SAP HANA, cloning, system refresh
 summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 ---
+= SAP HANA system refresh with SnapCenter
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ./../media/
-
-= SAP HANA system refresh with SnapCenter
 
 The following section provides a step-by-step description for the different system refresh operation options of an SAP HANA database.
 

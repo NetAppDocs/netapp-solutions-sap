@@ -4,14 +4,12 @@ permalink: lifecycle/sc-copy-clone-where-to-find-additional-information.html
 keywords: tr4667, 4667, SAP HANA, cloning, system refresh
 summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 ---
+= Where to find additional information and version history
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ./../media/
-
-
-= Where to find additional information and version history
 
 To learn more about the information described in this document, refer to the following documents and/or websites:
 
