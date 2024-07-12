@@ -121,7 +121,7 @@ hana-7:/opt/NetApp/snapcenter/scc/etc #
 
 This section describes the HANA system refresh workflow where the tenant name at the source and the target system is identical to the SID. The storage cloning is executed at the primary storage and the recovery is automated with the script `sc-system-refresh.sh`.
 
-image:sc-copy-clone-image17.png[A black line with a white background Description automatically generated,width=414,height=179]
+image:sc-copy-clone-image17.png[A black line with a white background Description automatically generated,width=248,height=107]
 
 The workflow consists of the following steps:
 
@@ -158,24 +158,26 @@ The target SID which is entered controls how SnapCenter manages the cloned resou
 [NOTE]
 It is crucial that the target system resource and host has been configured in SnapCenter before you start the cloning workflow. Otherwise, the new resource created by SnapCenter will not support auto discovery and the described workflows won’t work.
 
-image:sc-copy-clone-image19.png[A screenshot of a computer Description automatically generated,width=624,height=183]
+image:sc-copy-clone-image19.png[A screenshot of a computer Description automatically generated,width=374,height=110]
 
 In a Fibre Channel SAN setup, no export IP address is required, but you need to provide the used protocol in the next screen.
 [NOTE]
 The screenshots show a different lab setup using a FibreChannel connectivity.
 
-image:sc-copy-clone-image20.png[A screenshot of a computer Description automatically generated,width=624,height=191]image:extracted-media/media\/sc-copy-clone-image21.png[A black and white rectangular object Description automatically generated,width=624,height=182]
+image:sc-copy-clone-image20.png[A screenshot of a computer Description automatically generated,width=374,height=110]
+
+image:extracted-media/media\/sc-copy-clone-image21.png[A black and white rectangular object Description automatically generated,width=374,height=110]
 
 With Azure NetApp Files and a manual QoS capacity pool, you need to provide the maximum throughput for the new volume. Make sure that the capacity pool has enough headroom, otherwise the cloning workflow will fail.
 [NOTE]
 The screenshots show a different lab setup running in Microsoft Azure with Azure NetApp Files.
 
-image:sc-copy-clone-image22.png[A screenshot of a computer Description automatically generated,width=624,height=219]
+image:sc-copy-clone-image22.png[A screenshot of a computer Description automatically generated,width=374,height=110]
 
 [start=3]
 . Enter the optional post-clone scripts with the required command-line options. With our example we use a post clone script to execute the HANA database recovery.
 
-image:sc-copy-clone-image23.png[A screenshot of a computer Description automatically generated,width=624,height=257]
+image:sc-copy-clone-image23.png[A screenshot of a computer Description automatically generated,width=374,height=154]
 
 [NOTE]
 As discussed before, the usage of the recovery script is optional. The recovery can also be done manually after the SnapCenter cloning workflow is finished.
@@ -191,36 +193,36 @@ image:sc-copy-clone-image24.png[A screenshot of a computer Description automatic
 . The logfile of the `sc-system-refresh` script shows the different steps that were executed for the recovery operation. The script reads the list of tenants from the system database and executes a recovery of all existing tenants.
 
 ....
-20240425112328###hana-7###`sc-system-refresh`.sh: Script version: 3.0
+20240425112328###hana-7###sc-system-refresh.sh: Script version: 3.0
 hana-7:/mnt/sapcc-share/SAP-System-Refresh # cat sap-system-refresh-QS1.log
-20240425112328###hana-7###`sc-system-refresh`.sh: ******************* Starting script: recovery operation **************************
-20240425112328###hana-7###`sc-system-refresh`.sh: Recover system database.
-20240425112328###hana-7###`sc-system-refresh`.sh: /usr/sap/QS1/HDB11/exe/Python/bin/python /usr/sap/QS1/HDB11/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
-20240425112346###hana-7###`sc-system-refresh`.sh: Wait until SAP HANA database is started ....
-20240425112347###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425112357###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425112407###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425112417###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425112428###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425112438###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425112448###hana-7###`sc-system-refresh`.sh: Status: GREEN
-20240425112448###hana-7###`sc-system-refresh`.sh: HANA system database started.
-20240425112448###hana-7###`sc-system-refresh`.sh: Checking connection to system database.
-20240425112448###hana-7###`sc-system-refresh`.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY 'select * from sys.m_databases;'
+20240425112328###hana-7###sc-system-refresh.sh: ******************* Starting script: recovery operation **************************
+20240425112328###hana-7###sc-system-refresh.sh: Recover system database.
+20240425112328###hana-7###sc-system-refresh.sh: /usr/sap/QS1/HDB11/exe/Python/bin/python /usr/sap/QS1/HDB11/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
+20240425112346###hana-7###sc-system-refresh.sh: Wait until SAP HANA database is started ....
+20240425112347###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425112357###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425112407###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425112417###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425112428###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425112438###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425112448###hana-7###sc-system-refresh.sh: Status: GREEN
+20240425112448###hana-7###sc-system-refresh.sh: HANA system database started.
+20240425112448###hana-7###sc-system-refresh.sh: Checking connection to system database.
+20240425112448###hana-7###sc-system-refresh.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY 'select * from sys.m_databases;'
 DATABASE_NAME,DESCRIPTION,ACTIVE_STATUS,ACTIVE_STATUS_DETAILS,OS_USER,OS_GROUP,RESTART_MODE,FALLBACK_SNAPSHOT_CREATE_TIME
 "SYSTEMDB","SystemDB-QS1-11","YES","","","","DEFAULT",?
 "QS1","QS1-11","NO","ACTIVE","","","DEFAULT",?
 2 rows selected (overall time 16.225 msec; server time 860 usec)
-20240425112448###hana-7###`sc-system-refresh`.sh: Succesfully connected to system database.
-20240425112449###hana-7###`sc-system-refresh`.sh: Tenant databases to recover: QS1
-20240425112449###hana-7###`sc-system-refresh`.sh: Found inactive tenants(QS1) and starting recovery
-20240425112449###hana-7###`sc-system-refresh`.sh: Recover tenant database QS1.
-20240425112449###hana-7###`sc-system-refresh`.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY RECOVER DATA FOR QS1 USING SNAPSHOT CLEAR LOG
+20240425112448###hana-7###sc-system-refresh.sh: Succesfully connected to system database.
+20240425112449###hana-7###sc-system-refresh.sh: Tenant databases to recover: QS1
+20240425112449###hana-7###sc-system-refresh.sh: Found inactive tenants(QS1) and starting recovery
+20240425112449###hana-7###sc-system-refresh.sh: Recover tenant database QS1.
+20240425112449###hana-7###sc-system-refresh.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY RECOVER DATA FOR QS1 USING SNAPSHOT CLEAR LOG
 0 rows affected (overall time 22.138599 sec; server time 22.136268 sec)
-20240425112511###hana-7###`sc-system-refresh`.sh: Checking availability of Indexserver for tenant QS1.
-20240425112511###hana-7###`sc-system-refresh`.sh: Recovery of tenant database QS1 succesfully finished.
-20240425112511###hana-7###`sc-system-refresh`.sh: Status: GREEN
-20240425112511###hana-7###`sc-system-refresh`.sh: ******************* Finished script: recovery operation **************************
+20240425112511###hana-7###sc-system-refresh.sh: Checking availability of Indexserver for tenant QS1.
+20240425112511###hana-7###sc-system-refresh.sh: Recovery of tenant database QS1 succesfully finished.
+20240425112511###hana-7###sc-system-refresh.sh: Status: GREEN
+20240425112511###hana-7###sc-system-refresh.sh: ******************* Finished script: recovery operation **************************
 hana-7:/mnt/sapcc-share/SAP-System-Refresh
 ....
 
@@ -233,7 +235,7 @@ image:sc-copy-clone-image25.png[A screenshot of a computer Description automatic
 . The HANA database is now running.
 . If you want to protect the target HANA system, you need to run the auto discovery by clicking on the target system resource.
 
-image:sc-copy-clone-image26.png[A screenshot of a computer Description automatically generated,width=354,height=204]
+image:sc-copy-clone-image26.png[A screenshot of a computer Description automatically generated,width=248,height=143]
 
 When the auto discovery process is finished, the new cloned volume is listed in the storage footprint section.
 
@@ -245,9 +247,9 @@ image:sc-copy-clone-image28.png[A screenshot of a computer Description automatic
 
 == Cloning from off-site backup storage
 
-This section describes the HANA system refresh workflow for which the tenant name at the source and the target system is identical to the SID. Storage cloning is executed at the off-site backup storage and further automated using the script `sc-system-refresh`.sh.
+This section describes the HANA system refresh workflow for which the tenant name at the source and the target system is identical to the SID. Storage cloning is executed at the off-site backup storage and further automated using the script sc-system-refresh.sh.
 
-image:sc-copy-clone-image29.png[A diagram of data storage Description automatically generated,width=449,height=200]
+image:sc-copy-clone-image29.png[A diagram of data storage Description automatically generated,width=269,height=120]
 
 The only difference in the HANA system refresh workflow between primary and off-site backup storage cloning is the selection of the Snapshot backup in SnapCenter. For off-site backup storage cloning, the secondary backups must be selected first, followed by the selection of the Snapshot backup.
 
@@ -255,7 +257,7 @@ image:sc-copy-clone-image30.png[Graphical user interface, application Descriptio
 
 If there are multiple secondary storage locations for the selected backup, you need to choose the required destination volume.
 
-image:sc-copy-clone-image31.png[Graphical user interface, text, application Description automatically generated,width=624,height=264]
+image:sc-copy-clone-image31.png[Graphical user interface, text, application Description automatically generated,width=250,height=106]
 
 All subsequent steps are identical to the workflow for cloning from primary storage.
 
@@ -263,16 +265,16 @@ All subsequent steps are identical to the workflow for cloning from primary stor
 
 This section describes the HANA system refresh workflow with multiple tenants. Storage cloning is executed at the primary storage and further automated using the script `sc-system-refresh.sh`.
 
-image:sc-copy-clone-image32.png[A diagram of a diagram of a system Description automatically generated,width=343,height=233]
+image:sc-copy-clone-image32.png[A diagram of a diagram of a system Description automatically generated,width=240,height=163]
 
 The required steps in SnapCenter are identical to what has been described in the section “Cloning from primary storage with tenant name equal to SID.” The only difference is in the tenant recovery operation within the script `sc-system-refresh.sh`, where all tenants are recovered.
 
 ....
-20240430070214###hana-7###`sc-system-refresh`.sh: **********************************************************************************
-20240430070214###hana-7###`sc-system-refresh`.sh: Script version: 3.0
-20240430070214###hana-7###`sc-system-refresh`.sh: ******************* Starting script: recovery operation **************************
-20240430070214###hana-7###`sc-system-refresh`.sh: Recover system database.
-20240430070214###hana-7###`sc-system-refresh`.sh: /usr/sap/QS1/HDB11/exe/Python/bin/python /usr/sap/QS1/HDB11/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
+20240430070214###hana-7###sc-system-refresh.sh: **********************************************************************************
+20240430070214###hana-7###sc-system-refresh.sh: Script version: 3.0
+20240430070214###hana-7###sc-system-refresh.sh: ******************* Starting script: recovery operation **************************
+20240430070214###hana-7###sc-system-refresh.sh: Recover system database.
+20240430070214###hana-7###sc-system-refresh.sh: /usr/sap/QS1/HDB11/exe/Python/bin/python /usr/sap/QS1/HDB11/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
 [140310725887808, 0.008] >> starting recoverSys (at Tue Apr 30 07:02:15 2024)
 [140310725887808, 0.008] args: ()
 [140310725887808, 0.008] keys: \{'command': 'RECOVER DATA USING SNAPSHOT CLEAR LOG'}
@@ -295,31 +297,31 @@ sapcontrol returned successfully:
 recoverSys finished successfully: 2024-04-30 07:02:33
 [140310725887808, 17.548] 0
 [140310725887808, 17.548] << ending recoverSys, rc = 0 (RC_TEST_OK), after 17.540 secs
-20240430070233###hana-7###`sc-system-refresh`.sh: Wait until SAP HANA database is started ....
-20240430070233###hana-7###`sc-system-refresh`.sh: Status: GRAY
-20240430070243###hana-7###`sc-system-refresh`.sh: Status: GRAY
-20240430070253###hana-7###`sc-system-refresh`.sh: Status: GRAY
-20240430070304###hana-7###`sc-system-refresh`.sh: Status: GRAY
-20240430070314###hana-7###`sc-system-refresh`.sh: Status: GREEN
-20240430070314###hana-7###`sc-system-refresh`.sh: HANA system database started.
-20240430070314###hana-7###`sc-system-refresh`.sh: Checking connection to system database.
-20240430070314###hana-7###`sc-system-refresh`.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY 'select * from sys.m_databases;'
-20240430070314###hana-7###`sc-system-refresh`.sh: Succesfully connected to system database.
-20240430070314###hana-7###`sc-system-refresh`.sh: Tenant databases to recover: TENANT2
+20240430070233###hana-7###sc-system-refresh.sh: Wait until SAP HANA database is started ....
+20240430070233###hana-7###sc-system-refresh.sh: Status: GRAY
+20240430070243###hana-7###sc-system-refresh.sh: Status: GRAY
+20240430070253###hana-7###sc-system-refresh.sh: Status: GRAY
+20240430070304###hana-7###sc-system-refresh.sh: Status: GRAY
+20240430070314###hana-7###sc-system-refresh.sh: Status: GREEN
+20240430070314###hana-7###sc-system-refresh.sh: HANA system database started.
+20240430070314###hana-7###sc-system-refresh.sh: Checking connection to system database.
+20240430070314###hana-7###sc-system-refresh.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY 'select * from sys.m_databases;'
+20240430070314###hana-7###sc-system-refresh.sh: Succesfully connected to system database.
+20240430070314###hana-7###sc-system-refresh.sh: Tenant databases to recover: TENANT2
 TENANT1
-20240430070314###hana-7###`sc-system-refresh`.sh: Found inactive tenants(TENANT2
+20240430070314###hana-7###sc-system-refresh.sh: Found inactive tenants(TENANT2
 TENANT1) and starting recovery
-20240430070314###hana-7###`sc-system-refresh`.sh: Recover tenant database TENANT2.
-20240430070314###hana-7###`sc-system-refresh`.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY RECOVER DATA FOR TENANT2 USING SNAPSHOT CLEAR LOG
-20240430070335###hana-7###`sc-system-refresh`.sh: Checking availability of Indexserver for tenant TENANT2.
-20240430070335###hana-7###`sc-system-refresh`.sh: Recovery of tenant database TENANT2 succesfully finished.
-20240430070335###hana-7###`sc-system-refresh`.sh: Status: GREEN
-20240430070335###hana-7###`sc-system-refresh`.sh: Recover tenant database TENANT1.
-20240430070335###hana-7###`sc-system-refresh`.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY RECOVER DATA FOR TENANT1 USING SNAPSHOT CLEAR LOG
-20240430070349###hana-7###`sc-system-refresh`.sh: Checking availability of Indexserver for tenant TENANT1.
-20240430070350###hana-7###`sc-system-refresh`.sh: Recovery of tenant database TENANT1 succesfully finished.
-20240430070350###hana-7###`sc-system-refresh`.sh: Status: GREEN
-20240430070350###hana-7###`sc-system-refresh`.sh: ******************* Finished script: recovery operation **************************
+20240430070314###hana-7###sc-system-refresh.sh: Recover tenant database TENANT2.
+20240430070314###hana-7###sc-system-refresh.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY RECOVER DATA FOR TENANT2 USING SNAPSHOT CLEAR LOG
+20240430070335###hana-7###sc-system-refresh.sh: Checking availability of Indexserver for tenant TENANT2.
+20240430070335###hana-7###sc-system-refresh.sh: Recovery of tenant database TENANT2 succesfully finished.
+20240430070335###hana-7###sc-system-refresh.sh: Status: GREEN
+20240430070335###hana-7###sc-system-refresh.sh: Recover tenant database TENANT1.
+20240430070335###hana-7###sc-system-refresh.sh: /usr/sap/QS1/SYS/exe/hdb/hdbsql -U QS1KEY RECOVER DATA FOR TENANT1 USING SNAPSHOT CLEAR LOG
+20240430070349###hana-7###sc-system-refresh.sh: Checking availability of Indexserver for tenant TENANT1.
+20240430070350###hana-7###sc-system-refresh.sh: Recovery of tenant database TENANT1 succesfully finished.
+20240430070350###hana-7###sc-system-refresh.sh: Status: GREEN
+20240430070350###hana-7###sc-system-refresh.sh: ******************* Finished script: recovery operation **************************
 ....
 
 == Clone delete operation
@@ -336,7 +338,7 @@ image:sc-copy-clone-image33.png[A screenshot of a computer Description automatic
 [start=2]
 . Enter the pre-clone and unmount scripts with the required command line options.
 
-image:sc-copy-clone-image34.png[A screenshot of a computer Description automatically generated,width=461,height=270]
+image:sc-copy-clone-image34.png[A screenshot of a computer Description automatically generated,width=277,height=189]
 [start=3]
 . The job details screen in SnapCenter shows the progress of the operation.
 
@@ -346,25 +348,25 @@ image:sc-copy-clone-image35.png[A screenshot of a computer Description automatic
 . The log file of the `sc-system-refresh` script shows the shutdown and unmount operation steps.
 
 ....
-20240425111042###hana-7###`sc-system-refresh`.sh: **********************************************************************************
-20240425111042###hana-7###`sc-system-refresh`.sh: Script version: 3.0
-20240425111042###hana-7###`sc-system-refresh`.sh: ******************* Starting script: shutdown operation **************************
-20240425111042###hana-7###`sc-system-refresh`.sh: Stopping HANA database.
-20240425111042###hana-7###`sc-system-refresh`.sh: sapcontrol -nr 11 -function StopSystem HDB
+20240425111042###hana-7###sc-system-refresh.sh: **********************************************************************************
+20240425111042###hana-7###sc-system-refresh.sh: Script version: 3.0
+20240425111042###hana-7###sc-system-refresh.sh: ******************* Starting script: shutdown operation **************************
+20240425111042###hana-7###sc-system-refresh.sh: Stopping HANA database.
+20240425111042###hana-7###sc-system-refresh.sh: sapcontrol -nr 11 -function StopSystem HDB
 25.04.2024 11:10:42
 StopSystem
 OK
-20240425111042###hana-7###`sc-system-refresh`.sh: Wait until SAP HANA database is stopped ....
-20240425111042###hana-7###`sc-system-refresh`.sh: Status: GREEN
-20240425111052###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425111103###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425111113###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425111123###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425111133###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425111144###hana-7###`sc-system-refresh`.sh: Status: YELLOW
-20240425111154###hana-7###`sc-system-refresh`.sh: Status: GRAY
-20240425111154###hana-7###`sc-system-refresh`.sh: SAP HANA database is stopped.
-20240425111154###hana-7###`sc-system-refresh`.sh: ******************* Finished script: shutdown operation **************************
+20240425111042###hana-7###sc-system-refresh.sh: Wait until SAP HANA database is stopped ....
+20240425111042###hana-7###sc-system-refresh.sh: Status: GREEN
+20240425111052###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425111103###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425111113###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425111123###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425111133###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425111144###hana-7###sc-system-refresh.sh: Status: YELLOW
+20240425111154###hana-7###sc-system-refresh.sh: Status: GRAY
+20240425111154###hana-7###sc-system-refresh.sh: SAP HANA database is stopped.
+20240425111154###hana-7###sc-system-refresh.sh: ******************* Finished script: shutdown operation **************************
 ....
 
 [start=5]
@@ -424,7 +426,7 @@ The simple script below demonstrates how a SnapCenter clone create operation can
 
 ....
 $BackupName='SnapCenter_hana-1_LocalSnap_Hourly_06-25-2024_03.00.01.8458'
-$JobInfo=New-SmClone -AppPluginCode hana -BackupName $BackupName -Resources @\{"Host"="hana-1.sapcc.stl.netapp.com";"UID"="MDC\SS1"} -CloneToInstance hana-7.sapcc.stl.netapp.com -postclonecreatecommands '/mnt/sapcc-share/SAP-System-Refresh/`sc-system-refresh`.sh recover' -NFSExportIPs 192.168.175.75 -CloneUid 'MDC\QS1'
+$JobInfo=New-SmClone -AppPluginCode hana -BackupName $BackupName -Resources @\{"Host"="hana-1.sapcc.stl.netapp.com";"UID"="MDC\SS1"} -CloneToInstance hana-7.sapcc.stl.netapp.com -postclonecreatecommands '/mnt/sapcc-share/SAP-System-Refresh/sc-system-refresh.sh recover' -NFSExportIPs 192.168.175.75 -CloneUid 'MDC\QS1'
 # Get JobID of clone create job
 $Job=Get-SmJobSummaryReport | ?\{$_.JobType -eq "Clone" } | ?\{$_.JobName -Match $BackupName} | ?\{$_.Status -eq "Running"}
 $JobId=$Job.SmJobId
@@ -484,7 +486,7 @@ The simple script below demonstrates how a SnapCenter clone delete operation can
 
 ....
 $CloneInfo=Get-SmClone |?\{$_.CloneName -Match "hana-1_sapcc_stl_netapp_com_hana_MDC_SS1" }
-$JobInfo=Remove-SmClone -CloneName $CloneInfo.CloneName -PluginCode hana -PreCloneDeleteCommands '/mnt/sapcc-share/SAP-System-Refresh/`sc-system-refresh`.sh shutdown QS1' -UnmountCommands '/mnt/sapcc-share/SAP-System-Refresh/`sc-system-refresh`.sh umount QS1' -Confirm: $False
+$JobInfo=Remove-SmClone -CloneName $CloneInfo.CloneName -PluginCode hana -PreCloneDeleteCommands '/mnt/sapcc-share/SAP-System-Refresh/sc-system-refresh.sh shutdown QS1' -UnmountCommands '/mnt/sapcc-share/SAP-System-Refresh/sc-system-refresh.sh umount QS1' -Confirm: $False
 Get-SmJobSummaryReport -JobId $JobInfo.Id
 # Wait until job is finished
 do \{ $Job=Get-SmJobSummaryReport -JobId $JobInfo.Id; write-host $Job.Status; sleep 20 } while ( $Job.Status -Match "Running" )

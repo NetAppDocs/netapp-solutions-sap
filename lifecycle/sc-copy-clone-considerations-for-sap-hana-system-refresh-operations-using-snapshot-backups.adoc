@@ -37,7 +37,6 @@ See also https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c
 === Backup of root keys
 
 A backup of the root keys is always required, if any changes to the root keys have been made.
-
 The backup command requires the dbid as a CLI parameter. The dbid’s can be identified using the below SQL statement.
 
 image:sc-copy-clone-image12.png[A white rectangular object with text Description automatically generated,width=624,height=220]
@@ -91,7 +90,6 @@ done.
 === Import of root keys at the target system
 
 The import of the root keys is required initially for the first system refresh operation. If the root keys are not changed at the source system, no additional import is required.
-
 The import command requires the dbid as a CLI parameter. The dbid’s can be identified in the same way as described for the root key backup.
 
 . In our setup the root keys are copied from the source system to an NFS share

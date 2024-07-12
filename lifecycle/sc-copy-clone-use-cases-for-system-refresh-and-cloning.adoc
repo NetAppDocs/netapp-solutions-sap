@@ -19,7 +19,7 @@ image:sc-copy-clone-image3.png[A diagram of a diagram Description automatically 
 
 SnapCenter cloning workflows can be used to accelerate and automate the required tasks at the infrastructure and database layers. Instead of restoring a backup from the source system to the target system, SnapCenter uses NetApp Snapshot copy and NetApp FlexClone technology, so that required tasks up to a started HANA database can be performed in minutes instead of hours.. The time needed for the cloning process is independent from the size of the database, therefore even very large systems can be created in a couple of minutes. The startup time just depends on the database size and the connectivity between the database server and the storage system.
 
-image:sc-copy-clone-image4.png[A diagram of a system Description automatically generated,width=407,height=237]
+image:sc-copy-clone-image4.png[A diagram of a system Description automatically generated,width=244,height=142]
 
 The workflow for system-refresh operations is described  in the section link:sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html[“SAP HANA system refresh with SnapCenter.”]
 
