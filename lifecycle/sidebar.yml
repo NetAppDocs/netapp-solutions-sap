@@ -41,7 +41,7 @@ entries:
         url: /lifecycle/sc-copy-clone-supported-infrastructure-and-scenarios.html
       - title: Overview of SAP system refresh workflow with SnapCenter
         url: /lifecycle/sc-copy-clone-overview-of-sap-system-refresh-workflow-with-snapcenter.html
-      - title: Overview of SAP system copy workflow with SnapCenter
+      - title: Overview of SAP system clone workflow with SnapCenter
         url: /lifecycle/sc-copy-clone-overview-of-sap-system-clone-workflow-with-snapcenter.html
       - title: Considerations for SAP HANA system refresh operations using storage snapshot backups
         url: /lifecycle/sc-copy-clone-considerations-for-sap-hana-system-refresh-operations-using-snapshot-backups.html

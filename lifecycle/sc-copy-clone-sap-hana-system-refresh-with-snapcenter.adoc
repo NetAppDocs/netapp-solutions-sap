@@ -166,7 +166,7 @@ The screenshots show a different lab setup using a FibreChannel connectivity.
 
 image:sc-copy-clone-image20.png[A screenshot of a computer Description automatically generated,width=374,height=110]
 
-image:extracted-media/media\/sc-copy-clone-image21.png[A black and white rectangular object Description automatically generated,width=374,height=110]
+image:sc-copy-clone-image21.png[A black and white rectangular object Description automatically generated,width=374,height=110]
 
 With Azure NetApp Files and a manual QoS capacity pool, you need to provide the maximum throughput for the new volume. Make sure that the capacity pool has enough headroom, otherwise the cloning workflow will fail.
 [NOTE]
