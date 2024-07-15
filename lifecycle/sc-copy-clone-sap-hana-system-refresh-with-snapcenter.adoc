@@ -121,7 +121,7 @@ hana-7:/opt/NetApp/snapcenter/scc/etc #
 
 This section describes the HANA system refresh workflow where the tenant name at the source and the target system is identical to the SID. The storage cloning is executed at the primary storage and the recovery is automated with the script `sc-system-refresh.sh`.
 
-image:sc-copy-clone-image17.png[A black line with a white background Description automatically generated,width=248,height=107]
+image:sc-copy-clone-image17.png[A black line with a white background Description automatically generated]
 
 The workflow consists of the following steps:
 
