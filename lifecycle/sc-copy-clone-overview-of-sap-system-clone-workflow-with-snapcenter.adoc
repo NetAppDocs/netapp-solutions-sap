@@ -21,14 +21,17 @@ The figure below summarizes the required steps for an SAP system clone operation
 . Start SAP HANA services.
 . SnapCenter clone create workflow for the HANA data volume including database recovery.
 . The HANA system can now be used as a repair system.
-[NOTE]
-If you must reset the system to a different Snapshot backup, then step 6 and step 4 are sufficient. The HANA shared volume can continue to be mounted.
+
 
 If the system is not needed anymore, the clean-up process is performed with the following steps.
 
+[start=6]
 . SnapCenter clone delete workflow for the HANA data volume including database shutdown (when using the automation script).
 . Stop SAP HANA services.
 . SnapCenter clone delete workflow for the HANA shared volume.
+
+[NOTE]
+If you must reset the system to a different Snapshot backup, then step 6 and step 4 are sufficient. The HANA shared volume can continue to be mounted.
 
 image:sc-copy-clone-image9.png[]
 

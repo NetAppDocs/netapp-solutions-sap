@@ -38,7 +38,7 @@ The workflows described in the following sections have a few prerequisites and l
 
 * The described workflow is valid for single host SAP HANA MDC systems. Multiple host systems are not supported.
 * The SnapCenter HANA plug-in must be deployed on the target host to enable the execution of automation scripts.
-* The workflow has been validated for NFS. The automation script sc-mount-volume.sh, which is used to mount the HANA shared volume, does not support FCP. This step must be either done manually or by extending the script.
+* The workflow has been validated for NFS. The automation `script sc-mount-volume.sh`, which is used to mount the HANA shared volume, does not support FCP. This step must be either done manually or by extending the script.
 * The described workflow is only valid for the SnapCenter 5.0 release or higher.
 
 == Lab setup
@@ -198,7 +198,7 @@ Filesystem 1K-blocks Used Available Use% Mounted on
 [start=7]
 . Within SnapCenter, a new resource for the cloned volume is visible.
 
-image:/sc-copy-clone-image46.png[]
+image:sc-copy-clone-image46.png[]
     
 
 [start=8]
@@ -235,7 +235,7 @@ You must add the required services entries to /usr/sap/sapservices, and the port
 
 . Select a HANA Snapshot backup from the source system SS1.
 
-image:sc-copy-clone-image47.png[][Graphical user interface, application, Teams Description automatically generated,width=624,height=169]
+image:sc-copy-clone-image47.png[]
 
 [start=2]
 . Select the host where the target repair system has been prepared. The NFS export IP address must be the storage network interface of the target host. As target SID keep the same SID as the source system. In our example SS1

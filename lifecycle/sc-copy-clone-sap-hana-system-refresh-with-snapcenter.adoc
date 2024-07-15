@@ -242,6 +242,7 @@ image:sc-copy-clone-image27.png[]
 By clicking on the resource again, data protection can be configured for the refreshed QS1 system.
 
 image:sc-copy-clone-image28.png[]
+
 == Cloning from off-site backup storage
 
 This section describes the HANA system refresh workflow for which the tenant name at the source and the target system is identical to the SID. Storage cloning is executed at the off-site backup storage and further automated using the script sc-system-refresh.sh.
@@ -394,6 +395,8 @@ In the resource view in SnapCenter the target system QS1 is now not marked as a 
 image:sc-copy-clone-image39.png[]
 
 image:sc-copy-clone-image40.png[]
+
+
 The refresh workflow after a clone split operation looks slightly different than the operation without clone split. After a clone split operation, there is no clone delete operation required, because the target data volume is not a FlexClone volume anymore.
 
 The workflow consists of the following steps:
