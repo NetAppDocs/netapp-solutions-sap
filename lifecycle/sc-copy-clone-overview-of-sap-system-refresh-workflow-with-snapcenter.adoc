@@ -13,7 +13,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 
 SnapCenter provides workflows that allow you to manage clones of data sets from any existing Snapshot backup. This cloned data set, a FlexClone volume, can be used to rapidly provision a HANA data volume from a source system and attach it to a target system. It is therefore a perfect fit for executing system refresh operations for QA, test, sandbox, or training systems.
 
-The SnapCenter cloning workflows handle all required operations on the storage layer and can be extended using scripts to execute host-specific and HANA database-specific operations. In this document, we use a script to perform HANA database recovery and shutdown operations. SnapCenter workflows with further automation using the script handle all required HANA database operations but do not cover any required SAP post-processing steps. SAP post processing must be performed manually or with third-party tools.
+The SnapCenter cloning workflows handles all required operations on the storage layer and can be extended using scripts to execute host-specific and HANA database-specific operations. In this document, we use a script to perform HANA database recovery and shutdown operations. SnapCenter workflows with further automation using the script handle all required HANA database operations but do not cover any required SAP post-processing steps. SAP post processing must be performed manually or with third-party tools.
 
 The SAP system refresh workflow with SnapCenter consists of five main steps as shown in the below figure.
 
@@ -55,9 +55,9 @@ The refresh operation including the clone split consists of the following steps.
 . The FlexClone volume is split using the SnapCenter clone split workflow. 
 . SAP post processing (manual or with a third-party tool)
 . The system can now be used as test/QA system.
-. When a new system refresh is requested, the SnapCenter clone delete workflow is used to remove the FlexClone volume
-.. If the target HANA system has been protected in SnapCenter, the protection must be removed before the clone delete workflow is started.
-.. The HANA system must be stopped manually or stopped automatically using the `sc-system-refresh` script as a SnapCenter pre-script
+. When a new system refresh is requested, the cleanup is done with the following manual steps
+.. If the target HANA system has been protected in SnapCenter, the protection must be removed.
+.. The HANA system must be stopped manually
 .. The HANA data volume must be unmounted and the fstab entry from SnapCenter must be removed (manual task)
 .. A refresh is restarted with step 2.
 [NOTE]
