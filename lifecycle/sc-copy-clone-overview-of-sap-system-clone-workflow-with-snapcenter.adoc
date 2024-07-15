@@ -30,6 +30,6 @@ If the system is not needed anymore, the clean-up process is performed with the 
 . Stop SAP HANA services.
 . SnapCenter clone delete workflow for the HANA shared volume.
 
-image:sc-copy-clone-image9.png[A diagram of a computer Description automatically generated,width=624,height=339]
+image:sc-copy-clone-image9.png[]
 
 The section link:sc-copy-clone-sap-system-clone-with-snapcenter.html[“SAP system clone with SnapCenter”] provides a detailed step-by-step description of the system clone workflow.

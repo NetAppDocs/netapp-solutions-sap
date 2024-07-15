@@ -19,4 +19,4 @@ The term SAP system copy is often used as a synonym for three different processe
 
 The figure below illustrates the main steps that must be performed during a system refresh, system copy, or system clone operation. The blue boxes indicate steps that can be automated with SnapCenter, while the gray boxes indicate steps that must be performed outside of SnapCenter, either manually or by using third-party tools.
 
-image:sc-copy-clone-image2.png[A screenshot of a chat Description automatically generated,width=624,height=273]
+image:sc-copy-clone-image2.png[]
