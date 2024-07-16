@@ -34,8 +34,8 @@ New workflow description for system refresh and system clone operations.
 
 |Version 3.0 |May 2022 |Adapted to changed workflow with SnapCenter 4.6 P1
 |Version 4.0 |July 2024 a|
-TR covers on-prem, FSx for ONTAP and Azure NetApp Files +
-New SnapCenter 5.0 features mount and unmount during clone create and delete workflows +
+Document covers NetApp systems on-premises, FSx for ONTAP and Azure NetApp Files +
+New SnapCenter 5.0 operations mount and unmount during clone create and delete workflows +
 Added specific steps for Fibre Channel SAN +
 Added specific steps for Azure NetApp Files +
 Adapted and simplified `sc-system-refresh` script +
