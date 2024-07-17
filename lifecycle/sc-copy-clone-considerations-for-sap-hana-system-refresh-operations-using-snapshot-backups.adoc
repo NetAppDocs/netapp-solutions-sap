@@ -122,4 +122,4 @@ As described in the chapter before, the dbid is required to import the root key 
 
 image:sc-copy-clone-image13.png[]
 
-The output above shows two tenants with dbid=3 and dbid=4. If the target system has not yet hosted a tenant with dbsid=4, the import of the root key will fail. In that case you need to recover the system database first and then import the key for the tenant with dbid=4.
+The output above shows two tenants with dbid=3 and dbid=4. If the target system has not yet hosted a tenant with dbid=4, the import of the root key will fail. In that case you need to recover the system database first and then import the key for the tenant with dbid=4.
