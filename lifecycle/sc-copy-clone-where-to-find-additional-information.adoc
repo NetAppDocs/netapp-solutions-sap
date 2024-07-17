@@ -39,5 +39,5 @@ New SnapCenter 5.0 operations mount and unmount during clone create and delete w
 Added specific steps for Fibre Channel SAN +
 Added specific steps for Azure NetApp Files +
 Adapted and simplified `sc-system-refresh` script +
-Included required steps for enabled HANA volume encryption
+Included required steps for enabled SAP HANA volume encryption
 |===

@@ -13,8 +13,8 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 
 In this document, two scripts are used to further automate SnapCenter clone create and clone delete operations.
 
-* The script `sc-system-refresh`.sh is used for the system refresh and the system clone workflow to execute recovery and shutdown operations of the HANA database.
-* The script `sc-mount-volume.sh` is used for the system clone workflow to execute mount and unmount operations for the HANA shared volume.
+* The script `sc-system-refresh`.sh is used for the system refresh and the system clone workflow to execute recovery and shutdown operations of the SAP HANA database.
+* The script `sc-mount-volume.sh` is used for the system clone workflow to execute mount and unmount operations for the SAP HANA shared volume.
 [NOTE]
 The example scripts are provided as is and are not supported by NetApp. You can request the scripts via email to ng-sapcc@netapp.com.
 
@@ -22,7 +22,7 @@ The example scripts are provided as is and are not supported by NetApp. You can 
 
 The example script `sc-system-refresh.sh` is used to execute recovery and shutdown operations. The script is called with specific command-line options within the SnapCenter workflows clone create and clone delete, as shown in the figure below.
 
-The script is generic and reads all required parameters, like the SID from the target system. The script must be available at the target host of the system refresh operation. An hdb user store key must be configured for the user <SID>adm at the target system. The key must allow access to the HANA system database and provide privileges for recovery operations. The key must have the name <TARGET-SID>KEY.
+The script is generic and reads all required parameters, like the SID from the target system. The script must be available at the target host of the system refresh operation. An hdb user store key must be configured for the user <SID>adm at the target system. The key must allow access to the SAP HANA system database and provide privileges for recovery operations. The key must have the name <TARGET-SID>KEY.
 
 The script writes a log file `sc-system-refresh-SID.log``, to the same directory, where it gets executed.
 
@@ -40,7 +40,7 @@ If a different tenant name is required at the target system, the tenant must be 
 
 [width="100%",cols="29%,35%,36%",options="header",]
 |===
-|HANA system |Tenant configuration +
+|SAP HANA system |Tenant configuration +
 at source system |Resulting tenant configuration +
 at target system
 |MDC single tenant |Source tenant name equal to source SID |Target tenant name is equal to target SID
@@ -50,10 +50,10 @@ at target system
 
 == Script sc-mount-volume.sh
 
-The example script `sc-mount-volume.sh` is used to execute mount and unmount for any volume. The script is used to mount the HANA shared volume with the SAP HANA system clone operation. The script is called with specific command-line options within the SnapCenter workflows clone create and clone delete, as shown in the figure below.
+The example script `sc-mount-volume.sh` is used to execute mount and unmount for any volume. The script is used to mount the SAP HANA shared volume with the SAP HANA system clone operation. The script is called with specific command-line options within the SnapCenter workflows clone create and clone delete, as shown in the figure below.
 
 [NOTE]
-The script supports HANA systems using NFS as a storage protocol.
+The script supports SAP HANA systems using NFS as a storage protocol.
 
 image:sc-copy-clone-image15.png[]
 

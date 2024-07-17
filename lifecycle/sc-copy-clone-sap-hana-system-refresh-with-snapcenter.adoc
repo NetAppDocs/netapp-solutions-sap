@@ -15,26 +15,26 @@ The following section provides a step-by-step description for the different syst
 
 image:sc-copy-clone-image7.png[]
 
-Depending on the HANA database configuration additional steps are executed or need to be prepared. The table below provides a summary.
+Depending on the SAP HANA database configuration additional steps are executed or need to be prepared. The table below provides a summary.
 
 [width="100%",cols="26%,30%,44%",options="header",]
 |===
-|Source system |Source system configuration |SnapCenter and HANA operations
+|Source system |Source system configuration |SnapCenter and SAP HANA operations
 |MDC single tenant +
 SID = tenant name |Standard configuration |SnapCenter clone operation and optional recovery script execution.
-| |HANA persistence encryption |Initially, or if root keys have been changed at the source system, root key backup(s) must be imported at the target system before recovery can be executed.
-| |HANA system replication source |No additional steps required. If target system has no HSR configured it will stay a standalone system.
-| |HANA multiple partitions |No additional steps required, but mount points for HANA volume partitions must be available at the target system with same naming convention (only SID is different).
+| |SAP HANA persistence encryption |Initially, or if root keys have been changed at the source system, root key backup(s) must be imported at the target system before recovery can be executed.
+| |SAP HANA system replication source |No additional steps required. If target system has no HSR configured it will stay a standalone system.
+| |SAP HANA multiple partitions |No additional steps required, but mount points for SAP HANA volume partitions must be available at the target system with same naming convention (only SID is different).
 a|
 MDC multiple tenants
 
 or MDC single tenant +
 with SID <> tenant name
 
-|Standard configuration |SnapCenter clone operation and optional recovery script execution. Script recovers all tenants. If tenants or tenant names does not exist at the target system names, required directories will be automatically created during the HANA recovery operation. Tenant names will be same as source and need to be renamed after recovery, if required.
-| |HANA persistence encryption |If a DBID of the source system does not exist before at the target system, the system database must be recovered first, before the root key backup of this tenant can be imported.
+|Standard configuration |SnapCenter clone operation and optional recovery script execution. Script recovers all tenants. If tenants or tenant names does not exist at the target system names, required directories will be automatically created during the SAP HANA recovery operation. Tenant names will be same as source and need to be renamed after recovery, if required.
+| |SAP HANA persistence encryption |If a DBID of the source system does not exist before at the target system, the system database must be recovered first, before the root key backup of this tenant can be imported.
 | |HANA system replication source |No additional steps required. If target system has no HSR configured it will stay a standalone system.
-| |HANA multiple partitions |No additional steps required, but mount points for HANA volume partitions must be available at the target system with same naming convention (only SID is different).
+| |HANA multiple partitions |No additional steps required, but mount points for SAP HANA volume partitions must be available at the target system with same naming convention (only SID is different).
 |===
 
 Within this section, the following scenarios are covered.
@@ -53,59 +53,59 @@ Within this section, the following scenarios are covered.
 
 == Prerequisites and limitations
 
-The workflows described in the following sections have a few prerequisites and limitations regarding the HANA system architecture and the SnapCenter configuration.
+The workflows described in the following sections have a few prerequisites and limitations regarding the SAP HANA system architecture and the SnapCenter configuration.
 
 * The described workflows are only valid for the SnapCenter 5.0 release or higher.
 * The described workflows are valid for single host SAP HANA MDC systems with single or multiple tenants. SAP HANA multiple host systems are not covered.
-* The SnapCenter HANA plug-in must be deployed on the target host to enable SnapCenter auto discovery and the execution of automation scripts.
-* The workflows are valid for HANA systems using NFS or FCP on physical hosts, or for virtual hosts using in-guest NFS mounts.
+* The SnapCenter SAP HANA plug-in must be deployed on the target host to enable SnapCenter auto discovery and the execution of automation scripts.
+* The workflows are valid for SAP HANA systems using NFS or FCP on physical hosts, or for virtual hosts using in-guest NFS mounts.
 
 == Lab setup
 
 The figure below shows the lab setup that was used for the different system refresh operation options.
 
 * Cloning from primary storage or off-site backup storage; tenant name is equal to the SID.
-** Source HANA system: SS1 with Tenant SS1
-** Target HANA system: QS1 with Tenant QS1
+** Source SAP HANA system: SS1 with Tenant SS1
+** Target SAP HANA system: QS1 with Tenant QS1
 * Cloning from primary storage; multiple tenants.
-** Source HANA system: SM1 with Tenant1 and Tenant2
-** Target HANA system: QS1 with Tenant1 and Tenant2
+** Source SAP HANA system: SM1 with Tenant1 and Tenant2
+** Target SAP HANA system: QS1 with Tenant1 and Tenant2
 
 The following software versions were used:
 
 * SnapCenter 5.0
-* HANA systems: HANA 2.0 SPS7 rev.73
+* SAP HANA systems: HANA 2.0 SPS7 rev.73
 * SLES 15
 * ONTAP 9.14P1
 
-All HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
+All SAP HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the SAP HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
 
 image:sc-copy-clone-image16.png[]
 
 == Initial one-time preparation steps
 
-As an initial step, the target HANA system must be configured within SnapCenter.
+As an initial step, the target SAP HANA system must be configured within SnapCenter.
 
 
-. Installation of HANA target system
+. Installation of SAP HANA target system
 
-. Configuration of HANA system in SnapCenter 
+. Configuration of SAP HANA system in SnapCenter 
 as described in https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter]
 
-.. Configuration of HANA database user for SnapCenter backup operations 
+.. Configuration of SAP HANA database user for SnapCenter backup operations 
 This user must be identical at the source and the target system.
 
 .. Configuration of hdbuserstore key for the <sid>adm with above backup user. If the automation script is used for recovery the key name must be <SID>KEY
-.. Deployment of SnapCenter HANA plug-in at target host. HANA system is auto discovered by SnapCenter.
+.. Deployment of SnapCenter SAP HANA plug-in at target host. SAP HANA system is auto discovered by SnapCenter.
 
-.. Configuration of HANA resource protection (optional)
+.. Configuration of SAP HANA resource protection (optional)
 
 The first SAP system refresh operation after the initial installation is prepared with the following steps:
 
 [start=3]
-. Shutdown target HANA system
+. Shutdown target SAP HANA system
 
-. Unmount HANA data volume.
+. Unmount SAP HANA data volume.
 
 You must add the scripts that should be executed at the target system to the SnapCenter allowed commands config file.
 
@@ -119,24 +119,24 @@ hana-7:/opt/NetApp/snapcenter/scc/etc #
 
 == Cloning from primary storage with tenant name equal to SID
 
-This section describes the HANA system refresh workflow where the tenant name at the source and the target system is identical to the SID. The storage cloning is executed at the primary storage and the recovery is automated with the script `sc-system-refresh.sh`.
+This section describes the SAP HANA system refresh workflow where the tenant name at the source and the target system is identical to the SID. The storage cloning is executed at the primary storage and the recovery is automated with the script `sc-system-refresh.sh`.
 
 image:sc-copy-clone-image17.png[]
 
 The workflow consists of the following steps:
 
-. If HANA persistence encryption is enabled at the source system, the encryption root keys must be imported once. An import is also required if the keys have been changed at the source system. See chapter link:sc-copy-clone-considerations-for-sap-hana-system-refresh-operations-using-snapshot-backups.html[“Considerations for SAP HANA system refresh operations using storage snapshot backups”] provides a detailed step-by-step description of the system clone workflow.“System refresh workflow with enabled HANA encryption”.
+. If SAP HANA persistence encryption is enabled at the source system, the encryption root keys must be imported once. An import is also required if the keys have been changed at the source system. See chapter link:sc-copy-clone-considerations-for-sap-hana-system-refresh-operations-using-snapshot-backups.html[“Considerations for SAP HANA system refresh operations using storage snapshot backups”]
 
-. If the target HANA system has been protected in SnapCenter, the protection must be removed first.
+. If the target SAP HANA system has been protected in SnapCenter, the protection must be removed first.
 
 . SnapCenter clone create workflow.
 
-.. Select Snapshot backup from the source HANA system SS1.
+.. Select Snapshot backup from the source SAP HANA system SS1.
 .. Select target host and provide storage network interface of target host.
 .. Provide SID of the target system, in our example QS1
 .. Optionally, provide script for recovery as a post-clone operation.
 . SnapCenter cloning operation.
-.. Creates FlexClone volume based on selected Snapshot backup of source HANA system.
+.. Creates FlexClone volume based on selected Snapshot backup of source SAP HANA system.
 .. Exports FlexClone volume to target host storage network interface or igroup.
 .. Executes mount operation of Mounts FlexClone volume at target host.
 .. Executes post-clone operation recovery script, if configured before. Otherwise, recovery needs to be done manually when SnapCenter workflow is finished.
@@ -144,7 +144,7 @@ The workflow consists of the following steps:
 * Recovery of system database.
 * Recovery of tenant database with tenant name = QS1.
 
-. Optionally, protect the target HANA resource in SnapCenter.
+. Optionally, protect the target SAP HANA resource in SnapCenter.
 
 The following screenshots show the required steps.
 
@@ -174,13 +174,13 @@ The screenshots show a different lab setup running in Microsoft Azure with Azure
 
 image:sc-copy-clone-image22.png[]
 [start=3]
-. Enter the optional post-clone scripts with the required command-line options. With our example we use a post clone script to execute the HANA database recovery.
+. Enter the optional post-clone scripts with the required command-line options. With our example we use a post clone script to execute the SAP HANA database recovery.
 
 image:sc-copy-clone-image23.png[]
 [NOTE]
 As discussed before, the usage of the recovery script is optional. The recovery can also be done manually after the SnapCenter cloning workflow is finished.
 [NOTE]
-The script for the recovery operation recovers the HANA database to the point in time of the Snapshot using the clear logs operation and does not execute any forward recovery. If a forward recovery to a specific point in time is required, the recovery must be performed manually. A manual forward recovery also requires that the log backups from the source system are available at the target host.
+The script for the recovery operation recovers the SAP HANA database to the point in time of the Snapshot using the clear logs operation and does not execute any forward recovery. If a forward recovery to a specific point in time is required, the recovery must be performed manually. A manual forward recovery also requires that the log backups from the source system are available at the target host.
 
 [start=4]
 . The Job Details screen in SnapCenter shows the progress of the operation. The job details also show that the overall runtime including database recovery has been less than 3 minutes.
@@ -230,8 +230,8 @@ hana-7:/mnt/sapcc-share/SAP-System-Refresh
 image:sc-copy-clone-image25.png[]
 
 [start=7]
-. The HANA database is now running.
-. If you want to protect the target HANA system, you need to run the auto discovery by clicking on the target system resource.
+. The SAP HANA database is now running.
+. If you want to protect the target SAP HANA system, you need to run the auto discovery by clicking on the target system resource.
 
 image:sc-copy-clone-image26.png[]
 
@@ -245,10 +245,10 @@ image:sc-copy-clone-image28.png[]
 
 == Cloning from off-site backup storage
 
-This section describes the HANA system refresh workflow for which the tenant name at the source and the target system is identical to the SID. Storage cloning is executed at the off-site backup storage and further automated using the script sc-system-refresh.sh.
+This section describes the SAP HANA system refresh workflow for which the tenant name at the source and the target system is identical to the SID. Storage cloning is executed at the off-site backup storage and further automated using the script sc-system-refresh.sh.
 
 image:sc-copy-clone-image29.png[]
-The only difference in the HANA system refresh workflow between primary and off-site backup storage cloning is the selection of the Snapshot backup in SnapCenter. For off-site backup storage cloning, the secondary backups must be selected first, followed by the selection of the Snapshot backup.
+The only difference in the SAP HANA system refresh workflow between primary and off-site backup storage cloning is the selection of the Snapshot backup in SnapCenter. For off-site backup storage cloning, the secondary backups must be selected first, followed by the selection of the Snapshot backup.
 
 image:sc-copy-clone-image30.png[]
 
@@ -258,9 +258,9 @@ image:sc-copy-clone-image31.png[]
 
 All subsequent steps are identical to the workflow for cloning from primary storage.
 
-== Cloning a HANA system with multiple tenants
+== Cloning a SAP HANA system with multiple tenants
 
-This section describes the HANA system refresh workflow with multiple tenants. Storage cloning is executed at the primary storage and further automated using the script `sc-system-refresh.sh`.
+This section describes the SAP HANA system refresh workflow with multiple tenants. Storage cloning is executed at the primary storage and further automated using the script `sc-system-refresh.sh`.
 
 image:sc-copy-clone-image32.png[]
 
@@ -325,7 +325,7 @@ TENANT1) and starting recovery
 
 A new SAP HANA system refresh operation is started by cleaning up the target system using the SnapCenter clone delete operation.
 
-If the target HANA system has been protected in SnapCenter, the protection must be removed first. Within the topology view of the target system, click Remove Protection.
+If the target SAP HANA system has been protected in SnapCenter, the protection must be removed first. Within the topology view of the target system, click Remove Protection.
 
 The clone delete workflow is now executed with the following steps.
 
@@ -374,7 +374,7 @@ OK
 If the target system of the system refresh operation is planned to be used for a longer timeframe, it makes sense to split the FlexClone volume as part of the system refresh operation.
 
 [NOTE]
-The clone split operation does not block the use of the cloned volume and can therefore be executed at any time while the HANA database is in use.
+The clone split operation does not block the use of the cloned volume and can therefore be executed at any time while the SAP HANA database is in use.
 [NOTE]
 With Azure NetApp Files, the clone split operation is not available, since Azure NetApp Files always splits the clone after creation.
 
@@ -401,9 +401,9 @@ The refresh workflow after a clone split operation looks slightly different than
 
 The workflow consists of the following steps:
 
-. If the target HANA system has been protected in SnapCenter, the protection must be removed first.
+. If the target SAP HANA system has been protected in SnapCenter, the protection must be removed first.
 
-. The HANA database must shut down, the data volume must be unmounted and the fstab entry created by SnapCenter must be removed. These steps need to be executed manually.
+. The SAP HANA database must be shut down, the data volume must be unmounted and the fstab entry created by SnapCenter must be removed. These steps need to be executed manually.
 . Now the SnapCenter clone create workflow can be executed as described in sections before.
 . After the refresh operation, the old target data volume still exists and it must be deleted manually with, for example, ONTAP System Manager.
 

@@ -17,28 +17,28 @@ The figure below summarizes the required steps for an SAP system clone operation
 
 . Prepare the target host.
 
-. SnapCenter clone create workflow for the HANA shared volume.
+. SnapCenter clone create workflow for the SAP HANA shared volume.
 . Start SAP HANA services.
-. SnapCenter clone create workflow for the HANA data volume including database recovery.
-. The HANA system can now be used as a repair system.
+. SnapCenter clone create workflow for the SAP HANA data volume including database recovery.
+. The SAP HANA system can now be used as a repair system.
 [NOTE]
-If you must reset the system to a different Snapshot backup, then step 6 and step 4 are sufficient. The HANA shared volume can continue to be mounted.
+If you must reset the system to a different Snapshot backup, then step 6 and step 4 are sufficient. The SAP HANA shared volume can continue to be mounted.
 +
 If the system is not needed anymore, the clean-up process is performed with the following steps.
-. SnapCenter clone delete workflow for the HANA data volume including database shutdown.
+. SnapCenter clone delete workflow for the SAP HANA data volume including database shutdown.
 . Stop SAP HANA services.
-. SnapCenter clone delete workflow for the HANA shared volume.
+. SnapCenter clone delete workflow for the SAP HANA shared volume.
 
 image:sc-copy-clone-image9.png[]
 
 
 == Prerequisites and limitations
 
-The workflows described in the following sections have a few prerequisites and limitations regarding the HANA system architecture and the SnapCenter configuration.
+The workflows described in the following sections have a few prerequisites and limitations regarding the SAP HANA system architecture and the SnapCenter configuration.
 
 * The described workflow is valid for single host SAP HANA MDC systems. Multiple host systems are not supported.
-* The SnapCenter HANA plug-in must be deployed on the target host to enable the execution of automation scripts.
-* The workflow has been validated for NFS. The automation `script sc-mount-volume.sh`, which is used to mount the HANA shared volume, does not support FCP. This step must be either done manually or by extending the script.
+* The SnapCenter SAP HANA plug-in must be deployed on the target host to enable the execution of automation scripts.
+* The workflow has been validated for NFS. The automation `script sc-mount-volume.sh`, which is used to mount the SAP HANA shared volume, does not support FCP. This step must be either done manually or by extending the script.
 * The described workflow is only valid for the SnapCenter 5.0 release or higher.
 
 == Lab setup
@@ -48,11 +48,11 @@ The figure below shows the lab setup used for system clone operation.
 The following software versions were used:
 
 * SnapCenter 5.0
-* HANA systems: HANA 2.0 SPS6 rev.61
+* SAP HANA systems: HANA 2.0 SPS6 rev.61
 * SLES 15
 * ONTAP 9.7P7
 
-All HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
+All SAP HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the SAP HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
 
 image:sc-copy-clone-image41.png[]
 
@@ -61,9 +61,9 @@ image:sc-copy-clone-image41.png[]
 
 This section describes the preparation steps required at a server that is used as a system clone target.
 
-During normal operation, the target host might be used for other purposes, for example, as a HANA QA or test system. Therefore, most of the described steps must be executed when the system clone operation is requested. On the other hand, the relevant configuration files, like `/etc/fstab`  and `/usr/sap/sapservices`, can be prepared and then put in production simply by copying the configuration file.
+During normal operation, the target host might be used for other purposes, for example, as an SAP HANA QA or test system. Therefore, most of the described steps must be executed when the system clone operation is requested. On the other hand, the relevant configuration files, like `/etc/fstab`  and `/usr/sap/sapservices`, can be prepared and then put in production simply by copying the configuration file.
 
-The target host preparation also includes shutting down the HANA QA or test system.
+The target host preparation also includes shutting down the SAP HANA QA or test system.
 
 === *Target server host name and IP address*
 
@@ -78,11 +78,11 @@ In our lab setup, we changed the host name of the target system only internally 
 
 The SAP host agent software must be installed at the target server. For full information, see the https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/8b/92b1cf6d5f4a7eac40700295ea687f/content.htm?no_cache=true[SAP Host Agent] at the SAP help portal.
 
-The SnapCenter HANA plug-in must be deployed on the target host using the add host operation within SnapCenter.
+The SnapCenter SAP HANA plug-in must be deployed on the target host using the add host operation within SnapCenter.
 
 === *Configure users, ports, and SAP services*
 
-The required users and groups for the SAP HANA database must be available at the target server. Typically, central user management is used; therefore, no configuration steps are necessary at the target server. The required ports for the HANA database must be configured at the target hosts. The configuration can be copied from the source system by copying the /etc/services file to the target server.
+The required users and groups for the SAP HANA database must be available at the target server. Typically, central user management is used; therefore, no configuration steps are necessary at the target server. The required ports for the SAP HANA database must be configured at the target hosts. The configuration can be copied from the source system by copying the /etc/services file to the target server.
 
 The required SAP services entries must be available at the target host. The configuration can be copied from the source system by copying the `/usr/sap/sapservices` file to the target server. The following output shows the required entries for the SAP HANA database used in the lab setup.
 
@@ -159,7 +159,7 @@ image:sc-copy-clone-image43.png[]
 [start=3]
 . Enter the mount script with the required command line options.
 [NOTE]
-The HANA system uses a single volume for `/hana/shared` as well as for `/usr/sap/SS1`, separated in subdirectories as recommended in the configuration guide https://www.netapp.com/media/17238-tr4435.pdf[SAP HANA on NetApp AFF systems with NFS]. The script `sc-mount-volume.sh` supports this configuration using a special command line option for the mount path. If the mount path command line option is equal to usr-sap-and-shared, the script mounts the subdirectories shared and usr-sap in the volume accordingly.
+The SAP HANA system uses a single volume for `/hana/shared` as well as for `/usr/sap/SS1`, separated in subdirectories as recommended in the configuration guide https://www.netapp.com/media/17238-tr4435.pdf[SAP HANA on NetApp AFF systems with NFS]. The script `sc-mount-volume.sh` supports this configuration using a special command line option for the mount path. If the mount path command line option is equal to usr-sap-and-shared, the script mounts the subdirectories shared and usr-sap in the volume accordingly.
 
 image:sc-copy-clone-image44.png[]
 
@@ -227,13 +227,13 @@ hana-1:/mnt/sapcc-share/SAP-System-Refresh #
 
 == Cloning additional SAP application services
 
-Additional SAP application services are cloned in the same way as the SAP HANA shared volume as described in the section “Cloning the HANA shared volume.” Of course, the required storage volume(s) of the SAP application servers must be protected with SnapCenter as well.
+Additional SAP application services are cloned in the same way as the SAP HANA shared volume as described in the section “Cloning the SAP HANA shared volume.” Of course, the required storage volume(s) of the SAP application servers must be protected with SnapCenter as well.
 
 You must add the required services entries to /usr/sap/sapservices, and the ports, users, and the file system mount points (for example, /usr/sap/SID) must be prepared.
 
 == Cloning the data volume and recovery of the HANA database
 
-. Select a HANA Snapshot backup from the source system SS1.
+. Select an SAP HANA Snapshot backup from the source system SS1.
 
 image:sc-copy-clone-image47.png[]
 
@@ -245,7 +245,7 @@ image:sc-copy-clone-image48.png[]
 [start=3]
 . Enter the post-clone scripts with the required command line options.
 [NOTE]
-The script for the recovery operation recovers the HANA database to the point in time of the Snapshot operation and does not execute any forward recovery. If a forward recovery to a specific point in time is required, the recovery must be performed manually. A manual forward recovery also requires that the log backups from the source system are available at the target host.
+The script for the recovery operation recovers the SAP HANA database to the point in time of the Snapshot operation and does not execute any forward recovery. If a forward recovery to a specific point in time is required, the recovery must be performed manually. A manual forward recovery also requires that the log backups from the source system are available at the target host.
 
 image:sc-copy-clone-image23.png[]
 
@@ -281,4 +281,4 @@ Filesystem 1K-blocks Used Available Use% Mounted on
 192.168.175.117:/SS1_data_mnt00001_Clone_0421220520054605 262144064 3732864 258411200 2% /hana/data/SS1/mnt00001
 ....
 
-The HANA system is now available and can be used, for example, as a repair system.
+The SAP HANA system is now available and can be used, for example, as a repair system.

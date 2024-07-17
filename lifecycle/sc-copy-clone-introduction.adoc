@@ -53,7 +53,7 @@ https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/lama-ansible-introd
 
 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html[TR-4929: Automating SAP system copy operations with Libelle SystemCopy (netapp.com)]
 
-https://fieldportal.netapp.com/explore/699265?popupstate=%7B%22state%22:%22app.notebook%22,%22srefParams%22:%7B%22source%22:3,%22sourceId%22:968639,%22notebookId%22:2565224,%22assetComponentId%22:2558241%7D%7D[Automating SAP system copy&#44; refresh&#44; and clone workflows with ALPACA and NetApp SnapCenter]
+https://docs.netapp.com/us-en/netapp-solutions-sap/briefs/sap-alpaca-automation.html#solution-overview[Automating SAP system copy&#44; refresh&#44; and clone workflows with ALPACA and NetApp SnapCenter]
 
-https://fieldportal.netapp.com/explore/699265?popupstate=%7B%22state%22:%22app.notebook%22,%22srefParams%22:%7B%22source%22:3,%22sourceId%22:968639,%22notebookId%22:2565224,%22assetComponentId%22:2558241%7D%7D[Automating SAP system copy&#44; refresh&#44; and clone workflows with Avantra and NetApp SnapCenter]
+https://docs.netapp.com/us-en/netapp-solutions-sap/briefs/sap-avantra-automation.html#solution-overview[Automating SAP system copy&#44; refresh&#44; and clone workflows with Avantra and NetApp SnapCenter]
 

@@ -11,12 +11,12 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :linkattrs:
 :imagesdir: ./../media/
 
-== Data refresh of QA, test, sandbox or training systems
+== Data refresh of QA, test, sandbox, or training systems
 
 There are multiple scenarios in which data from a source system must be made available to a target system for testing or training purposes. These test and training systems must be updated with data from the source system on a regular basis to make sure that testing and training is performed with the current data set. These system refresh operations consist of multiple tasks on the infrastructure, database, and application layers, and they can take multiple days depending on the level of automation.
 
 image:sc-copy-clone-image3.png[]
-SnapCenter cloning workflows can be used to accelerate and automate the required tasks at the infrastructure and database layers. Instead of restoring a backup from the source system to the target system, SnapCenter uses NetApp Snapshot copy and NetApp FlexClone technology, so that required tasks up to a started HANA database can be performed in minutes instead of hours.. The time needed for the cloning process is independent from the size of the database, therefore even very large systems can be created in a couple of minutes. The startup time just depends on the database size and the connectivity between the database server and the storage system.
+SnapCenter cloning workflows can be used to accelerate and automate the required tasks at the infrastructure and database layers. Instead of restoring a backup from the source system to the target system, SnapCenter uses NetApp Snapshot copy and NetApp FlexClone technology, so that required tasks up to a started SAP HANA database can be performed in minutes instead of hours. The time needed for the cloning process is independent from the size of the database, therefore even very large systems can be created in a couple of minutes. The startup time just depends on the database size and the connectivity between the database server and the storage system.
 
 image:sc-copy-clone-image4.png[]
 
