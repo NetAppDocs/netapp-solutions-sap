@@ -37,7 +37,7 @@ The following figure shows a customer’s HANA Studio using Snapshot backup oper
 
 The largest part of the overall backup workflow runtime is the time needed to execute the HANA backup save point operation, and this step is dependent on the load on the HANA database. The storage Snapshot backup itself always finishes in a couple of seconds.
 
-image:amazon-fsx-image1.png[Error: Missing Graphic Image]
+image::amazon-fsx-image1.png[Error: Missing Graphic Image]
 
 == Recovery time objective comparison
 
@@ -67,7 +67,7 @@ The first two bars show that even with a single Snapshot backup per day, the res
 
 The following figure also shows that four to six Snapshot backups per day makes the most sense, because a higher frequency does not have a big influence on the overall runtime anymore.
 
-image:amazon-fsx-image2.png[Error: Missing Graphic Image]
+image::amazon-fsx-image2.png[Error: Missing Graphic Image]
 
 == Use cases and values of accelerated backup and cloning operations
 
@@ -77,7 +77,7 @@ SAP HANA system upgrade is an example of where an on-demand backup before the up
 
 Another use case example would be a typical test cycle, where testing must be done over multiple iterations with different data sets or parameters. When leveraging the fast backup and restore operations, you can easily create save points within your test cycle and reset the system to any of these previous save points if a test fails or needs to be repeated. This enables testing to finish earlier or enables more testing at the same time and improves test results.
 
-image:amazon-fsx-image3.png[Error: Missing Graphic Image]
+image::amazon-fsx-image3.png[Error: Missing Graphic Image]
 
 When Snapshot backups have been implemented, they can be used to address multiple other use cases, which require copies of a HANA database. With FSx for ONTAP, you can create a new volume based on the content of any available Snapshot backup. The runtime of this operation is a few seconds, independent of the size of the volume.
 
@@ -87,4 +87,4 @@ The second use case is the creation of a repair system, which is used to address
 
 The last use case is the ability to run a disaster recover failover test without stopping the replication and therefore without influencing RTO and recovery point objective (RPO) of the disaster recovery setup. When FSx for ONTAP NetApp SnapMirror replication is used to replicate the data to the disaster recovery site, the production Snapshot backups are available at the disaster recovery site as well and can then be used to create a new volume for disaster recover testing.
 
-image:amazon-fsx-image4.png[Error: Missing Graphic Image]
+image::amazon-fsx-image4.png[Error: Missing Graphic Image]

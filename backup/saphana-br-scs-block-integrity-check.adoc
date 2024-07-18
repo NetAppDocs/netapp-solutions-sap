@@ -24,7 +24,7 @@ When scheduling backups using this policy, SnapCenter creates a standard SAP HAN
 
 SnapCenter does not display the block integrity check in the same manner as Snapshot copy-based backups. Instead, the summary card shows the number of file-based backups and the status of the previous backup.
 
-image:saphana-br-scs-image94.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image94.png[Error: Missing Graphic Image]
 
 A block integrity check backup cannot be deleted using the SnapCenter UI, but it can be deleted using PowerShell commands.
 
@@ -75,7 +75,7 @@ PS C:\Users\scadmin>
 
 The SAP HANA backup catalog shows entries for both the system and the tenant databases. The following figure shows a SnapCenter block integrity check in the backup catalog of the system database.
 
-image:saphana-br-scs-image95.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image95.png[Error: Missing Graphic Image]
 
 A successful block integrity check creates standard SAP HANA data backup files. SnapCenter uses the backup path that has been configured in the HANA database for file-based data backup operations.
 

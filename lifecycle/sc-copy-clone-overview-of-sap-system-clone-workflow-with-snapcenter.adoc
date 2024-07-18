@@ -33,6 +33,6 @@ If the system is not needed anymore, the clean-up process is performed with the 
 [NOTE]
 If you must reset the system to a different Snapshot backup, then step 6 and step 4 are sufficient. A refresh of the SAP HANA shared volume is not required.
 
-image:sc-copy-clone-image9.png[]
+image::sc-copy-clone-image9.png[]
 
 The section link:sc-copy-clone-sap-system-clone-with-snapcenter.html[“SAP system clone with SnapCenter”] provides a detailed step-by-step description of the system clone workflow.

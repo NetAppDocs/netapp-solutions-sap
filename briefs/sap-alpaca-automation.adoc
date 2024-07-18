@@ -23,7 +23,7 @@ This document focuses on integrating NetApp® Snapshot™ and FlexClone® techno
 
 The Automating Landscapes Proactively—Cloud and Anywhere (ALPACA) suite is a comprehensive management interface that enables detailed oversight and monitoring across your SAP landscapes. ALPACA streamlines and expedites SAP infrastructure operations, ensuring optimal availability and transparency. It provides a comprehensive array of tools for managing the entire landscape, including infrastructure, and proactively notifies about anomalies such as service disruptions, job halts, and congestion. The suite is designed to operate seamlessly in on-premises, hybrid, and all-cloud environments, including multicloud scenarios, ensuring adaptability to any infrastructure. This module-based framework automates standard and regular SAP admin tasks as well as complex scenarios like failover during an outage. administrators/experts, operators, and managers, ALPACA gives these professionals a high degree of control and automation. 
 
-image:sap-alpaca-image1.png[Diagram of the ALPACA platform]
+image::sap-alpaca-image1.png[Diagram of the ALPACA platform]
 
 This document describes how ALPACA integrates with NetApp SnapCenter®, the tool to orchestrate Snapshot based backups, perform restores, and create FlexClone volumes. This integration allows SAP administrators to significantly accelerate SAP system daily operational tasks. NetApp Snapshot, FlexClone, and SnapRestore® technologies accelerate backup, restore, and clone operations because NetApp's storage technology is pointer-based. This approach is fast, and it also reduces the storage overhead during clone operations, because only new and changed data (not existing data) must be written to the storage medium. This is true regardless of whether it is an on-premises NetApp storage system or a NetApp storage solution at one of the three major cloud providers. 
 
@@ -37,15 +37,15 @@ The term SAP system copy is often used as a synonym for three different processe
 
 * *SAP system clone*. An SAP system clone is an identical clone of a source SAP system. SAP system clones are typically used to address logical corruption or to test disaster recovery scenarios. With a system clone operation, the host name, instance number, and secure identifier (SID) remain the same. It is therefore important to establish proper network fencing for the target system to make sure that thereis no communication with the production environment.
 
-image:sap-alpaca-image2.png[Image showing an SAP system clone]
+image::sap-alpaca-image2.png[Image showing an SAP system clone]
 
 * *SAP system copy*. An SAP system copy is a setup of a new target SAP system with data from a source SAP system. For example, the new target system could be an additional test system with data from the production system. The host name, instance number, and SID are different for the source and target systems.The new system is not isolated from the source system.
 
-image:sap-alpaca-image3.png[Image showing an SAP system copy]
+image::sap-alpaca-image3.png[Image showing an SAP system copy]
 
 * *SAP system refresh*. An SAP system refresh is a refresh of an existing target SAP system with data from a source SAP system. The target system is typically part of an SAP transport landscape—for example, a sandbox system—that is refreshed with data from the production system. The hostname, instance number, and SID are different for the source and target systems.
 
-image:sap-alpaca-image4.png[Image showing an SAP system refresh]
+image::sap-alpaca-image4.png[Image showing an SAP system refresh]
 
 Even though these are three different use cases, the data management process stays the same. All three uses cases use the same underlying data management technology—NetApp Snapshot and FlexClone.
 
@@ -67,7 +67,7 @@ The overall solution consists of these main components:
 
 The following image shows the ALPACA server, the NetApp SnapCenter server, the NetApp storage system, the SAP source and SAP target systems, and how everything is integrated. The goal is to make the integration as flexible as possible by using the SnapCenter REST API to ensure maximum reuse of configuration work that has already been done inside exiting components.
 
-image:sap-alpaca-image5.png[Image showing the ALPACA server, the NetApp SnapCenter server, the NetApp storage system, the SAP source and SAP target systems, and how everything is integrated]
+image::sap-alpaca-image5.png[Image showing the ALPACA server, the NetApp SnapCenter server, the NetApp storage system, the SAP source and SAP target systems, and how everything is integrated]
 
 === Use case summary
 
@@ -77,7 +77,7 @@ To speed up operations, automate tasks, and eliminate human error at the infrast
 
 THe following image shows possible operational efficiency improvements when you use automation.
 
-image:sap-alpaca-image6.png[Image showing possible operational efficiency improvements when you use automation]
+image::sap-alpaca-image6.png[Image showing possible operational efficiency improvements when you use automation]
 
 === Integrating the technology components
 

@@ -13,7 +13,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 
 The following section provides a step-by-step description for the different system refresh operation options of an SAP HANA database.
 
-image:sc-copy-clone-image7.png[]
+image::sc-copy-clone-image7.png[]
 
 Depending on the SAP HANA database configuration additional steps are executed or need to be prepared. The table below provides a summary.
 
@@ -80,7 +80,7 @@ The following software versions were used:
 
 All SAP HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the SAP HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
 
-image:sc-copy-clone-image16.png[]
+image::sc-copy-clone-image16.png[]
 
 == Initial one-time preparation steps
 
@@ -121,7 +121,7 @@ hana-7:/opt/NetApp/snapcenter/scc/etc #
 
 This section describes the SAP HANA system refresh workflow where the tenant name at the source and the target system is identical to the SID. The storage cloning is executed at the primary storage and the recovery is automated with the script `sc-system-refresh.sh`.
 
-image:sc-copy-clone-image17.png[]
+image::sc-copy-clone-image17.png[]
 
 The workflow consists of the following steps:
 
@@ -150,7 +150,7 @@ The following screenshots show the required steps.
 
 . Select a Snapshot backup from the source system SS1 and click Clone.
 
-image:sc-copy-clone-image18.png[]
+image::sc-copy-clone-image18.png[]
 [start=2]
 . Select the host where the target system QS1 is installed. Enter QS1 as the target SID. The NFS export IP address must be the storage network interface of the target host.
 [NOTE]
@@ -158,25 +158,25 @@ The target SID which is entered controls how SnapCenter manages the cloned resou
 [NOTE]
 It is crucial that the target system resource and host has been configured in SnapCenter before you start the cloning workflow. Otherwise, the new resource created by SnapCenter will not support auto discovery and the described workflows won’t work.
 
-image:sc-copy-clone-image19.png[]
+image::sc-copy-clone-image19.png[]
 
 In a Fibre Channel SAN setup, no export IP address is required, but you need to provide the used protocol in the next screen.
 [NOTE]
 The screenshots show a different lab setup using a FibreChannel connectivity.
 
-image:sc-copy-clone-image20.png[]
+image::sc-copy-clone-image20.png[]
 
-image:sc-copy-clone-image21.png[]
+image::sc-copy-clone-image21.png[]
 
 With Azure NetApp Files and a manual QoS capacity pool, you need to provide the maximum throughput for the new volume. Make sure that the capacity pool has enough headroom, otherwise the cloning workflow will fail.
 [NOTE]
 The screenshots show a different lab setup running in Microsoft Azure with Azure NetApp Files.
 
-image:sc-copy-clone-image22.png[]
+image::sc-copy-clone-image22.png[]
 [start=3]
 . Enter the optional post-clone scripts with the required command-line options. With our example we use a post clone script to execute the SAP HANA database recovery.
 
-image:sc-copy-clone-image23.png[]
+image::sc-copy-clone-image23.png[]
 [NOTE]
 As discussed before, the usage of the recovery script is optional. The recovery can also be done manually after the SnapCenter cloning workflow is finished.
 [NOTE]
@@ -185,7 +185,7 @@ The script for the recovery operation recovers the SAP HANA database to the poin
 [start=4]
 . The Job Details screen in SnapCenter shows the progress of the operation. The job details also show that the overall runtime including database recovery has been less than 3 minutes.
 
-image:sc-copy-clone-image24.png[]
+image::sc-copy-clone-image24.png[]
 
 [start=5]
 . The logfile of the `sc-system-refresh` script shows the different steps that were executed for the recovery operation. The script reads the list of tenants from the system database and executes a recovery of all existing tenants.
@@ -227,34 +227,34 @@ hana-7:/mnt/sapcc-share/SAP-System-Refresh
 [start=6]
 . When the SnapCenter job is finished, the clone is visible within the topology view of the source system.
 
-image:sc-copy-clone-image25.png[]
+image::sc-copy-clone-image25.png[]
 
 [start=7]
 . The SAP HANA database is now running.
 . If you want to protect the target SAP HANA system, you need to run the auto discovery by clicking on the target system resource.
 
-image:sc-copy-clone-image26.png[]
+image::sc-copy-clone-image26.png[]
 
 When the auto discovery process is finished, the new cloned volume is listed in the storage footprint section.
 
-image:sc-copy-clone-image27.png[]
+image::sc-copy-clone-image27.png[]
 
 By clicking on the resource again, data protection can be configured for the refreshed QS1 system.
 
-image:sc-copy-clone-image28.png[]
+image::sc-copy-clone-image28.png[]
 
 == Cloning from off-site backup storage
 
 This section describes the SAP HANA system refresh workflow for which the tenant name at the source and the target system is identical to the SID. Storage cloning is executed at the off-site backup storage and further automated using the script sc-system-refresh.sh.
 
-image:sc-copy-clone-image29.png[]
+image::sc-copy-clone-image29.png[]
 The only difference in the SAP HANA system refresh workflow between primary and off-site backup storage cloning is the selection of the Snapshot backup in SnapCenter. For off-site backup storage cloning, the secondary backups must be selected first, followed by the selection of the Snapshot backup.
 
-image:sc-copy-clone-image30.png[]
+image::sc-copy-clone-image30.png[]
 
 If there are multiple secondary storage locations for the selected backup, you need to choose the required destination volume.
 
-image:sc-copy-clone-image31.png[]
+image::sc-copy-clone-image31.png[]
 
 All subsequent steps are identical to the workflow for cloning from primary storage.
 
@@ -262,7 +262,7 @@ All subsequent steps are identical to the workflow for cloning from primary stor
 
 This section describes the SAP HANA system refresh workflow with multiple tenants. Storage cloning is executed at the primary storage and further automated using the script `sc-system-refresh.sh`.
 
-image:sc-copy-clone-image32.png[]
+image::sc-copy-clone-image32.png[]
 
 The required steps in SnapCenter are identical to what has been described in the section “Cloning from primary storage with tenant name equal to SID.” The only difference is in the tenant recovery operation within the script `sc-system-refresh.sh`, where all tenants are recovered.
 
@@ -331,15 +331,15 @@ The clone delete workflow is now executed with the following steps.
 
 . Select the clone within the topology view of the source system and click Delete.
 
-image:sc-copy-clone-image33.png[]
+image::sc-copy-clone-image33.png[]
 [start=2]
 . Enter the pre-clone and unmount scripts with the required command line options.
 
-image:sc-copy-clone-image34.png[]
+image::sc-copy-clone-image34.png[]
 [start=3]
 . The job details screen in SnapCenter shows the progress of the operation.
 
-image:sc-copy-clone-image35.png[]
+image::sc-copy-clone-image35.png[]
 
 [start=4]
 . The log file of the `sc-system-refresh` script shows the shutdown and unmount operation steps.
@@ -380,21 +380,21 @@ With Azure NetApp Files, the clone split operation is not available, since Azure
 
 The clone split workflow in SnapCenter is initiated in the topology view of the source system by selecting the clone and clicking on clone split.
 
-image:sc-copy-clone-image36.png[]
+image::sc-copy-clone-image36.png[]
 
 A preview is shown in the next screen, which provides information on the required capacity for the split volume.
 
-image:sc-copy-clone-image37.png[]
+image::sc-copy-clone-image37.png[]
 
 The SnapCenter job log shows the progress of the clone split operation.
 
-image:sc-copy-clone-image38.png[]
+image::sc-copy-clone-image38.png[]
 
 In the resource view in SnapCenter the target system QS1 is now not marked as a cloned resource anymore. When going back to the topology view of the source system, the clone is not visible anymore. The split volume is now independent from the Snapshot backup of the source system.
 
-image:sc-copy-clone-image39.png[]
+image::sc-copy-clone-image39.png[]
 
-image:sc-copy-clone-image40.png[]
+image::sc-copy-clone-image40.png[]
 
 
 The refresh workflow after a clone split operation looks slightly different than the operation without clone split. After a clone split operation, there is no clone delete operation required, because the target data volume is not a FlexClone volume anymore.
