@@ -26,7 +26,7 @@ In addition, data is also replicated asynchronously to a secondary region to be 
 
 This document discusses different implementation options of a two- region disaster recovery solution.
 
-image:saphana-dr-anf_image3.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image3.png[Error: Missing Graphic Image]
 
 == SAP HANA System Replication
 
@@ -47,7 +47,7 @@ The following figure shows the setup of a two-region disaster recovery solution 
 
 The following figure depicts SAP HANA System Replication.
 
-image:saphana-dr-anf_image4.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image4.png[Error: Missing Graphic Image]
 
 === SAP HANA System Replication with data preloaded into memory
 
@@ -75,7 +75,7 @@ The servers at the disaster recovery sites can be used as dev/test systems durin
 
 ANF Cross-Region Replication allows you to test the DR workflow without impacting the RPO and RTO. This is accomplished by creating volume clones and attaching them to the DR testing server.
 
-image:saphana-dr-anf_image5.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image5.png[Error: Missing Graphic Image]
 
 == Summary of disaster recovery solutions
 

@@ -38,6 +38,6 @@ To perform disaster recovery testing, complete the following steps:
 
 The following subsections describe these steps in detail.
 
-image:saphana-dr-anf_image18.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image18.png[Error: Missing Graphic Image]
 
 

@@ -30,7 +30,7 @@ The script writes a log file `sc-system-refresh-SID.log``, to the same directory
 [NOTE]
 The current version of the script supports single host systems MDC single tenant, or MDC multiple tenant configurations. It does not support SAP HANA multiple-host systems.
 
-image:sc-copy-clone-image14.png[]
+image::sc-copy-clone-image14.png[]
 
 === Supported tenant recovery operations
 
@@ -55,7 +55,7 @@ The example script `sc-mount-volume.sh` is used to execute mount and unmount for
 [NOTE]
 The script supports SAP HANA systems using NFS as a storage protocol.
 
-image:sc-copy-clone-image15.png[]
+image::sc-copy-clone-image15.png[]
 
 === SnapCenter environment variables
 

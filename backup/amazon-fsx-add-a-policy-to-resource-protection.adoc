@@ -21,9 +21,9 @@ summary: This section describes how to add a policy to resource protection.
 [.lead]
 You must add the new policy to the HANA resource protection configuration, as shown in the following figure.
 
-image:amazon-fsx-image86.png[Error: Missing Graphic Image]
+image::amazon-fsx-image86.png[Error: Missing Graphic Image]
 
 A daily schedule is defined in our setup.
 
-image:amazon-fsx-image87.png[Error: Missing Graphic Image]
+image::amazon-fsx-image87.png[Error: Missing Graphic Image]
 
