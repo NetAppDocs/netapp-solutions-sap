@@ -23,7 +23,7 @@ In our lab setup, we use a second FSX for ONTAP file system in a second AWS avai
 
 As discussed in chapter link:amazon-fsx-snapcenter-architecture.html#data-protection-strategy[“Data protection strategy”], the replication target must be a second FSx for ONTAP file system in another availability zone to be protected from a failure of the primary FSx for ONTAP file system. Also, the HANA shared volume should be replicated to the secondary FSx for ONTAP file system.
 
-image:amazon-fsx-image8.png[Error: Missing Graphic Image]
+image::amazon-fsx-image8.png[Error: Missing Graphic Image]
 
 === Overview of configuration steps
 
