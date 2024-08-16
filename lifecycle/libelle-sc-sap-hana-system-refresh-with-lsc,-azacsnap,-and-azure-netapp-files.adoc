@@ -34,7 +34,7 @@ The following figure shows a typical high-level workflow of an SAP system refres
 
 The system can then be used as a test or QA system. When a new system refresh is requested, the workflow restarts with step 2. Any remaining cloned volumes must be deleted manually.
 
-image:libelle-sc-image23.png[Error: Missing Graphic Image]
+image::libelle-sc-image23.png[Error: Missing Graphic Image]
 
 == Prerequisites and limitations
 
@@ -44,7 +44,7 @@ The following prerequisites must be fulfilled.
 
 In general, there are two deployments options for AzAcSnap, as is shown in the following picture.
 
-image:libelle-sc-image24.png[Error: Missing Graphic Image]
+image::libelle-sc-image24.png[Error: Missing Graphic Image]
 
 AzAcSnap can be installed and run on a central Linux VM for which all DB configuration files are stored centrally and AzAcSnap has access to all databases (through the hdbsql client) and the configured HANA userstore keys for all these databases. With a decentralized deployment, AzAcSnap is installed individually on each database host where typically only the DB configuration for the local database is stored. Both deployment options are supported for LSC integration. However,  we followed a hybrid approach in the lab setup for this document. AzAcSnap was installed on a central NFS share along with all DB configuration files. This central installation share was mounted on all VMs under `/mnt/software/AZACSNAP/snapshot-tool`. The execution of the tool was then performed locally on the DB VMs.
 
@@ -52,7 +52,7 @@ AzAcSnap can be installed and run on a central Linux VM for which all DB configu
 
 Libelle SystemCopy deployments consist of the following components:
 
-image:libelle-sc-image25.png[Error: Missing Graphic Image]
+image::libelle-sc-image25.png[Error: Missing Graphic Image]
 
 * *LSC Master.* As the name suggests, this is the master component that controls the automatic workflow of a Libelle-based system copy.
 * *LSC Worker.* An LSC worker usually runs on the target SAP system and executes the scripts required for the automated system copy.
@@ -62,7 +62,7 @@ The Libelle SystemCopy (LSC) GUI must be installed on a suitable VM. In this lab
 
 After LSC is installed, the basic configuration for the source and the target database must be performed according to the LSC guidelines. The following images shows the configuration of the lab environment for this document. See the next section for details about the source and the target SAP systems and databases.
 
-image:libelle-sc-image26.png[Error: Missing Graphic Image]
+image::libelle-sc-image26.png[Error: Missing Graphic Image]
 
 You should also configure a suitable standard task list for the SAP systems. For more details about the installation and configuration of LSC, consult the LSC user manual that is part of the LSC installation package.
 
@@ -78,7 +78,7 @@ The lab setup consists of a source SAP system and a target SAP system, both runn
 
 The following picture shows the lab setup.
 
-image:libelle-sc-image27.png[Error: Missing Graphic Image]
+image::libelle-sc-image27.png[Error: Missing Graphic Image]
 
 It contains the following systems, software versions, and Azure NetApp Files volumes:
 
@@ -97,7 +97,7 @@ It contains the following systems, software versions, and Azure NetApp Files vol
 
 Before the first SAP system refresh can be executed, you must integrate Azure NetApp Files Snapshot copy-and-cloning-based storage operations executed by AzAcSnap. You must also execute an auxiliary script for starting and stopping the database and mounting or unmounting the Azure NetApp Files volumes. All required tasks are performed as custom tasks in LSC as part of the copy phase. The following picture shows the custom tasks in the LSC task list.
 
-image:libelle-sc-image28.png[Error: Missing Graphic Image]
+image::libelle-sc-image28.png[Error: Missing Graphic Image]
 
 All five copy tasks are described here in more detail. In some of these tasks, a sample script `sc-system-refresh.sh` is used to further automate the required SAP HANA database recovery operation and the mount and unmount of the data volumes. The script uses an `LSC: success` message in the system output to indicate a successful execution to LSC. Details about custom tasks and available parameters can be found in the LSC user manual and the LSC developer guide.  All tasks in this lab environment are executed on the target DB VM.
 
@@ -132,7 +132,7 @@ sudo /mnt/software/scripts/sc-system-refresh/sc-system-refresh.sh shutdown $_sys
 
 The script `sc-system-refresh.sh` takes two parameters, the `shutdown` command and the DB SID, to stop the SAP HANA database using sapcontrol. The system output is redirected to the standard LSC logfile. As mentioned before, an `LSC: success` message is used to indicate successful execution.
 
-image:libelle-sc-image29.png[Error: Missing Graphic Image]
+image::libelle-sc-image29.png[Error: Missing Graphic Image]
 
 === ZSCCOPYUMOUNT
 
@@ -161,7 +161,7 @@ Because the output of the AzAcSnap command cannot be changed, the default `LSC: 
 
 The following figure shows the AzAcSnap restore to new volume success message.
 
-image:libelle-sc-image30.png[Error: Missing Graphic Image]
+image::libelle-sc-image30.png[Error: Missing Graphic Image]
 
 === ZSCCOPYMOUNT
 
@@ -191,36 +191,36 @@ In this section a sample refresh operation of lab systems shows the main steps o
 
 Regular and on-demand Snapshot copies have been created for the P01 source database as listed in the backup catalog.
 
-image:libelle-sc-image31.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image31.jpg[Error: Missing Graphic Image]
 
 For the refresh operation, the latest backup from March 12th was used. In the backup details section, the external backup ID (EBID) for this backup is listed. This is the Snapshot copy name of the corresponding Snapshot copy backup on the Azure NetApp Files data volume as shown in the following picture.
 
-image:libelle-sc-image32.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image32.jpg[Error: Missing Graphic Image]
 
 To start the refresh operation, select the correct configuration in the LSC GUI, and then click Start Execution.
 
-image:libelle-sc-image33.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image33.jpg[Error: Missing Graphic Image]
 
 LSC starts to execute the tasks of the Check phase followed by the configured tasks of the Pre phase.
 
-image:libelle-sc-image34.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image34.jpg[Error: Missing Graphic Image]
 
 As the last step of the Pre phase, the target SAP system is stopped. In the following Copy phase, the steps described in the previous section are executed. First, the target SAP HANA database is stopped, and the old Azure NetApp Files volume is unmounted from the OS.
 
-image:libelle-sc-image35.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image35.jpg[Error: Missing Graphic Image]
 
 The ZAZACSNAPRESTORE task then creates a new volume as a clone from the existing Snapshot copy of the P01 system. The following two pictures show the logs of the task in the LSC GUI and the cloned Azure NetApp Files volume in the Azure portal.
 
-image:libelle-sc-image36.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image36.jpg[Error: Missing Graphic Image]
 
-image:libelle-sc-image37.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image37.jpg[Error: Missing Graphic Image]
 
 This new volume is then mounted on the target DB host and the system database and the tenant database are recovered using the containing Snapshot copy. After successful recovery, the SAP HANA database is started automatically. This startup of the SAP HANA database occupies most of the time of the Copy phase. The remaining steps typically finish in a few seconds to a few minutes, regardless of the size of the database. The following picture shows how the system database is recovered using SAP- provided python recovery scripts.
 
-image:libelle-sc-image38.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image38.jpg[Error: Missing Graphic Image]
 
 After the Copy phase, LSC continues with all the defined steps of the Post phase. When the System Refresh process finishes completely, the target system is up and running again and fully usable. With this lab system, the total runtime for the SAP system refresh was roughly 25 minutes, of which the Copy phase consumed just under 5 minutes.
 
-image:libelle-sc-image39.jpg[Error: Missing Graphic Image]
+image::libelle-sc-image39.jpg[Error: Missing Graphic Image]
 
 

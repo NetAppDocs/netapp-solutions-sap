@@ -31,7 +31,7 @@ A single capacity pool with manual QoS has been configured at the DR site.
 
 The following figure depicts the lab setup.
 
-image:saphana-dr-anf_image7.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image7.png[Error: Missing Graphic Image]
 
 == Snapshot backup configuration with AzAcSnap
 
@@ -41,10 +41,10 @@ With the replication of the data volume using ANF Cross-Region Replication, thes
 
 The following figure shows the Snapshot backups of the HANA data volume.
 
-image:saphana-dr-anf_image8.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image8.png[Error: Missing Graphic Image]
 
 The following figure shows the SAP HANA backup catalog.
 
-image:saphana-dr-anf_image9.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image9.png[Error: Missing Graphic Image]
 
 
