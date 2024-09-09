@@ -20,12 +20,6 @@ Overview of the videos and demos highlighting SAP Backup, Restore and Disaster R
 
 === SAP Backup, Restore and Disaster Recovery Videos and Demos
 
-* link:https://media.netapp.com/video-detail/10430dd1-8560-52fa-8f22-a7923582d66a/ensure-sap-application-availability-and-minimize-downtime[Ensure SAP Application Availability and Minimize Downtime^]
-
-* link:https://media.netapp.com/video-detail/5f6f3721-d1d0-5c1d-9ae9-d696eddb91ea/optimize-your-data-protection-for-sap-hana-on-azure-netapp-files[Optimize Your Data Protection for SAP HANA on Azure NetApp Files^]
-
 * link:https://media.netapp.com/video-detail/6b94b9c3-0862-5da8-8332-5aa1ffe86419/disaster-recovery-options-for-sap-hana[Disaster Recovery Options for SAP HANA^]
-
-* link:https://media.netapp.com/video-detail/049d4875-c8ea-5d25-9205-73c16d81177d/sap-hana-disaster-recovery-with-anf-and-cross-region-replication[SAP HANA Disaster Recovery with ANF and Cross-Region Replication^]
 
 // end::videos[]
