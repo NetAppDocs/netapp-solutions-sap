@@ -43,7 +43,7 @@ The required privileges were changed with the HANA 2.0 SPS5 release: backup admi
 [NOTE]
 For an SAP HANA MDC system, the user must be created in the system database because all backup commands for the system and the tenant databases are executed using the system database.
 
-image::saphana-br-scs-image53.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image53.png[]
 
 At the HANA plug-in host, on which the SAP HANA plug-in and the SAP hdbsql client are installed, a userstore key must be configured.
 
@@ -151,7 +151,7 @@ The following figure shows the configured protection relationship for the SAP HA
 [NOTE]
 The schedule of the relationship must be set to None, because SnapCenter triggers the SnapVault update.
 
-image::saphana-br-scs-image54.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image54.png[]
 
 The following figure shows the protection policy. The protection policy used for the protection relationship defines the SnapMirror label, as well as the retention of backups at the secondary storage. In our example, the used label is `Daily`, and the retention is set to 5.
 
@@ -161,7 +161,7 @@ The SnapMirror label in the policy being created must match the label defined in
 [NOTE]
 The retention for backups at the off-site backup storage is defined in the policy and controlled by ONTAP.
 
-image::saphana-br-scs-image55.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image55.png[]
 
 == Manual HANA resource configuration
 
@@ -184,16 +184,16 @@ The HANA plug-in host in our example is the SnapCenter Server.
 +
 The hdbuserstore key must match the key that was configured for the HANA database SS2. In our example it is SS2KEY.
 +
-image::saphana-br-scs-image56.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image56.png[]
 +
 [NOTE]
 For an SAP HANA multiple-host system, the hdbuserstore keys for all hosts must be included, as shown in the following figure. SnapCenter will try to connect with the first key in the list, and will continue with the other case, in case the first key does not work. This is required to support HANA failover in a multiple-host system with worker and standby hosts.
 +
-image::saphana-br-scs-image57.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image57.png[]
 
 . Select the required data for the storage system (SVM) and volume name.
 +
-image::saphana-br-scs-image58.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image58.png[]
 +
 [NOTE]
 For a Fibre Channel SAN configuration, the LUN needs to be selected as well.
@@ -201,13 +201,13 @@ For a Fibre Channel SAN configuration, the LUN needs to be selected as well.
 [NOTE]
 For an SAP HANA multiple-host system, all data volumes of the SAP HANA system must be selected, as shown in the following figure.
 +
-image::saphana-br-scs-image59.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image59.png[]
 +
 The summary screen of the resource configuration is shown.
 
 . Click Finish to add the SAP HANA database.
 +
-image::saphana-br-scs-image60.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image60.png[]
 
 . When resource configuration is finished, perform the configuration of resource protection as described in the section “<<Resource protection configuration>>.”
 
@@ -221,15 +221,15 @@ The SAP HANA plug-in requires Java 64-bit version 1.8. Java must be installed on
 . From the host tab, click Add.
 . Provide host information and select the SAP HANA plug-in to be installed. Click Submit.
 +
-image::saphana-br-scs-image61.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image61.png[]
 
 . Confirm the fingerprint.
 +
-image::saphana-br-scs-image62.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image62.png[]
 +
 The installation of the HANA plug-in and the Linux plug-in starts automatically. When the installation is finished, the status column of the host shows Running. The screen also shows that the Linux plug-in is installed together with the HANA plug-in.
 +
-image::saphana-br-scs-image63.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image63.png[]
 +
 After the plug-in installation, the automatic discovery process of the HANA resource starts automatically. In the Resources screen, a new resource is created, which is marked as locked with the red padlock icon.
 
@@ -238,19 +238,19 @@ After the plug-in installation, the automatic discovery process of the HANA reso
 [NOTE]
 You can also trigger the automatic discovery process manually within the Resources screen, by clicking Refresh Resources.
 +
-image::saphana-br-scs-image64.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image64.png[]
 
 . Provide the userstore key for the HANA database.
 +
-image::saphana-br-scs-image65.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image65.png[]
 +
 The second level automatic discovery process starts in which tenant data and storage footprint information is discovered.
 
 . Click Details to review the HANA resource configuration information in the resource topology view.
 +
-image::saphana-br-scs-image66.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image66.png[]
 +
-image::saphana-br-scs-image67.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image67.png[]
 +
 When the resource configuration is finished, the resource protection configuration must be executed as described in the following section.
 
@@ -274,39 +274,39 @@ In the configuration shown in the following figure, the backup and Snapshot copy
 [NOTE]
 Even though a retention is defined for on-demand backups in the policy configuration, the housekeeping is only done when another on-demand backup is executed. Therefore, on-demand backups must typically be deleted manually in SnapCenter to make sure that these backups are also deleted in the SAP HANA backup catalog and that the log backup housekeeping is not based on an old on-demand backup.
 +
-image::saphana-br-scs-image68.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image68.png[]
 
 . No specific setting needs to be made on the Application Settings page. Click Next.
 +
-image::saphana-br-scs-image69.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image69.png[]
 
 . Select the policies to add to the resource.
 +
-image::saphana-br-scs-image70.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image70.png[]
 
 . Define the schedule for the LocalSnap policy (in this example, every four hours).
 +
-image::saphana-br-scs-image71.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image71.png[]
 
 . Define the schedule for the LocalSnapAndSnapVault policy (in this example, once per day).
 +
-image::saphana-br-scs-image72.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image72.png[]
 
 . Define the schedule for the block integrity check policy (in this example, once per week).
 +
-image::saphana-br-scs-image73.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image73.png[]
 
 . Provide information about the email notification.
 +
-image::saphana-br-scs-image74.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image74.png[]
 
 . On the Summary page, click Finish.
 +
-image::saphana-br-scs-image75.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image75.png[]
 
 . On-demand backups can now be created on the topology page. The scheduled backups are executed based on the configuration settings.
 +
-image::saphana-br-scs-image76.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image76.png[]
 
 == Additional configuration steps for Fibre Channel SAN environments
 
@@ -348,5 +348,5 @@ If a separate Linux host is used as a central HANA plug-in host, you must config
 
 The following figure shows the Post Quiesce command within the resource protection configuration screen.
 
-image::saphana-br-scs-image77.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image77.png[]
 

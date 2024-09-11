@@ -90,9 +90,9 @@ This section provides the steps for the automated restore and recovery operation
 [NOTE]
 You can select restore from primary or from offsite backup storage.
 +
-image::saphana-br-scs-image96.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image96.png[]
 +
-image::saphana-br-scs-image97.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image97.png[]
 
 . Select the restore scope and type.
 +
@@ -103,42 +103,42 @@ The restore type options for restore from primary storage.
 [NOTE]
 The Volume Revert option is only available for restore operations from primary with NFS.
 +
-image::saphana-br-scs-image98.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image98.png[]
 +
 The restore type options for restore from offsite backup storage.
 +
-image::saphana-br-scs-image99.jpeg[Error: Missing Graphic Image]
+image::saphana-br-scs-image99.jpeg[]
 +
 The restore type options for restore from primary storage with Fibre Channel SAN.
 +
-image::saphana-br-scs-image100.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image100.png[]
 
 . Select Recovery Scope and provide the location for log backup and catalog backup.
 +
 [NOTE]
 SnapCenter uses the default path or the changed paths in the HANA global.ini file to pre-populate the log and catalog backup locations.
 +
-image::saphana-br-scs-image101.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image101.png[]
 
 . Enter the optional prerestore commands.
 +
-image::saphana-br-scs-image102.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image102.png[]
 
 . Enter the optional post-restore commands.
 +
-image::saphana-br-scs-image103.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image103.png[]
 
 . Enter the optional email settings.
 +
-image::saphana-br-scs-image104.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image104.png[]
 
 . To start the restore operation, click Finish.
 +
-image::saphana-br-scs-image105.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image105.png[]
 
 . SnapCenter executes the restore and recovery operation. This example shows the job details of the restore and recovery job.
 +
-image::saphana-br-scs-image106.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image106.png[]
 
 == Single-tenant restore and recovery operation
 
@@ -175,38 +175,38 @@ hdbsql SYSTEMDB=>
 
 . Select a backup in SnapCenter to be used for the restore operation.
 +
-image::saphana-br-scs-image107.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image107.png[]
 
 . Select the tenant to be restored.
 +
 [NOTE]
 SnapCenter shows a list of all tenants that are included in the selected backup.
 +
-image::saphana-br-scs-image108.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image108.png[]
 +
 Single-tenant recovery is not supported with SnapCenter 4.3. No Recovery is preselected and cannot be changed.
 +
-image::saphana-br-scs-image109.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image109.png[]
 
 . Enter the optional prerestore commands.
 +
-image::saphana-br-scs-image110.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image110.png[]
 
 . Enter optional post-restore commands.
 +
-image::saphana-br-scs-image111.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image111.png[]
 
 . Enter the optional email settings.
 +
-image::saphana-br-scs-image112.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image112.png[]
 
 . To start the restore operation, click Finish.
 +
-image::saphana-br-scs-image113.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image113.png[]
 +
 The restore operation is executed by SnapCenter. This example shows the job details of the restore job.
 +
-image::saphana-br-scs-image114.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image114.png[]
 +
 [NOTE]
 When the tenant restore operation is finished, only the tenant relevant data is restored. On the file system of the HANA database host, the restored data file and the Snapshot backup ID file of the tenant is available.
@@ -245,41 +245,41 @@ sm1adm@hana-2:/usr/sap/SM1/HDB00>
 
 . Start the recovery with HANA Studio.
 +
-image::saphana-br-scs-image115.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image115.png[]
 
 . Select the tenant.
 +
-image::saphana-br-scs-image116.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image116.png[]
 
 . Select the recovery type.
 +
-image::saphana-br-scs-image117.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image117.png[]
 
 . Provide the backup catalog location.
 +
-image::saphana-br-scs-image118.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image118.png[]
 +
-image::saphana-br-scs-image119.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image119.png[]
 +
 Within the backup catalog, the restored backup is highlighted with a green icon. The external backup ID shows the backup name that was previously selected in SnapCenter.
 
 . Select the entry with the green icon and click Next.
 +
-image::saphana-br-scs-image120.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image120.png[]
 
 . Provide the log backup location.
 +
-image::saphana-br-scs-image121.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image121.png[]
 
 . Select the other settings as required.
 +
-image::saphana-br-scs-image122.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image122.png[]
 
 . Start the tenant recovery operation.
 +
-image::saphana-br-scs-image123.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image123.png[]
 +
-image::saphana-br-scs-image124.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image124.png[]
 
 === Restore with manual recovery
 
@@ -315,25 +315,25 @@ The following section describes the steps of the restore and recovery operations
 
 . In SAP HANA Studio, select the Recover System Database option to start the recovery of the system database.
 +
-image::saphana-br-scs-image125.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image125.png[]
 
 . Click OK to shut down the SAP HANA database.
 +
-image::saphana-br-scs-image126.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image126.png[]
 +
 The SAP HANA system shuts down and the recovery wizard is started.
 
 . Select the recovery type and click Next.
 +
-image::saphana-br-scs-image127.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image127.png[]
 
 . Provide the location of the backup catalog and click Next.
 +
-image::saphana-br-scs-image128.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image128.png[]
 
 . A list of available backups displays based on the content of the backup catalog. Choose the required backup and note the external backup ID: in our example, the most recent backup.
 +
-image::saphana-br-scs-image129.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image129.png[]
 
 . Unmount all data volumes.
 +
@@ -349,7 +349,7 @@ In an SAP HANA multiple-host setup with FC, the unmount operation is executed by
 
 . From the SnapCenter GUI, select the resource topology view and select the backup that should be restored; in our example, the most recent primary backup. Click the Restore icon to start the restore.
 +
-image::saphana-br-scs-image130.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image130.png[]
 +
 The SnapCenter restore wizard starts.
 
@@ -357,36 +357,36 @@ The SnapCenter restore wizard starts.
 +
 Select Complete Resource to use a volume-based restore.
 +
-image::saphana-br-scs-image131.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image131.png[]
 
 . Select File Level and All to use a single-file SnapRestore operation for all files.
 +
-image::saphana-br-scs-image132.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image132.png[]
 +
 [NOTE]
 For a file-level restore of a SAP HANA multiple host system, select all the volumes.
 +
-image::saphana-br-scs-image133.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image133.png[]
 
 . (Optional) Specify the commands that should be executed from the SAP HANA plug-in running on the central HANA plug-in host. Click Next.
 +
-image::saphana-br-scs-image134.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image134.png[]
 
 . Specify the optional commands and click Next.
 +
-image::saphana-br-scs-image135.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image135.png[]
 
 . Specify the notification settings so that SnapCenter can send a status email and job log. Click Next.
 +
-image::saphana-br-scs-image136.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image136.png[]
 
 . Review the summary and click Finish to start the restore.
 +
-image::saphana-br-scs-image137.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image137.png[]
 
 . The restore job starts, and the job log can be displayed by double-clicking the log line in the activity pane.
 +
-image::saphana-br-scs-image138.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image138.png[]
 
 . Wait until the restore process completes. On each database host, mount all data volumes. In our example, only one volume must be remounted on the database host.
 +
@@ -396,63 +396,63 @@ mount /hana/data/SP1/mnt00001
 
 . Go to SAP HANA Studio and click Refresh to update the list of available backups. The backup that was restored with SnapCenter is shown with a green icon in the list of backups. Select the backup and click Next.
 +
-image::saphana-br-scs-image139.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image139.png[]
 
 . Provide the location of the log backups. Click Next.
 +
-image::saphana-br-scs-image140.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image140.png[]
 
 . Select other settings as required. Make sure Use Delta Backups is not selected. Click Next.
 +
-image::saphana-br-scs-image141.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image141.png[]
 
 . Review the recovery settings and click Finish.
 +
-image::saphana-br-scs-image142.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image142.png[]
 
 . The recovery process starts. Wait until the recovery of the system database completes.
 +
-image::saphana-br-scs-image143.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image143.png[]
 
 . In SAP HANA Studio, select the entry for the system database and start Backup Recovery - Recover Tenant Database.
 +
-image::saphana-br-scs-image144.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image144.png[]
 
 . Select the tenant to recover and click Next.
 +
-image::saphana-br-scs-image145.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image145.png[]
 
 . Specify the recovery type and click Next.
 +
-image::saphana-br-scs-image146.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image146.png[]
 
 . Confirm the backup catalog location and click Next.
 +
-image::saphana-br-scs-image147.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image147.png[]
 
 . Confirm that the tenant database is offline. Click OK to continue.
 +
-image::saphana-br-scs-image148.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image148.png[]
 
 . Because the restore of the data volume has occurred before the recovery of the system database, the tenant backup is immediately available. Select the backup highlighted in green and click Next.
 +
-image::saphana-br-scs-image149.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image149.png[]
 
 . Confirm the log backup location and click Next.
 +
-image::saphana-br-scs-image150.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image150.png[]
 
 . Select other settings as required. Make sure Use Delta Backups is not selected. Click Next.
 +
-image::saphana-br-scs-image151.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image151.png[]
 
 . Review the recovery settings and start the recovery process of the tenant database by clicking Finish.
 +
-image::saphana-br-scs-image152.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image152.png[]
 
 . Wait until the recovery has finished and the tenant database is started.
 +
-image::saphana-br-scs-image153.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image153.png[]
 +
 The SAP HANA system is up and running.
 +
