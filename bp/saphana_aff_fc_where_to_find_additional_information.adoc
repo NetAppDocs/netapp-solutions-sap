@@ -29,7 +29,7 @@ https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-sr_pdf_link
 * TR-4614: SAP HANA Backup and Recovery with SnapCenter
 +
 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html^]
-* TR-4667: Automating SAP System Copies Using the SnapCenter 4.0 SAP HANA Plug-In
+* TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter
 +
 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html^]
 * NetApp Documentation Centers
