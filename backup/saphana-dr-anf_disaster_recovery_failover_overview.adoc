@@ -33,5 +33,5 @@ To execute disaster recovery failover, complete these steps:
 
 The following subsections describe these steps in detail, and the following figure depicts disaster failover testing.
 
-image::saphana-dr-anf_image26.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image26.png[]
 

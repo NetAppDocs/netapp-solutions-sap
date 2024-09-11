@@ -47,6 +47,6 @@ The SnapCenter Server is used as a central HANA plug-in host for the HANA system
 
 The following figure shows the lab setup.
 
-image::saphana-br-scs-image21.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image21.png[]
 
 

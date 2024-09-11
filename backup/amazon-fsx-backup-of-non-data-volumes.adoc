@@ -33,41 +33,41 @@ Follow these steps to configure non-data volume resources:
 
 . From the Resources tab, select Non-Data-Volume and click Add SAP HANA Database.
 +
-image::amazon-fsx-image60.png[Error: Missing Graphic Image]
+image::amazon-fsx-image60.png[]
 
 . In step one of the Add SAP HANA Database dialog, in the Resource Type list, select Non- data Volumes. Specify a name for the resource and the associated SID and the SAP HANA plug-in host that you want to use for the resource, then click Next.
 +
-image::amazon-fsx-image61.png[Error: Missing Graphic Image]
+image::amazon-fsx-image61.png[]
 
 . Add the SVM and the storage volume as storage footprint, then click Next.
 +
-image::amazon-fsx-image62.png[Error: Missing Graphic Image]
+image::amazon-fsx-image62.png[]
 
 . To save the settings, in the summary step, click Finish.
 +
-image::amazon-fsx-image63.png[Error: Missing Graphic Image]
+image::amazon-fsx-image63.png[]
 +
 The new non-data volume is now added to SnapCenter. Double click the new resource to execute the resource protection.
 +
-image::amazon-fsx-image64.png[Error: Missing Graphic Image]
+image::amazon-fsx-image64.png[]
 +
 The resource protection is done in the same way as described before with a HANA database resource.
 
 . You can now execute a backup by clicking on Backup Now.
 +
-image::amazon-fsx-image65.png[Error: Missing Graphic Image]
+image::amazon-fsx-image65.png[]
 
 . Select the policy and start the backup operation.
 +
-image::amazon-fsx-image66.png[Error: Missing Graphic Image]
+image::amazon-fsx-image66.png[]
 
 The SnapCenter job log shows the individual workflow steps.
 
-image::amazon-fsx-image67.png[Error: Missing Graphic Image]
+image::amazon-fsx-image67.png[]
 
 The new backup is now visible in the resource view of the non- data volume resource.
 
-image::amazon-fsx-image68.png[Error: Missing Graphic Image]
+image::amazon-fsx-image68.png[]
 
 === Restore and recover
 
@@ -105,32 +105,32 @@ To perform a manual restore operation, follow these steps:
 
 . Select a backup in SnapCenter to be used for the restore operation.
 +
-image::amazon-fsx-image69.png[Error: Missing Graphic Image]
+image::amazon-fsx-image69.png[]
 
 . Select the restore scope and type.
 +
 The standard scenario for HANA MDC single tenant systems is to use complete resource with volume revert. For a HANA MDC system with multiple tenants, you might want to restore only a single tenant. For more information about the single tenant restore, see https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-restore-and-recovery.html[Restore and recovery (netapp.com)^].
 +
-image::amazon-fsx-image70.png[Error: Missing Graphic Image]
+image::amazon-fsx-image70.png[]
 
 . Select Recovery Scope and provide the location for log backup and catalog backup.
 +
 SnapCenter uses the default path or the changed paths in the HANA global.ini file to prepopulate the log and catalog backup locations.
 +
-image::amazon-fsx-image71.png[Error: Missing Graphic Image]
+image::amazon-fsx-image71.png[]
 
 . Enter the optional pre-restore commands.
 +
-image::amazon-fsx-image72.png[Error: Missing Graphic Image]
+image::amazon-fsx-image72.png[]
 
 . Enter the optional post-restore commands.
 +
-image::amazon-fsx-image73.png[Error: Missing Graphic Image]
+image::amazon-fsx-image73.png[]
 
 . To start the restore and recovery operation, click Finish.
 +
-image::amazon-fsx-image74.png[Error: Missing Graphic Image]
+image::amazon-fsx-image74.png[]
 +
 SnapCenter executes the restore and recovery operation. This example shows the job details of the restore and recovery job.
 +
-image::amazon-fsx-image75.png[Error: Missing Graphic Image]
+image::amazon-fsx-image75.png[]

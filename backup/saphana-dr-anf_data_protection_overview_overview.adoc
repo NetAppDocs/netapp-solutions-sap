@@ -28,7 +28,7 @@ Running SAP HANA on Azure NetApp Files (ANF) gives customers access to additiona
 
 To develop a comprehensive disaster recovery policy, customers must understand the business application requirements and technical capabilities they need for data protection and disaster recovery. The following figure provides an overview of data protection.
 
-image::saphana-dr-anf_image2.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image2.png[]
 
 == Business application requirements
 

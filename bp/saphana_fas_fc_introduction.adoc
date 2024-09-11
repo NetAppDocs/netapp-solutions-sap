@@ -46,7 +46,7 @@ In an SAP HANA multiple-host environment, the standard SAP HANA storage connecto
 
 NetApp FAS storage controllers are certified in the SAP HANA Tailored Data Center Integration (TDI) program using NFS (NAS) and Fibre Channel (SAN) protocols. They can be deployed in any SAP HANA scenario, such as, SAP Business Suite on HANA, S/4HANA, BW/4HANA or SAP Business Warehouse on HANA in single-host or multiple-host configurations. Any server that is certified for use with SAP HANA can be combined with the certified storage solution. See the following figure for an architecture overview.
 
-image::saphana_fas_fc_image1.png[Error: Missing Graphic Image]
+image::saphana_fas_fc_image1.png[]
 
 For more information regarding the prerequisites and recommendations for productive SAP HANA systems, see the following resource:
 
@@ -61,8 +61,7 @@ Raw device mappings (RDM), FCP datastores, or VVOL datastores with FCP are suppo
 For more information about using vSphere with SAP HANA, see the following links:
 
 * https://wiki.scn.sap.com/wiki/display/VIRTUALIZATION/SAP+HANA+on+VMware+vSphere[SAP HANA on VMware vSphere - Virtualization - Community Wiki^]
-* http://www.vmware.com/files/pdf/SAP_HANA_on_vmware_vSphere_best_practices_guide.pdf[Best Practices and Recommendations for Scale-Up Deployments of SAP HANA on VMware vSphere^]
-* http://www.vmware.com/files/pdf/sap-hana-scale-out-deployments-on-vsphere.pdf[Best Practices and Recommendations for Scale-Out Deployments of SAP HANA on VMware vSphere^]
+* https://core.vmware.com/resource/sap-hana-vmware-vsphere-best-practices-and-reference-architecture-guide#introduction[SAP HANA on VMware vSphere Best Practices and Reference Architecture Guide^]
 * https://launchpad.support.sap.com/[2161991 - VMware vSphere configuration guidelines - SAP ONE Support Launchpad (Login required)^]
 
 

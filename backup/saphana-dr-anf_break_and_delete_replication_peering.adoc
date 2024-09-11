@@ -25,15 +25,15 @@ For the HANA data volume, you must restore the volume to the latest HANA snapsho
 
 The next two screenshots show the break and delete peering operation for the HANA data volume. The same operations must be performed for the log backup and the HANA shared volume as well.
 
-image::saphana-dr-anf_image27.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image27.png[]
 
-image::saphana-dr-anf_image28.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image28.png[]
 
 Since replication peering was deleted, it is possible to revert the volume to the latest HANA snapshot backup. If peering is not deleted, the selection of revert volume is grayed out and is not selectable. The following two screenshots show the volume revert operation.
 
-image::saphana-dr-anf_image29.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image29.png[]
 
-image::saphana-dr-anf_image30.png[Error: Missing Graphic Image]
+image::saphana-dr-anf_image30.png[]
 
 After the volume revert operation, the data volume is based on the consistent HANA snapshot backup and can now be used to execute forward recovery operations.
 

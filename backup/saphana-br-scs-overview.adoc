@@ -46,7 +46,7 @@ SnapVault offers significant advantages when compared to traditional backups. Af
 
 The solution can also be seamlessly extended to a hybrid cloud operation model. Data replication for disaster recovery or offsite backup purposes can be done from on-premises NetApp ONTAP systems to Cloud Volumes ONTAP instances running in the cloud. You can use SnapCenter as a central tool to manage the data protection and data replication, independent if the SAP HANA system run on-premises or in the cloud. The following figure shows an overview of the backup solution.
 
-image::saphana-br-scs-image1.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image1.png[]
 
 == Runtime of Snapshot backups
 
@@ -55,7 +55,7 @@ The next screenshot shows a customer’s HANA Studio running SAP HANA on NetApp 
 [NOTE]
 The largest part of the overall backup workflow runtime is the time needed to execute the HANA backup savepoint operation, and this step is dependent on the load on the HANA database. The storage Snapshot backup itself always finishes in a couple of seconds.
 
-image::saphana-br-scs-image2.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image2.png[]
 
 == Recovery time objective comparison
 
@@ -81,17 +81,17 @@ Storage Snapshot copy data backups are typically scheduled with a higher frequen
 
 The following figure shows an RTO example for a 1TB database when file-based data backups are used. In this example, a backup is taken once per day. The RTO differs depending on when the restore and recovery were performed. If the restore and recovery were performed immediately after a backup was taken, the RTO is primarily based on the restore time, which is 1 hour and 10 minutes in the example. The recovery time increased to 2 hours and 50 minutes when restore and recovery were performed immediately before the next backup was taken, and the maximum RTO was 4 hours and 30 minutes.
 
-image::saphana-br-scs-image3.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image3.png[]
 
 The following figure shows an RTO example for a 1TB database when Snapshot backups are used. With storage-based Snapshot backups, the RTO only depends on the database start time and the forward recovery time because the restore is completed in a few seconds, independent of the size of the database. The forward recovery time also increases depending on when the restore and recovery are done, but due to the higher frequency of backups (every six hours in this example), the forward recovery time is 43 minutes at most. In this example, the maximum RTO is 1 hour and 13 minutes.
 
-image::saphana-br-scs-image4.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image4.png[]
 
 The following figure shows an RTO comparison of file-based and storage-based Snapshot backups for different database sizes and different frequencies of Snapshot backups. The green bar shows the file-based backup. The other bars show Snapshot copy backups with different backup frequencies.
 
 With a single Snapshot copy data backup per day, the RTO is already reduced by 40% when compared to a file-based data backup. The reduction increases to 70% when four Snapshot backups are taken per day. The figure also shows that the curve goes flat if you increase the Snapshot backup frequency to more than four to six Snapshot backups per day. Our customers therefore typically configure four to six Snapshot backups per day.
 
-image::saphana-br-scs-image5.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image5.png[]
 
 [NOTE]
 The graph shows the HANA server RAM size. The database size in memory is calculated to be half of the server RAM size.

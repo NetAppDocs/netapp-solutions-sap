@@ -23,7 +23,7 @@ There are two options for configuring data protection with NetApp SnapCenter sof
 * A SnapCenter resource group including both SAP HANA hosts and auto discovery with SnapCenter version 4.6 or higher.
 * A single SnapCenter resource for both SAP HANA hosts using a virtual IP address.
 
-image::saphana-sr-scs-image5.png[Error: Missing Graphic Image]
+image::saphana-sr-scs-image5.png[]
 
 Starting with SnapCenter 4.6, SnapCenter supports auto-discovery of HANA systems configured in a HANA System Replication relationship. Each host is configured using its physical IP address (host name) and its individual data volume on the storage layer. The two Snapcenter resources are combined in a resource group, and SnapCenter automatically identifies which host is primary or secondary and executes the required backup operations accordingly. Retention management for Snapshot and file-based backups created by SnapCenter is performed across both hosts to ensure that old backups also get deleted at the current secondary host.
 
