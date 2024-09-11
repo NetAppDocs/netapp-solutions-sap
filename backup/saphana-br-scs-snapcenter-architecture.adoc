@@ -30,5 +30,5 @@ The SnapCenter custom plug-ins enable you to create your own plug-ins and protec
 
 The following figure depicts SnapCenter components.
 
-image::saphana-br-scs-image6.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image6.png[]
 

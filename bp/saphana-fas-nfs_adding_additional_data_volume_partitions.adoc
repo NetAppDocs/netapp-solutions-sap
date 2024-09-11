@@ -244,6 +244,6 @@ Execute the following SQL statement against the tenant database to add an additi
 ALTER SYSTEM ALTER DATAVOLUME ADD PARTITION PATH '/hana/data2/SID/';
 ....
 
-image::saphana-fas-nfs_image19.jpg[Error: Missing Graphic Image]
+image::saphana-fas-nfs_image19.jpg[]
 
 

@@ -30,15 +30,15 @@ In this example, we want to protect the non-data volumes of the SAP HANA databas
 
 . From the Resource tab, select Non-Data-Volume and click Add SAP HANA Database.
 +
-image::saphana-br-scs-image78.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image78.png[]
 
 . In step one of the Add SAP HANA Database dialog, in the Resource Type list, select Non-data Volumes. Specify a name for the resource and the associated SID and the SAP HANA plug-in host you want to use for the resource, then click Next.
 +
-image::saphana-br-scs-image79.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image79.png[]
 
 . Add the SVM and the storage volume as storage footprint, then click Next.
 +
-image::saphana-br-scs-image80.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image80.png[]
 +
 . In the summary step, click Finish to save the settings.
 . Repeat these steps for all the required non-data volumes.
@@ -49,7 +49,7 @@ Data protection for a non- data volume resources is identical to the workflow fo
 +
 The following figure shows the list of the configured non-data volume resources.
 +
-image::saphana-br-scs-image81.png[Error: Missing Graphic Image]
+image::saphana-br-scs-image81.png[]
 
 == Resource groups
 
