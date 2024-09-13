@@ -24,7 +24,7 @@ SnapCenter 4.6 supports auto discovery for HANA systems configured with HANA Sys
 
 The following figure shows the lab setup used for this chapter. Two HANA hosts, hana-3 and hana-4, were configured with HANA System Replication.
 
-A database user “SnapCenter” was created for the HANA system database with the required privileges to execute backup and recovery operations (see https://www.netapp.com/us/media/tr-4614.pdf[SAP HANA Backup and Recovery with SnapCenter^]). A HANA user store key must be configured at both hosts using the above database user.
+A database user “SnapCenter” was created for the HANA system database with the required privileges to execute backup and recovery operations (see https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter^]). A HANA user store key must be configured at both hosts using the above database user.
 
 ....
 ss2adm@hana- 3: / > hdbuserstore set SS2KEY hana- 3:33313 SNAPCENTER <password>
@@ -150,7 +150,7 @@ The following figure depicts a scenario in which multiple takeovers have been ex
 
 image::saphana-sr-scs-image26.png[]
 
-Restore and recovery operations for a SnapCenter 4.6 resource group configuration are identical to an autodiscovered non-System Replication setup. All options for restore and automated recovery are available. For further details, see the technical report https://www.netapp.com/us/media/tr-4614.pdf[TR-4614: SAP HANA Backup and Recovery with SnapCenter^].
+Restore and recovery operations for a SnapCenter 4.6 resource group configuration are identical to an autodiscovered non-System Replication setup. All options for restore and automated recovery are available. For further details, see the technical report https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter^].
 
 A restore operation from a backup that was created at the other host is described in the section link:saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html[Restore and Recovery from a Backup Created at the Other Host].
 

@@ -47,6 +47,6 @@ Disaster recovery testing for both asynchronous and synchronous SnapMirror uses 
 image::sc-copy-clone-image6.png[]
 A detailed step-by-step description can be found in the technical reports
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-sr_pdf_link.html[TR-4646: SAP HANA Disaster Recovery with Storage Replication (netapp.com)]
+https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf[TR-4646: SAP HANA Disaster Recovery with Storage Replication (netapp.com)]
 
 https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-anf_data_protection_overview_overview.html[TR-4891: SAP HANA disaster recovery with Azure NetApp Files]
