@@ -40,7 +40,7 @@ net.ipv4.tcp_moderate_rcvbuf = 1
 net.ipv4.tcp_window_scaling = 1
 net.ipv4.tcp_timestamps = 1
 net.ipv4.tcp_sack = 1 
-options sunrpc tcp_max_slot_table_entries = 128
+sunrpc.tcp_max_slot_table_entries = 128
 ....
 
 [NOTE]
@@ -69,7 +69,7 @@ net.ipv4.tcp_moderate_rcvbuf = 1
 net.ipv4.tcp_window_scaling = 1
 net.ipv4.tcp_timestamps = 1
 net.ipv4.tcp_sack = 1
-options sunrpc tcp_max_slot_table_entries = 128
+sunrpc.tcp_max_slot_table_entries = 128
 ....
 [NOTE]
 Since RedHat Enterprise Linux version 8.6, the settings can be also applied by using the RHEL System Roles for SAP (Ansible). See https://launchpad.support.sap.com/#/notes/3024346[SAP Note 3024346^] (requires SAP login).
