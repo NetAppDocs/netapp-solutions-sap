@@ -42,6 +42,5 @@ New NetApp storage systems
 New OS releases (SLES15SP2, RHEL 8)
 | April 2021 | VMware vSphere-specific information added
 | September 2022 | New OS-Releases 
-|August 2023 | New Storage Systems (AFF C-Series) 
-|May 2024 | New Storage Systems (AFF A-Series)
+| September 2024 | New Storage Systems 
 |===
