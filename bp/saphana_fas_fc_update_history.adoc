@@ -33,8 +33,7 @@ Additional minor updates
 SAP HANA 2.0 SPS3
 | September 2019 | New OS releases
 Minor updates
-| April 2020 | New AFF ASA series storage systems
-Introduced multiple data partition features available since SAP HANA 2.0 SPS4
+| April 2020 | Introduced multiple data partition features available since SAP HANA 2.0 SPS4
 | June 2020 | Additional information about optional functionalities
 Minor updates
  | February 2021 | Linux LVM support
