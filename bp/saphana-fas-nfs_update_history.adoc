@@ -61,7 +61,6 @@ New SAP HANA version
 | February 2021 | Changes in host network settings and other minor changes
 | April 2021 | VMware vSphere-specific information added
 | September 2022 | New OS-Releases 
-|August 2023 | New Storage Systems (AFF C-Series) 
 |December 2023 | Update of host setup
 Revised nconnect settings
 Added information about NFSv4.1 sessions 
