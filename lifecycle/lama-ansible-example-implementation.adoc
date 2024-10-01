@@ -11,12 +11,6 @@ summary: Due to the large number of options available for system and storage set
 :linkattrs:
 :imagesdir: ../media/
 
-//
-// This file was created with NDAC Version 2.0 (August 17, 2020)
-//
-// 2023-01-30 15:53:02.689176
-//
-
 [.lead]
 Due to the large number of options available for system and storage setups, the example implementation should be used as a template your individual system setup and configuration requirements.
 
