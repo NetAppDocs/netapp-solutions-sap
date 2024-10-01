@@ -22,7 +22,7 @@ To learn more about the information that is described in this document, review t
 
 * SnapCenter Resources Page
 +
-https://www.netapp.com/us/documentation/snapcenter-software.aspx[https://www.netapp.com/us/documentation/snapcenter-software.aspx^]
+https://www.netapp.com/us/documentation/snapcenter-software.aspx[https://www.netapp.com/us/documentation/snapcenter-software.aspx]
 
 * SnapCenter Software Documentation
 +

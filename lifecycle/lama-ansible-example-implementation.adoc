@@ -17,9 +17,7 @@ summary: Due to the large number of options available for system and storage set
 // 2023-01-30 15:53:02.689176
 //
 
-
-
-[lead]
+[.lead]
 Due to the large number of options available for system and storage setups, the example implementation should be used as a template your individual system setup and configuration requirements.
 
 [NOTE]

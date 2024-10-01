@@ -67,7 +67,7 @@ image:saphana-br-scs-image86.5.png["Figure showing input/output dialog or repres
 +
 image:saphana-br-scs-image87.png["Figure showing input/output dialog or representing written content"]
 +
-This starts the backup job. A log of the previous five jobs is shown in the Activity area below the topology view. When the backup is finished, a new entry is shown in the topology view. The backup names follow the same naming convention as the Snapshot name defined in the section link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#resource-protection-configuration[“Resource protection configuration.”]
+This starts the backup job. A log of the previous five jobs is shown in the Activity area below the topology view. When the backup is finished, a new entry is shown in the topology view. The backup names follow the same naming convention as the Snapshot name defined in the section link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#resource-protection[“Resource protection configuration.”]
 +
 [NOTE]
 You must close and reopen the topology view to see the updated backup list.
@@ -91,7 +91,7 @@ image:saphana-br-scs-image90.png["Figure showing input/output dialog or represen
 +
 image:saphana-br-scs-image91.png["Figure showing input/output dialog or representing written content"]
 
-. When the backup is finished, a new entry is shown in the topology view. The backup names follow the same naming convention as the Snapshot name defined in the section link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#resource-protection-configuration[“Resource protection configuration.”]
+. When the backup is finished, a new entry is shown in the topology view. The backup names follow the same naming convention as the Snapshot name defined in the section link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#resource-protection[“Resource protection configuration.”]
 +
 [NOTE]
 You must close and reopen the topology view to see the updated backup list.

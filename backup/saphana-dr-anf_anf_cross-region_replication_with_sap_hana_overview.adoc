@@ -4,6 +4,7 @@ permalink: backup/saphana-dr-anf_anf_cross-region_replication_with_sap_hana_over
 keywords: application, agnostic, information, azure, sap, hana
 summary: Application agnostic information on Cross- Region Replication can be found at the following location.
 ---
+
 = ANF Cross-Region Replication with SAP HANA
 :hardbreaks:
 :nofooter:
@@ -18,6 +19,8 @@ summary: Application agnostic information on Cross- Region Replication can be fo
 //
 
 [.lead]
-Application agnostic information on Cross-Region Replication can be found at https://docs.microsoft.com/en-us/azure/azure-netapp-files/[Azure NetApp Files documentation | Microsoft Docs^] in the concepts and how- to guide sections.
+Application agnostic information on Cross-Region Replication can be found at the following location.
+
+link:https://docs.microsoft.com/en-us/azure/azure-netapp-files/[Azure NetApp Files documentation | Microsoft Docs^] in the concepts and how- to guide sections.
 
 

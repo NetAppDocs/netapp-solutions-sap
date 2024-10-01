@@ -18,7 +18,7 @@ summary: The NetApp AFF product family is certified for use with SAP HANA in TDI
 // 2021-05-20 16:47:33.661536
 //
 
-.lead]
+[.lead]
 The NetApp AFF product family is certified for use with SAP HANA in TDI projects. The certified enterprise storage platform is characterized by the NetApp ONTAP software.
 
 Nils Bauer and Marco Schoen, NetApp
