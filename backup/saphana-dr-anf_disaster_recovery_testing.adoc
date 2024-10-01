@@ -17,3 +17,6 @@ summary:
 //
 // 2021-05-24 12:07:40.357810
 //
+
+[.lead]
+This section presents an overview of the disaster recovery testing for SAP HANA in Azure NetApp Files (ANF).

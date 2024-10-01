@@ -18,6 +18,8 @@ summary:
 // 2022-01-10 18:20:17.386762
 //
 
+[.lead]
+Version History:
 
 |===
 |Version |Date |Document Version History

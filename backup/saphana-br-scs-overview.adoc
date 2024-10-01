@@ -18,9 +18,10 @@ summary: Companies today require continuous, uninterrupted availability for thei
 // 2022-02-15 15:58:30.739481
 //
 
-Nils Bauer, NetApp
-
+[.lead]
 Companies today require continuous, uninterrupted availability for their SAP applications. They expect consistent performance levels in the face of ever-increasing volumes of data and the need for routine maintenance tasks such as system backups. Performing backups of SAP databases is a critical task and can have a significant performance effect on the production SAP system.
+
+Author: Nils Bauer, NetApp
 
 Backup windows are shrinking, while the amount of data to be backed up is increasing. Therefore, it is difficult to find a time when backups can be performed with minimal effect on business processes. The time needed to restore and recover SAP systems is a concern, because downtime for SAP production and nonproduction systems must be minimized to reduce data loss and cost to the business.
 

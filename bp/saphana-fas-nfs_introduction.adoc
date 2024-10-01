@@ -19,9 +19,10 @@ summary: The NetApp FAS product family has been certified for use with SAP HANA 
 // 2021-06-16 12:00:07.153568
 //
 
-Nils Bauer and Marco Schön, NetApp
-
+[.lead]
 The NetApp FAS product family has been certified for use with SAP HANA in tailored data center integration (TDI) projects. The certified enterprise storage system is characterized by the NetApp ONTAP software.
+
+Nils Bauer and Marco Schön, NetApp
 
 This certification is currently only valid for the following models:
 

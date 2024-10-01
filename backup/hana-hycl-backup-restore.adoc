@@ -13,7 +13,6 @@ summary: This section describes how to restore an SAP HANA backup with BlueXP.
 :imagesdir: ../media/
 
 [.lead]
-
 A restore from of the backup can only be done to an on-premises NetApp ONTAP based storage system or NetApp CVO within the cloud. A restore can be done by doing the following steps:
 
 [arabic]

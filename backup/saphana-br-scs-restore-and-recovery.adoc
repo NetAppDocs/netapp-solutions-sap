@@ -18,7 +18,6 @@ summary: The following sections describe the restore and recovery workflows of t
 //
 
 [.lead]
-
 The following sections describe the restore and recovery workflows of three different scenarios and example configurations.
 
 * Automated restore and recovery:

@@ -18,6 +18,9 @@ summary:
 // 2021-05-20 16:44:23.389453
 //
 
+[.lead]
+SAP HANA on NetApp AFF with NFS protocol.
+
 |===
 | | |
 

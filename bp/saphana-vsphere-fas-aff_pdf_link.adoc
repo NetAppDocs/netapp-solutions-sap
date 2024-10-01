@@ -12,10 +12,13 @@ summary: This reference architecture document helps customers design and deploy 
 :linkattrs:
 :imagesdir: ../media/
 
-Tobias Brandl, NetApp
 
-Erik Rieger, Bhumik Patel, VMware
-
+[.lead]
 This reference architecture document helps customers design and deploy SAP HANA single host and multiple host solutions on VMware vSphere virtual machines (VMs) and NetApp FAS and All Flash FAS (AFF) storage systems. This reference architecture is a deployed and documented solution based on experiences with existing VMware and NetApp customers, real-world simulations, and NetApp Engineering Lab validations. This document helps customers through the entire project lifecycle, including requirement assessment, solution design, installation, and administration.
+
+Authors:
+
+Tobias Brandl, NetApp
+Erik Rieger, Bhumik Patel, VMware
 
 link:https://www.netapp.com/pdf.html?item=/media/17192-tr4338pdf.pdf[https://www.netapp.com/pdf.html?item=/media/17192-tr4338pdf.pdf]

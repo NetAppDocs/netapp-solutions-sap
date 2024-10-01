@@ -13,6 +13,7 @@ summary: This section describes how to setup the working environment, how to con
 :imagesdir: ../media/
 
 [.lead]
+This section describes how to setup the working environment, how to configure SnapCenter, and how to configure and activate SAP HANA backup within BlueXP.
 
 == Create working environment for BlueXP
 

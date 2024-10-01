@@ -12,6 +12,9 @@ summary: This technical report provides best practices for SAP HANA data protect
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+This technical report provides best practices for SAP HANA data protection using NetApp BlueXP Backup nad Recovery for Application. This document covers  concepts, configuration recommendations, and operation workflows, including configuration, backup operations, and restore operations. 
+
 == Overview
 
 This document describes how to setup and configure SAP HANA for data protection from on-premises to cloud based object stores with NetApp BlueXP. It covers the BlueXP backup and recovery part of the solution. This solution is an enhancement of the on-premises SAP HANA backup solution using NetApp Snap Center and provides a cost-efficient way for long-term archiving of SAP HANA backups to cloud based object storage and offers optional tiering of object storage to archival storage like AWS Glacier/Deep Glacier, Microsoft Azure Blob Archive, and GCP Archive Storage.
