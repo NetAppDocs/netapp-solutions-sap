@@ -9,7 +9,7 @@ summary: A few preparation steps must be performed at the disaster recovery site
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -67,28 +67,28 @@ The quota of the volume can be set based on capacity requirements, because volum
 [NOTE]
 If the capacity pool has been configured with manual QoS, you can configure the throughput in addition to the capacity requirements. Same as above, you can configure the throughput with a low value during normal operation and increase it in case of a disaster recovery failover.
 
-image::saphana-dr-anf_image10.png[]
+image:saphana-dr-anf_image10.png["Figure showing input/output dialog or representing written content"]
 
 In the Protocol tab, you must provide the network protocol, the network path, and the export policy.
 
 [NOTE]
 The protocol must be the same as the protocol used for the source volume.
 
-image::saphana-dr-anf_image11.png[]
+image:saphana-dr-anf_image11.png["Figure showing input/output dialog or representing written content"]
 
 Within the Replication tab, you must configure the source volume ID and the replication schedule. For data volume replication, we configured a daily replication schedule for our lab setup.
 
 [NOTE]
 The source volume ID can be copied from the Properties screen of the source volume.
 
-image::saphana-dr-anf_image12.png[]
+image:saphana-dr-anf_image12.png["Figure showing input/output dialog or representing written content"]
 
 As a final step, you must authorize replication at the source volume by providing the ID of the target volume.
 
 [NOTE]
 You can copy the destination volume ID from the Properties screen of the destination volume.
 
-image::saphana-dr-anf_image13.png[]
+image:saphana-dr-anf_image13.png["Figure showing input/output dialog or representing written content"]
 
 The same steps must be performed for the HANA shared and the log backup volume.
 

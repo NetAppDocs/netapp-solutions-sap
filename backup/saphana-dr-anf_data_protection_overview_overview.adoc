@@ -11,7 +11,7 @@ summary: Studies have shown that business application downtime has a significant
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -28,7 +28,7 @@ Running SAP HANA on Azure NetApp Files (ANF) gives customers access to additiona
 
 To develop a comprehensive disaster recovery policy, customers must understand the business application requirements and technical capabilities they need for data protection and disaster recovery. The following figure provides an overview of data protection.
 
-image::saphana-dr-anf_image2.png[]
+image:saphana-dr-anf_image2.png["Figure showing input/output dialog or representing written content"]
 
 == Business application requirements
 

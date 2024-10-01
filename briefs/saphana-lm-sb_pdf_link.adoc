@@ -12,7 +12,7 @@ summary: NetApp is addressing the challenges of the slow implementation of featu
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 
 NetApp is addressing the challenges of the slow implementation of features, a lack of automation, and a loss of productivity by providing a lifecycle management solution that is fully integrated into the tools that SAP administrators use for day-to-day operations, such as SAP Landscape Management (SAP LaMa). The goal is to simplify the provisioning workflow from preprocessing to postprocessing, including all the software and storage layer tasks needed to create a copy of the production system. With this solution, administrators can create a development and test environment in a couple of mouse clicks, which results in improved lifecycle management.

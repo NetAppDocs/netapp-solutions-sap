@@ -9,7 +9,7 @@ summary:
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -28,5 +28,5 @@ The term SAP system copy is often used as a synonym for three different processe
 
 The following figure illustrates the main steps that must be performed during a system clone, system copy, or system refresh operation. The purple boxes indicate steps where NetApp storage features can be integrated. All three operations can be fully automated by using SAP LaMa.
 
-image::lama-ansible-image1.png["This graphic depicts three process timelines for System Clone, System Copy, and System Refresh, respectively."]
+image:lama-ansible-image1.png["This graphic depicts three process timelines for System Clone, System Copy, and System Refresh, respectively."]
 

@@ -9,7 +9,7 @@ summary: The integration approach uses SAP LaMa custom provisioning and operatio
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -21,7 +21,7 @@ summary: The integration approach uses SAP LaMa custom provisioning and operatio
 [.lead]
 The integration approach uses SAP LaMa custom provisioning and operation hooks combined with Ansible playbooks for NetApp storage management. The following figure shows a high-level overview of the configuration on the LaMa side as well as the corresponding components of the example implementation.
 
-image::lama-ansible-image6.png["This is a fairly complex image with three boxes labeled SAP LaMa, Ansible control node, and NetApp storage. Each box contains the respective process steps that take place at each level."]
+image:lama-ansible-image6.png["This is a fairly complex image with three boxes labeled SAP LaMa, Ansible control node, and NetApp storage. Each box contains the respective process steps that take place at each level."]
 
 A central host acting as an Ansible control node is used to execute the requests from SAP LaMa and to trigger the NetApp storage operations using Ansible playbooks. The SAP host agent components must be installed on this host so that the host can be used as a communication gateway to SAP LaMa.
 

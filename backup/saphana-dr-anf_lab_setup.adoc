@@ -10,7 +10,7 @@ summary: Solution validation has been performed with an SAP HANA single-host sys
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -31,7 +31,7 @@ A single capacity pool with manual QoS has been configured at the DR site.
 
 The following figure depicts the lab setup.
 
-image::saphana-dr-anf_image7.png[]
+image:saphana-dr-anf_image7.png["Figure showing input/output dialog or representing written content"]
 
 == Snapshot backup configuration with AzAcSnap
 
@@ -41,10 +41,10 @@ With the replication of the data volume using ANF Cross-Region Replication, thes
 
 The following figure shows the Snapshot backups of the HANA data volume.
 
-image::saphana-dr-anf_image8.png[]
+image:saphana-dr-anf_image8.png["Figure showing input/output dialog or representing written content"]
 
 The following figure shows the SAP HANA backup catalog.
 
-image::saphana-dr-anf_image9.png[]
+image:saphana-dr-anf_image9.png["Figure showing input/output dialog or representing written content"]
 
 

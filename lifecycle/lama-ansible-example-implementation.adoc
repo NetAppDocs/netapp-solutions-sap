@@ -9,7 +9,7 @@ summary: Due to the large number of options available for system and storage set
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -48,7 +48,7 @@ The host `sap-lnx49` was used as the target for the SAP LaMa cloning operations,
 
 Different SAP systems (HNA as source and HN2 as target) were used for system copy and refresh operations, because Post Copy Automation (PCA) was enabled there.
 
-image::lama-ansible-image7.png["This image depicts the various SAP host agents and how they interact with NetApp storage through NFS mounts. The SAP LaMa instance is also represented."]
+image:lama-ansible-image7.png["This image depicts the various SAP host agents and how they interact with NetApp storage through NFS mounts. The SAP LaMa instance is also represented."]
 
 The following software releases were used in the lab setup:
 
@@ -67,39 +67,39 @@ The following software releases were used in the lab setup:
 
 The provider definition is performed within Automation Studio of SAP LaMa as shown in the following screenshot. The example implementation uses a single provider definition that is used for different custom provisioning steps and operation hooks as explained before.
 
-image::lama-ansible-image8.png["Screenshot of SAP provider definitions in SAP LaMa GUI."]
+image:lama-ansible-image8.png["Screenshot of SAP provider definitions in SAP LaMa GUI."]
 
 The provider `netapp_clone` is defined as the script `netapp_clone.sh` registered at the SAP host agent.  The SAP host agent runs on the central host `sap-jump`, which also acts as the Ansible control node.
 
-image::lama-ansible-image9.png["Screenshot of individual provider definition named netapp_clone under General tab. Shows Summary section, used-for section, and Options section."]
+image:lama-ansible-image9.png["Screenshot of individual provider definition named netapp_clone under General tab. Shows Summary section, used-for section, and Options section."]
 
 The *Used in* tab shows which custom operations the provider is used for. The configuration for the custom provisioning *NetAppClone* and the custom hooks *Delete NetAppClone* and *Delete NetAppClone Refresh* are shown in the next chapters.
 
-image::lama-ansible-image10.png["Screenshot of Used-In section with list of custom operations that use the definition. In this example, we see Delete NetAppClone, Delete NetAppClone Refresh, and NetAppClone."]
+image:lama-ansible-image10.png["Screenshot of Used-In section with list of custom operations that use the definition. In this example, we see Delete NetAppClone, Delete NetAppClone Refresh, and NetAppClone."]
 
 The parameters *ClonePostFix* and *SnapPostFix* are requested during the execution of the provisioning workflow and are used for the Snapshot and FlexClone volume names.
 
-image::lama-ansible-image11.png["Screenshot of Parameters section with list of two parameters: CLonePostFix and SnapPostFix."]
+image:lama-ansible-image11.png["Screenshot of Parameters section with list of two parameters: CLonePostFix and SnapPostFix."]
 
 === SAP LaMa custom provisioning
 
 In the SAP LaMa custom provisioning configuration, the customer provider described before is used to replace the provisioning workflow steps *Clone Volumes* and *PostCloneVolumes*.
 
-image::lama-ansible-image12.png["Screenshot of Custom Provisioning configuration screen. The processes CloneVolumes and FinalizeCloneVolumes are listed."]
+image:lama-ansible-image12.png["Screenshot of Custom Provisioning configuration screen. The processes CloneVolumes and FinalizeCloneVolumes are listed."]
 
 === SAP LaMa custom hook
 
 If a system is deleted with the system destroy workflow, the hook *Delete NetAppClone* is used to call the provider definition `netapp_clone`. The *Delete NetApp Clone Refresh* hook is used during the system refresh workflow because the instance is preserved during the execution.
 
-image::lama-ansible-image13.png["Screenshot of Custom Hooks screen containing the custom hooks Delete NetAppClone Refresh and Delete NetAppClone."]
+image:lama-ansible-image13.png["Screenshot of Custom Hooks screen containing the custom hooks Delete NetAppClone Refresh and Delete NetAppClone."]
 
 It is important to configure *Use Mount Data XML* for the custom hook, so that SAP LaMa provides the information of the mount point configuration to the provider.
 
-image::lama-ansible-image14.png["Screenshot of Delete NetAppClone General screen with "Use Mount Data XML yes" highlighted."]
+image:lama-ansible-image14.png["Screenshot of Delete NetAppClone General screen with "Use Mount Data XML yes" highlighted."]
 
 To ensure that the custom hook is only used and executed when the system was created with a custom provisioning workflow, the following constraint is added to it.
 
-image::lama-ansible-image15.png["Screenshot of Delete NetAppClone Constraints page. Contains a single constraint called Custom clone process name (Static)."]
+image:lama-ansible-image15.png["Screenshot of Delete NetAppClone Constraints page. Contains a single constraint called Custom clone process name (Static)."]
 
 More information about the use of custom hooks can be found in the https://help.sap.com/doc/700f9a7e52c7497cad37f7c46023b7ff/3.0.11.0/en-US/139eca2f925e48738a20dbf0b56674c5.html[SAP LaMa Documentation^].
 
@@ -107,4 +107,4 @@ More information about the use of custom hooks can be found in the https://help.
 
 To enable the custom provisioning workflow for the source system, it must be adapted in the configuration.  The *Use Custom Provisioning Process* checkbox with the corresponding custom provisioning definition must be selected.
 
-image::lama-ansible-image16.png["Screenshot of the SAP LaMa Configuration > Systems> System Details screen. Use Custom Provisioning Process checkbox is highlighted."]
+image:lama-ansible-image16.png["Screenshot of the SAP LaMa Configuration > Systems> System Details screen. Use Custom Provisioning Process checkbox is highlighted."]

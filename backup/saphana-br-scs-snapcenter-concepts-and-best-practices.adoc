@@ -10,7 +10,7 @@ summary: This section describes SnapCenter concepts and best practices as they r
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -36,7 +36,7 @@ Automatic discovery and automated restore and recovery depend on the ability to 
 
 The following figure summarizes the dependencies. More details on the HANA deployment options are covered in the section “Deployment options for the SAP HANA plug-in.”
 
-image::saphana-br-scs-image9.png[]
+image:saphana-br-scs-image9.png["Figure showing input/output dialog or representing written content"]
 
 [NOTE]
 The HANA and Linux plug-ins are currently only available for Intel-based systems. If the HANA databases are running on IBM Power Systems, a central HANA plug-in host must be used.
@@ -92,7 +92,7 @@ The following figure shows the logical view and the communication between the Sn
 
 The SnapCenter Server communicates through the SAP HANA plug-in with the SAP HANA databases. The SAP HANA plug-in uses the SAP HANA hdbsql client software to execute SQL commands to the SAP HANA databases. The SAP HANA hdbuserstore is used to provide the user credentials, the host name, and the port information to access the SAP HANA databases.
 
-image::saphana-br-scs-image10.png[]
+image:saphana-br-scs-image10.png["Figure showing input/output dialog or representing written content"]
 
 [NOTE]
 The SAP HANA plug-in and the SAP hdbsql client software, which include the hdbuserstore configuration tool, must be installed together on the same host.
@@ -109,7 +109,7 @@ SnapCenter server HA is not supported if the HANA plug-in is installed on the Sn
 
 The following figure shows a configuration in which the SnapCenter Server is used as a central plug-in host. The SAP HANA plug-in and the SAP hdbsql client software are installed on the SnapCenter Server.
 
-image::saphana-br-scs-image11.png[]
+image:saphana-br-scs-image11.png["Figure showing input/output dialog or representing written content"]
 
 Since the HANA plug-in can communicate with the managed HANA databases using the hdbclient through the network, you do not need to install any SnapCenter components on the individual HANA database hosts. SnapCenter can protect the HANA databases by using a central HANA plug-in host on which all userstore keys are configured for the managed databases.
 
@@ -124,7 +124,7 @@ The following figure shows a configuration in which a separate Linux host is use
 [NOTE]
 The separate central plug-in host can also be a Windows host.
 
-image::saphana-br-scs-image12.png[]
+image:saphana-br-scs-image12.png["Figure showing input/output dialog or representing written content"]
 
 The same restriction regarding feature availability described in the previous section also applies for a separate central plug-in host.
 
@@ -134,7 +134,7 @@ However, with this deployment option the SnapCenter server can be configured wit
 
 The following figure shows a configuration in which the SAP HANA plug-in is installed on each SAP HANA database host.
 
-image::saphana-br-scs-image13.png[]
+image:saphana-br-scs-image13.png["Figure showing input/output dialog or representing written content"]
 
 When the HANA plug-in is installed on each individual HANA database host, all features, such as automatic discovery and automated restore and recovery, are available. Also, the SnapCenter server can be set up in an HA configuration.
 
@@ -146,9 +146,9 @@ NetApp recommends that you deploy the HANA plug-in on the HANA database host for
 
 The following two figures show mixed plug-in deployments either with the SnapCenter server or a separate Linux host as a central plug-in host. The only difference between these two deployments is the optional HA configuration.
 
-image::saphana-br-scs-image14.png[]
+image:saphana-br-scs-image14.png["Figure showing input/output dialog or representing written content"]
 
-image::saphana-br-scs-image15.png[]
+image:saphana-br-scs-image15.png["Figure showing input/output dialog or representing written content"]
 
 === Summary and recommendations
 
@@ -317,7 +317,7 @@ For the retention management of data backups and the HANA backup catalog managem
 
 The following figure shows an overview of the backup workflow.
 
-image::saphana-br-scs-image16.png[]
+image:saphana-br-scs-image16.png["Figure showing input/output dialog or representing written content"]
 
 === Backup workflow for Snapshot backups of the HANA database
 
@@ -373,7 +373,7 @@ The data backup retention management and log backup housekeeping can be divided 
 
 The following figure provides an overview of the different workflows and the dependencies of each operation. The following sections describe the different operations in detail.
 
-image::saphana-br-scs-image17.png[]
+image:saphana-br-scs-image17.png["Figure showing input/output dialog or representing written content"]
 
 === Retention management of local backups at the primary storage
 
@@ -505,7 +505,7 @@ HANA single container and HANA MDC single tenant systems that have been auto dis
 * *Complete resource with automated recovery.* If you select a complete resource restore operation and automated recovery, the complete workflow is automated with SnapCenter. SnapCenter supports up to recent state, point in time, or to specific backup recovery operations. The selected recovery operation is used for the system and the tenant database.
 * *Complete resource with manual recovery.* If you select No Recovery, SnapCenter stops the HANA database and executes the required file system (unmount, mount) and restore operations. You must recover the system and tenant database manually.
 
-image::saphana-br-scs-image18.png[]
+image:saphana-br-scs-image18.png["Figure showing input/output dialog or representing written content"]
 
 === Restore and recovery of automatically discovered HANA MDC multiple tenant systems
 
@@ -516,7 +516,7 @@ Even though HANA MDC systems with multiple tenants can be automatically discover
 
 The workflows are the same as described in the previous section.
 
-image::saphana-br-scs-image19.png[]
+image:saphana-br-scs-image19.png["Figure showing input/output dialog or representing written content"]
 
 === Restore and recovery of manual configured HANA resources
 
@@ -524,7 +524,7 @@ Manual configured HANA resources are not enabled for automated restore and recov
 
 For manual configured HANA resources, SnapCenter only supports manual recovery, as shown in the following figure. The workflow for manual recovery is the same as described in the previous sections.
 
-image::saphana-br-scs-image20.png[]
+image:saphana-br-scs-image20.png["Figure showing input/output dialog or representing written content"]
 
 === Summary restore and recovery operations
 

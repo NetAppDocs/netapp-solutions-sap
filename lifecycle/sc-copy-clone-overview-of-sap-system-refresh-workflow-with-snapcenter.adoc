@@ -9,7 +9,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 SnapCenter provides workflows that allow you to manage clones of data sets from any existing Snapshot backup. This cloned data set, a FlexClone volume, can be used to rapidly provision a HANA data volume from a source system and attach it to a target system. It is therefore a perfect fit for executing system refresh operations for QA, test, sandbox, or training systems.
 
@@ -34,7 +34,7 @@ The SAP system refresh workflow with SnapCenter consists of five main steps as s
 .. SnapCenter deletes the FlexClone volume
 .. A refresh is restarted with step 2.
 
-image::sc-copy-clone-image7.png[]
+image:sc-copy-clone-image7.png["Figure showing input/output dialog or representing written content"]
 
 In most cases, target test/QA systems are used for at least a couple of weeks. Since the FlexClone volume is blocking the Snapshot of the source system volume, this Snapshot will require additional capacity based on the block change rate at the source system volume. For production source systems and an average change rate of 20% per day, the blocked Snapshot will reach 100% after 5 days. Therefore, NetApp recommends splitting the FlexClone volume either immediately or after a couple of days, if the clone is based on a production source system. The clone split operation does not block use of the cloned volume and can therefore be performed at any time while the HANA database is in use.
 
@@ -63,6 +63,6 @@ The refresh operation including the clone split consists of the following steps.
 [NOTE]
 The old data volume, which was split previously, must be deleted manually on the storage system.
 
-image::sc-copy-clone-image8.png[]
+image:sc-copy-clone-image8.png["Figure showing input/output dialog or representing written content"]
 
 The section link:sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html[“SAP HANA system refresh with SnapCenter”] provides a detailed step-by-step description of both system-refresh workflows.

@@ -10,7 +10,7 @@ summary: This section lists where to find additional information and p´shows th
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 [.lead]
 

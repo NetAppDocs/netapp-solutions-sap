@@ -9,7 +9,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 This section provides a step-by-step description for the SAP system clone operation, which can be used to set up a repair system to address logical corruption.
 
@@ -29,7 +29,7 @@ If the system is not needed anymore, the clean-up process is performed with the 
 . Stop SAP HANA services.
 . SnapCenter clone delete workflow for the SAP HANA shared volume.
 
-image::sc-copy-clone-image9.png[]
+image:sc-copy-clone-image9.png["Figure showing input/output dialog or representing written content"]
 
 
 == Prerequisites and limitations
@@ -54,7 +54,7 @@ The following software versions were used:
 
 All SAP HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the SAP HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
 
-image::sc-copy-clone-image41.png[]
+image:sc-copy-clone-image41.png["Figure showing input/output dialog or representing written content"]
 
 
 == Target host preparation
@@ -150,24 +150,24 @@ hana-7:/opt/NetApp/snapcenter/scc/etc #
 
 . Select a Snapshot backup from the source system SS1 shared volume and click Clone.
 
-image::sc-copy-clone-image42.png[]
+image:sc-copy-clone-image42.png["Figure showing input/output dialog or representing written content"]
 
 . Select the host where the target repair system has been prepared. The NFS export IP address must be the storage network interface of the target host. As target SID keep the same SID as the source system. In our example SS1.
 
-image::sc-copy-clone-image43.png[]
+image:sc-copy-clone-image43.png["Figure showing input/output dialog or representing written content"]
 
 [start=3]
 . Enter the mount script with the required command line options.
 [NOTE]
 The SAP HANA system uses a single volume for `/hana/shared` as well as for `/usr/sap/SS1`, separated in subdirectories as recommended in the configuration guide https://www.netapp.com/media/17238-tr4435.pdf[SAP HANA on NetApp AFF systems with NFS]. The script `sc-mount-volume.sh` supports this configuration using a special command line option for the mount path. If the mount path command line option is equal to usr-sap-and-shared, the script mounts the subdirectories shared and usr-sap in the volume accordingly.
 
-image::sc-copy-clone-image44.png[]
+image:sc-copy-clone-image44.png["Figure showing input/output dialog or representing written content"]
 
 
 [start=4]
 . The Job Details screen in SnapCenter shows the progress of the operation.
 
-image::sc-copy-clone-image45.png[]
+image:sc-copy-clone-image45.png["Figure showing input/output dialog or representing written content"]
 
 [start=5]
 . The logfile of the sc-mount-volume.sh script shows the different steps executed for the mount operation.
@@ -198,7 +198,7 @@ Filesystem 1K-blocks Used Available Use% Mounted on
 [start=7]
 . Within SnapCenter, a new resource for the cloned volume is visible.
 
-image::sc-copy-clone-image46.png[]
+image:sc-copy-clone-image46.png["Figure showing input/output dialog or representing written content"]
     
 
 [start=8]
@@ -235,23 +235,23 @@ You must add the required services entries to /usr/sap/sapservices, and the port
 
 . Select an SAP HANA Snapshot backup from the source system SS1.
 
-image::sc-copy-clone-image47.png[]
+image:sc-copy-clone-image47.png["Figure showing input/output dialog or representing written content"]
 
 [start=2]
 . Select the host where the target repair system has been prepared. The NFS export IP address must be the storage network interface of the target host. As target SID keep the same SID as the source system. In our example SS1
 
-image::sc-copy-clone-image48.png[]
+image:sc-copy-clone-image48.png["Figure showing input/output dialog or representing written content"]
 
 [start=3]
 . Enter the post-clone scripts with the required command line options.
 [NOTE]
 The script for the recovery operation recovers the SAP HANA database to the point in time of the Snapshot operation and does not execute any forward recovery. If a forward recovery to a specific point in time is required, the recovery must be performed manually. A manual forward recovery also requires that the log backups from the source system are available at the target host.
 
-image::sc-copy-clone-image23.png[]
+image:sc-copy-clone-image23.png["Figure showing input/output dialog or representing written content"]
 
 The job details screen in SnapCenter shows the progress of the operation.
 
-image::sc-copy-clone-image49.png[]
+image:sc-copy-clone-image49.png["Figure showing input/output dialog or representing written content"]
 
 The logfile of the `sc-system-refresh` script shows the different steps that are executed for the mount and the recovery operation.
 

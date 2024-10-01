@@ -9,7 +9,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 The term SAP system copy is often used as a synonym for three different processes: SAP system refresh, SAP system copy, or SAP system clone operations. It is important to distinguish between the different operations because the workflows and use cases differ for each one.
 
@@ -19,4 +19,4 @@ The term SAP system copy is often used as a synonym for three different processe
 
 The figure below illustrates the main steps that must be performed during a system refresh, system copy, or system clone operation. The blue boxes indicate steps that can be automated with SnapCenter, while the gray boxes indicate steps that must be performed outside of SnapCenter, either manually or by using third-party tools.
 
-image::sc-copy-clone-image2.png[]
+image:sc-copy-clone-image2.png["Figure showing input/output dialog or representing written content"]

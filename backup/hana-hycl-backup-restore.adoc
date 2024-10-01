@@ -10,7 +10,7 @@ summary: This section describes how to restore an SAP HANA backup with BlueXP.
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 [.lead]
 
@@ -20,13 +20,13 @@ A restore from of the backup can only be done to an on-premises NetApp ONTAP bas
 . In BlueXP UI, click *Protection* > *Backup and recovery* > *Applications* and choose Hybrid.
 . In the *Filter By* field, select the filter *Type* and from the drop-down select *HANA*.
 . Click *View Details* corresponding to the database that you want to restore. +
-image::hana-hycl-back-image38.jpeg[hana-hycl-back-image38,width=624,height=305]
+image:hana-hycl-back-image38.jpeg[hana-hycl-back-image38,width=624,height=305]
 
 . Select the desired backup and choose Storage Export. +
-image::hana-hycl-back-image39.jpeg[width=624,height=308]
+image:hana-hycl-back-image39.jpeg[width=624,height=308]
 
 . Provide the desired options: +
-image::hana-hycl-back-image40.jpeg[width=624,height=308]
+image:hana-hycl-back-image40.jpeg[width=624,height=308]
 [loweralpha]
 
 .. For NAS environment, specify the FQDN or IP address of the host to which the volumes restored from object store are to be exported.
@@ -37,6 +37,6 @@ image::hana-hycl-back-image40.jpeg[width=624,height=308]
 . If you selected Change Storage Location, specify the alternate storage location details where the data restored from the object store will be stored in the Storage mapping page and click *Next*.
 
 . Review the details and click *Restore*. +
-image::hana-hycl-back-image41.jpeg[hana-hycl-back-image41,width=624,height=309] +
+image:hana-hycl-back-image41.jpeg[hana-hycl-back-image41,width=624,height=309] +
  +
 This operation does only the storage export of the restored backup for the given host. You must manually mount the filesystem at the host and bring up the database. After utilizing the volume, the storage Administrator can delete the volume from the ONTAP cluster.

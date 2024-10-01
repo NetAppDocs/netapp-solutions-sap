@@ -9,7 +9,7 @@ summary: Backup operations are always performed at the primary SAP HANA host. Th
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -26,12 +26,12 @@ The ability to use any backup for restore and to do forward recovery using log b
 
 Each SAP HANA host has its own storage volume. When you use a storage-based Snapshot to perform a backup, a database- consistent Snapshot is created on the primary SAP HANA host’s storage volume.
 
-image::saphana-sr-scs-image3.png[]
+image:saphana-sr-scs-image3.png["Figure showing input/output dialog or representing written content"]
 
 When a failover to host 2 is performed, host 2 becomes the primary host, the backups are executed at host 2, and Snapshot backups are created at the storage volume of host 2.
 
 The backup created at host 2 can be restored directly at the storage layer. If you must use a backup created at host 1,  then the backup must be copied from the host 1 storage volume to the host 2 storage volume. Forward recovery uses the log backups from both hosts.
 
-image::saphana-sr-scs-image4.png[]
+image:saphana-sr-scs-image4.png["Figure showing input/output dialog or representing written content"]
 
 

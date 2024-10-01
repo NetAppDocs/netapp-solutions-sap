@@ -9,7 +9,7 @@ summary: The following three screenshots show the replication status for the dat
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -26,15 +26,15 @@ The transfer duration and transfer size provide valuable information on bandwidt
 
 The following screenshot shows the replication status of HANA data volume.
 
-image::saphana-dr-anf_image14.png[]
+image:saphana-dr-anf_image14.png["Figure showing input/output dialog or representing written content"]
 
 The following screenshot shows the replication status of HANA log backup volume.
 
-image::saphana-dr-anf_image15.png[]
+image:saphana-dr-anf_image15.png["Figure showing input/output dialog or representing written content"]
 
 The following screenshot shows the replication status of HANA shared volume.
 
-image::saphana-dr-anf_image16.png[]
+image:saphana-dr-anf_image16.png["Figure showing input/output dialog or representing written content"]
 
 == Replicated snapshot backups
 
@@ -43,5 +43,5 @@ With each replication update from the source to the target volume, all block cha
 [NOTE]
 Within the source and the target volume, SnapMirror Snapshot copies are created as well, which are used for resync and replication update operations. These Snapshot copies are not application consistent from the HANA database perspective; only the application-consistent snapshots created via AzaCSnap can be used for HANA recovery operations.
 
-image::saphana-dr-anf_image17.png[]
+image:saphana-dr-anf_image17.png["Figure showing input/output dialog or representing written content"]
 

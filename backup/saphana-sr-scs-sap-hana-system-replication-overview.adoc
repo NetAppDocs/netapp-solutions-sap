@@ -10,7 +10,7 @@ summary: SAP HANA System Replication is commonly used as a high-availability or 
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -37,7 +37,7 @@ From a backup requirement perspective, you must be able to create backups indepe
 
 The rest of this document focuses on backup operations with SAP System Replication configured as a high-availability solution.
 
-image::saphana-sr-scs-image1.png[]
+image:saphana-sr-scs-image1.png["Figure showing input/output dialog or representing written content"]
 
 == Disaster recovery over a large distance
 
@@ -45,5 +45,5 @@ System replication can be configured with asynchronous replication with no table
 
 Regarding backup requirements, you must be able to create backups during normal operation in data center 1 and during disaster recovery in data center 2. A separate backup infrastructure is available in data centers 1 and 2, and backup operations are activated as a part of disaster failover. The backup infrastructure is typically not shared, and a restore operation of a backup that was created at the other data center is not possible.
 
-image::saphana-sr-scs-image2.png[]
+image:saphana-sr-scs-image2.png["Figure showing input/output dialog or representing written content"]
 

@@ -9,7 +9,7 @@ summary: Depending on the disaster recovery setup (with or without log backup re
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -24,31 +24,31 @@ A new volume of the log backup volume must be created if the log backup data is 
 
 . One of the application-consistent snapshot backups is selected as a source for the new volume of the HANA data volume. Restore to New Volume is selected to create a new volume based on the snapshot backup.
 +
-image::saphana-dr-anf_image19.png[]
+image:saphana-dr-anf_image19.png["Figure showing input/output dialog or representing written content"]
 
 . The new volume name and quota must be provided in the user interface.
 +
-image::saphana-dr-anf_image20.png[]
+image:saphana-dr-anf_image20.png["Figure showing input/output dialog or representing written content"]
 
 . Within the protocol tab, the file path and export policy are configured.
 +
-image::saphana-dr-anf_image21.png[]
+image:saphana-dr-anf_image21.png["Figure showing input/output dialog or representing written content"]
 
 . The Create and Review screen summarizes the configuration.
 +
-image::saphana-dr-anf_image22.png[]
+image:saphana-dr-anf_image22.png["Figure showing input/output dialog or representing written content"]
 
 . A new volume has now been created based on the HANA snapshot backup.
 +
-image::saphana-dr-anf_image23.png[]
+image:saphana-dr-anf_image23.png["Figure showing input/output dialog or representing written content"]
 
 The same steps must now be performed for the HANA shared and the log backup volume as shown in the following two screenshots. Since no additional snapshots have been created for the HANA shared and log backup volume, the newest SnapMirror Snapshot copy must be selected as the source for the new volume. This is unstructured data, and the SnapMirror Snapshot copy can be used for this use case.
 
-image::saphana-dr-anf_image24.png[]
+image:saphana-dr-anf_image24.png["Figure showing input/output dialog or representing written content"]
 
 The following screenshot shows the HANA shared volume restored to new volume.
 
-image::saphana-dr-anf_image25.png[]
+image:saphana-dr-anf_image25.png["Figure showing input/output dialog or representing written content"]
 
 [NOTE]
 If a capacity pool with a low performance tier has been used, the volumes must now be moved to a capacity pool that provides the required performance.

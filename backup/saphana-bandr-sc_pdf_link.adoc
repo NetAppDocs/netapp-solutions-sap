@@ -10,7 +10,7 @@ summary: The document describes the installation and configuration of the NetApp
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 Nils Bauer, NetApp
 

@@ -10,7 +10,7 @@ summary: This section describes how to create an on-demand Snapshot backup and a
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -31,31 +31,31 @@ The Resource Topology view provides an overview of all available backups that ha
 
 . In the top row, select the Back up Now icon to start an on-demand backup.
 +
-image::amazon-fsx-image48.png[]
+image:amazon-fsx-image48.png["Figure showing input/output dialog or representing written content"]
 
 . From the drop-down list, select the backup policy `LocalSnap`, and then click Backup to start the on-demand backup.
 +
-image::amazon-fsx-image49.png[]
+image:amazon-fsx-image49.png["Figure showing input/output dialog or representing written content"]
 +
-image::amazon-fsx-image50.png[]
+image:amazon-fsx-image50.png["Figure showing input/output dialog or representing written content"]
 +
 A log of the previous five jobs is shown in the Activity area at the bottom of the Topology view.
 
 . The job details are shown when clicking the job’s activity line in the Activity area. You can open a detailed job log by clicking View Logs
 +
-image::amazon-fsx-image51.png[]
+image:amazon-fsx-image51.png["Figure showing input/output dialog or representing written content"]
 +
 When the backup is finished, a new entry is shown in the topology view. The backup names follow the same naming convention as the Snapshot name defined in the section link:amazon-fsx-snapcenter-configuration.html#configure-and-protect-a-hana-resource[“Configure and protect a HANA resource”.]
 +
 You must close and reopen the topology view to see the updated backup list.
 +
-image::amazon-fsx-image52.png[]
+image:amazon-fsx-image52.png["Figure showing input/output dialog or representing written content"]
 +
 In the SAP HANA backup catalog, the SnapCenter backup name is stored as a `Comment` field as well as `External Backup ID (EBID)`. This is shown in the following figure for the system database and in the next figure for the tenant database PFX.
 +
-image::amazon-fsx-image53.png[]
+image:amazon-fsx-image53.png["Figure showing input/output dialog or representing written content"]
 +
-image::amazon-fsx-image54.png[]
+image:amazon-fsx-image54.png["Figure showing input/output dialog or representing written content"]
 
 On the FSx for ONTAP file system, you can list the Snapshot backups by connecting to the console of the SVM.
 
@@ -74,19 +74,19 @@ sapcc-hana-svm::>
 
 An on-demand block integrity check operation is executed in the same way as a Snapshot backup job, by selecting the policy BlockIntegrityCheck.  When scheduling backups using this policy, SnapCenter creates a standard SAP HANA file backup for the system and tenant databases.
 
-image::amazon-fsx-image55.png[]
+image:amazon-fsx-image55.png["Figure showing input/output dialog or representing written content"]
 
-image::amazon-fsx-image56.png[]
+image:amazon-fsx-image56.png["Figure showing input/output dialog or representing written content"]
 
 SnapCenter does not display the block integrity check in the same manner as Snapshot copy-based backups. Instead, the summary card shows the number of file-based backups and the status of the previous backup.
 
-image::amazon-fsx-image57.png[]
+image:amazon-fsx-image57.png["Figure showing input/output dialog or representing written content"]
 
 The SAP HANA backup catalog shows entries for both the system and the tenant databases. The following figures show the SnapCenter block integrity check in the backup catalog of the system and the tenant database.
 
-image::amazon-fsx-image58.png[]
+image:amazon-fsx-image58.png["Figure showing input/output dialog or representing written content"]
 
-image::amazon-fsx-image59.png[]
+image:amazon-fsx-image59.png["Figure showing input/output dialog or representing written content"]
 
 A successful block integrity check creates standard SAP HANA data backup files. SnapCenter uses the backup path that has been configured with the HANA database for file-based data backup operations.
 

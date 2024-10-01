@@ -9,7 +9,7 @@ summary: A comprehensive disaster recovery solution must enable customers to rec
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -26,7 +26,7 @@ In addition, data is also replicated asynchronously to a secondary region to be 
 
 This document discusses different implementation options of a two- region disaster recovery solution.
 
-image::saphana-dr-anf_image3.png[]
+image:saphana-dr-anf_image3.png["Figure showing input/output dialog or representing written content"]
 
 == SAP HANA System Replication
 
@@ -47,7 +47,7 @@ The following figure shows the setup of a two-region disaster recovery solution 
 
 The following figure depicts SAP HANA System Replication.
 
-image::saphana-dr-anf_image4.png[]
+image:saphana-dr-anf_image4.png["Figure showing input/output dialog or representing written content"]
 
 === SAP HANA System Replication with data preloaded into memory
 
@@ -75,7 +75,7 @@ The servers at the disaster recovery sites can be used as dev/test systems durin
 
 ANF Cross-Region Replication allows you to test the DR workflow without impacting the RPO and RTO. This is accomplished by creating volume clones and attaching them to the DR testing server.
 
-image::saphana-dr-anf_image5.png[]
+image:saphana-dr-anf_image5.png["Figure showing input/output dialog or representing written content"]
 
 == Summary of disaster recovery solutions
 

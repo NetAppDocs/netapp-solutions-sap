@@ -9,7 +9,7 @@ summary: The new volumes can now be mounted at the target host, based on the /et
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
