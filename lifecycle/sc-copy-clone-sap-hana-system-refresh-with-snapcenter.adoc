@@ -11,6 +11,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
 The following section provides a step-by-step description for the different system refresh operation options of an SAP HANA database.
 
 image:sc-copy-clone-image7.png["Figure showing input/output dialog or representing written content"]

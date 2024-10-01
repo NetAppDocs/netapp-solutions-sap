@@ -161,6 +161,7 @@ image:saphana-br-scs-image40.png["Figure showing input/output dialog or represen
 +
 image:saphana-br-scs-image41.png["Figure showing input/output dialog or representing written content"]
 
+[[snapshot-policy]]
 === Policy for daily Snapshot backups with SnapVault replication
 
 . Go to Settings > Policies and click New.

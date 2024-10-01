@@ -12,11 +12,12 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :imagesdir: ../media/
 ---
 
-Nils Bauer, NetApp 
+[.lead]
+In today’s dynamic business environment, companies must provide ongoing innovation and react quickly to changing markets. Under these competitive circumstances, companies that implement greater flexibility in their work processes can adapt to market demands more effectively.
+
+Author: Nils Bauer, NetApp 
 
 == Introduction
-
-In today’s dynamic business environment, companies must provide ongoing innovation and react quickly to changing markets. Under these competitive circumstances, companies that implement greater flexibility in their work processes can adapt to market demands more effectively.
 
 Changing market demands also affect a company’s SAP environments such that they require regular integrations, changes, and updates. IT departments must implement these changes with fewer resources and over shorter time periods. Minimizing risk when deploying those changes requires thorough testing and training which require additional SAP systems with actual data from production.
 

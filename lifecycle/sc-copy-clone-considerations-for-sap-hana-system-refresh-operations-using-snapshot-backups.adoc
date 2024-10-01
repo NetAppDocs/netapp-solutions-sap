@@ -11,6 +11,9 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
+
 == Tenant name(s) at target system
 
 The steps required to perform an SAP HANA system refresh depend on the source system tenant configuration and the required tenant name at the target system, as shown in the figure below.

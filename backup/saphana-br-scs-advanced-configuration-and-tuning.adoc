@@ -58,6 +58,7 @@ The wrapper script `hdbsqls` calls `hdbsql` with the required command-line optio
 /usr/sap/SM1/HDB12/exe/hdbsql -e -ssltrustcert $*
 ....
 
+[[disable-auto]]
 == Disable auto discovery on the HANA plug-in host
 
 To disable autodiscovery on the HANA plug-in host, complete the following steps:
@@ -130,6 +131,7 @@ To configure SnapCenter to suppress this warning, the following configuration mu
 
 image:saphana-br-scs-image155.png["Figure showing input/output dialog or representing written content"]
 
+[[change-schedule]]
 == Change scheduling frequency of backup synchronization with off-site backup storage
 
 As described in the section link:saphana-br-scs-snapcenter-concepts-and-best-practices.html#retention-management-of-backups-at-the-secondary-storage[“Retention management of backups at the secondary storage,”] retention management of data backups to an off-site backup storage is handled by ONTAP. SnapCenter periodically checks if ONTAP has deleted backups at the off-site backup storage by running a cleanup job with a weekly default schedule.

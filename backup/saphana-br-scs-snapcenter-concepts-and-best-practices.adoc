@@ -68,7 +68,7 @@ HANA MDC systems with multiple tenants are supported for automatic discovery, bu
 Manual configuration of HANA resources is supported for all HANA architectures; however, it requires a central HANA plug-in host. The central plug-in host can be the SnapCenter server itself or a separate Linux or Windows host.
 
 [NOTE]
-When the HANA plug-in is deployed on the HANA database host, by default, the resource is auto discovered.  Auto discovery can be disabled for individual hosts, so that the plug-in can be deployed; for example, on a database host with activated HANA System Replication and a SnapCenter release < 4.6, where auto discovery is not supported. For more information, see the section link:saphana-br-scs-advanced-configuration-and-tuning.html#disable-auto-discovery-on-the-HANA-plug-in-host[“Disable auto discovery on the HANA plug-in host.”]
+When the HANA plug-in is deployed on the HANA database host, by default, the resource is auto discovered.  Auto discovery can be disabled for individual hosts, so that the plug-in can be deployed; for example, on a database host with activated HANA System Replication and a SnapCenter release < 4.6, where auto discovery is not supported. For more information, see the section link:saphana-br-scs-advanced-configuration-and-tuning.html#disable-auto[“Disable auto discovery on the HANA plug-in host.”]
 
 The following table shows supported HANA configurations for manual HANA resource configuration.
 
@@ -407,7 +407,7 @@ The cleanup job is scheduled once per week by default. This weekly schedule resu
 [NOTE]
 The cleanup job can also be triggered manually for an individual resource by clicking the refresh button in the topology view of the resource.
 
-For details about how to adapt the schedule of the cleanup job or how to trigger a manual refresh, refer to the section link:saphana-br-scs-advanced-configuration-and-tuning.html#change-scheduling-frequency-of-backup-synchronization-with-off-site-backup-storage[“Change scheduling frequency of backup synchronization with off-site backup storage.”]
+For details about how to adapt the schedule of the cleanup job or how to trigger a manual refresh, refer to the section link:saphana-br-scs-advanced-configuration-and-tuning.html#change-schedule[“Change scheduling frequency of backup synchronization with off-site backup storage.”]
 
 === Retention management of data backups within the SAP HANA backup catalog
 
@@ -432,7 +432,7 @@ SnapCenter only handles housekeeping for backups that have been created by SnapC
 [NOTE]
 Even though a retention is defined for on-demand backups in the policy configuration, the housekeeping is only done when another on-demand backup is executed. Therefore, on-demand backups typically must be deleted manually in SnapCenter to make sure that these backups are also deleted in the SAP HANA backup catalog and that log backup housekeeping is not based on an old on-demand backup.
 
-Log backup retention management is enabled by default. If required, it can be disabled as described in the section  link:saphana-br-scs-advanced-configuration-and-tuning.html#disable-auto-discovery-on-the-HANA-plug-in-host[“Disable auto discovery on the HANA plug-in host.”]
+Log backup retention management is enabled by default. If required, it can be disabled as described in the section  link:saphana-br-scs-advanced-configuration-and-tuning.html#disable-auto[“Disable auto discovery on the HANA plug-in host.”]
 
 == Capacity requirements for Snapshot backups
 

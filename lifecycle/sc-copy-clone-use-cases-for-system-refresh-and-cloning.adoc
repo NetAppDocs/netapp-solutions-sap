@@ -11,6 +11,9 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
+
 == Data refresh of QA, test, sandbox, or training systems
 
 There are multiple scenarios in which data from a source system must be made available to a target system for testing or training purposes. These test and training systems must be updated with data from the source system on a regular basis to make sure that testing and training is performed with the current data set. These system refresh operations consist of multiple tasks on the infrastructure, database, and application layers, and they can take multiple days depending on the level of automation.

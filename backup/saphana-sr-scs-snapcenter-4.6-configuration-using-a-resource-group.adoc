@@ -24,7 +24,7 @@ SnapCenter 4.6 supports auto discovery for HANA systems configured with HANA Sys
 
 The following figure shows the lab setup used for this chapter. Two HANA hosts, hana-3 and hana-4, were configured with HANA System Replication.
 
-A database user “SnapCenter” was created for the HANA system database with the required privileges to execute backup and recovery operations (see https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter^]). A HANA user store key must be configured at both hosts using the above database user.
+A database user “SnapCenter” was created for the HANA system database with the required privileges to execute backup and recovery operations (see link:saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter^]). A HANA user store key must be configured at both hosts using the above database user.
 
 ....
 ss2adm@hana- 3: / > hdbuserstore set SS2KEY hana- 3:33313 SNAPCENTER <password>
@@ -124,6 +124,7 @@ image:saphana-sr-scs-image24.png["Figure showing input/output dialog or represen
 
 SnapCenter 4.6 uses the same logic as described for Snapshot backup operations for block-integrity check operations with file-based backups. SnapCenter identifies the current primary HANA host and executes the file-based backup for this host. Retention management is also performed across both hosts, so the oldest backup is deleted regardless of which host is currently the primary.
 
+[[snapvault-replication]]
 == SnapVault replication
 
 To allow transparent backup operations without manual interaction in case of a takeover and independent of which HANA host is currently the primary host, you must configure a SnapVault relationship for the data volumes of both hosts. SnapCenter executes a SnapVault update operation for the current primary host with each backup run.
@@ -142,7 +143,7 @@ image:saphana-sr-scs-image25.png["Figure showing input/output dialog or represen
 
 SnapCenter 4.6 manages retention for Snapshot backups, block-integrity check operations, HANA backup catalog entries,  and log backups (if not disabled) across both HANA hosts, so it doesn’t matter which host is currently primary or secondary. Backups (data and log) and entries in the HANA catalog are deleted based on the defined retention,  regardless of whether a delete operation is necessary on the current primary or secondary host. In other words, no manual interaction is required if a takeover operation is performed and/or the replication is configured in the other direction.
 
-If SnapVault replication is part of the data protection strategy, manual interaction is required for specific scenarios, as described in the section <<SnapVault Replication>>.
+If SnapVault replication is part of the data protection strategy, manual interaction is required for specific scenarios, as described in the section link:#snapvault-replication[SnapVault Replication]
 
 == Restore and recovery
 
@@ -150,7 +151,7 @@ The following figure depicts a scenario in which multiple takeovers have been ex
 
 image:saphana-sr-scs-image26.png["Figure showing input/output dialog or representing written content"]
 
-Restore and recovery operations for a SnapCenter 4.6 resource group configuration are identical to an autodiscovered non-System Replication setup. All options for restore and automated recovery are available. For further details, see the technical report https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter^].
+Restore and recovery operations for a SnapCenter 4.6 resource group configuration are identical to an autodiscovered non-System Replication setup. All options for restore and automated recovery are available. For further details, see the technical report link:saphana-br-scs-overview.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter^].
 
 A restore operation from a backup that was created at the other host is described in the section link:saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html[Restore and Recovery from a Backup Created at the Other Host].
 

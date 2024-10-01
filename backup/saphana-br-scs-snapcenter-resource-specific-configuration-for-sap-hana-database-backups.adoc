@@ -156,7 +156,7 @@ image:saphana-br-scs-image54.png["Figure showing input/output dialog or represen
 The following figure shows the protection policy. The protection policy used for the protection relationship defines the SnapMirror label, as well as the retention of backups at the secondary storage. In our example, the used label is `Daily`, and the retention is set to 5.
 
 [NOTE]
-The SnapMirror label in the policy being created must match the label defined in the SnapCenter policy configuration. For details, refer to “<<Policy for daily Snapshot backups with SnapVault replication>>.”
+The SnapMirror label in the policy being created must match the label defined in the SnapCenter policy configuration. For details, refer to link:saphana-br-scs-snapcenter-initial-configuration.html#snapshot-policy[Policy for daily Snapshot backups with SnapVault replication].
 
 [NOTE]
 The retention for backups at the off-site backup storage is defined in the policy and controlled by ONTAP.
@@ -209,7 +209,7 @@ The summary screen of the resource configuration is shown.
 +
 image:saphana-br-scs-image60.png["Figure showing input/output dialog or representing written content"]
 
-. When resource configuration is finished, perform the configuration of resource protection as described in the section “<<Resource protection configuration>>.”
+. When resource configuration is finished, perform the configuration of resource protection as described in the section link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#resource-protection[Resource protection configuration].
 
 == Automatic discovery of HANA databases
 
@@ -254,6 +254,7 @@ image:saphana-br-scs-image67.png["Figure showing input/output dialog or represen
 +
 When the resource configuration is finished, the resource protection configuration must be executed as described in the following section.
 
+[[resource-protection]]
 == Resource protection configuration
 
 This section describes the resource protection configuration. The resource protection configuration is the same, whether the resource has been auto discovered or configured manually. It is also identical for all HANA architectures, single or multiple hosts, single container, or MDC systems.
