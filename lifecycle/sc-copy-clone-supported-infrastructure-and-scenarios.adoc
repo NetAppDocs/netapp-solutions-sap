@@ -9,7 +9,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 This document covers SAP system refresh and cloning scenarios for SAP HANA systems running on on-premises NetApp systems, on Amazon FSx for NetApp ONTAP systems and on Azure NetApp Files. However not all features and scenarios are available on every storage platform. The table below summarizes the supported configurations.
 

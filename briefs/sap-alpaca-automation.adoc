@@ -10,7 +10,7 @@ summary: "This document focuses on integrating NetApp® Snapshot™ and FlexClon
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This document focuses on integrating NetApp® Snapshot™ and FlexClone® technologies into ALPACA automation workflows.

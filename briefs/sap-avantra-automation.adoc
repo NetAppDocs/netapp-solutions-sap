@@ -11,7 +11,7 @@ summary: "This document describes how Avantra integrates with the NetApp SnapCen
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This document describes how Avantra integrates with the NetApp SnapCenter® platform. 

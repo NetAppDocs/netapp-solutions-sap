@@ -9,7 +9,7 @@ summary: SAP HANA hosts are connected to storage controllers by using a redundan
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

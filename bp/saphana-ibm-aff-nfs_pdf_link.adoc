@@ -10,7 +10,7 @@ summary: IBM Power Systems are designed for data-intensive and mission-critical 
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 Tobias Brandl, NetApp
 

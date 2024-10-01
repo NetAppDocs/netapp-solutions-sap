@@ -10,7 +10,7 @@ summary:
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 The following technical changes have been made to this solution since its original publication.

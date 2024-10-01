@@ -9,7 +9,7 @@ summary: To implement an effective disaster recovery strategy, you must test the
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

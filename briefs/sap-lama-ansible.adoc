@@ -10,7 +10,7 @@ summary: "This document focuses on integrating NetApp® storage systems—whethe
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 This document focuses on integrating NetApp® storage systems—whether they are operated on

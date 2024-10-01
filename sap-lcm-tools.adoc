@@ -10,7 +10,7 @@ keywords: netapp, solutions, SAP, lifecycle, management, lcm, tools
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: /media
+:imagesdir:./media/
 
 [.lead]
 Overview of the tools for SAP Lifecycle Management solutions and solutions collateral.

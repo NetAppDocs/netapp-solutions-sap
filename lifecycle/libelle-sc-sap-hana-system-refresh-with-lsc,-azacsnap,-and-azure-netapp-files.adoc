@@ -9,7 +9,7 @@ summary: Using Azure NetApp Files for SAP HANA, Oracle, and DB2 on Azure provide
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

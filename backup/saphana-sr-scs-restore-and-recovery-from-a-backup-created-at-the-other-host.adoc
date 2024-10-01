@@ -9,7 +9,7 @@ summary: A restore operation from a backup that has been created at the other SA
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

@@ -11,7 +11,7 @@ summary: This NetApp Verified Architecture covers modernizing SAP systems and op
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 Nils Bauer, Roland Wartenberg, Darryl Clinkscales, Daniel Hohman, Marco Schöen, Steve Botkin, Michael Peppers, Vidula Aiyer, Steve Collins, Pavan Jhamnani, Lee Dorrier, NetApp
 

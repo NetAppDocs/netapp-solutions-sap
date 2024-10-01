@@ -9,7 +9,7 @@ summary: The lab setup used for this technical report includes five different SA
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

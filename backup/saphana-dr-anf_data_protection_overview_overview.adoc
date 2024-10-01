@@ -11,7 +11,7 @@ summary: Studies have shown that business application downtime has a significant
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

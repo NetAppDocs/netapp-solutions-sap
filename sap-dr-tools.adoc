@@ -10,7 +10,7 @@ keywords: netapp, solutions, SAP, backup, restore, dr, disaster recovery, tools
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: /media
+:imagesdir:./media/
 
 [.lead]
 Overview of tools for SAP Backup, Restore and Disaster Recovery solutions and solutions collateral.

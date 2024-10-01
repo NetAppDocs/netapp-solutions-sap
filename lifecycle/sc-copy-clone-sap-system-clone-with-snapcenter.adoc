@@ -9,7 +9,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 This section provides a step-by-step description for the SAP system clone operation, which can be used to set up a repair system to address logical corruption.
 

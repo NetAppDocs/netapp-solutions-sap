@@ -9,7 +9,7 @@ summary: To decommission a cloned system, it must be stopped and prepared in adv
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

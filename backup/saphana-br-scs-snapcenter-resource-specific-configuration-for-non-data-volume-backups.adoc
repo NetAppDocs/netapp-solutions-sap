@@ -9,7 +9,7 @@ summary: The backup of non-data volumes is an integrated part of the SAP HANA pl
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

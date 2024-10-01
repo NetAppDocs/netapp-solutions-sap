@@ -10,7 +10,7 @@ summary: This reference architecture document helps customers design and deploy 
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 Tobias Brandl, NetApp
 

@@ -10,7 +10,7 @@ summary: This technical report provides best practices for SAP HANA data protect
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 == Overview
 

@@ -10,7 +10,7 @@ summary: This document addresses the challenges of designing storage solutions t
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 Nils Bauer, NetApp
 

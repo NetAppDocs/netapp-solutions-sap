@@ -10,7 +10,7 @@ summary: This section describes how to restore an SAP HANA backup with BlueXP.
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 [.lead]
 

@@ -11,7 +11,7 @@ keywords: netapp, solutions, SAP, best practices, tools
 :icons: font
 :linkattrs:
 :table-stripes: odd
-:imagesdir: /media
+:imagesdir:./media/
 
 [.lead]
 Overview of tools for SAP Configuration Best Practices solutions and solutions collateral.

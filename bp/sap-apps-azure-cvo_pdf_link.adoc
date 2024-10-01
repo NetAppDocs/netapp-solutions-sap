@@ -11,7 +11,7 @@ summary: TR-4757 provides best practices for using Azure NetApp Files for SAP Ap
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ../media
+:imagesdir: ../media/
 
 Bernd Herth, Tobias Brandl, Nils Bauer, NetApp
 

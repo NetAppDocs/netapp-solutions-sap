@@ -11,7 +11,7 @@ keywords: netapp, solutions, SAP, best practices, blogs
 :icons: font
 :linkattrs:
 :table-stripes: odd
-:imagesdir: /media
+:imagesdir:./media/
 
 [.lead]
 Overview of the blogs highlighting the SAP Configuration Best Practices.
