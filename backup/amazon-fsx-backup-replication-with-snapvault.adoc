@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: amazon-fsx-backup-replication-with-snapvault.html
+permalink: backup/amazon-fsx-backup-replication-with-snapvault.html
 keywords:
 summary:
 ---
