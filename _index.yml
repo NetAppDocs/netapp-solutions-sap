@@ -2,7 +2,6 @@ indexpage:
   title: SAP Business Application and SAP HANA Database Solutions
   lead: NetApp has an extensive collection of technical reports, validated designs, videos, blogs and solution briefs for SAP and SAP HANA.
   summary: NetApp has an extensive collection of technical reports, validated designs, videos, blogs and solution briefs for SAP and SAP HANA.
-  keywords: netapp, solutions, sap, hana
   tiles:
     - title: Configuration Best Practices
       links:

@@ -10,7 +10,7 @@ keywords: netapp, solutions, SAP, lifecycle, management, lcm, blogs
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir:./media/
+:imagesdir: ./media/
 
 [.lead]
 Overview of the blogs highlighting the SAP Lifecycle Management.

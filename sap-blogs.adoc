@@ -10,8 +10,7 @@ keywords: netapp, solutions, SAP, blogs
 :nofooter:
 :icons: font
 :linkattrs:
-:table-stripes: odd
-:imagesdir:./media/
+:imagesdir: ./media/
 
 [.lead]
 Overview of the blogs highlighting SAP on NetApp.
