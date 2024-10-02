@@ -10,7 +10,7 @@ summary: This section describes how to restore and recover from secondary storag
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -23,11 +23,11 @@ To restore and recover from secondary storage, follow these steps:
 
 To retrieve the list of all the backups on the secondary storage, in the SnapCenter Topology view, click Vault Copies, then select a backup and click Restore.
 
-image::amazon-fsx-image92.png[]
+image:amazon-fsx-image92.png["Figure showing input/output dialog or representing written content"]
 
 The restore dialog shows the secondary locations.
 
-image::amazon-fsx-image93.png[]
+image:amazon-fsx-image93.png["Figure showing input/output dialog or representing written content"]
 
 Further restore and recovery steps are identical to those previously covered for a Snapshot backup at the primary storage.
 

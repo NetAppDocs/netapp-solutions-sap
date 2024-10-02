@@ -11,7 +11,7 @@ summary: The NetApp FAS product family has been certified for use with SAP HANA 
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -19,9 +19,10 @@ summary: The NetApp FAS product family has been certified for use with SAP HANA 
 // 2021-05-20 16:40:51.299953
 //
 
-Marco Schoen, NetApp
-
+[.lead]
 The NetApp FAS product family has been certified for use with SAP HANA in TDI projects. The certified enterprise storage platform is characterized by the NetApp ONTAP operating system.
+
+Marco Schoen, NetApp
 
 The certification is valid for the following models:
 
@@ -36,9 +37,9 @@ The configuration described in this paper is necessary to achieve the required S
 
 The configuration guides for FAS systems using NFS and NetApp AFF systems can be found using the following links:
 
-* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html[SAP HANA on NetApp AFF Systems with Fibre Channel Protocol^]
-* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana-fas-nfs_introduction.html[SAP HANA on NetApp FAS Systems with NFS^]
-* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF Systems with NFS^]
+* link:saphana_aff_fc_introduction.html[SAP HANA on NetApp AFF Systems with Fibre Channel Protocol^]
+* link:saphana-fas-nfs_introduction.html[SAP HANA on NetApp FAS Systems with NFS^]
+* link:saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF Systems with NFS^]
 
 In an SAP HANA multiple-host environment, the standard SAP HANA storage connector is used to provide fencing in the event of an SAP HANA host failover. Refer to the relevant SAP notes for operating system configuration guidelines and HANA-specific Linux kernel dependencies. For more information, see https://launchpad.support.sap.com/[SAP Note 2235581 – SAP HANA Supported Operating Systems^].
 
@@ -46,7 +47,7 @@ In an SAP HANA multiple-host environment, the standard SAP HANA storage connecto
 
 NetApp FAS storage controllers are certified in the SAP HANA Tailored Data Center Integration (TDI) program using NFS (NAS) and Fibre Channel (SAN) protocols. They can be deployed in any SAP HANA scenario, such as, SAP Business Suite on HANA, S/4HANA, BW/4HANA or SAP Business Warehouse on HANA in single-host or multiple-host configurations. Any server that is certified for use with SAP HANA can be combined with the certified storage solution. See the following figure for an architecture overview.
 
-image::saphana_fas_fc_image1.png[]
+image:saphana_fas_fc_image1.png["Figure showing input/output dialog or representing written content"]
 
 For more information regarding the prerequisites and recommendations for productive SAP HANA systems, see the following resource:
 
@@ -54,7 +55,7 @@ For more information regarding the prerequisites and recommendations for product
 
 == SAP HANA using VMware vSphere
 
-There are several options for connecting storage to virtual machines (VMs). The preferred one is to connect the storage volumes with NFS directly out of the guest operating system. This option is described in https://docs.netapp.com/us-en/netapp-solutions_main/ent-apps-db/saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF Systems with NFS^].
+There are several options for connecting storage to virtual machines (VMs). The preferred one is to connect the storage volumes with NFS directly out of the guest operating system. This option is described in link:saphana_aff_nfs_introduction.html[SAP HANA on NetApp AFF Systems with NFS^].
 
 Raw device mappings (RDM), FCP datastores, or VVOL datastores with FCP are supported as well. For both datastore options, only one SAP HANA data or log volume must be stored within the datastore for productive use cases. In addition, Snapshot- based backup and recovery orchestrated by SnapCenter and solutions based on this, such as SAP System cloning, cannot be implemented.
 

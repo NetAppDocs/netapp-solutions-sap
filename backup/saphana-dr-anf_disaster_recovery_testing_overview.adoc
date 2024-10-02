@@ -9,7 +9,7 @@ summary: To implement an effective disaster recovery strategy, you must test the
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -38,6 +38,6 @@ To perform disaster recovery testing, complete the following steps:
 
 The following subsections describe these steps in detail.
 
-image::saphana-dr-anf_image18.png[]
+image:saphana-dr-anf_image18.png["Figure showing input/output dialog or representing written content"]
 
 

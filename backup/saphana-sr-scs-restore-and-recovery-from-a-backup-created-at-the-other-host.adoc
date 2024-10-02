@@ -9,7 +9,7 @@ summary: A restore operation from a backup that has been created at the other SA
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -30,11 +30,11 @@ A backup has been created at T1 at host 1. A failover has been performed to host
 . A forward recovery is performed using logs from host 1 and host 2.
 . Host 1 is started, and a system replication resynchronization of host 1 is automatically started.
 
-image::saphana-sr-scs-image48.png[]
+image:saphana-sr-scs-image48.png["Figure showing input/output dialog or representing written content"]
 
 The following figure shows the SAP HANA backup catalog and highlights the backup, created at host 1, that was used for the restore and recovery operation.
 
-image::saphana-sr-scs-image49.png[]
+image:saphana-sr-scs-image49.png["Figure showing input/output dialog or representing written content"]
 
 The restore operation involves the following steps:
 
@@ -44,7 +44,7 @@ The restore operation involves the following steps:
 
 In SnapCenter, the backup is selected and the clone operation is started.
 
-image::saphana-sr-scs-image50.png[]
+image:saphana-sr-scs-image50.png["Figure showing input/output dialog or representing written content"]
 
 You must provide the clone server and the NFS export IP address.
 
@@ -53,11 +53,11 @@ In a SnapCenter single-resource configuration, the SAP HANA plug-in is not insta
 +
 In a SnapCenter configuration with separate resources, the HANA database host is selected as a clone server, and a mount script is used to mount the clone to the target host.
 
-image::saphana-sr-scs-image51.png[]
+image:saphana-sr-scs-image51.png["Figure showing input/output dialog or representing written content"]
 
 To determine the junction path that is required to mount the cloned volume, check the job log of the cloning job, as the following figure shows.
 
-image::saphana-sr-scs-image52.png[]
+image:saphana-sr-scs-image52.png["Figure showing input/output dialog or representing written content"]
 
 The cloned volume can now be mounted.
 

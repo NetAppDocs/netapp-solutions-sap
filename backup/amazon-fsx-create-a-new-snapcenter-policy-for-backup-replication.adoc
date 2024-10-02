@@ -10,7 +10,7 @@ summary: This section describes how to configure a policy for backup replication
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -23,29 +23,29 @@ You must configure a policy for the backup replication as follows:
 
 . Provide a name for the policy.
 +
-image::amazon-fsx-image79.png[]
+image:amazon-fsx-image79.png["Figure showing input/output dialog or representing written content"]
 
 . Select Snapshot backup and a schedule frequency. Daily is typically used for backup replication.
 +
-image::amazon-fsx-image80.png[]
+image:amazon-fsx-image80.png["Figure showing input/output dialog or representing written content"]
 
 . Select the retention for the Snapshot backups.
 +
-image::amazon-fsx-image81.png[]
+image:amazon-fsx-image81.png["Figure showing input/output dialog or representing written content"]
 +
 This is the retention for the daily Snapshot backups taken at the primary storage. The retention for secondary backups at the SnapVault target has already been configured previously using the add rule command at the ONTAP level. See “Configure replication relationships on FSx for ONTAP file systems” (xref).
 +
-image::amazon-fsx-image82.png[]
+image:amazon-fsx-image82.png["Figure showing input/output dialog or representing written content"]
 
 . Select the Update SnapVault field and provide a custom label.
 +
 This label must match the SnapMirror label provided in the `add rule` command at ONTAP level.
 +
-image::amazon-fsx-image83.png[]
+image:amazon-fsx-image83.png["Figure showing input/output dialog or representing written content"]
 +
-image::amazon-fsx-image84.png[]
+image:amazon-fsx-image84.png["Figure showing input/output dialog or representing written content"]
 
 The new SnapCenter policy is now configured.
 
-image::amazon-fsx-image85.png[]
+image:amazon-fsx-image85.png["Figure showing input/output dialog or representing written content"]
 

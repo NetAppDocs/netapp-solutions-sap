@@ -3,7 +3,6 @@ title: Lifecycle Management
 entries:
 #
   - title: NetApp SAP Landscape Management Integration using Ansible
-    type: solutions
     entries:
       - title: Introduction
         url: /lifecycle/lama-ansible-introduction.html
@@ -29,7 +28,6 @@ entries:
         url: /lifecycle/lama-ansible-conclusion.html
 #
   - title: Automating SAP HANA System Copy and Clone Operations with SnapCenter
-    type: solutions
     entries:
       - title: Introduction
         url: /lifecycle/sc-copy-clone-introduction.html
@@ -55,7 +53,6 @@ entries:
         url: /lifecycle/sc-copy-clone-where-to-find-additional-information.html
 #
   - title: Automating SAP system copy operations with Libelle SystemCopy
-    type: solutions
     entries:
       - title: Overview
         url: /lifecycle/libelle-sc-overview.html

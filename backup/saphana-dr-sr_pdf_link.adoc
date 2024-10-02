@@ -10,11 +10,11 @@ summary: TR-4646 is an overview of the options for disaster recovery protection 
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
-Nils Bauer, NetApp
-
+[.lead]
 TR-4646 is an overview of the options for disaster recovery protection for SAP HANA. It includes detailed setup information and a use case description of a three-site disaster recovery solution based on synchronous and asynchronous NetApp SnapMirror Storage replication. The described solution uses NetApp SnapCenter with the SAP HANA plug-in to manage database consistency.
 
+Author: Nils Bauer, NetApp
 
 link:https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf[https://www.netapp.com/pdf.html?item=/media/8584-tr4646pdf.pdf]

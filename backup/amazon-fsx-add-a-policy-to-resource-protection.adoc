@@ -10,7 +10,7 @@ summary: This section describes how to add a policy to resource protection.
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -21,9 +21,9 @@ summary: This section describes how to add a policy to resource protection.
 [.lead]
 You must add the new policy to the HANA resource protection configuration, as shown in the following figure.
 
-image::amazon-fsx-image86.png[]
+image:amazon-fsx-image86.png["Figure showing input/output dialog or representing written content"]
 
 A daily schedule is defined in our setup.
 
-image::amazon-fsx-image87.png[]
+image:amazon-fsx-image87.png["Figure showing input/output dialog or representing written content"]
 

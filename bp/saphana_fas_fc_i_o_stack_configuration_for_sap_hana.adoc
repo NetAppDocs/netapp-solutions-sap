@@ -9,7 +9,7 @@ summary: Starting with SAP HANA 1.0 SPS10, SAP introduced parameters to adjust t
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)

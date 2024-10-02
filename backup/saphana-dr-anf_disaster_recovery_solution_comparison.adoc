@@ -9,7 +9,7 @@ summary: A comprehensive disaster recovery solution must enable customers to rec
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -26,7 +26,7 @@ In addition, data is also replicated asynchronously to a secondary region to be 
 
 This document discusses different implementation options of a two- region disaster recovery solution.
 
-image::saphana-dr-anf_image3.png[]
+image:saphana-dr-anf_image3.png["Figure showing input/output dialog or representing written content"]
 
 == SAP HANA System Replication
 
@@ -47,7 +47,7 @@ The following figure shows the setup of a two-region disaster recovery solution 
 
 The following figure depicts SAP HANA System Replication.
 
-image::saphana-dr-anf_image4.png[]
+image:saphana-dr-anf_image4.png["Figure showing input/output dialog or representing written content"]
 
 === SAP HANA System Replication with data preloaded into memory
 
@@ -69,13 +69,13 @@ The following figure shows a two- region disaster recovery solution example, usi
 
 The RTO depends mainly on the time needed to start the HANA database at the disaster recovery site and to load the data into memory. With the assumption that the data is read with a throughput of 1000MB/s, loading 1TB of data would take approximately 18 minutes. Depending on the replication configuration, forward recovery is required as well and will add to the total RTO value.
 
-More details on the different configuration options are provided in chapter link:ent-apps-db/saphana-dr-anf_anf_cross-region_replication_with_sap_hana_overview.html[Configuration options for cross region replication with SAP HANA].
+More details on the different configuration options are provided in chapter link:saphana-dr-anf_anf_cross-region_replication_with_sap_hana_overview.html[Configuration options for cross region replication with SAP HANA].
 
 The servers at the disaster recovery sites can be used as dev/test systems during normal operation. In case of a disaster, the dev/test systems must be shut down and started as DR production servers.
 
 ANF Cross-Region Replication allows you to test the DR workflow without impacting the RPO and RTO. This is accomplished by creating volume clones and attaching them to the DR testing server.
 
-image::saphana-dr-anf_image5.png[]
+image:saphana-dr-anf_image5.png["Figure showing input/output dialog or representing written content"]
 
 == Summary of disaster recovery solutions
 

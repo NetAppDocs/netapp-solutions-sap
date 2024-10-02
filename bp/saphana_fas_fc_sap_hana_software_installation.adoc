@@ -9,7 +9,7 @@ summary: Below are the requirements for SAP HANA software installation.
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
