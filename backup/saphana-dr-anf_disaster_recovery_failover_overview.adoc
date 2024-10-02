@@ -9,7 +9,7 @@ summary: Depending on whether the log backup replication is part of the disaster
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -33,5 +33,5 @@ To execute disaster recovery failover, complete these steps:
 
 The following subsections describe these steps in detail, and the following figure depicts disaster failover testing.
 
-image::saphana-dr-anf_image26.png[]
+image:saphana-dr-anf_image26.png["Figure showing input/output dialog or representing written content"]
 

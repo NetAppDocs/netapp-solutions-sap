@@ -11,7 +11,7 @@ summary: "This document describes how Avantra integrates with the NetApp SnapCen
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 [.lead]
 This document describes how Avantra integrates with the NetApp SnapCenter® platform. 
@@ -34,15 +34,15 @@ The term SAP system copy is often used as an umbrella term for three different p
 
 * *SAP system clone*. An SAP system clone is an identical clone of a source SAP system. SAP system clones are typically used to address logical corruption or to test disaster recovery scenarios. With a system clone operation, the host name, instance number, and secure identifier (SID) remain the same. It is therefore important to establish proper network fencing for the target system to make sure that there is no communication with the production environment.
 
-image::sap-avantra-image1.png[Image showing SAP system clone]
+image:sap-avantra-image1.png[Image showing SAP system clone]
 
 * *SAP system copy*. An SAP system copy is a setup of a new target SAP system with data from a source SAP system. For example, the target system could be an additional test system with data from the production system. The host name, instance number, and SID are different for the source and target systems.The new system is not isolated from the source system.
 
-image::sap-avantra-image2.png[Image showing SAP system copy]
+image:sap-avantra-image2.png[Image showing SAP system copy]
 
 * *SAP system refresh.* An SAP system refresh is a refresh of an existing target SAP system with data from a source SAP system. The target system is typically part of an SAP transport landscape—for example, a sandbox system—that is refreshed with data from the production system. The host name, instance number,  and SID are different for the source and target system.
 
-image::sap-avantra-image3.png[Image showing SAP system refresh]
+image:sap-avantra-image3.png[Image showing SAP system refresh]
 
 Even though we have three different use cases, the data management process stays the same. All three uses cases are leveraging the same underlying data management technology: NetApp Snapshot and FlexClone.
 
@@ -64,7 +64,7 @@ The overall solution consists of these main components:
 
 The following image shows the Avantra server, the NetApp SnapCenter Server, the NetApp storage system, the SAP source and SAP target systems, and how everything integrates. The goal was to make the integration as flexible as possible by using the SnapCenter REST API for maximum reuse of configuration work that has already been done inside existing components.
 
-image::sap-avantra-image4.png[Image showing the Avantra server, the NetApp SnapCenter Server, the NetApp storage system, the SAP source and SAP target systems, and how everything integrates]
+image:sap-avantra-image4.png[Image showing the Avantra server, the NetApp SnapCenter Server, the NetApp storage system, the SAP source and SAP target systems, and how everything integrates]
 
 === Use case summary
 There are several scenarios in which data from a source system must be made available to a target system for testing or training purposes. These test and training systems must be updated regularly with data from the source system to make sure that testing and training are performed with the current dataset. These system refresh operations consist of multiple tasks on the infrastructure, database, and application layers, and they can take several days, depending on the level of automation.
@@ -73,7 +73,7 @@ To shorten time, automate operational tasks, and eliminate human error at the in
 
 The following image shows possible operational efficiency improvements when you use automation.
 
-image::sap-avantra-image5.png[Image showing possible operational efficiency improvements when you use automation]
+image:sap-avantra-image5.png[Image showing possible operational efficiency improvements when you use automation]
 
 === Integrating the different technology components
 

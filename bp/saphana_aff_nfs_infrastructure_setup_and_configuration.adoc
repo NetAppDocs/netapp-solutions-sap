@@ -10,10 +10,13 @@ summary:
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
 //
 // 2021-05-20 16:44:23.312202
 //
+
+[.lead]
+This document discusses the infrastructure setup and configuration for NetApp AFF systems and NFS.

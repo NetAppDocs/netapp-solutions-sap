@@ -11,7 +11,7 @@ summary: Studies have shown that business application downtime has a significant
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -19,16 +19,20 @@ summary: Studies have shown that business application downtime has a significant
 // 2021-05-24 12:07:40.301317
 //
 
+[.lead]
+Studies have shown that business application downtime has a significant negative impact on the business of enterprises. 
+
+Authors: 
 Nils Bauer, NetApp
 Ralf Klahr, Microsoft
 
-Studies have shown that business application downtime has a significant negative impact on the business of enterprises. In addition to the financial impact, downtime can also damage the company’s reputation, staff morale, and customer loyalty. Surprisingly, not all companies have a comprehensive disaster recovery policy.
+In addition to the financial impact, downtime can also damage the company’s reputation, staff morale, and customer loyalty. Surprisingly, not all companies have a comprehensive disaster recovery policy.
 
 Running SAP HANA on Azure NetApp Files (ANF) gives customers access to additional features that extend and improve the built-in data protection and disaster recovery capabilities of SAP HANA. This overview section explains these options to help customers select options that support their business needs.
 
 To develop a comprehensive disaster recovery policy, customers must understand the business application requirements and technical capabilities they need for data protection and disaster recovery. The following figure provides an overview of data protection.
 
-image::saphana-dr-anf_image2.png[]
+image:saphana-dr-anf_image2.png["Figure showing input/output dialog or representing written content"]
 
 == Business application requirements
 

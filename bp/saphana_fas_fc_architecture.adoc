@@ -9,7 +9,7 @@ summary: SAP HANA hosts are connected to the storage controllers using a redunda
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -24,7 +24,7 @@ Different models of the FAS product family can be used at the storage layer. The
 
 The following figure shows an example configuration with eight SAP HANA hosts attached to a storage HA pair.
 
-image::saphana_fas_fc_image2.png[]
+image:saphana_fas_fc_image2.png["Figure showing input/output dialog or representing written content"]
 
 This architecture can be scaled in two dimensions:
 
@@ -33,11 +33,11 @@ This architecture can be scaled in two dimensions:
 
 The following figure shows a configuration example in which more SAP HANA hosts are attached to the storage controllers. In this example, more disk shelves are necessary to meet the capacity and performance requirements of the 16 SAP HANA hosts. Depending on the total throughput requirements, you must add additional FC connections to the storage controllers.
 
-image::saphana_fas_fc_image3.png[]
+image:saphana_fas_fc_image3.png["Figure showing input/output dialog or representing written content"]
 
 Independent of the deployed FAS system storage model, the SAP HANA landscape can also be scaled by adding more storage controllers, as shown in the following figure.
 
-image::saphana_fas_fc_image4.png[]
+image:saphana_fas_fc_image4.png["Figure showing input/output dialog or representing written content"]
 
 == SAP HANA backup
 
@@ -49,7 +49,7 @@ By using NetApp SnapVault software, the Snapshot copies that were created on the
 
 The database logs can be backed up directly to the secondary storage by using an NFS mount, as shown in the following figure.
 
-image::saphana_fas_fc_image5.jpg[]
+image:saphana_fas_fc_image5.jpg["Figure showing input/output dialog or representing written content"]
 
 Storage-based Snapshot backups provide significant advantages compared to file-based backups. Those advantages include the following:
 
@@ -81,7 +81,7 @@ The servers at the DR sites can be used as dev/test systems during normal operat
 
 Both replication methods allow to you execute DR workflow testing without influencing the RPO and RTO. FlexClone volumes are created on the storage and are attached to the DR testing servers.
 
-image::saphana_fas_fc_image6.png[]
+image:saphana_fas_fc_image6.png["Figure showing input/output dialog or representing written content"]
 
 Synchronous replication offers StrictSync mode. If the write to secondary storage is not completed for any reason, the application I/O fails, thereby ensuring that the primary and secondary storage systems are identical. Application I/O to the primary resumes only after the SnapMirror relationship returns to the InSync status. If the primary storage fails, application I/O can be resumed on the secondary storage after failover with no loss of data. In StrictSync mode, the RPO is always zero.
 
@@ -89,6 +89,6 @@ Synchronous replication offers StrictSync mode. If the write to secondary storag
 
 The following figure shows a high-level overview of the solution. The storage cluster at each site provides local high availability and is used for production workloads. The data at each site is synchronously replicated to the other location and is available in case of disaster failover.
 
-image::saphana_fas_fc_image7.png[]
+image:saphana_fas_fc_image7.png["Figure showing input/output dialog or representing written content"]
 
 

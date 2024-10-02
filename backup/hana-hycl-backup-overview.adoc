@@ -10,7 +10,10 @@ summary: This technical report provides best practices for SAP HANA data protect
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
+
+[.lead]
+This technical report provides best practices for SAP HANA data protection using NetApp BlueXP Backup nad Recovery for Application. This document covers  concepts, configuration recommendations, and operation workflows, including configuration, backup operations, and restore operations. 
 
 == Overview
 
@@ -31,7 +34,7 @@ A BlueXP connector needs to be deployed within the customer virtual network. A c
 The data transfer between the on-premises storage and the cloud bucket is end-to-end protected with AES 256-bit encryption at rest, TLS/HTTPS encryption in flight, and customer-managed key (CMK) support. +
 The backed-up data can be stored in an immutable and indelible WORM state. The only way to access the data from the object storage is to restore it to NetApp ONTAP based storage including NetApp CVO.
 
-image::hana-hycl-back-image1.png[Ein Bild, das Text, Screenshot, Diagramm, Kreis enthält. Automatisch generierte Beschreibung,width=624,height=450]
+image:hana-hycl-back-image1.png[Ein Bild, das Text, Screenshot, Diagramm, Kreis enthält. Automatisch generierte Beschreibung,width=624,height=450]
 
 == Overview of installation and configuration steps
 

@@ -9,7 +9,7 @@ summary: The SnapCenter configuration can be separated into two main areas - ini
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -25,7 +25,7 @@ The SnapCenter configuration can be separated into two main areas:
 
 The following figure provides an overview of the configuration components and their dependencies. The green boxes show configuration steps that must be done outside of SnapCenter; the blue boxes show the steps that are done using the SnapCenter GUI.
 
-image::saphana-br-scs-image22.png[]
+image:saphana-br-scs-image22.png["Figure showing input/output dialog or representing written content"]
 
 With the initial configuration, the following components are installed and configured:
 

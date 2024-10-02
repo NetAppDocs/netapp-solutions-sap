@@ -10,9 +10,9 @@ summary:
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
-
+[.lead]
 The following technical changes have been made to this solution since its original publication.
 
 [cols=3*,options="header",cols="25,25,50"]

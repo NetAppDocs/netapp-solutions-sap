@@ -9,7 +9,7 @@ summary: The following figure shows the volume replication relationships for an 
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -32,7 +32,7 @@ In the case of a disaster failover, the replication relationship must be broken,
 
 The following figure depicts the HANA configuration options for cross-region replication.
 
-image::saphana-dr-anf_image6.png[]
+image:saphana-dr-anf_image6.png["Figure showing input/output dialog or representing written content"]
 
 With the current version of Cross-Region Replication, only fixed schedules can be selected, and the actual replication update time cannot be defined by the user. Available schedules are daily, hourly and every 10 minutes. Using these schedule options, two different configurations make sense depending on the RPO requirements: data volume replication without log backup replication and log backup replication with different schedules, either hourly or every 10 minutes. The lowest achievable RPO is around 20 minutes. The following table summarizes the configuration options and the resulting RPO and RTO values.
 

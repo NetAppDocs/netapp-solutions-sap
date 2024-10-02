@@ -9,7 +9,7 @@ summary: SnapCenter is a unified, scalable platform for application-consistent d
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -30,5 +30,5 @@ The SnapCenter custom plug-ins enable you to create your own plug-ins and protec
 
 The following figure depicts SnapCenter components.
 
-image::saphana-br-scs-image6.png[]
+image:saphana-br-scs-image6.png["Figure showing input/output dialog or representing written content"]
 

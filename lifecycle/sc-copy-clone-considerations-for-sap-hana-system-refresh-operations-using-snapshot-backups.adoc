@@ -9,7 +9,10 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
+
+[.lead]
+NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 
 == Tenant name(s) at target system
 
@@ -22,9 +25,9 @@ An exception of this rule is an SAP HANA system with a single tenant, where the 
 [NOTE]
 As soon as any tenant create, rename, or drop operation is executed at the source system, this configuration flag is deleted by the SAP HANA database. Therefore, even if the configuration has been brought back to tenant = SID, the flag is no longer available and the exception regarding tenant recovery with workflow 3 is no longer possible. In this case, option 2 is the required workflow.
 
-image::sc-copy-clone-image10.png[]
+image:sc-copy-clone-image10.png["Figure showing input/output dialog or representing written content"]
 
-image::sc-copy-clone-image11.png[]
+image:sc-copy-clone-image11.png["Figure showing input/output dialog or representing written content"]
 
 == System refresh workflow with enabled SAP HANA encryption
 
@@ -39,7 +42,7 @@ See also https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c
 A backup of the root keys is always required, if any changes to the root keys have been made.
 The backup command requires the dbid as a CLI parameter. The dbid’s can be identified using the below SQL statement.
 
-image::sc-copy-clone-image12.png[]
+image:sc-copy-clone-image12.png["Figure showing input/output dialog or representing written content"]
 
 The SQL statement and further documentation is available in the SAP HANA Admin Guide at https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/b1e7562e2c704c19bd86f2f9f4feedc4.html[Back Up Root Keys | SAP Help Portal]
 The following steps are illustrating the required operations for a HANA system with a single tenant SS1 and are executed at the source system.
@@ -120,6 +123,6 @@ qs1adm@hana-7:/usr/sap/QS1/HDB11>
 
 As described in the chapter before, the dbid is required to import the root key for the system and all tenant databases. While the system database has always dbid=0, the tenant databases can have different dbid’s.
 
-image::sc-copy-clone-image13.png[]
+image:sc-copy-clone-image13.png["Figure showing input/output dialog or representing written content"]
 
 The output above shows two tenants with dbid=3 and dbid=4. If the target system has not yet hosted a tenant with dbid=4, the import of the root key will fail. In that case you need to recover the system database first and then import the key for the tenant with dbid=4.

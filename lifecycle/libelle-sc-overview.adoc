@@ -10,13 +10,18 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
 //
 // 2022-06-01 15:06:52.228320
 //
+
+[.lead]
+NetApp solutions for optimizing SAP lifecycle management are integrated into SAP AnyDBs and SAP HANA databases. In addition, NetApp integrates into SAP lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
+
+Authors: 
 
 Holger Zecha, Tobias Brandl, NetApp
 Franz Diegruber, Libelle

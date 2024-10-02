@@ -9,7 +9,7 @@ summary:
 :nofooter:
 :icons: font
 :linkattrs:
-:imagesdir: ./../media/
+:imagesdir: ../media/
 
 //
 // This file was created with NDAC Version 2.0 (August 17, 2020)
@@ -209,6 +209,6 @@ The size of the RAM, net data size on the disk of each SAP HANA host, and the Sn
 
 The following figure summarizes the sizing process.
 
-image::saphana_aff_fc_image8.jpg[]
+image:saphana_aff_fc_image8.jpg["Figure showing input/output dialog or representing written content"]
 
 
