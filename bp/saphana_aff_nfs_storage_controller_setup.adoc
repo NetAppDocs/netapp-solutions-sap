@@ -316,18 +316,13 @@ The NFS options listed in the following table must be verified and set on all st
 
 |Enable NFSv3
 |nfs modify -vserver <vserver-name> v3.0 enabled
-|ONTAP 9:
-Set NFS TCP maximum transfer size to 1MB
+|Set NFS TCP maximum transfer size to 1MB
 |set advanced
-nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576
-set admin
-|ONTAP 8:
-Set NFS read and write size to 64KB
-|set advanced
-nfs modify -vserver <vserver-name> -v3-tcp-max-read-size 65536
-nfs modify -vserver <vserver-name> -v3-tcp-max-write-size 65536
-set admin
+ nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576
+ set admin
 |===
+[NOTE]
+In shared environments with different workloads set the max NFS TCP transfer size to 262144
 
 == NFS configuration for NFSv4
 
@@ -340,18 +335,10 @@ For some of the commands in this table, you must switch to the advanced privileg
 
 |Enable NFSv4
 |nfs modify -vserver <vserver-name> -v4.1 enabled
-|ONTAP 9:
-Set NFS TCP maximum transfer size to 1MB
+|Set NFS TCP maximum transfer size to 1MB
 |set advanced
-nfs modify -vserver <vserver_name>
--tcp-max-xfer-size 1048576
-set admin
-|ONTAP 8:
-Set NFS read and write size to 64KB
-|set advanced
-nfs modify -vserver <vserver_name>
--tcp-max-xfer-size 65536
-set admin
+ nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576
+ set admin
 |Disable NFSv4 access control lists (ACLs)
 |nfs modify -vserver <vserver_name> -v4.1-acl disabled
 |Set NFSv4 domain ID
@@ -370,13 +357,16 @@ set admin
 |===
 
 [NOTE]
+In shared environments with different workloads set the max NFS TCP transfer size to 262144
+
+[NOTE]
 Please note that disabling numeric ids requires user management, as described in the section link:saphana_aff_nfs_sap_hana_installation_preparations_for_nfsv4.html[“SAP HANA installation preparations for NFSv4.”]
 
 [NOTE]
 The NFSv4 domain ID must be set to the same value on all Linux servers (`/etc/idmapd.conf`) and SVMs, as described in the section link:saphana_aff_nfs_sap_hana_installation_preparations_for_nfsv4.html[“SAP HANA installation preparations for NFSv4.”]
 
 [NOTE]
-If you are using NFSV4.1, then pNFS can be enabled and used.
+pNFS can be enabled and used.
 
 If SAP HANA multiple-host systems with host auto-failover are being used, the failover parameters need to be adjusted within `nameserver.ini` as shown in the following table. 
 Keep the default retry interval of 10 seconds within these sections..

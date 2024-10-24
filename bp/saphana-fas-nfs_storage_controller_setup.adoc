@@ -308,8 +308,7 @@ You must verify and set the volume options listed in the following table on all 
 |Disable automatic Snapshot copies
 |vol modify –vserver <vserver-name> -volume <volname> -snapshot-policy none
 |Disable access time update except of the SID_shared volume
-a|
-set advanced
+|set advanced
 vol modify -vserver <vserver-name> -volume <volname> -atime-update false
 set admin
 |===
@@ -325,20 +324,15 @@ For some of the commands shown, you must switch to the advanced privilege mode w
 
 |Enable NFSv3
 |nfs modify -vserver <vserver-name> v3.0 enabled
-|ONTAP 9:
-Set NFS TCP maximum transfer size to 1MB
-a|
-set advanced
+|Set NFS TCP maximum transfer size to 1MB
+|set advanced
 nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576
 set admin
-|ONTAP 8:
-Set NFS read and write size to 64KB
-a|
-set advanced
-nfs modify -vserver <vserver-name> -v3-tcp-max-read-size 65536
-nfs modify -vserver <vserver-name> -v3-tcp-max-write-size 65536
-set admin
+
 |===
+
+[NOTE]
+In shared environments with different workloads set the max NFS TCP transfer size to 262144
 
 == NFS configuration for NFSv4
 
@@ -352,15 +346,9 @@ For some of the commands, you must switch to the advanced privilege mode within 
 |Enable NFSv4
 |nfs modify -vserver <vserver-name> -v4.1
 enabled
-|ONTAP 9:
-Set NFS TCP maximum transfer size to 1MB
+|Set NFS TCP maximum transfer size to 1MB
 |set advanced
 nfs modify -vserver <vserver_name> -tcp-max-xfer-size 1048576
-set admin
-|ONTAP 8:
-Set NFS read and write size to 64KB
-|set advanced
-nfs modify -vserver <vserver_name> -tcp-max-xfer-size 65536
 set admin
 |Disable NFSv4 access control lists (ACLs)
 |nfs modify -vserver <vserver_name> -v4.1-acl disabled
@@ -373,11 +361,14 @@ set admin
 |Disable NFSv4 numeric ids
 |nfs modify -vserver <vserver_name> -v4-numeric-ids disabled
 |Change amount of NFSv4.x session slots
-  optional
+optional
 |set advanced 
 nfs modify  -vserver hana -v4.x-session-num-slots <value>
 set admin
 |===
+
+[NOTE]
+In shared environments with different workloads set the max NFS TCP transfer size to 262144
 
 [NOTE]
 Please note that disabling numering ids requires user management as described in link:saphana-fas-nfs_sap_hana_installation_preparations_for_nfsv4.html[SAP HANA installation preparations for NFSv4.]
@@ -386,7 +377,7 @@ Please note that disabling numering ids requires user management as described in
 The NFSv4 domain ID must be set to the same value on all Linux servers (/`etc/idmapd.conf`) and SVMs, as described in link:saphana-fas-nfs_sap_hana_installation_preparations_for_nfsv4.html[SAP HANA installation preparations for NFSv4.]
 
 [NOTE]
-If you are using NFSV4.1, then pNFS can be enabled and used.
+pNFS can be enabled and used.
 
 
 If SAP HANA multiple-host systems with host auto-failover are being used, the failover parameters need to be adjusted within `nameserver.ini` as shown in the following table. Keep the default retry interval of 10 seconds within these sections.
