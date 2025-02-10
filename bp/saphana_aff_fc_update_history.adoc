@@ -45,4 +45,6 @@ New OS releases (SLES15SP2, RHEL 8)
 |August 2023 | New Storage Systems (AFF C-Series) 
 |May 2024 | New Storage Systems (AFF A-Series)
 |September 2024 | New Storage Systems (ASA A-Series)
+| November 2024 | New Storage Systems
+| February 2025 | New Storage Systems
 |===
