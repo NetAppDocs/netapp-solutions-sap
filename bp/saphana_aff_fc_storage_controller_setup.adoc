@@ -109,14 +109,7 @@ During the SVM creation with ONTAP 9.8 System Manager, you can select all of the
 
 image:saphana_aff_fc_image14.jpeg["Figure showing input/output dialog or representing written content"]
 
-== FCP port sets
 
-An FCP port set is used to define which LIFs are to be used by a specific initiator group. Typically, all LIFs created for the HANA systems are placed in the same port set. The following figure shows the configuration of a port set named 32g that includes the four LIFs that were already created.
-
-image:saphana_aff_fc_image15.jpeg["Figure showing input/output dialog or representing written content"]
-
-[NOTE]
-With ONTAP 9.8,  a port set is not required,  but it can be created and used through the command line.
 
 == Volume and LUN configuration for SAP HANA single-host systems
 
