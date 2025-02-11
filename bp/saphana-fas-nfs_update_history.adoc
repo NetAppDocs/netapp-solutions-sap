@@ -64,6 +64,6 @@ New SAP HANA version
 |December 2023 | Update of host setup
 Revised nconnect settings
 Added information about NFSv4.1 sessions 
-| September 2024 | Minor Updates 
-|September 2024 | New Storage Systems
+| September 2024 | New Storage Systems and Minor Updates 
+| February 2025 | New Storage System
 |===

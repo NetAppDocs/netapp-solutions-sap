@@ -112,14 +112,6 @@ The following figure depicts the creation of SVM and LIFs with ONTAP 9.8 System 
 
 image:saphana_fas_fc_image15.jpeg["Figure showing input/output dialog or representing written content"]
 
-== FCP port sets
-
-An FCP port set is used to define which LIFs are to be used by a specific igroup. Typically, all LIFs created for the HANA systems are placed in the same port set. The following figure shows the configuration of a port set named 32g, which includes the four LIFs that were already created.
-
-image:saphana_fas_fc_image16.jpeg["Figure showing input/output dialog or representing written content"]
-
-[NOTE]
-With ONTAP 9.8, a port set is not required, but it can be created and used through the command line.
 
 == Initiator groups
 
