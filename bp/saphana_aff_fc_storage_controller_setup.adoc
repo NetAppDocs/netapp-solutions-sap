@@ -90,7 +90,7 @@ ASA systems launched after August 2024 do not require this step as it as automat
 
 The following figure shows a configuration of 12 SAP HANA hosts running on a 12Gb SAS shelf configured with ADPv2. Six SAP HANA hosts are attached to each storage controller. Four separate aggregates, two at each storage controller, are configured. Each aggregate is configured with 11 disks with nine data and two parity disk partitions. For each controller, two spare partitions are available.
 
-image:saphana_aff_fc_image12a.jpg["Figure showing input/output dialog or representing written content"]
+image:saphana_aff_fc_image12a.png["Figure showing input/output dialog or representing written content"]
 
 == Storage virtual machine configuration
 
@@ -106,11 +106,11 @@ vserver modify -vserver <svm-name> -qos-policy-group none
 
 Within the storage cluster configuration, one network interface (LIF) must be created and assigned to a dedicated FCP port. If, for example, four FCP ports are required for performance reasons, four LIFs must be created. The following figure shows a screenshot of the eight LIFs (named `fc_*_*`) that were configured on the `hana` SVM.
 
-image:saphana_aff_fc_image13a.jpeg["Overbiew of Logical Interfaces"]
+image:saphana_aff_fc_image13a.png["Overbiew of Logical Interfaces"]
 
 During the SVM creation with ONTAP System Manager, you can select all of the required physical FCP ports, and one LIF per physical port is created automatically.
 
-image:saphana_aff_fc_image14a.jpeg["SVM creation"]
+image:saphana_aff_fc_image14a.png["SVM creation"]
 
 [NOTE] 
 ASA systems launched after August 2024 do not require this step as it as automatically done
@@ -122,7 +122,7 @@ The following figure shows the volume configuration of four single-host SAP HANA
 [NOTE]
 If only one storage controller of a HA pair is used for the SAP HANA systems, data volumes and log volumes can also be stored on the same storage controller.
 
-image:saphana_aff_fc_image16a.jpg["Figure showing input/output dialog or representing written content"]
+image:saphana_aff_fc_image16a.png["Figure showing input/output dialog or representing written content"]
 
 For each SAP HANA host, a data volume, a log volume, and a volume for `/hana/shared` are configured. The following table shows an example configuration with four SAP HANA single-host systems.
 
@@ -219,7 +219,7 @@ If only one storage controller of an HA pair is used for the SAP HANA system, da
 [NOTE]
 NetApp ASA AFF systems do not support NFS as a protocol. NetApp recommends using an additional AFF or FAS system for the `/hana/shared` file system.
 
-image:saphana_aff_fc_image17a.jpg["Figure showing input/output dialog or representing written content"]
+image:saphana_aff_fc_image17a.png["Figure showing input/output dialog or representing written content"]
 
 For each SAP HANA host, a data volume and a log volume are created. The `/hana/shared` volume is used by all hosts of the SAP HANA system. The following table shows an example configuration for a 4+1 multiple-host SAP HANA system.
 
@@ -395,6 +395,8 @@ vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-po
 vol create -volume FC5_data2_mnt00002  -aggregate aggr2_1 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
 vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
 ....
+[NOTE]
+ASA systems launched after August 2024 do not require this step as it as automatically done
 
 . Create all LUNs.
 +
@@ -409,6 +411,9 @@ lun create -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001 -size 260g -ostype lin
 lun create -path /vol/FC5_log_mnt00002/FC5_log_mnt00002 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log2_mnt00002/FC5_log2_mnt00002 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 ....
+[NOTE]
+Provide the LUN name only as path for ASA systems launched after August 2024. 
+This applies to the _lun map_ command below as well. In addition the options _-space-reserve_ and _-space-allocation_ aren't available. 
 
 . Create the initiator group for all servers belonging to system FC5.
 +
