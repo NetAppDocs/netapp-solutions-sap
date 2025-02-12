@@ -30,15 +30,14 @@ Use the following guidelines when configuring the network:
 * In a VMware setup, dedicated VMXNET3 network adapters must be assigned to each running virtual machine.  Check the relevant papers mentioned in “Introduction” for further requirements.
 * To avoid interference between each other, use separate network/IO paths for the log and data area.
 
-The following figure shows an example with four SAP HANA hosts attached to a storage controller HA pair using a 10GbE network. Each SAP HANA host has an active-passive connection to the redundant fabric.
+The following figure shows an example with four SAP HANA hosts attached to a storage controller HA pair using a 10GbE network. Each SAP HANA host has an active-active connection to the redundant fabric.
 
-At the storage layer, four active connections are configured to provide 10Gb throughput for each SAP HANA host.  In addition,  one spare interface is configured on each storage controller.
-
+At the storage layer, four active connections are configured to provide 10Gb throughput for each SAP HANA host.  
 At the storage layer, a broadcast domain with an MTU size of 9000 is configured, and all required physical interfaces are added to this broadcast domain. This approach automatically assigns these physical interfaces to the same failover group. All logical interfaces (LIFs) that are assigned to these physical interfaces are added to this failover group.
 
-image:saphana_aff_nfs_image10.png["Figure showing input/output dialog or representing written content"]
+image:saphana_aff_nfs_image10a.png["Network Overview"]
 
-In general, it is also possible to use HA interface groups on the servers (bonds) and the storage systems (for example,  Link Aggregation Control Protocol [LACP] and ifgroups). With HA interface groups, verify that the load is equally distributed between all interfaces within the group. The load distribution depends on the functionality of the network switch infrastructure.
+In general, it is recommended to use HA interface groups on the servers (bonds) and the storage systems (for example,  Link Aggregation Control Protocol [LACP] and ifgroups). With HA interface groups, verify that the load is equally distributed between all interfaces within the group. The load distribution depends on the functionality of the network switch infrastructure.
 
 [NOTE]
 Depending on the number of SAP HANA hosts and the connection speed used, different numbers of active physical ports are needed. For details, see the section link:saphana_aff_nfs_storage_controller_setup.html#lif-configuration["LIF configuration"].

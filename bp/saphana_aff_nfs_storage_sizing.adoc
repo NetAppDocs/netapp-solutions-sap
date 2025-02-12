@@ -64,11 +64,11 @@ This calculation is independent of the storage controller used. Adding more disk
 
 === NS224 NVMe shelf
 
-One NVMe SSDs (data) supports up to 5 SAP HANA hosts. The SSDs and the SAP HANA hosts must be equally distributed between both storage controllers.
-The same applies to the internal NVMe disks of  AFF A800, AFF A70, and AFF A90 systems.
+One NVMe SSDs (data) supports up to 2/5 SAP HANA hosts depending on the used NVMe disks. The SSDs and the SAP HANA hosts must be equally distributed between both storage controllers.
+The same applies to the internal NVMe disks of  AFF systems.
 
 [NOTE]
-Adding more disk shelfs does not increase the maximum amount of SAP HANA hosts a storage controller can support.
+Adding more disk shelves does not increase the maximum amount of SAP HANA hosts a storage controller can support.
 
 == Mixed workloads
 
@@ -206,6 +206,6 @@ The size of the RAM, net data size on the disk of each SAP HANA host, and the Sn
 
 The following figure summarizes the sizing process.
 
-image:saphana_aff_nfs_image9.jpg["Figure showing input/output dialog or representing written content"]
+image:saphana_aff_nfs_image9a.png["Figure showing input/output dialog or representing written content"]
 
 

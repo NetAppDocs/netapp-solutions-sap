@@ -119,10 +119,10 @@ The maximum number of data and log volume mounts per physical interface are show
 |Ethernet port speed |10GbE |25GbE |40GbE |100GeE
 
 |Maximum number of log or data volume mounts per physical port
-|2
-|6
+|3
+|8
 |12
-|24
+|30
 |===
 
 [NOTE]

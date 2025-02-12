@@ -26,11 +26,8 @@ Different models of the AFF system product family can be mixed and matched at th
 
 The following figure shows an example configuration with eight SAP HANA hosts attached to a storage high availability (HA) pair.
 
-image:saphana_aff_nfs_image2.png["Figure showing input/output dialog or representing written content"]
+image:saphana_aff_nfs_image2a.png["eight SAP HANA hosts attached to a storage high availability (HA) pair"]
 
-The following figure shows an example of using VMware vSphere as a virtualization layer.
-
-image:saphana_aff_nfs_image3.jpg["Figure showing input/output dialog or representing written content"]
 
 The architecture can be scaled in two dimensions:
 
@@ -39,11 +36,11 @@ The architecture can be scaled in two dimensions:
 
 The following figure shows an example configuration in which more SAP HANA hosts are attached to the storage controllers. In this example, more disk shelves are necessary to fulfill the capacity and performance requirements of the 16 SAP HANA hosts. Depending on the total throughput requirements, you must add additional 10GbE or faster connections to the storage controllers.
 
-image:saphana_aff_nfs_image4.png["Figure showing input/output dialog or representing written content"]
+image:saphana_aff_nfs_image3a.png["Additional SAP HANA Hosts to an existing storage controller HA pair"]
 
 Independent of the deployed AFF system, the SAP HANA landscape can also be scaled by adding any of the certified storage controllers to meet the desired node density, as shown in the following figure.
 
-image:saphana_aff_nfs_image5.png["Figure showing input/output dialog or representing written content"]
+image:saphana_aff_nfs_image4a.png["Additional HA pair added"]
 
 == SAP HANA backup
 

@@ -61,7 +61,6 @@ The following overview summarizes the required storage configuration steps. Each
 . Create and configure the required aggregates, as described in "<<Aggregate configuration>>."
 . Create a storage virtual machine (SVM), as described in "<<Storage virtual machine configuration>>."
 . Create logical interfaces (LIFs), as described in "<<Logical interface configuration>>."
-. Create a port set, as described in "<<FCP port sets>>."
 . Create initiator groups, volumes, and LUNs within the aggregates, as described in creating "<<Creating LUNs, volumes, and mapping LUNs to initiator groups>>."
 
 == Disk shelf connection
@@ -396,7 +395,7 @@ vol create -volume FC5_data2_mnt00002  -aggregate aggr2_1 -size 1200g -snapshot-
 vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
 ....
 [NOTE]
-ASA systems launched after August 2024 do not require this step as it as automatically done
+ASA systems launched after August 2024 do not require this step as it is automatically done during _lun create_
 
 . Create all LUNs.
 +
