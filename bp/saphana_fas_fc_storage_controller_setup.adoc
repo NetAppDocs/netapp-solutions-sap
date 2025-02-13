@@ -110,13 +110,13 @@ Multiple-host SAP landscapes with SAP HANA databases can use a single SVM. An SV
 
 Within the storage cluster configuration, one network interface (LIF) must be created and assigned to a dedicated FCP port. If, for example, four FCP ports are required for performance reasons, four LIFs must be created. The following figure shows a screenshot of the eight LIFs that were configured on the  SVM.
 
-image:saphana_fas_fc_image14a.jpeg["Overview of Logical Interfaces"]
+image:saphana_fas_fc_image14a.png["Overview of Logical Interfaces"]
 
 During SVM creation with ONTAP 9 System Manager, all the required physical FCP ports can be selected, and one LIF per physical port is created automatically.
 
 The following figure depicts the creation of SVM and LIFs with ONTAP System Manager.
 
-image:saphana_fas_fc_image15a.jpeg["SVM creation"]
+image:saphana_fas_fc_image15a.png["SVM creation"]
 
 
 == Initiator groups
@@ -197,7 +197,7 @@ The next table shows an example of the mount point configuration for a single-ho
 |===
 
 [NOTE]
-With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1`_`shared `volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
+With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
 
 == Volume and LUN configuration for SAP HANA single-host systems using Linux LVM
 
@@ -234,7 +234,7 @@ At the SAP HANA host, volume groups and logical volumes must be created and moun
 |===
 
 [NOTE]
-With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1`_`shared `volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
+With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
 
 == Volume and LUN configuration for SAP HANA multiple-host systems
 
@@ -389,7 +389,7 @@ You can use NetApp ONTAP System Manager to create storage volumes and LUNs and t
 
 === Creating LUNs, volumes, and mapping LUNs to igroups using the CLI
 
-This section shows an example configuration using the command line with ONTAP 9.8 for a 2+1 SAP HANA multiple host system with SID FC5 using LVM and two LUNs per LVM volume group.
+This section shows an example configuration using the command line with ONTAP 9 for a 2+1 SAP HANA multiple host system with SID FC5 using LVM and two LUNs per LVM volume group.
 
 . Create all necessary volumes.
 +
