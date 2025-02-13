@@ -79,6 +79,12 @@ With SSDs, a maximum of one disk shelf can be connected to one SAS stack to prov
 
 image:saphana-fas-nfs_image14.png["Figure showing input/output dialog or representing written content"]
 
+=== NVMe (100GbE) disk shelves
+
+Each NS224 NVMe disk shelf is connected with two 100GbE ports per controller, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair.
+
+image:saphana_fas_ns224.png["MVMe disk shelf connections"]
+
 == Aggregate configuration
 
 In general, you must configure two aggregates per controller, independent of the disk shelf or drive technology (SSD or HDD) that is used. For FAS2000 series systems, one data aggregate is enough.

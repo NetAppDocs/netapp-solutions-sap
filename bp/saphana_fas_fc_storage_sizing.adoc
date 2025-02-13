@@ -70,6 +70,11 @@ The following table summarizes the supported number of SAP HANA hosts per disk s
 [NOTE]
 This calculation is independent of the storage controller used. Adding more disk shelves does not increase the maximum number of SAP HANA hosts that a storage controller can support.
 
+=== NS224 NVMe shelf
+
+One NVMe SSDs (data) supports up to 2 SAP HANA hosts. 
+The SSDs and the SAP HANA hosts must be equally distributed between both storage controllers.
+
 == Mixed workloads
 
 SAP HANA and other application workloads running on the same storage controller or in the same storage aggregate are supported. However, it is a NetApp best practice to separate SAP HANA workloads from all other application workloads.
