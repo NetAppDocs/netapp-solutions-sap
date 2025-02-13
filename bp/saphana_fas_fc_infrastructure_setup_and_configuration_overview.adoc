@@ -20,10 +20,10 @@ summary: The following sections provide SAP HANA infrastructure setup and config
 [.lead]
 The following sections provide SAP HANA infrastructure setup and configuration guidelines. All the steps needed to set up SAP HANA are included. An SVM is created to host the data. Within these sections, the following example configurations are used:
 
-* HANA system with SID=SS3 and ONTAP 9.7 or earlier
+* HANA system with SID=SS3 
 ** SAP HANA single and multiple host
 ** SAP HANA single host using SAP HANA multiple partitions
-* HANA system with SID=FC5 and ONTAP 9.8 using Linux logical volume manager (LVM)
+* HANA system with SID=FC5 using Linux logical volume manager (LVM)
 ** SAP HANA single and multiple host
 
 
