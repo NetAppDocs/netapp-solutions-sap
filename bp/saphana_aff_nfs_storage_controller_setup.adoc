@@ -79,7 +79,7 @@ image:saphana_aff_nfs_image13.png["SAS Shelf Connections"]
 
 === NVMe (100GbE) disk shelves
 
-Each NS224 NVMe disk shelf is connected using two 100GbE ports per controller. The disks within each shelf must be distributed equally to both controllers of the HA pair. ADPv2, as described in the aggregate configuration chapter, is also used for the NS224 disk shelf. The following figure depicts the disk shelf connection with an NVMe drive.
+Each NS224 NVMe disk shelf is connected with two 100GbE ports per controller, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair. ADPv2, as described in the aggregate configuration chapter, is also used for the NS224 disk shelf.
 
 image:saphana_aff_nfs_image14a.png["MVMe disk shelf connections"]
 

@@ -64,7 +64,6 @@ The following overview summarizes the required storage configuration steps. Each
 . Create and configure the required aggregates, as described in the section link:saphana_fas_fc_storage_controller_setup.html#aggregate-configuration[Aggregate configuration.]
 . Create a storage virtual machine (SVM) as described in the section link:saphana_fas_fc_storage_controller_setup.html#storage-virtual-machine-configuration[Storage virtual machine configuration.]
 . Create logical interfaces (LIFs) as described in the section link:saphana_fas_fc_storage_controller_setup.html#logical-interface-configuration[Logical interface configuration.]
-. Create FCP port sets as described in the section link:saphana_fas_fc_storage_controller_setup.html#fcp-port-sets[FCP port sets.]
 . Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:saphana_fas_fc_storage_controller_setup.html#initiator-groups[Initiator groups.]
 . Create volumes and LUNs within the aggregates as described in the section link:saphana_fas_fc_storage_controller_setup.html#volume-and-lun-configuration-for-sap-hana-single-host-systems[Volume and LUN configuration for SAP HANA single-host systems] and link:saphana_fas_fc_storage_controller_setup.html#volume-and-lun-configuration-for-sap-hana-multiple-host-systems[Volume and LUN configuration for SAP HANA multiple-host systems.]
 
@@ -78,6 +77,12 @@ With SSDs, a maximum of one disk shelf can be connected to one SAS stack to prov
 
 image:saphana_fas_fc_image11.png["Figure showing input/output dialog or representing written content"]
 
+=== NVMe (100GbE) disk shelves
+
+Each NS224 NVMe disk shelf is connected with two 100GbE ports per controller, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair.
+
+image:saphana_fas_ns224.png["MVMe disk shelf connections"]
+
 == Aggregate configuration
 
 In general, you must configure two aggregates per controller, independent of which disk shelf or disk technology (SSD or HDD) is used. This step is necessary so that you can use all available controller resources. For FAS 2000 series systems, one data aggregate is sufficient.
@@ -90,7 +95,7 @@ image:saphana_fas_fc_image12.png["Figure showing input/output dialog or represen
 
 === Aggregate configuration with SDD-only systems
 
-In general, two aggregates per controller must be configured, independently of which disk shelf or disk technology (SSDs or HDDs) is used. For FAS2000 series systems, one data aggregate is sufficient.
+In general, two aggregates per controller must be configured, independently of which disk shelf or disk technology (SSDs or HDDs) is used.
 
 The following figure shows a configuration of 12 SAP HANA hosts running on a 12Gb SAS shelf configured with ADPv2. Six SAP HANA hosts are attached to each storage controller. Four separate aggregates, two at each storage controller, are configured. Each aggregate is configured with 11 disks with nine data and two parity disk partitions. For each controller, two spare partitions are available.
 
@@ -106,9 +111,9 @@ Within the storage cluster configuration, one network interface (LIF) must be cr
 
 image:saphana_fas_fc_image14.jpeg["Figure showing input/output dialog or representing written content"]
 
-During SVM creation with ONTAP 9.8 System Manager, all the required physical FCP ports can be selected, and one LIF per physical port is created automatically.
+During SVM creation with ONTAP 9 System Manager, all the required physical FCP ports can be selected, and one LIF per physical port is created automatically.
 
-The following figure depicts the creation of SVM and LIFs with ONTAP 9.8 System Manager.
+The following figure depicts the creation of SVM and LIFs with ONTAP System Manager.
 
 image:saphana_fas_fc_image15.jpeg["Figure showing input/output dialog or representing written content"]
 
@@ -229,7 +234,7 @@ With the described configuration, the `/usr/sap/SID1` directory in which the def
 
 == Volume and LUN configuration for SAP HANA multiple-host systems
 
-The following figure shows the volume configuration of a 4+1 multiple-host SAP HANA system. The data volumes and log volumes of each SAP HANA host are distributed to different storage controllers. For example, the volume `SID`_`data`_`mnt00001` is configured on controller A and the volume `SID`_`log`_`mnt00001` is configured on controller B. One LUN is configured within each volume.
+The following figure shows the volume configuration of a 4+1 multiple-host SAP HANA system. The data volumes and log volumes of each SAP HANA host are distributed to different storage controllers. For example, the volume `SID_data_mnt00001` is configured on controller A and the volume `SID_log_mnt00001` is configured on controller B. One LUN is configured within each volume.
 
 The `/hana/shared` volume must be accessible by all HANA hosts and is therefore exported by using NFS. Even though there are no specific performance KPIs for the `/hana/shared` file system, NetApp recommends using a 10Gb Ethernet connection.
 
@@ -305,7 +310,7 @@ The next table shows the configuration and the mount points of a multiple-host s
 |===
 
 [NOTE]
-With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID`_`shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
+With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
 
 == Volume and LUN configuration for SAP HANA multiple-host systems using Linux LVM
 
@@ -357,7 +362,7 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 |===
 
 [NOTE]
-With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID`_`shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
+With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
 
 == Volume options
 
@@ -374,43 +379,8 @@ The volume options listed in the following table must be verified and set on all
 
 == Creating LUNs, volumes, and mapping LUNs to initiator groups
 
-You can use NetApp OnCommand System Manager to create storage volumes and LUNs and the map them to the igroups of the servers.
+You can use NetApp ONTAP System Manager to create storage volumes and LUNs and the map them to the igroups of the servers and the ONTAP CLI. This guide describes the usage of the CLI.
 
-The following steps show the configuration of a 2+1 multiple-host HANA system with the SID SS3.
-
-. Start the Create LUN Wizard in NetApp ONTAP System Manager.
-+
-image:saphana_fas_fc_image20.jpeg["Figure showing input/output dialog or representing written content"]
-
-. Enter the LUN name, select the LUN type, and enter the size of the LUN.
-+
-image:saphana_fas_fc_image21.jpeg["Figure showing input/output dialog or representing written content"]
-
-. Enter the volume name and the hosting aggregate.
-+
-image:saphana_fas_fc_image22.jpeg["Figure showing input/output dialog or representing written content"]
-
-. Select the igroups to which the LUNs should be mapped.
-+
-image:saphana_fas_fc_image23.jpeg["Figure showing input/output dialog or representing written content"]
-
-. Provide the QoS settings.
-+
-image:saphana_fas_fc_image24.jpeg["Figure showing input/output dialog or representing written content"]
-
-. Click Next on the Summary page.
-+
-image:saphana_fas_fc_image25.jpeg["Figure showing input/output dialog or representing written content"]
-
-. Click Finish on the Completion page.
-+
-image:saphana_fas_fc_image26.jpeg["Figure showing input/output dialog or representing written content"]
-
-. Repeat steps 2 to 7 for each LUN.
-+
-The following figure shows a summary of all LUNs that need to be created for 2+1 multiple-host setup.
-+
-image:saphana_fas_fc_image27.jpeg["Figure showing input/output dialog or representing written content"]
 
 == Creating LUNs, volumes, and mapping LUNs to igroups using the CLI
 
