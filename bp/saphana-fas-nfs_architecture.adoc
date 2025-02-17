@@ -26,10 +26,6 @@ Different models of the FAS system product family can be mixed and matched at th
 
 image:saphana-fas-nfs_image2.png["Figure showing input/output dialog or representing written content"]
 
-The following figure shows an example of using VMware vSphere as virtualization layer.
-
-image:saphana-fas-nfs_image3.jpg["Figure showing input/output dialog or representing written content"]
-
 The architecture can be scaled in two dimensions:
 
 * By attaching additional SAP HANA hosts and/or storage capacity to the existing storage, if the storage controllers provide enough performance to meet the current SAP key performance indicators (KPIs)
