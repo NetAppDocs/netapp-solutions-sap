@@ -393,7 +393,7 @@ The `sanlun` tool is part of the NetApp Host Utilities and must be installed on 
 
 === Creating LUNs, volumes, and mapping LUNs to initiator groups using the CLI
 
-This section shows an example configuration using the command line with ONTAP 9.8 for a 2+1 SAP HANA multiple host system with SID FC5 using LVM and two LUNs per LVM volume group:
+This section shows an example configuration using the command line with ONTAP 9 for a 2+1 SAP HANA multiple host system with SID FC5 using LVM and two LUNs per LVM volume group:
 
 . Create all necessary volumes.
 +
