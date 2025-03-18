@@ -1,0 +1,231 @@
+
+---
+sidebar: sidebar
+permalink: backup/hana-sc-vmware-smas-example-config.html
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
+summary: 
+---
+= HANA system provisioning and installation
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+---
+
+[.lead]
+This chapter describes the installation and configuration of the SAP HANA system specific to a VMware setup using VMFS. Additional generic best practices can be found at https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html#sap-hana-tailored-data-center-integration[SAP HANA on NetApp AFF Systems with Fibre Channel Protocol].
+
+== Storage configuration
+
+The figure below shows the storage and datastore configuration for the HANA system. You must configure a dedicated volume, LUN, datastore for each filesystem of the HANA system. Datastores must not be shared across multiple HANA systems or other workloads.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image5.png[]
+
+All three LUNs of the HANA system (hana++_++data++_++SMA, hana++_++log++_++SAM and hana++_++shared++_++SMA) as well as the LUN for the OS images and SnapCenter components have been provisioned at the A700 storage cluster.
+
+[NOTE]
+All volumes of the HANA system must be provisioned in the same SVM. In the SnapMirror active sync configuration described later, we will create a consistency group across all three HANA volumes, which requires that the volumes are in the same SVM. The infrastructure volume will be in a different consistency group and could therefore be in a different SVM.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image6.png[]
+
+An initiator group must be configured, and the LUNs above must be mapped to the ESX-1 host, which is in close proximity to the A700 storage system in our lab setup.
+
+== Datastore provisioning
+
+We created three datastores for the HANA system using the three LUNs we have provisioned before. In addition, we created an infrastructure datastore using the infrastructure LUN.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image7.png[]
+
+== VM provisioning and OS installation 
+
+In our lab setup we deployed a new VM and placed the VMDK for the Linux OS in the infrastructure datastore.
+
+== VM disk configuration
+
+Three new disks have been added to the HANA VM, each disk within one of the datastores which have been created for the HANA system.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image8.png[]
+
+== VM parameter setting
+
+The parameter disk.EnableUUID must be added and set to TRUE . The parameter is required by SnapCenter. If not set the SnapCenter “Discover virtual resource” operation will fail.
+
+The VM must be stopped before parameter can be added.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image9.png[]
+
+The functionality can be checked with the command below.
+
+....
+hana-1:~ # sg_inq /dev/sdd
+standard INQUIRY:
+PQual=0 PDT=0 RMB=0 LU_CONG=0 hot_pluggable=0 version=0x06 [SPC-4]
+[AERC=0] [TrmTsk=] NormACA=0 HiSUP=0 Resp_data_format=2
+SCCS=0 ACC=0 TPGS=0 3PC=0 Protect=0 [BQue=0]
+EncServ=0 MultiP=0 [MChngr=0] [ACKREQQ=0] Addr16=0
+[RelAdr=0] WBus16=1 Sync=1 [Linked=0] [TranDis=0] CmdQue=1
+length=36 (0x24) Peripheral device type: disk
+Vendor identification: VMware
+Product identification: Virtual disk
+Product revision level: 2.0
+Unit serial number: 6000c293fecf25ac6bc457af67fe1f54
+....
+
+== File system preparation at Linux host
+
+=== Creation of xfs filesystem on new disks
+
+The device names of new the new disks can be checked with the command below.
+
+....
+hana-1:/install # lsblk
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda 8:0 0 250G 0 disk
+├─sda1 8:1 0 256M 0 part /boot/efi
+└─sda2 8:2 0 82G 0 part
+├─system-root 254:0 0 60G 0 lvm /root
+│ /var
+│ /usr/local
+│ /tmp
+│ /srv
+│ /opt
+│ /home
+│ /boot/grub2/x86++_++64-efi
+│ /boot/grub2/i386-pc
+│ /.snapshots
+│ /
+└─system-swap 254:1 0 2G 0 lvm SWAP
+sdb 8:16 0 200G 0 disk
+sdc 8:32 0 120G 0 disk
+sdd 8:48 0 150G 0 disk
+sr0 11:0 1 1024M 0 rom
+hana-1:/install #
+....
+
+An xfs file system has been created on each of the three new disks.
+
+....
+hana-1:/install # mkfs.xfs /dev/sdb
+meta-data=/dev/sdb isize=512 agcount=4, agsize=7864320 blks
+sectsz=512 attr=2, projid32bit=1
+crc=1 finobt=1, sparse=1, rmapbt=0
+reflink=0 bigtime=0 inobtcount=0
+data = bsize=4096 blocks=31457280, imaxpct=25
+sunit=0 swidth=0 blks
+naming =version 2 bsize=4096 ascii-ci=0, ftype=1
+log =internal log bsize=4096 blocks=15360, version=2
+sectsz=512 sunit=0 blks, lazy-count=1
+realtime =none extsz=4096 blocks=0, rtextents=0
+hana-1:/install # mkfs.xfs /dev/sdc
+meta-data=/dev/sdc isize=512 agcount=4, agsize=7864320 blks
+sectsz=512 attr=2, projid32bit=1
+crc=1 finobt=1, sparse=1, rmapbt=0
+reflink=0 bigtime=0 inobtcount=0
+data = bsize=4096 blocks=31457280, imaxpct=25
+sunit=0 swidth=0 blks
+naming =version 2 bsize=4096 ascii-ci=0, ftype=1
+log =internal log bsize=4096 blocks=15360, version=2
+sectsz=512 sunit=0 blks, lazy-count=1
+realtime =none extsz=4096 blocks=0, rtextents=0
+hana-1:/install # mkfs.xfs /dev/sdd
+meta-data=/dev/sdd isize=512 agcount=4, agsize=9830400 blks
+sectsz=512 attr=2, projid32bit=1
+crc=1 finobt=1, sparse=1, rmapbt=0
+reflink=0 bigtime=0 inobtcount=0
+data = bsize=4096 blocks=39321600, imaxpct=25
+sunit=0 swidth=0 blks
+naming =version 2 bsize=4096 ascii-ci=0, ftype=1
+log =internal log bsize=4096 blocks=19200, version=2
+sectsz=512 sunit=0 blks, lazy-count=1
+realtime =none extsz=4096 blocks=0, rtextents=0
+hana-1:/install #
+....
+
+=== Creation of mount points
+
+....
+hana-1:/ # mkdir -p /hana/data/SMA/mnt00001
+hana-1:/ # mkdir -p /hana/log/SMA/mnt00001
+hana-1:/ # mkdir -p /hana/shared
+hana-1:/ # chmod –R 777 /hana/log/SMA
+hana-1:/ # chmod –R 777 /hana/data/SMA
+hana-1:/ # chmod -R 777 /hana/shared
+....
+
+=== Configuration of /etc/fstab
+
+....
+hana-1:/install # cat /etc/fstab
+/dev/system/root / btrfs defaults 0 0
+/dev/system/root /var btrfs subvol=/@/var 0 0
+/dev/system/root /usr/local btrfs subvol=/@/usr/local 0 0
+/dev/system/root /tmp btrfs subvol=/@/tmp 0 0
+/dev/system/root /srv btrfs subvol=/@/srv 0 0
+/dev/system/root /root btrfs subvol=/@/root 0 0
+/dev/system/root /opt btrfs subvol=/@/opt 0 0
+/dev/system/root /home btrfs subvol=/@/home 0 0
+/dev/system/root /boot/grub2/x86_64-efi btrfs subvol=/@/boot/grub2/x86_64-efi 0 0
+/dev/system/root /boot/grub2/i386-pc btrfs subvol=/@/boot/grub2/i386-pc 0 0
+/dev/system/swap swap swap defaults 0 0
+/dev/system/root /.snapshots btrfs subvol=/@/.snapshots 0 0
+UUID=2E8C-48E1 /boot/efi vfat utf8 0 2
+/dev/sdb /hana/data/SMA/mnt00001 xfs relatime,inode64 0 0
+/dev/sdc /hana/log/SMA/mnt00001 xfs relatime,inode64 0 0
+/dev/sdd /hana/shared xfs defaults 0 0
+hana-1:/install #
+
+hana-1:/install # df -h
+Filesystem Size Used Avail Use% Mounted on
+devtmpfs 4.0M 8.0K 4.0M 1% /dev
+tmpfs 49G 4.0K 49G 1% /dev/shm
+tmpfs 13G 26M 13G 1% /run
+tmpfs 4.0M 0 4.0M 0% /sys/fs/cgroup
+/dev/mapper/system-root 60G 35G 25G 58% /
+/dev/mapper/system-root 60G 35G 25G 58% /.snapshots
+/dev/mapper/system-root 60G 35G 25G 58% /boot/grub2/i386-pc
+/dev/mapper/system-root 60G 35G 25G 58% /boot/grub2/x86_64-efi
+/dev/mapper/system-root 60G 35G 25G 58% /home
+/dev/mapper/system-root 60G 35G 25G 58% /opt
+/dev/mapper/system-root 60G 35G 25G 58% /srv
+/dev/mapper/system-root 60G 35G 25G 58% /tmp
+/dev/mapper/system-root 60G 35G 25G 58% /usr/local
+/dev/mapper/system-root 60G 35G 25G 58% /var
+/dev/mapper/system-root 60G 35G 25G 58% /root
+/dev/sda1 253M 5.1M 247M 3% /boot/efi
+tmpfs 6.3G 56K 6.3G 1% /run/user/0
+/dev/sdb 200G 237M 200G 1% /hana/data/SMA/mnt00001
+/dev/sdc 120G 155M 120G 1% /hana/log/SMA/mnt00001
+/dev/sdd 150G 186M 150G 1% /hana/shared
+hana-1:/install #
+....
+
+== HANA installation
+
+The HANA installation can now be executed.
+
+[NOTE]
+With the described configuration the /usr/sap/SMA directory will be on the OS VMDK. If /usr/sap/SMA should be stored in the shared VMDK, the hana shared disk could be partitioned to provide another file system for /usr/sap/SMA.
+
+== Userstore key for SnapCenter
+
+A user store for a system database user must be created, which should be used by SnapCenter. The HANA instance number must be set accordingly for communication port. In our setup instance number “00” is used.
+
+A more detailed description can be found at https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#sap-hana-backup-user-and-hdbuserstore-configuration[SnapCenter resource-specific configuration for SAP HANA database backups]
+
+....
+smaadm@hana-1:/usr/sap/SMA/HDB00> hdbuserstore set SMAKEY hana-1:30013 SNAPCENTER <password>
+Operation succeed.
+....
+
+The connectivity can be checked with the command below.
+
+....
+smaadm@hana-1:/usr/sap/SMA/HDB00> hdbsql -U SMAKEY
+Welcome to the SAP HANA Database interactive terminal.
+Type: \h for help with commands
+\q to quit
+hdbsql SYSTEMDB=> exit
+smaadm@hana-1:/usr/sap/SMA/HDB00
+....
+

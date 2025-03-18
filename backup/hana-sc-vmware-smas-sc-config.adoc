@@ -1,0 +1,105 @@
+---
+sidebar: sidebar
+permalink: backup/hana-sc-vmware-smas-sc-config.html
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
+summary: 
+---
+= SnapCenter configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+---
+
+As stated at the beginning of the document, the purpose of the document is to provide best practices for a HANA environment using VMware with VMFS and SnapMirror active sync. We will only cover details and important steps relevant for this specific solution and will not explain the general SnapCenter concepts. These concepts and other additional information on SnapCenter can be found at:
+
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[TR-4614: SAP HANA backup and recovery with SnapCenter]
+
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html[TR-4719: SAP HANA System Replication - Backup and Recovery with SnapCenter]
+
+https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter]
+
+== Pre-requisites
+
+In general, SnapMirror active sync should be setup before the protected resources are added to SnapCenter. If backups have been created before the setup of SnapMirror active sync, they will only exist at the original primary storage and will not be replicated afterwards.
+
+=== SnapCenter HANA resource must be auto discovered
+
+Resources which are configured with VMware VMFS or resources protected with SnapMirror active sync must be auto discovered by SnapCenter to allow specific operations required for these configurations.
+
+Since HANA non-data volumes are always manual configured resources in SnapCenter, they are not supported by SnapCenter out of the box. We will discuss options and workarounds for non-data volumes later in this document.
+
+SAP HANA multiple host systems must be configured using a central HANA plugin and are therefore manual configured resources by default. Such HANA systems are not supported by SnapCenter, when using VMware VMFS or SnapMirror active sync.
+
+=== SnapCenter for VMWare vSphere plugin
+
+The SnapCenter for VMware vSphere plugin must be deployed in the VMware environment.
+
+=== Management IP address on SVM hosting the volumes
+
+Even though clusters will be added to SnapCenter, the SVMs hosting the source and destination volumes must have a management IP address configured.
+
+=== REST APIs for storage communication
+
+Management and monitoring of SnapMirror active sync requires REST API access. Therefore, SnapCenter must be configured to use REST APIs for storage communications. The parameter "IsRestEnabledForStorageConnection" in the configuration file +
+C:++\++Program Files++\++NetApp++\++SMCore++\++SMCoreServiceHost.dll.config must be set to true.
+
+....
+<add key="IsRestEnabledForStorageConnection" value="true">
+....
+
+image:extracted-media/media/sc-saphana-vmware-smas-image21.png[]
+
+After the parameter change the SnapCenter SMCore Service must be restarted.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image22.png[]
+
+== Add storage systems
+
+Storage systems can be added after REST API is enabled for SnapCenter. It is required to add both storage clusters, not the individual SVM’s.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image23.png[]
+
+image:extracted-media/media/sc-saphana-vmware-smas-image24.png[]
+
+== Add host – SnapCenter for VMware vSphere plugin
+
+If a resource in SnapCenter is running in a virtualized VMware environment, SnapCenter leverages the SnapCenter plugin for VMware vSphere to extend the SnapCenter backup, restore and cloning workflows with the required steps on the VMware layer.
+
+Before the host can be added in SnapCenter the SnapCenter plugin for VMware vSphere must be deployed within the VMware environment.
+
+[NOTE]
+Credentials must be set during host add workflow, where vSphere can be selected as a host type.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image25.png[]
+
+image:extracted-media/media/sc-saphana-vmware-smas-image26.png[]
+
+image:extracted-media/media/sc-saphana-vmware-smas-image27.png[]
+
+[NOTE]: No additional configuration required at the SnapCenter for vSphere plugin itself.
+
+== Add host – HANA system
+
+[NOTE]: No specific requirements. Plugin deployment and auto discovery is done as usual.
+
+With the auto discovery process SnapCenter detects that the HANA resource is running virtualized with VMFS/VMDKs. SnapCenter also detects the SnapMirror active sync setup and identifies the current primary site.
+
+After resource auto discovery the current primary site is shown in the storage footprint section of the resource view. The detection which storage system is master is based on the output of the ONTAP command, which is used by SnapCenter. +
+volume show -vserver ++<++vs++>++ -volume ++<++vol++>++ -fields smbc-consensus,is-smbc-master
+
+image:extracted-media/media/sc-saphana-vmware-smas-image28.png[]
+
+== Policy configuration
+
+The policy used for the resource protected with SnapMirror active sync must be configured using SnapMirror replication even though SnapCenter does not trigger any SnapMirror update operations.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image29.png[]
+
+image:extracted-media/media/sc-saphana-vmware-smas-image30.png[]
+
+== HANA resource protection configuration
+
+No specific requirements. Resource protection configuration is done as usual.
+

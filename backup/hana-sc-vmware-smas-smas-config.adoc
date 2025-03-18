@@ -1,0 +1,102 @@
+
+---
+sidebar: sidebar
+permalink: backup/hana-sc-vmware-smas-smas-config.html
+keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
+summary: 
+---
+= SnapMirror active sync configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+---
+
+== Pre-requisites
+
+Storage clusters and relevant SVMs must be peered.
+
+ONTAP mediator must be available and configured at both storage clusters.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image10.png[]
+
+image:extracted-media/media/sc-saphana-vmware-smas-image11.png[]
+
+== Storage layout and consistency group configuration
+
+In the ONTAP documentation https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html#key-concepts[SnapMirror active sync overview in ONTAP] the concept of consistency groups with SnapMirror active sync is described as followed:
+
+_A consistency group is a collection of FlexVol volumes that provide a consistency guarantee for the application workload that must be protected for business continuity._
+
+_The purpose of a consistency group is to take simultaneous snapshot images of multiple volumes, thus ensuring crash-consistent copies of a collection of volumes at a point in time. A consistency group ensures all volumes of a dataset are quiesced and then snapped at precisely the same point in time. This provides a data-consistent restore point across volumes supporting the dataset. A consistency group thereby maintains dependent write-order consistency. If you decide to protect applications for business continuity, the group of volumes corresponding to this application must be added to a consistency group so a data protection relationship is established between a source and a destination consistency group. The source and destination consistency must contain the same number and type of volumes._
+
+For the replication of HANA systems, the consistency group must include all volumes used by the individual HANA system (data, log and shared). Volumes which should be part of a consistency group must be stored in the same SVM. Operating system images can be stored in a separate volume with its own consistency group. The figure below illustrates a configuration example with two HANA systems.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image12.png[]
+
+== Initiator group configuration
+
+In our lab setup we created an initiator group including both storage SVMs which are used for the SnapMirror active sync replication. In the SnapMirror active sync configuration described later, we will define that the initiator group will be part of the replication.
+
+Using the proximity settings, we defined which ESX host is close to which storage cluster. In our case the A700 is close to ESX-1 and the A800 is close to ESX-2.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image13.png[]
+
+image:extracted-media/media/sc-saphana-vmware-smas-image14.png[]
+
+[NOTE]
+In a non-uniform access setup, the initiator group at the primary storage cluster (A700) must only include the initiators of the ESX-1 host, since there is no SAN connection to ESX-2. In addition, you need to configure another initiator group at the second storage cluster (A800) which only include the initiators of the ESX-2 host. Proximity configuration and initiator group replication is not required.
+
+== Configure protection with ONTAP system manager
+
+image:extracted-media/media/sc-saphana-vmware-smas-image15.png[]
+
+=== Consistency group and initiator group replication
+
+A new consistency group must be created, and all three LUNs of the HANA system must be added to the consistency group.
+
+“Replicate initiator group” has been enabled. The imitator group will then stay in-sync independent where changes are made.
+
+[NOTE]
+In a non-uniform access setup, the initiator group must not be replicated, since a separate initiator group must be configured at the second storage cluster.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image16.png[]
+
+By clicking on proximity settings, you can review the configuration done before in the initiator group setup.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image17.png[]
+
+The destination storage cluster must be configured and “initialize relationship” must be enabled.
+
+=== Synchronisation
+
+At the A700 storage cluster (source), the new relationship is now listed.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image18.png[]
+
+At the A800 storage cluster (destination), the new relationship and the status of the replication is listed.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image19.png[]
+
+== Infrastructure datastore
+
+The datastore, where the OS images of the HANA system, SnapCenter and the vSphere plugin is stored is replicated in the same way as described for the HANA database datastores.
+
+== Primary site
+
+SnapMirror active sync behaviour is symmetric, with one important exception - primary site configuration.
+
+SnapMirror active sync will consider one site the "source" and the other the "destination". This implies a one-way replication relationship, but this does not apply to IO behaviour. Replication is bidirectional and symmetric and IO response times are the same on either side of the mirror.
+
+If the replication link is lost, the LUN paths on the source copy will continue to serve data while the LUN paths on the destination copy will become unavailable until replication is reestablished and SnapMirror re-enters a synchronous state. The paths will then resume serving data.
+
+The effect of designating one cluster as a source simply controls which cluster survives as a read-write storage system if the replication link is lost.
+
+The primary site is detected by SnapCenter and used to execute backup, restore and cloning operations.
+
+[NOTE]
+Keep in mind, that source and destination is not tied to the SVM or storage cluster but can be different for each replication relationship.
+
+image:extracted-media/media/sc-saphana-vmware-smas-image20.png[]
+
