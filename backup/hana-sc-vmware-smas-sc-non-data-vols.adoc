@@ -20,15 +20,15 @@ For non-data volumes like HANA shared, backup and restore operations could still
 
 If a failure of the storage system configured in SnapCenter occurs, SnapCenter will not automatically switch to the other storage system. The non-data volume resource must be adapted manually so that the mirrored copy of the volume is used for backup and restore operations.
 
-image:extracted-media/media/sc-saphana-vmware-smas-image39.png[]
+image:sc-saphana-vmware-smas-image39.png[]
 
 == Backup operations
 
 Even though SnapCenter is not aware of the SnapMirror active sync configuration for the HANA shared volume, Snapshot are replicated to both sites.
 
-image:extracted-media/media/sc-saphana-vmware-smas-image40.png[]
+image:sc-saphana-vmware-smas-image40.png[]
 
-image:extracted-media/media/sc-saphana-vmware-smas-image41.png[]
+image:sc-saphana-vmware-smas-image41.png[]
 
 == Restore operation
 
