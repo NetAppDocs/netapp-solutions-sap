@@ -28,6 +28,7 @@ Even though SnapCenter is not aware of the SnapMirror active sync configuration 
 
 image:sc-saphana-vmware-smas-image40.png[]
 
+
 image:sc-saphana-vmware-smas-image41.png[]
 
 == Restore operation

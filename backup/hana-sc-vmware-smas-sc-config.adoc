@@ -78,11 +78,13 @@ image:sc-saphana-vmware-smas-image26.png[]
 
 image:sc-saphana-vmware-smas-image27.png[]
 
-[NOTE]: No additional configuration required at the SnapCenter for vSphere plugin itself.
+[NOTE]:
+No additional configuration required at the SnapCenter for vSphere plugin itself.
 
 == Add host – HANA system
 
-[NOTE]: No specific requirements. Plugin deployment and auto discovery is done as usual.
+[NOTE]: 
+No specific requirements. Plugin deployment and auto discovery is done as usual.
 
 With the auto discovery process SnapCenter detects that the HANA resource is running virtualized with VMFS/VMDKs. SnapCenter also detects the SnapMirror active sync setup and identifies the current primary site.
 
