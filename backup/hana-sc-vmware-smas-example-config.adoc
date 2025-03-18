@@ -1,4 +1,3 @@
-
 ---
 sidebar: sidebar
 permalink: backup/hana-sc-vmware-smas-example-config.html
