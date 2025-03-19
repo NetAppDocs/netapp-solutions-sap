@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/hana-sc-vmware-smas-example-config.html
+permalink: backup/hana-sc-vmware-smas-hana-install.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---

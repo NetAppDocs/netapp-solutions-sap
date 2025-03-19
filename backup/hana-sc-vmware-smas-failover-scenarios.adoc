@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/hana-sc-vmware-smas-sc-system-refresh.html
+permalink: backup/hana-sc-vmware-smas-failover-scenarios.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---

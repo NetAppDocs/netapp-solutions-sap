@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/hana-sc-vmware-smas-sc-non-data-volumes.html
+permalink: backup/hana-sc-vmware-smas-sc-non-data-vols.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery, non-data volumes
 summary: 
 ---
