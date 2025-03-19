@@ -78,19 +78,20 @@ image:sc-saphana-vmware-smas-image26.png[]
 
 image:sc-saphana-vmware-smas-image27.png[]
 
-[NOTE]:
+[NOTE]
 No additional configuration required at the SnapCenter for vSphere plugin itself.
 
 == Add host – HANA system
 
-[NOTE]: 
+[NOTE]
 No specific requirements. Plugin deployment and auto discovery is done as usual.
 
 With the auto discovery process SnapCenter detects that the HANA resource is running virtualized with VMFS/VMDKs. SnapCenter also detects the SnapMirror active sync setup and identifies the current primary site.
 
 After resource auto discovery the current primary site is shown in the storage footprint section of the resource view. The detection which storage system is master is based on the output of the ONTAP command, which is used by SnapCenter. +
+....
 volume show -vserver ++<++vs++>++ -volume ++<++vol++>++ -fields smbc-consensus,is-smbc-master
-
+....
 image:sc-saphana-vmware-smas-image28.png[]
 
 == Policy configuration

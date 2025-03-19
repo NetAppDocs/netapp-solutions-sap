@@ -72,7 +72,7 @@ entries:
       - title: Overview SAP HANA high availability
         url: /backup/hana-sc-vmware-smas-hana-ha.html
       - title: Example configuration overview
-        url: /backup/hana-sc-vmware-smas-example.html
+        url: /backup/hana-sc-vmware-smas-example-config.html
       - title: HANA system provisioning and installation
         url: /backup/hana-sc-vmware-smas-hana-install.html
       - title: SnapMirror active sync configuration
@@ -88,7 +88,7 @@ entries:
       - title: SnapCenter non-data volumes
         url: /backup/hana-sc-vmware-smas-sc-non-data-vols.html
       - title: Failover scenarios 
-        url: /backup/hana-sc-vmware-smas-failover.html
+        url: /backup/hana-sc-vmware-smas-failover-scenarios.html
       - title: Additional information and version history
         url: /backup/hana-sc-vmware-smas-additional-info.html
 
