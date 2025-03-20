@@ -116,6 +116,7 @@ naming =version 2 bsize=4096 ascii-ci=0, ftype=1
 log =internal log bsize=4096 blocks=15360, version=2
 sectsz=512 sunit=0 blks, lazy-count=1
 realtime =none extsz=4096 blocks=0, rtextents=0
+
 hana-1:/install # mkfs.xfs /dev/sdc
 meta-data=/dev/sdc isize=512 agcount=4, agsize=7864320 blks
 sectsz=512 attr=2, projid32bit=1
@@ -127,6 +128,7 @@ naming =version 2 bsize=4096 ascii-ci=0, ftype=1
 log =internal log bsize=4096 blocks=15360, version=2
 sectsz=512 sunit=0 blks, lazy-count=1
 realtime =none extsz=4096 blocks=0, rtextents=0
+
 hana-1:/install # mkfs.xfs /dev/sdd
 meta-data=/dev/sdd isize=512 agcount=4, agsize=9830400 blks
 sectsz=512 attr=2, projid32bit=1
