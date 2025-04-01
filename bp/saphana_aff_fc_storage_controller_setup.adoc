@@ -32,15 +32,35 @@ The usage of NetApp FlexGroup Volumes is not supported for SAP HANA. Due to the 
 
 The use of NetApp Volume Encryption (NVE) and NetApp Aggregate Encryption (NAE) are supported with SAP HANA.
 
-== Quality of service
+== Quality of Service
 
-QoS can be used to limit the storage throughput for specific SAP HANA systems or no- SAP applications on a shared-use controller. One use case would be to limit the throughput of development and test systems so that they cannot influence production systems in a mixed setup.
+QoS can be used to limit the storage throughput for specific SAP HANA systems or non-SAP applications on a shared controller. 
 
+=== Production and Dev/Test 
+One use case would be to limit the throughput of development and test systems so that they cannot influence production systems in a mixed setup.
 During the sizing process, you should determine the performance requirements of a nonproduction system. Development and test systems can be sized with lower performance values, typically in the range of 20% to 50% of a production-system KPI as defined by SAP.
-
-Starting with ONTAP 9, QoS is configured on the storage volume level and uses maximum values for throughput (MBps) and the amount of I/O (IOPS).
-
 Large write I/O has the biggest performance effect on the storage system. Therefore, the QoS throughput limit should be set to a percentage of the corresponding write SAP HANA storage performance KPI values in the data and log volumes.
+
+=== Shared Environments 
+Another use case is to limit the throughput of heavy write workloads, especially to avoid that these workloads have an impact on other latency sensitive write workloads. 
+In such environments it is best practice to apply a non-shared throughput ceiling QoS group-policy to each LUN within each Storage Virtual Machine (SVM) to restrict the max throughput of each individual storage object to the given value. This reduces the possibility that a single workload can negatively influence other workloads.
+
+To do so, a group-policy needs to be created using the CLI of the ONTAP cluster for each SVM:
+....
+qos policy-group create -policy-group <policy-name> -vserver <vserver name> -max-throughput 1000MB/s -is-shared false
+....
+and applied to each LUN within the SVM. Below is an example to apply the policy group to all existing LUNs within an SVM:
+....
+lun modify -vserver <vserver name>  -path * -qos-policy-group  <policy-name>
+....
+This needs to be done for every SVM. The name of the QoS police group for each SVM needs to be different.
+For new LUNs, the policy can be applied directly:
+....
+lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size <size> -ostype <e.g. linux>  -qos-policy-group <policy-name>
+....
+
+It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_host_setup.html#create-lvm-volume-groups-and-logical-volumes[Host Setup].
+
 
 == NetApp FabricPool
 
