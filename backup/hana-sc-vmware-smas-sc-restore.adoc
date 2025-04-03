@@ -4,14 +4,14 @@ permalink: backup/hana-sc-vmware-smas-sc-restore.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---
-= SnapCenter restore and recovery
 
+= SnapCenter restore and recovery
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
----
 
+[.lead]]
 With virtual resources stored on VMFS/VMDK’s a SnapCenter restore operation is always done by a clone, mount, copy operation.
 
 [arabic]
@@ -27,11 +27,11 @@ The overall runtime of the restore operation is therefore dependent on the datab
 
 In addition, when a resource is configured with SnapMirror active sync the SnapCenter restore operation can only be selected at the current primary site.
 
-image:sc-saphana-vmware-smas-image37.png[]
+image:sc-saphana-vmware-smas-image37.png["Figure demonstrating the content being discussed"]
 
 While the restore and recovery operation is running, you can see a new cloned volume, which has been created at the current primary site.
 
-image:sc-saphana-vmware-smas-image38.png[]
+image:sc-saphana-vmware-smas-image38.png["Figure demonstrating the content being discussed"]
 
 At the HANA Linux host, you can see a new disk, which got mounted to the host. When the restore operation is done the disk, datastore and volumes will be removed again by SnapCenter.
 

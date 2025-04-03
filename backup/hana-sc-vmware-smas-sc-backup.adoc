@@ -4,29 +4,30 @@ permalink: backup/hana-sc-vmware-smas-sc-backup.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---
+
 = SnapCenter backup operations
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
----
 
+[.lead]
 With each backup operation, SnapCenter executes the discovery on the VMware side as well as the detection of the primary site. If there is a storage failover, SnapCenter will detect the new primary site as soon as a backup has been executed for the resource.
 
-image:sc-saphana-vmware-smas-image31.png[]
+image:sc-saphana-vmware-smas-image31.png["Figure demonstrating the content being discussed"]
 
 == Topology view
 
 Within the topology view, SnapCenter shows the backups of both source and destination storage clusters.
 
-image:sc-saphana-vmware-smas-image32.png[]
+image:sc-saphana-vmware-smas-image32.png["Figure demonstrating the content being discussed"]
 
-image:sc-saphana-vmware-smas-image33.png[]
+image:sc-saphana-vmware-smas-image33.png["Figure demonstrating the content being discussed"]
 
 By clicking on the count number at the secondary storage, the current relationship and replication direction is shown. The source is always the current primary site. After a storage failover the primary site will change, and the display is adapted accordingly. All backups have always the same relationship dependent which storage system is currently the primary site.
 
-image:sc-saphana-vmware-smas-image34.png[]
+image:sc-saphana-vmware-smas-image34.png["Figure demonstrating the content being discussed"]
 
 == Snapshots at storage systems
 
@@ -34,9 +35,9 @@ The Snapshot backups that have been created by SnapCenter are available at both 
 
 The figure below shows the Snapshots of the HANA data volume at the A700 cluster.
 
-image:sc-saphana-vmware-smas-image35.png[]
+image:sc-saphana-vmware-smas-image35.png["Figure demonstrating the content being discussed"]
 
 The figure below shows the Snapshots of the HANA data volume at the A800 cluster.
 
-image:sc-saphana-vmware-smas-image36.png[]
+image:sc-saphana-vmware-smas-image36.png["Figure demonstrating the content being discussed"]
 

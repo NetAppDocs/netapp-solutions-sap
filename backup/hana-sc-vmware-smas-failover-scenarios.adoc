@@ -4,12 +4,15 @@ permalink: backup/hana-sc-vmware-smas-failover-scenarios.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---
+
 = Failover scenarios 
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
----
+
+[.lead]
+This article will highlight the failover scenarios for this solution.
 
 == Uniform access setup
 
@@ -19,19 +22,19 @@ In a uniform access configuration, the fibre channel SAN is stretched across bot
 
 During normal operation the HANA system reads and writes from/to the local copy based on the active optimized path from ESX host ESX-1. With each backup operation, SnapCenter detects the current primary site for the replication relationship and executes the backup operations against the primary site. The Snapshots are replicated to the mirrored copy and are available at both sites. A SnapCenter restore operation would be executed at the primary site.
 
-image:sc-saphana-vmware-smas-image42.png[]
+image:sc-saphana-vmware-smas-image42.png["Figure demonstrating the content being discussed"]
 
 === Storage failure
 
 If the storage system at site 1 fails, the HANA systems access the mirrored copy at site 2 and continues operation. The primary site switches to the secondary site and SnapCenter now executes backup and restore operations at the new primary site.
 
-image:sc-saphana-vmware-smas-image43.png[]
+image:sc-saphana-vmware-smas-image43.png["Figure demonstrating the content being discussed"]
 
 === Site failure
 
 In case of a site failure, the HANA VM as well as SnapCenter and the SnapCenter for VMware plugin VM will fail over to the ESX host at the secondary site using vSphere HA. The HANA database needs to get started and will then access the mirrored copy at the second site. The primary site switches to the secondary site and SnapCenter now executes backup and restore operations at the new primary site.
 
-image:sc-saphana-vmware-smas-image44.png[]
+image:sc-saphana-vmware-smas-image44.png["Figure demonstrating the content being discussed"]
 
 == Non-uniform access setup
 
@@ -41,19 +44,19 @@ In a non-uniform access configuration, the fibre channel SAN is not stretched ac
 
 During normal operation the HANA system reads and writes from/to the local copy. With each backup operation, SnapCenter detects the current primary site for the replication relationship and executes the backup operations against the primary site. The Snapshots are replicated to the mirrored copy and are available at both sites. A SnapCenter restore operation would be executed at the primary site.
 
-image:sc-saphana-vmware-smas-image45.png[]
+image:sc-saphana-vmware-smas-image45.png["Figure demonstrating the content being discussed"]
 
 === Storage failure
 
 In case of a storage failure, the HANA VM as well as SnapCenter and the SnapCenter for VMware plugin VM will fail over to the ESX host at the secondary site using vSphere HA. The HANA database needs to get started and will then access the mirrored copy at the second site. The primary site switches to the secondary site and SnapCenter now executes backup and restore operations at the new primary site.
 
-image:sc-saphana-vmware-smas-image46.png[]
+image:sc-saphana-vmware-smas-image46.png["Figure demonstrating the content being discussed"]
 
 === Site failure
 
 Same as storage failure.
 
-image:sc-saphana-vmware-smas-image47.png[]
+image:sc-saphana-vmware-smas-image47.png["Figure demonstrating the content being discussed"]
 
 === Relocation of HANA VM or primary site
 
@@ -61,5 +64,5 @@ If the HANA VM is relocated to the other ESX host and the primary site of the st
 
 As a workaround you need to make sure, that the relocation of VM and primary side is done together, or you need to failover the primary site before the restore operation with SnapCenter.
 
-image:sc-saphana-vmware-smas-image48.png[]
+image:sc-saphana-vmware-smas-image48.png["Figure demonstrating the content being discussed"]
 

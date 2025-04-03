@@ -4,13 +4,16 @@ permalink: backup/hana-sc-vmware-smas-smas-config.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---
+
 = SnapMirror active sync configuration
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
----
+
+[.lead]
+This article covers the configuration steps required for this solution.
 
 == Pre-requisites
 
@@ -18,9 +21,9 @@ Storage clusters and relevant SVMs must be peered.
 
 ONTAP mediator must be available and configured at both storage clusters.
 
-image:sc-saphana-vmware-smas-image10.png[]
+image:sc-saphana-vmware-smas-image10.png["Figure demonstrating the content being discussed"]
 
-image:sc-saphana-vmware-smas-image11.png[]
+image:sc-saphana-vmware-smas-image11.png["Figure demonstrating the content being discussed"]
 
 == Storage layout and consistency group configuration
 
@@ -32,7 +35,7 @@ The purpose of a consistency group is to take simultaneous snapshot images of mu
 
 For the replication of HANA systems, the consistency group must include all volumes used by the individual HANA system (data, log and shared). Volumes which should be part of a consistency group must be stored in the same SVM. Operating system images can be stored in a separate volume with its own consistency group. The figure below illustrates a configuration example with two HANA systems.
 
-image:sc-saphana-vmware-smas-image12.png[]
+image:sc-saphana-vmware-smas-image12.png["Figure demonstrating the content being discussed"]
 
 == Initiator group configuration
 
@@ -40,16 +43,16 @@ In our lab setup we created an initiator group including both storage SVMs which
 
 Using the proximity settings, we defined which ESX host is close to which storage cluster. In our case the A700 is close to ESX-1 and the A800 is close to ESX-2.
 
-image:sc-saphana-vmware-smas-image13.png[]
+image:sc-saphana-vmware-smas-image13.png["Figure demonstrating the content being discussed"]
 
-image:sc-saphana-vmware-smas-image14.png[]
+image:sc-saphana-vmware-smas-image14.png["Figure demonstrating the content being discussed"]
 
 [NOTE]
 In a non-uniform access setup, the initiator group at the primary storage cluster (A700) must only include the initiators of the ESX-1 host, since there is no SAN connection to ESX-2. In addition, you need to configure another initiator group at the second storage cluster (A800) which only include the initiators of the ESX-2 host. Proximity configuration and initiator group replication is not required.
 
 == Configure protection with ONTAP system manager
 
-image:sc-saphana-vmware-smas-image15.png[]
+image:sc-saphana-vmware-smas-image15.png["Figure demonstrating the content being discussed"]
 
 === Consistency group and initiator group replication
 
@@ -60,11 +63,11 @@ A new consistency group must be created, and all three LUNs of the HANA system m
 [NOTE]
 In a non-uniform access setup, the initiator group must not be replicated, since a separate initiator group must be configured at the second storage cluster.
 
-image:sc-saphana-vmware-smas-image16.png[]
+image:sc-saphana-vmware-smas-image16.png["Figure demonstrating the content being discussed"]
 
 By clicking on proximity settings, you can review the configuration done before in the initiator group setup.
 
-image:sc-saphana-vmware-smas-image17.png[]
+image:sc-saphana-vmware-smas-image17.png["Figure demonstrating the content being discussed"]
 
 The destination storage cluster must be configured and “initialize relationship” must be enabled.
 
@@ -72,11 +75,11 @@ The destination storage cluster must be configured and “initialize relationshi
 
 At the A700 storage cluster (source), the new relationship is now listed.
 
-image:sc-saphana-vmware-smas-image18.png[]
+image:sc-saphana-vmware-smas-image18.png["Figure demonstrating the content being discussed"]
 
 At the A800 storage cluster (destination), the new relationship and the status of the replication is listed.
 
-image:sc-saphana-vmware-smas-image19.png[]
+image:sc-saphana-vmware-smas-image19.png["Figure demonstrating the content being discussed"]
 
 == Infrastructure datastore
 
@@ -97,5 +100,5 @@ The primary site is detected by SnapCenter and used to execute backup, restore a
 [NOTE]
 Keep in mind, that source and destination is not tied to the SVM or storage cluster but can be different for each replication relationship.
 
-image:sc-saphana-vmware-smas-image20.png[]
+image:sc-saphana-vmware-smas-image20.png["Figure demonstrating the content being discussed"]
 
