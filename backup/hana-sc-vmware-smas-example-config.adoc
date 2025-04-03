@@ -15,7 +15,7 @@ summary:
 [.lead]
 In the lab setup, we are using a uniform access configuration, where both ESX hosts have access to both storage clusters. Within the next sections we describe the uniform access configuration but also highlight the differences for a non-uniform setup.
 
-image:sc-saphana-vmware-smas-image1.png[]
+image:sc-saphana-vmware-smas-image1.png["Figure demonstrating the content being discussed"]
 
 == Software versions
 

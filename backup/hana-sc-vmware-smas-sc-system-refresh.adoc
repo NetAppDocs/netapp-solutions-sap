@@ -4,13 +4,14 @@ permalink: backup/hana-sc-vmware-smas-sc-system-refresh.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---
+
 = SAP System refresh operation
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
----
 
+[.lead]
 Cloning operations can be executed at the primary site or the secondary storage.
 
 The cloned volume will not be part of the HANA consistency group and will not be replicated with SnapMirror active sync.
