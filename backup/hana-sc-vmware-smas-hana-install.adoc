@@ -19,14 +19,14 @@ This chapter describes the installation and configuration of the SAP HANA system
 
 The figure below shows the storage and datastore configuration for the HANA system. You must configure a dedicated volume, LUN, datastore for each filesystem of the HANA system. Datastores must not be shared across multiple HANA systems or other workloads.
 
-image:sc-saphana-vmware-smas-image5.png[]
+image:sc-saphana-vmware-smas-image5.png["Figure demonstrating the content being discussed"]
 
 All three LUNs of the HANA system (hana++_++data++_++SMA, hana++_++log++_++SAM and hana++_++shared++_++SMA) as well as the LUN for the OS images and SnapCenter components have been provisioned at the A700 storage cluster.
 
 [NOTE]
 All volumes of the HANA system must be provisioned in the same SVM. In the SnapMirror active sync configuration described later, we will create a consistency group across all three HANA volumes, which requires that the volumes are in the same SVM. The infrastructure volume will be in a different consistency group and could therefore be in a different SVM.
 
-image:sc-saphana-vmware-smas-image6.png[]
+image:sc-saphana-vmware-smas-image6.png["Figure demonstrating the content being discussed"]
 
 An initiator group must be configured, and the LUNs above must be mapped to the ESX-1 host, which is in close proximity to the A700 storage system in our lab setup.
 
@@ -34,7 +34,7 @@ An initiator group must be configured, and the LUNs above must be mapped to the 
 
 We created three datastores for the HANA system using the three LUNs we have provisioned before. In addition, we created an infrastructure datastore using the infrastructure LUN.
 
-image:sc-saphana-vmware-smas-image7.png[]
+image:sc-saphana-vmware-smas-image7.png["Figure demonstrating the content being discussed"]
 
 == VM provisioning and OS installation 
 
@@ -44,7 +44,7 @@ In our lab setup we deployed a new VM and placed the VMDK for the Linux OS in th
 
 Three new disks have been added to the HANA VM, each disk within one of the datastores which have been created for the HANA system.
 
-image:sc-saphana-vmware-smas-image8.png[]
+image:sc-saphana-vmware-smas-image8.png["Figure demonstrating the content being discussed"]
 
 == VM parameter setting
 
@@ -52,7 +52,7 @@ The parameter disk.EnableUUID must be added and set to TRUE . The parameter is r
 
 The VM must be stopped before parameter can be added.
 
-image:sc-saphana-vmware-smas-image9.png[]
+image:sc-saphana-vmware-smas-image9.png["Figure demonstrating the content being discussed"]
 
 The functionality can be checked with the command below.
 

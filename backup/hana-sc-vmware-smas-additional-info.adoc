@@ -4,12 +4,15 @@ permalink: backup/hana-sc-vmware-smas-additional-info.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---
+
 = Additional information and version history
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
----
+
+[.lead]
+This article provides links to additional resources relevant to this solution.
 
 SnapCenter:
 

@@ -24,7 +24,7 @@ In case of any failure at the primary site, storage, host or complete site, the 
 
 For a full description of all configuration options and replication scenarios, see https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html[SAP HANA System Replication ++|++ SAP Help Portal].
 
-image:sc-saphana-vmware-smas-image2.png[]
+image:sc-saphana-vmware-smas-image2.png["Figure demonstrating the content being discussed"]
 
 == NetApp SnapMirror active sync
 
@@ -42,7 +42,7 @@ In case of a storage failure, the HANA system will transparently access the mirr
 
 In case of a host or complete site failure, a new server at the secondary site needs to be provided to access the data from the failed host. This would typically be a test or QA system of the same size as production which will now be shut down and be used to run the production system. After the LUNs at the secondary site are connected to the new host, the HANA database needs to be started. The total RTO therefore depends on the time needed to provision the host and the startup time of the HANA database.
 
-image:sc-saphana-vmware-smas-image3.png[]
+image:sc-saphana-vmware-smas-image3.png["Figure demonstrating the content being discussed"]
 
 === vSphere Metro Storage Cluster (vMSC)
 
@@ -52,7 +52,7 @@ In case of a storage failure, the ESX host will automatically access the mirrore
 
 In case of a host or complete site failure, vSphere HA is used to start the HANA VM at the secondary ESX host. When the HANA VM is running, the HANA database needs to be started. The total RTO therefore mainly depends on the startup time of the HANA database.
 
-image:sc-saphana-vmware-smas-image4.png[]
+image:sc-saphana-vmware-smas-image4.png["Figure demonstrating the content being discussed"]
 
 == Solution comparison
 
