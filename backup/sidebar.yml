@@ -178,5 +178,5 @@ entries:
     url: /backup/saphana-san_pdf_link.html
   - title: "SnapCenter Integration for SAP ASE Database"
     url: /backup/snapcenter-sap-ase.html
-  - title: ""SnapCenter Integration for IBM DB2 Database
+  - title: "SnapCenter Integration for IBM DB2 Database"
     url: /backup/snapcenter-ibm-db2.html
