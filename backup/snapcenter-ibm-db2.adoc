@@ -24,6 +24,8 @@ The document is not intended to be a step-by-step description of how to setup th
 * Protect DB2 database
 * Restore and Recover DB2 database
 
+Author: Michael Schlosser, NetApp
+
 == Example configuration overview
 
 Example Implementation for SnapCenter DB2 Plugin for an SAP System running on the Azure Platform.

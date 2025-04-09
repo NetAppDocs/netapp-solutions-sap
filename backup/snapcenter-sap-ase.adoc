@@ -24,6 +24,8 @@ The document is not intended to be a step-by-step description of how to setup th
 * Protect SAP ASE Instance
 * Restore and Recover SAP ASE Instance
 
+Author: Michael Schlosser, NetApp
+
 === Example configuration overview
 
 Example Implementation for SnapCenter ASE Plugin for an SAP System running on the Azure Platform.
