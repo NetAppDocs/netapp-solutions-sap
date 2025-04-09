@@ -123,7 +123,6 @@ Before you add a host and install the plug-ins package for Linux, you must compl
 ** go
 * Ensure, that regular Log Backups are configured, according to SAP Note 1588316
 
-
 === Optional – create dedicated database user
 
 For SAP Environments user sapsa could be used.
