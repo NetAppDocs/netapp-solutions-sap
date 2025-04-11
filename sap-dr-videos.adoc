@@ -21,4 +21,12 @@ Overview of the videos and demos highlighting SAP Backup, Restore and Disaster R
 
 * link:https://media.netapp.com/video-detail/6b94b9c3-0862-5da8-8332-5aa1ffe86419/disaster-recovery-options-for-sap-hana[Disaster Recovery Options for SAP HANA^]
 
+video::66c87afd-ca53-4af1-8bd8-b2b900c1fb0f[panopto, title="Installation and Configuration DB2 Plugin, Backup of DB2 database", width=360]
+
+video::3a82e561-e5a2-4a23-9465-b2b900c1fac5[panopto, title="Restore and Recovery of DB2 database", width=360]
+
+video::079554d1-452c-42e5-95f6-b2b900c1fa86[panopto, title="Installation ASE Plugin, Configuration ASE Plugin, Backup of ASE database", width=360]
+
+video::0aba8433-e0d0-4c40-be0a-b2b900c1fb54[panopto, title="Restore and Recovery of ASE database", width=360]
+
 // end::videos[]
