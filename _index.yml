@@ -30,7 +30,7 @@ indexpage:
     - title: "SAP HANA on Azure NetApp Files"
       links:
         - title: "SAP HANA disaster recovery with Azure NetApp Files"
-          url: 
+          url: backup/saphana-dr-anf_data_protection_overview_overview.html
         - title: "SAP HANA system refresh with LSC, AzAcSnap, and Azure NetApp Files"
           url: lifecycle/libelle-sc-sap-hana-system-refresh-with-lsc,-azacsnap,-and-azure-netapp-files.html
         - title: "SAP HANA data protection on Azure NetApp Files with SnapCenter (blog and video)"
