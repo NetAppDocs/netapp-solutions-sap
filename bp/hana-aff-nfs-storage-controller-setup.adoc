@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-nfs-storage-controller-setup.adoc.html
+permalink: bp/hana-aff-nfs-storage-controller-setup.html
 keywords: storage, controller, efficiency, volume encryption, quality of service, qos, fabricpool, DS224C, svm, configuration
 summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding ONTAP setup and configuration guides.
 ---
@@ -360,10 +360,10 @@ set admin
 In shared environments with different workloads set the max NFS TCP transfer size to 262144
 
 [NOTE]
-Please note that disabling numeric ids requires user management, as described in the section link:hana-aff-nfs-install-prep-nfsv4.adoc.html[“SAP HANA installation preparations for NFSv4.”]
+Please note that disabling numeric ids requires user management, as described in the section link:hana-aff-nfs-install-prep-nfsv4.html[“SAP HANA installation preparations for NFSv4.”]
 
 [NOTE]
-The NFSv4 domain ID must be set to the same value on all Linux servers (`/etc/idmapd.conf`) and SVMs, as described in the section link:hana-aff-nfs-install-prep-nfsv4.adoc.html[“SAP HANA installation preparations for NFSv4.”]
+The NFSv4 domain ID must be set to the same value on all Linux servers (`/etc/idmapd.conf`) and SVMs, as described in the section link:hana-aff-nfs-install-prep-nfsv4.html[“SAP HANA installation preparations for NFSv4.”]
 
 [NOTE]
 pNFS can be enabled and used.

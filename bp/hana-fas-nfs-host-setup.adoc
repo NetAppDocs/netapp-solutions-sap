@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-fas-nfs-host-setup.adoc.html
+permalink: bp/hana-fas-nfs-host-setup.html
 keywords: host, setup, configuration, parameter, enterprise, suse, linux, subdirectories, create, mount, points, file, systems
 summary: All the steps described in this section are valid for both SAP HANA environments on physical servers and for SAP HANA running on VMware vSphere.
 ---

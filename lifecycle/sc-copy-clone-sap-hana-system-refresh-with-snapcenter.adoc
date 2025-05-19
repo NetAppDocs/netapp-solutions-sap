@@ -79,7 +79,7 @@ The following software versions were used:
 * SLES 15
 * ONTAP 9.14P1
 
-All SAP HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-introduction.adoc.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the SAP HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
+All SAP HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-introduction.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the SAP HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
 
 image:sc-copy-clone-image16.png["Figure showing input/output dialog or representing written content"]
 

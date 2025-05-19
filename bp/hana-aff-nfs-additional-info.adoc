@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-nfs-additional-info.adoc.html
+permalink: bp/hana-aff-nfs-additional-info.html
 keywords:
 summary:
 ---

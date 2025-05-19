@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-fas-fc-host-setup.adoc.html
+permalink: bp/hana-fas-fc-host-setup.html
 keywords: configure, multipathing, create, lvm, volume, groups, logical, mount, points, file, systems
 summary: The documentation also contains information about multipath configurations that are specific to the Linux version used.
 ---

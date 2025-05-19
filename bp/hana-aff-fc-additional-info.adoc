@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-fc-additional-info.adoc.html
+permalink: bp/hana-aff-fc-additional-info.html
 keywords:
 summary:
 ---

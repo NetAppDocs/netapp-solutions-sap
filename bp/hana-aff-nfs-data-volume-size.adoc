@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-nfs-data-volume-size.adoc.html
+permalink: bp/hana-aff-nfs-data-volume-size.html
 keywords: data volume, service,
 summary: As the default, SAP HANA uses only one data volume per SAP HANA service. Due to the maximum file size limitation of the file system, NetApp recommends limiting the maximum data volume size.
 ---

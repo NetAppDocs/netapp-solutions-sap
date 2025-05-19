@@ -53,7 +53,7 @@ The following software versions were used:
 * SLES 15
 * ONTAP 9.7P7
 
-All SAP HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-introduction.adoc.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the SAP HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
+All SAP HANA systems must be configured based on the configuration guide https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-introduction.html[SAP HANA on NetApp AFF systems with NFS]. SnapCenter and the SAP HANA resources were configured based on the best practice guide https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter].
 
 image:sc-copy-clone-image41.png["Figure showing input/output dialog or representing written content"]
 
@@ -160,7 +160,7 @@ image:sc-copy-clone-image43.png["Figure showing input/output dialog or represent
 [start=3]
 . Enter the mount script with the required command line options.
 [NOTE]
-The SAP HANA system uses a single volume for `/hana/shared` as well as for `/usr/sap/SS1`, separated in subdirectories as recommended in the configuration guide link:../bp/hana-aff-nfs-introduction.adoc.html[SAP HANA on NetApp AFF systems with NFS]. The script `sc-mount-volume.sh` supports this configuration using a special command line option for the mount path. If the mount path command line option is equal to usr-sap-and-shared, the script mounts the subdirectories shared and usr-sap in the volume accordingly.
+The SAP HANA system uses a single volume for `/hana/shared` as well as for `/usr/sap/SS1`, separated in subdirectories as recommended in the configuration guide link:../bp/hana-aff-nfs-introduction.html[SAP HANA on NetApp AFF systems with NFS]. The script `sc-mount-volume.sh` supports this configuration using a special command line option for the mount path. If the mount path command line option is equal to usr-sap-and-shared, the script mounts the subdirectories shared and usr-sap in the volume accordingly.
 
 image:sc-copy-clone-image44.png["Figure showing input/output dialog or representing written content"]
 

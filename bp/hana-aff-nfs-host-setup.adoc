@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-nfs-host-setup.adoc.html
+permalink: bp/hana-aff-nfs-host-setup.html
 keywords: SUSE Linux Enterprise Server, configuration, mount points, LaMa
 summary: All the host-setup steps described in this section are valid for both SAP HANA environments on physical servers and for SAP HANA running on VMware vSphere.
 ---
@@ -238,7 +238,7 @@ If nconnect is being used with NFSV4.x the amount of NFSv4.x session slots shoul
 Amount of session slots equals <nconnect value> x 64.
 At the host this will be adjuseted by 
 `echo options nfs max_session_slots=<calculated value> > /etc/modprobe.d/nfsclient.conf`
-followed by a reboot. The server side value must be adjusted as well, set the number of session slots as described in link:hana-aff-nfs-storage-controller-setup.adoc.html#nfs-configuration-for-nfsv4[NFS configuration for NFSv4.] 
+followed by a reboot. The server side value must be adjusted as well, set the number of session slots as described in link:hana-aff-nfs-storage-controller-setup.html#nfs-configuration-for-nfsv4[NFS configuration for NFSv4.] 
 
 The following example shows a single host SAP HANA database with SID=NF2 using NFSv3 and an NFS transfer size of 1MB for reads and 256k for writes. To mount the file systems during system boot with the `/etc/fstab` configuration file, complete the following steps:
 

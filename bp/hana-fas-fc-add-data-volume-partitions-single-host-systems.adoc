@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-fas-fc-add-data-volume-partitions-single-host-systems.adoc.html
+permalink: bp/hana-fas-fc-add-data-volume-partitions-single-host-systems.html
 keywords: data, volume, partitions, sap, hana, single, host, system, additional, datavolume
 summary: Starting with SAP HANA 2.0 SPS4, additional data volume partitions can be configured. This feature allows you to configure two or more LUNs for the data volume of an SAP HANA tenant database and to scale beyond the size and performance limits of a single LUN.
 ---

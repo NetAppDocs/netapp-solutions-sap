@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-nfs-introduction.adoc.html
+permalink: bp/hana-aff-nfs-introduction.html
 keywords: introduction, certification, AFF A220, AFF A250, AFF A300, AFF A320, AFF A400, AFF A700s, AFF A700, AFF A800A,
 summary: The NetApp AFF system product family has been certified for use with SAP HANA in tailored data center integration (TDI) projects. The certified enterprise storage system is characterized by the NetApp ONTAP software.
 ---
@@ -42,7 +42,7 @@ The configuration described in this paper is necessary to achieve the required S
 
 The configuration guides for NetApp AFF systems using FCP and for FAS systems using NFS or FCP can be found at the following links:
 
-* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-fas-fc-introduction.adoc.html[SAP HANA on NetApp FAS Systems with Fibre Channel Protocol^]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-fas-fc-introduction.html[SAP HANA on NetApp FAS Systems with Fibre Channel Protocol^]
 * https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-fas-nfs-introduction.html[SAP HANA on NetApp FAS Systems with NFS^]
 * https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-fc-introduction.html[SAP HANA on NetApp AFF Systems with Fibre Channel Protocol^]
 

@@ -189,7 +189,7 @@ You can create the new data volume and mount it to the namespace using either ON
 
 == Host configuration
 
-In addition to the tasks described in the section link:hana-aff-nfs-host-setup.adoc.html["Host Setup,"] the additional mount points and `fstab` entries for the new additional data volume/s must be created and the new volumes must be mounted.
+In addition to the tasks described in the section link:hana-aff-nfs-host-setup.html["Host Setup,"] the additional mount points and `fstab` entries for the new additional data volume/s must be created and the new volumes must be mounted.
 
 . Create additional mount points.
 +

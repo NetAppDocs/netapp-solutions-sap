@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-fas-fc-storage-connector-api.adoc.html
+permalink: bp/hana-fas-fc-storage-connector-api.html
 keywords: sap, hana, storage, connector, api, fas, fc
 summary: A storage connector is required only in multiple-host environments that have failover capabilities.
 ---

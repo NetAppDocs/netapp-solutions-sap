@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-nfs-infra-setup-config.adoc.html
+permalink: bp/hana-aff-nfs-infra-setup-config.html
 keywords:
 summary:
 ---

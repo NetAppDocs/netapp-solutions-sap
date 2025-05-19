@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-fc-software-install.adoc.html
+permalink: bp/hana-aff-fc-software-install.html
 keywords: software, installation,
 summary: This section describes the preparation necessary to install SAP HANA on single-host and multiple-host systems.
 ---

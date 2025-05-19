@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-fas-nfs-additional-info.adoc.html
+permalink: bp/hana-fas-nfs-additional-info.html
 keywords: additional, information, fas, nfs, sap, hana
 summary: To learn more about the information described in this document, refer to the following documents and/or websites.
 ---

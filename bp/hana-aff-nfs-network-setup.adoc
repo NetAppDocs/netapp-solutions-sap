@@ -40,7 +40,7 @@ image:saphana_aff_nfs_image10a.png["Network Overview"]
 In general, it is recommended to use HA interface groups on the servers (bonds) and the storage systems (for example,  Link Aggregation Control Protocol [LACP] and ifgroups). With HA interface groups, verify that the load is equally distributed between all interfaces within the group. The load distribution depends on the functionality of the network switch infrastructure.
 
 [NOTE]
-Depending on the number of SAP HANA hosts and the connection speed used, different numbers of active physical ports are needed. For details, see the section link:hana-aff-nfs-storage-controller-setup.adoc.html#lif-configuration["LIF configuration"].
+Depending on the number of SAP HANA hosts and the connection speed used, different numbers of active physical ports are needed. For details, see the section link:hana-aff-nfs-storage-controller-setup.html#lif-configuration["LIF configuration"].
 
 == VMware-specific network setup
 

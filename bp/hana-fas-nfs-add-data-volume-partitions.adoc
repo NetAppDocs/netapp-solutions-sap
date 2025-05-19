@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-fas-nfs-add-data-volume-partitions.adoc.html
+permalink: bp/hana-fas-nfs-add-data-volume-partitions.html
 keywords: adding, additional, data, volume, partitions, host, enabling sap, hana, fas
 summary: Starting with SAP HANA 2.0 SPS4, you can configure additional data volume partitions, which allows you to configure two or more volumes for the data volume of an SAP HANA tenant database.
 ---
@@ -188,7 +188,7 @@ Create the new data volume and mount it to the namespace using either ONTAP Syst
 
 == Host configuration
 
-In addition to the tasks described in the section link:hana-fas-nfs-host-setup.adoc.html[“Host setup,”] you must create the additional mount points and fstab entries for the new additional data volume(s), and you must mount the new volumes.
+In addition to the tasks described in the section link:hana-fas-nfs-host-setup.html[“Host setup,”] you must create the additional mount points and fstab entries for the new additional data volume(s), and you must mount the new volumes.
 
 . Create additional mount points:
 +

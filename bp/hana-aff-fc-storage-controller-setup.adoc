@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-fc-storage-controller-setup.adoc.html
+permalink: bp/hana-aff-fc-storage-controller-setup.html
 keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm,
 summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding Data ONTAP setup and configuration guides.
 ---
@@ -59,7 +59,7 @@ For new LUNs, the policy can be applied directly:
 lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size <size> -ostype <e.g. linux>  -qos-policy-group <policy-name>
 ....
 
-It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-fc-host-setup.adoc.html#create-lvm-volume-groups-and-logical-volumes[Host Setup].
+It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-fc-host-setup.html#create-lvm-volume-groups-and-logical-volumes[Host Setup].
 
 [NOTE]
 The limit applies also to reads. Therefore use enough LUNs to fulfil the required SLAs for SAP HANA database startup time and for backups.
@@ -83,7 +83,7 @@ The following overview summarizes the required storage configuration steps. Each
 . Create and configure the required aggregates, as described in <<Aggregate configuration>>.
 . Create a storage virtual machine (SVM), as described in <<Storage virtual machine configuration>>.
 . Create logical interfaces (LIFs), as described in <<Logical interface configuration>>.
-. Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:hana-fas-fc-storage-controller-setup.adoc.html#initiator-groups <<Initiator groups>>.
+. Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:hana-fas-fc-storage-controller-setup.html#initiator-groups <<Initiator groups>>.
 . Create volumes and LUNs within the aggregates as described in the section  <<Volume and LUN configuration for SAP HANA single-host systems>> and <<Volume and LUN configuration for SAP HANA multiple-host systems>>
 . Create initiator groups, volumes, and LUNs within the aggregates, as described in <<#lun_create,Creating LUNs, volumes, and mapping LUNs to initiator groups >>.
 
@@ -154,7 +154,7 @@ host1 ...... WWPN:2100000e1e163701
 ....
 
 [NOTE]
-The `sanlun` tool is part of the NetApp Host Utilities and must be installed on each SAP HANA host. More details can be found in section link:hana-aff-fc-host-setup.adoc.html[Host setup.]
+The `sanlun` tool is part of the NetApp Host Utilities and must be installed on each SAP HANA host. More details can be found in section link:hana-aff-fc-host-setup.html[Host setup.]
 
 The initiator groups can be created using the CLI of the ONTAP Cluster.
 ....
