@@ -12,7 +12,7 @@ entries:
       - title: Infrastructure setup and configuration
         entries:
           - title: Infrastructure setup and configuration overview
-            url: /bp/hana-aff-fc-infra-setup-config.adoc_overview.html
+            url: /bp/hana-aff-fc-infra-setup-config-overview.html
           - title: SAN fabric setup
             url: /bp/hana-aff-fc-san-fabric-setup.html
           - title: Time synchronization

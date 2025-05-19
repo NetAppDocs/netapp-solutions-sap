@@ -39,7 +39,7 @@ https://www.netapp.com/pdf.html?item=/media/17111-tr4667.pdf
 
 * TR-4719: SAP HANA System Replication — Backup and Recovery with SnapCenter
 +
-https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html[https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-sr-scs-sap-hana-system-replication-overview.html^]
+link:saphana-sr-scs-sap-hana-system-replication-overview.html[Backup and Recovery with SnapCenter^]
 
 == Version history
 

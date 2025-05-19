@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-fc-infra-setup-config.adoc_overview.html
+permalink: bp/hana-aff-fc-infra-setup-config-overview.html
 keywords:
 summary:
 ---

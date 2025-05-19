@@ -109,13 +109,13 @@ image:amazon-fsx-image69.png["Figure showing input/output dialog or representing
 
 . Select the restore scope and type.
 +
-The standard scenario for HANA MDC single tenant systems is to use complete resource with volume revert. For a HANA MDC system with multiple tenants, you might want to restore only a single tenant. For more information about the single tenant restore, see https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-restore-and-recovery.html[Restore and recovery (netapp.com)^].
+The standard scenario for HANA MDC single tenant systems is to use complete resource with volume revert. For a HANA MDC system with multiple tenants, you might want to restore only a single tenant. For more information about the single tenant restore, see link:saphana-br-scs-restore-and-recovery.html[Restore and recovery (netapp.com)^].
 +
 image:amazon-fsx-image70.png["Figure showing input/output dialog or representing written content"]
 
 . Select Recovery Scope and provide the location for log backup and catalog backup.
 +
-SnapCenter uses the default path or the changed paths in the HANA global.ini file to prepopulate the log and catalog backup locations.
+SnapCenter uses the default path or the changed paths in the HANA global.ini file to pre-populate the log and catalog backup locations.
 +
 image:amazon-fsx-image71.png["Figure showing input/output dialog or representing written content"]
 
