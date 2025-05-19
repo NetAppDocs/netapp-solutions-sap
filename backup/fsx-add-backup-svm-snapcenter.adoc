@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-add-a-backup-svm-to-snapcenter.html
+permalink: backup/fsx-add-backup-svm-snapcenter.html
 keywords: svm, backup, snapcenter
 summary: This section describes how to add a backup SVM to SnapCenter.
 ---
