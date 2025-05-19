@@ -22,7 +22,7 @@ entries:
           - title: Configure replication relationships on FSx for ONTAP file systems
             url: /backup/amazon-fsx-configure-replication-relationships-on-fsx-for-ontap-file-systems.html
           - title: Add a backup SVM to SnapCenter
-            url: /backup/amazon-fsx-add-a-backup-svm-to-snapcenter.html
+            url: /backup/fsxn-add-backup-svm-snapcenter.html
           - title: Create a new SnapCenter policy for backup replication
             url: /backup/amazon-fsx-create-a-new-snapcenter-policy-for-backup-replication.html
           - title: Add a policy to resource protection
