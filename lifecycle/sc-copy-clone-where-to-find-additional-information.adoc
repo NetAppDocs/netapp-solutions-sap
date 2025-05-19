@@ -16,8 +16,8 @@ To learn more about the information described in this document, refer to the fol
 
 * https://docs.netapp.com/us-en/netapp-solutions-sap/[SAP Business Application and SAP HANA Database Solutions (netapp.com)]
 * https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter]
-* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html[TR-4436: SAP HANA on NetApp All Flash FAS Systems with Fibre Channel Protocol]
-* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_introduction.html[TR-4435: SAP HANA on NetApp All Flash FAS Systems with NFS]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-fc-introduction.html[TR-4436: SAP HANA on NetApp All Flash FAS Systems with Fibre Channel Protocol]
+* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-introduction.adoc.html[TR-4435: SAP HANA on NetApp All Flash FAS Systems with NFS]
 * https://docs.netapp.com/us-en/netapp-solutions-sap/backup/amazon-fsx-overview.html[TR-4926: SAP HANA on Amazon FSx for NetApp ONTAP - Backup and recovery with SnapCenter]
 * https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/lama-ansible-introduction.html[TR-4953: NetApp SAP Landscape Management Integration using Ansible]
 * https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html[TR-4929: Automating SAP system copy operations with Libelle SystemCopy (netapp.com)]

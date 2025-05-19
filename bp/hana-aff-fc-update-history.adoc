@@ -1,0 +1,50 @@
+---
+sidebar: sidebar
+permalink: bp/hana-aff-fc-update-history.html
+keywords:
+summary:
+---
+
+= Update history
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+The following technical changes have been made to this solution since its original publication.
+
+[cols=2*,options="header",cols="25,50"]
+|===
+| Date
+| Update summary
+| October 2015 | Initial Version
+| March 2016 | Updated capacity sizing
+| February 2017 | New NetApp storage systems and disk shelves
+New features of ONTAP 9
+New OS releases (SLES12 SP1 and RHEL 7.2)
+New SAP HANA release
+| July 2017 | Minor updates
+| September 2018 | New NetApp storage systems
+New OS releases (SLES12 SP3 and RHEL 7.4)
+Additional minor updates
+SAP HANA 2.0 SPS3
+| November 2019 | New NetApp storage systems and NVMe shelf
+New OS releases (SLES12 SP4, SLES 15, and RHEL 7.6)
+Additional minor updates
+| April 2020 | New AFF ASA series storage systems
+Introduced multiple data partition feature available since SAP HANA 2.0 SPS4
+| June 2020 | Additional information about optional functionalities
+Minor updates
+| February 2021 | Linux LVM support
+New NetApp storage systems
+New OS releases (SLES15SP2, RHEL 8)
+| April 2021 | VMware vSphere-specific information added
+| September 2022 | New OS-Releases 
+|August 2023 | New Storage Systems (AFF C-Series) 
+|May 2024 | New Storage Systems (AFF A-Series)
+|September 2024 | New Storage Systems (ASA A-Series)
+| November 2024 | New Storage Systems
+| February 2025 | New Storage Systems
+|===

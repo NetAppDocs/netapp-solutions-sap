@@ -13,7 +13,7 @@ summary:
 ---
 
 [.lead]
-This chapter describes the installation and configuration of the SAP HANA system specific to a VMware setup using VMFS. Additional generic best practices can be found at https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html#sap-hana-tailored-data-center-integration[SAP HANA on NetApp AFF Systems with Fibre Channel Protocol].
+This chapter describes the installation and configuration of the SAP HANA system specific to a VMware setup using VMFS. Additional generic best practices can be found at https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-fc-introduction.html#sap-hana-tailored-data-center-integration[SAP HANA on NetApp AFF Systems with Fibre Channel Protocol].
 
 == Storage configuration
 
