@@ -43,7 +43,7 @@ indexpage:
     - title: "SAP HANA on FSx for ONTAP"
       links:
         - title: "SAP HANA on Amazon FSx for NetApp ONTAP - Backup and recovery with SnapCenter"
-          url: backup/saphana-dr-anf_data_protection_overview_overview.html
+          url: backup/amazon-fsx-overview.html
         - title: "SAP on FSx for ONTAP sizing tool"
           url: https://tco.solutions.netapp.com/sapfsxtco/
 #
