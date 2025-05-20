@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: lifecycle/ama-ansible-provision-wf-sys-refresh.html
+permalink: lifecycle/lama-ansible-provision-wf-sys-refresh.html
 keywords: refresh, workflow, storage clone
 summary: During the refresh workflow, the storage clone must be deleted. You can use the same Ansible playbook as for the system destroy workflow. However, the custom hook is defined to a different step, so the playbook is named accordingly. The process step for the clone does not differ.
 ---
