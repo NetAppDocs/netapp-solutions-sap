@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-where-to-find-additional-information.html
+permalink: backup/fsxn-additional-info.html
 keywords:
 summary:
 ---
@@ -39,7 +39,7 @@ https://www.netapp.com/pdf.html?item=/media/17111-tr4667.pdf
 
 * TR-4719: SAP HANA System Replication — Backup and Recovery with SnapCenter
 +
-link:saphana-sr-scs-sap-hana-system-replication-overview.html[Backup and Recovery with SnapCenter^]
+link:hana-sr-scs-system-replication-overview.html[Backup and Recovery with SnapCenter^]
 
 == Version history
 

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-br-scs-snapcenter-sap-hana-backup-solution.html
+permalink: backup/hana-br-scs-snapcenter-backup.html
 keywords: solution components, supported releases, configuration, enhancements
 summary: This section lists the components, supported SAP HANA releases and configurations, and SnapCenter 4.6 enhancements used in this solution.
 ---

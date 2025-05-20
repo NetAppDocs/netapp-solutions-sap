@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-overview.html
+permalink: backup/fsxn-overview.html
 keywords: tr4926, 4926, introduction, overview
 summary: This technical report provides best practices for SAP HANA data protection on Amazon FSx for NetApp ONTAP and NetApp SnapCenter. This document covers SnapCenter concepts, configuration recommendations, and operation workflows, including configuration, backup operations, and restore and recovery operations. 
 ---

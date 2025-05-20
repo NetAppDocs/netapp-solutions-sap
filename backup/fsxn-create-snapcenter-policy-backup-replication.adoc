@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-create-a-new-snapcenter-policy-for-backup-replication.html
+permalink: backup/fsxn-create-snapcenter-policy-backup-replication.html
 keywords: policy, backup, replication, snapshot
 summary: This section describes how to configure a policy for backup replication.
 ---

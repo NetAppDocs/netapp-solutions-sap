@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-create-a-backup-with-replication.html
+permalink: backup/fsxn-create-backup-with-replication.html
 keywords: backup, local snapshot, copy
 summary: This section describes how to create a backup with replication.
 ---

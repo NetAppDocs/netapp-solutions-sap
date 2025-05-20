@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-restore-and-recover-from-secondary-storage.html
+permalink: backup/fsxn-restore-recover-from-secondary-storage.html
 keywords: restore, recover, secondary, storage,
 summary: This section describes how to restore and recover from secondary storage.
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-backup-of-non-data-volumes.html
+permalink: backup/fsxn-backup-of-non-data-volumes.html
 keywords: non-data volume, restore, recover
 summary: The backup of non-data volumes is an integrated part of the SnapCenter and the SAP HANA plug-in. Protecting the database data volume is sufficient to restore and recover the SAP HANA database to a given point in time, provided that the database installation resources, and the required logs are still available.
 ---
@@ -109,7 +109,7 @@ image:amazon-fsx-image69.png["Figure showing input/output dialog or representing
 
 . Select the restore scope and type.
 +
-The standard scenario for HANA MDC single tenant systems is to use complete resource with volume revert. For a HANA MDC system with multiple tenants, you might want to restore only a single tenant. For more information about the single tenant restore, see link:saphana-br-scs-restore-and-recovery.html[Restore and recovery (netapp.com)^].
+The standard scenario for HANA MDC single tenant systems is to use complete resource with volume revert. For a HANA MDC system with multiple tenants, you might want to restore only a single tenant. For more information about the single tenant restore, see link:hana-br-scs-restore-recovery.html[Restore and recovery (netapp.com)^].
 +
 image:amazon-fsx-image70.png["Figure showing input/output dialog or representing written content"]
 

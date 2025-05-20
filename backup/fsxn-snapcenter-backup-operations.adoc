@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-snapcenter-backup-operations.html
+permalink: backup/fsxn-snapcenter-backup-operations.html
 keywords: snapshot backup, block integrity check,
 summary: This section describes how to create an on-demand Snapshot backup and an on-demand block integrity check operation.
 ---
@@ -45,7 +45,7 @@ A log of the previous five jobs is shown in the Activity area at the bottom of t
 +
 image:amazon-fsx-image51.png["Figure showing input/output dialog or representing written content"]
 +
-When the backup is finished, a new entry is shown in the topology view. The backup names follow the same naming convention as the Snapshot name defined in the section link:amazon-fsx-snapcenter-configuration.html#configure-and-protect-a-hana-resource[“Configure and protect a HANA resource”.]
+When the backup is finished, a new entry is shown in the topology view. The backup names follow the same naming convention as the Snapshot name defined in the section link:fsxn-snapcenter-config.html#configure-and-protect-a-hana-resource[“Configure and protect a HANA resource”.]
 +
 You must close and reopen the topology view to see the updated backup list.
 +

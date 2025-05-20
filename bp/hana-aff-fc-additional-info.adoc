@@ -25,10 +25,10 @@ To learn more about the information described in this document, refer to the fol
 https://www.netapp.com/sap-solutions/[https://www.netapp.com/sap-solutions/^]
 * TR-4646: SAP HANA Disaster Recovery with Storage Replication
 +
-https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-sr_pdf_link.html[https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-sr_pdf_link.html^]
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-dr-sr-pdf-link.html[https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-dr-sr-pdf-link.html^]
 * TR-4614: SAP HANA Backup and Recovery with SnapCenter
 +
-https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html^]
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-br-scs-overview.html[https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-br-scs-overview.html^]
 * TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter
 +
 https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html^]

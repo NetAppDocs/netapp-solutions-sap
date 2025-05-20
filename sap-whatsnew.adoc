@@ -15,9 +15,9 @@ keywords: netapp, solutions, SAP, what's new
 [.lead]
 Overview of the most recent SAP solutions and solutions collateral.
 
-* link:backup/saphana-backup-anf-overview.html[TR-4905: SAP HANA backup and recovery on Azure NetApp Files with SnapCenter Service]
+* link:backup/hana-backup-anf-overview.html[TR-4905: SAP HANA backup and recovery on Azure NetApp Files with SnapCenter Service]
 
-* link:backup/saphana-dr-anf_data_protection_overview_overview.html[TR-4891: SAP HANA disaster recovery with Azure NetApp Files]
+* link:backup/hana-dr-anf-data-protection-overview.html[TR-4891: SAP HANA disaster recovery with Azure NetApp Files]
 
 * link:bp/hana-aff-nfs-introduction.html[TR-4435: SAP HANA on NetApp AFF Systems with NFS - Configuration Guide]
 

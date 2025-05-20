@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-br-scs-restore-and-recovery.html
+permalink: backup/hana-br-scs-restore-recovery.html
 keywords: automated, restore, recovery, single-tenant, manual recovery
 summary: The following sections describe the restore and recovery workflows of three different scenarios and example configurations.
 ---

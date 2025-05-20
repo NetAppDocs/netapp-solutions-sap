@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-dr-anf_disaster_recovery_failover.html
+permalink: backup/hana-dr-anf-failover.html
 keywords:
 summary:
 ---

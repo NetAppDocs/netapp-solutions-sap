@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-br-scs-snapcenter-configuration.html
+permalink: backup/hana-br-scs-snapcenter-config.html
 keywords: configuration, resource-specific, dependencies, storage system, credentials, hosts, policies
 summary: The SnapCenter configuration can be separated into two main areas - initial configuration and resource-specific configuration.
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-br-scs-snapcenter-initial-configuration.html
+permalink: backup/hana-br-scs-snapcenter-initial-config.html
 keywords: configuration, storage system, plug-in, hdbsql client
 summary: This section describes initial SnapCenter configuration, including the storage system, credentials, hosts, the hdbsql client, and policies.
 ---
@@ -121,7 +121,7 @@ HANA_HDBSQL_CMD=/usr/sap/hdbclient/hdbsql
 
 == Policy configuration
 
-As discussed in the section link:saphana-br-scs-snapcenter-concepts-and-best-practices.html#data-protection-strategy[“Data protection strategy,”] policies are usually configured independently of the resource and can be used by multiple SAP HANA databases.
+As discussed in the section link:hana-br-scs-concepts-best-practices.html#data-protection-strategy[“Data protection strategy,”] policies are usually configured independently of the resource and can be used by multiple SAP HANA databases.
 
 A typical minimum configuration consists of the following policies:
 
@@ -184,7 +184,7 @@ image:saphana-br-scs-image45.png["Figure showing input/output dialog or represen
 . Select Update SnapVault after creating a local Snapshot copy.
 +
 [NOTE]
-The secondary policy label must be the same as the SnapMirror label in the data protection configuration on the storage layer. See the section link:saphana-br-scs-snapcenter-resource-specific-configuration-for-sap-hana-database-backups.html#configuration-of-data-protection-to-off-site-backup-storage[“Configuration of data protection to off-site backup storage.”]
+The secondary policy label must be the same as the SnapMirror label in the data protection configuration on the storage layer. See the section link:hana-br-scs-resource-config-hana-database-backups.html#configuration-of-data-protection-to-off-site-backup-storage[“Configuration of data protection to off-site backup storage.”]
 +
 image:saphana-br-scs-image46.png["Figure showing input/output dialog or representing written content"]
 

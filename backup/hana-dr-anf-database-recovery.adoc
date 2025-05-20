@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-dr-anf_hana_database_recovery.html
+permalink: backup/hana-dr-anf-database-recovery.html
 keywords: recovery, forward, log, backups, system, tenant, database, log, backups, check, consistency, hana, azure
 summary: The following shows the steps for HANA database recovery
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-backup-anf-overview.html
+permalink: backup/hana-backup-anf-overview.html
 keywords: overview, introduction, tr-4905, 4905, tr4905, snapcenter service, anf, azure netapp files
 summary: This technical report covers best practices for SAP HANA data protection with NetApp SnapCenter Service and Azure NetApp Files. It covers SnapCenter Service concepts, configuration recommendations, and operation workflows, including backup and restore and recovery operations.
 ---

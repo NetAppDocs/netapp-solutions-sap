@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-br-scs-snapcenter-architecture.html
+permalink: backup/hana-br-scs-snapcenter-architecture.html
 keywords: overview, components, snapcenter
 summary: SnapCenter is a unified, scalable platform for application-consistent data protection. SnapCenter provides centralized control and oversight, while delegating the ability for users to manage application-specific backup, restore, and clone jobs.
 ---

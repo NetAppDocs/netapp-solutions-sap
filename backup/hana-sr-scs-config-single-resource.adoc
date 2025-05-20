@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html
+permalink: backup/hana-sr-scs-config-single-resource.html
 keywords: virtual ip, single resource, configuration,
 summary: A SnapCenter resource is configured with the virtual IP address (host name) of the HANA System Replication environment. With this approach, SnapCenter always communicates with the primary host, regardless of whether host 1 or host 2 is primary.
 ---
@@ -35,7 +35,7 @@ Housekeeping of data and log backups is based on the defined SnapCenter retentio
 
 image:saphana-sr-scs-image28.png["Figure showing input/output dialog or representing written content"]
 
-As discussed in the section link:saphana-sr-scs-storage-snapshot-backups-and-sap-system-replication.html[Storage Snapshot Backups and SAP System Replication], a restore operation with storage-based Snapshot backups is different, depending on which backup must be restored. It is important to identify which host the backup was created at to determine if the restore can be performed at the local storage volume, or if the restore must be performed at the other host’s storage volume.
+As discussed in the section link:hana-sr-scs-storage-snapshot-backups-sap-system-replication.html[Storage Snapshot Backups and SAP System Replication], a restore operation with storage-based Snapshot backups is different, depending on which backup must be restored. It is important to identify which host the backup was created at to determine if the restore can be performed at the local storage volume, or if the restore must be performed at the other host’s storage volume.
 
 With single-resource SnapCenter configuration, SnapCenter is not aware of where the backup was created. Therefore, NetApp recommends that you add a prebackup script to the SnapCenter backup workflow to identify which host is currently the primary SAP HANA host.
 
@@ -57,7 +57,7 @@ A user was created in the HANA database to perform backup operations. A user sto
 hdbuserstore.exe -u SYSTEM set SSRKEY ssr-vip:31013 SNAPCENTER <password>
 ....
 
-You can find more information about SAP HANA plug-in deployment options and user store configuration in the technical report TR-4614: https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter^].
+You can find more information about SAP HANA plug-in deployment options and user store configuration in the technical report TR-4614: https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter^].
 
 In SnapCenter, the resource is configured as shown in the following figure using the user store key, configured before, and the SnapCenter server as the `hdbsql` communication host.
 
@@ -115,7 +115,7 @@ A restore operation with SnapCenter can be performed in two different ways:
 * Restore only the valid backup
 * Restore the complete resource, including the valid backup and the crash imageThe following sections discuss the two different restore operations in more detail.
 
-A restore operation from a backup that was created at the other host is described in the section link:saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html[Restore and Recovery from a Backup Created at the Other Host].
+A restore operation from a backup that was created at the other host is described in the section link:hana-sr-scs-restore-recovery-other-host-backup.html[Restore and Recovery from a Backup Created at the Other Host].
 
 The following figure depicts restore operations with a single SnapCenter resource configuration.
 
@@ -175,7 +175,7 @@ A backup has been created at T1 at host 1. A failover has been performed to host
 
 image:saphana-sr-scs-image45.png["Figure showing input/output dialog or representing written content"]
 
-The restore and recovery operation with SAP HANA Studio is identical to the steps described in the section link:saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html#snapcenter-restore-of-the-valid-backup-only[SnapCenter restore of the valid backup only].
+The restore and recovery operation with SAP HANA Studio is identical to the steps described in the section link:hana-sr-scs-config-single-resource.html#snapcenter-restore-of-the-valid-backup-only[SnapCenter restore of the valid backup only].
 
 To perform the restore operation, select Complete Resource in SnapCenter. The volumes of both hosts are restored.
 

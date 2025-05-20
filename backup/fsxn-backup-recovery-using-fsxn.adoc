@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-backup-and-recovery-using-amazon-fsx-for-ontap.html
+permalink: backup/fsxn-backup-recovery-using-fsxn.html
 keywords: runtime, snapshot backup, restore operations, rto, recovery time objective
 summary: You can use NetApp Snapshot technology to create database backups in minutes. The time needed to create a Snapshot copy is independent of the size of the database because a Snapshot copy does not move any physical data blocks on the storage platform.
 ---

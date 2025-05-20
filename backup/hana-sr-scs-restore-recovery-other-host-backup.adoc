@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-sr-scs-restore-and-recovery-from-a-backup-created-at-the-other-host.html
+permalink: backup/hana-sr-scs-restore-recovery-other-host-backup.html
 keywords: restore, backup, recovery
 summary: A restore operation from a backup that has been created at the other SAP HANA host is a valid scenario for both SnapCenter configuration options.
 ---
@@ -83,6 +83,6 @@ stlrx300s8-5:/mnt/tmp # cp -Rp hdb00002.00003/ /hana/data/SSR/mnt00001/
 stlrx300s8-5:/mnt/tmp # cp -Rp hdb00003.00003/ /hana/data/SSR/mnt00001/
 ....
 
-The recovery with SAP HANA Studio is performed as described in the section link:saphana-sr-scs-snapcenter-configuration-with-a-single-resource.html#snapcenter-restore-of-the-valid-backup-only[SnapCenter restore of the valid backup only].
+The recovery with SAP HANA Studio is performed as described in the section link:hana-sr-scs-config-single-resource.html#snapcenter-restore-of-the-valid-backup-only[SnapCenter restore of the valid backup only].
 
 

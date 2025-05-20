@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-br-scs-advanced-configuration-and-tuning.html
+permalink: backup/hana-br-scs-advanced-config-tuning.html
 keywords: configuration, settings, secure communication, auto discovery, automated, log backup, housekeeping, cleanup
 summary: This page describes various operations necessary to complete configuration and tuning.
 ---
@@ -134,7 +134,7 @@ image:saphana-br-scs-image155.png["Figure showing input/output dialog or represe
 [[change-schedule]]
 == Change scheduling frequency of backup synchronization with off-site backup storage
 
-As described in the section link:saphana-br-scs-snapcenter-concepts-and-best-practices.html#retention-management-of-backups-at-the-secondary-storage[“Retention management of backups at the secondary storage,”] retention management of data backups to an off-site backup storage is handled by ONTAP. SnapCenter periodically checks if ONTAP has deleted backups at the off-site backup storage by running a cleanup job with a weekly default schedule.
+As described in the section link:hana-br-scs-concepts-best-practices.html#retention-management-of-backups-at-the-secondary-storage[“Retention management of backups at the secondary storage,”] retention management of data backups to an off-site backup storage is handled by ONTAP. SnapCenter periodically checks if ONTAP has deleted backups at the off-site backup storage by running a cleanup job with a weekly default schedule.
 
 The SnapCenter cleanup job deletes backups in the SnapCenter repository as well as in the SAP HANA backup catalog if any deleted backups at the off-site backup storage have been identified.
 

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-snapcenter-configuration.html
+permalink: backup/fsxn-snapcenter-config.html
 keywords: configuration, hdbuserstore, credentials, plugin deployment, host,
 summary: You must perform the steps in this section for base SnapCenter configuration and the protection of the HANA resource.
 ---

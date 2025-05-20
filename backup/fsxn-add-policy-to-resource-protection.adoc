@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-add-a-policy-to-resource-protection.html
+permalink: backup/fsxn-add-policy-to-resource-protection.html
 keywords: policy, resource, protection, hana, daily schedule
 summary: This section describes how to add a policy to resource protection.
 ---

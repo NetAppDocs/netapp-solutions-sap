@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/amazon-fsx-configure-replication-relationships-on-fsx-for-ontap-file-systems.html
+permalink: backup/fsxn-configure-replication-relationships.html
 keywords: Peer FSx, ontap file system, svm, target volume, snapmirror,
 summary: This section describes how to peer FSx for ONTAP file systems, peer SVMs, create a target volume, create a SnapMirror policy, create a SnapMirror relationship, and initialize SnapMirror.
 ---

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/saphana-sr-scs-where-to-find-additional-information_overview.html
+permalink: backup/hana-sr-scs-additional-info.html
 keywords: additional information, version history
 summary:
 ---
@@ -22,7 +22,7 @@ To learn more about the information described in this document, refer to the fol
 
 * SAP HANA Backup and Recovery with SnapCenter
 +
-https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-br-scs-overview.html[https://www.netapp.com/us/media/tr-4614.pdf^]
+https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-br-scs-overview.html[https://www.netapp.com/us/media/tr-4614.pdf^]
 
 * Automating SAP HANA System Copy and Clone Operations with SnapCenter
 +
