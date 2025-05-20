@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-afffc-io-stack-configuration.html
+permalink: bp/hana-aff-fc-io-stack-configuration.html
 keywords: io, i/o, stack, configuration, database
 summary: Starting with SAP HANA 1.0 SPS10, SAP introduced parameters to adjust the I/O behavior and optimize the database for the file and storage system used.
 ---
