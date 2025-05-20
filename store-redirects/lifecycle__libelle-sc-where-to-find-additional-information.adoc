@@ -1,0 +1,4 @@
+---
+permalink: lifecycle/libelle-sc-where-to-find-additional-information.html
+redirect: lifecycle/libelle-sc-additional-info.html
+---
