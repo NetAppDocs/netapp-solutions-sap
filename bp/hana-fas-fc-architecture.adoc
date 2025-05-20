@@ -64,7 +64,7 @@ For detailed information about the SAP HANA backup and recovery solution using S
 
 SAP HANA disaster recovery can be performed on the database layer by using SAP system replication or on the storage layer by using storage-replication technologies. The following section provides an overview of disaster recovery solutions based on storage replication.
 
-For detailed information about the SAP HANA disaster recovery solution using SnapCenter, see https://link:../backup/hana-dr-sr-pdf-link.html[TR-4646: SAP HANA Disaster Recovery with Storage Replication^].
+For detailed information about the SAP HANA disaster recovery solution using SnapCenter, see link:../backup/hana-dr-sr-pdf-link.html[TR-4646: SAP HANA Disaster Recovery with Storage Replication^].
 
 
 === Storage replication based on SnapMirror
