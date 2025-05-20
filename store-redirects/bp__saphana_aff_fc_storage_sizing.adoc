@@ -1,0 +1,4 @@
+---
+permalink: bp/saphana_aff_fc_storage_sizing.html
+redirect: bp/hana-aff-fc-storage-sizing.html
+---
