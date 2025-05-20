@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: lifecycle/libelle-sc-sap-hana-system-refresh-with-lsc-and-snapcenter.html
+permalink: lifecycle/libelle-sc-hana-sys-refresh-lsc-sc.html
 keywords: prerequisites, limitations, lab setup, standard installation, central communication host, system refresh
 summary: This section describes how to integrate LSC with NetApp SnapCenter. The integration between LSC and SnapCenter supports all SAP-supported databases. Nevertheless, we must differentiate between SAP AnyDBs and SAP HANA because SAP HANA provides a central communication host that is not available for SAP AnyDBs.
 ---

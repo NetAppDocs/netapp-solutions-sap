@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: lifecycle/libelle-sc-where-to-find-additional-information.html
+permalink: lifecycle/libelle-sc-additional-info.html
 keywords:
 summary:
 ---

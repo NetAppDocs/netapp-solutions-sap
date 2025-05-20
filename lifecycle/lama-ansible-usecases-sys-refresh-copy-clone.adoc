@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: lifecycle/lama-ansible-use-cases-for-system-refresh,-copy,-and-cloning.html
+permalink: lifecycle/lama-ansible-usecases-sys-refresh-copy-clone.html
 keywords: data refresh, QA, text, sandbox, training, use case
 summary: There are multiple scenarios in which data from a source system must be made available to a target system for testing or training purposes. These test and training systems must be updated with data from the source system on a regular basis to make sure that testing and training is performed with the current data set. These system refresh operations consist of multiple tasks on the infrastructure, database, and application layers, and they can take multiple days depending on the level of automation.
 ---

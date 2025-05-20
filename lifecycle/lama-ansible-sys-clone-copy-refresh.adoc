@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: lifecycle/lama-ansible-sap-system-clone,-copy,-and-refresh-scenarios.html
+permalink: lifecycle/lama-ansible-sys-clone-copy-refresh.html
 keywords:
 summary:
 ---

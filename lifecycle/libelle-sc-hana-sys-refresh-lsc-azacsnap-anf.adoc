@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: lifecycle/libelle-sc-sap-hana-system-refresh-with-lsc,-azacsnap,-and-azure-netapp-files.html
+permalink: lifecycle/libelle-sc-hana-sys-refresh-lsc-azacsnap-anf.html
 keywords: prerequisites, limitations, AzAcSnap, systemcopy, sc-system-refresh.sh, configuration, ZSCCOPYSHUTDOWN, ZSCCOPYUMOUNT, ZAZACSNAPRESTORE, ZSCCOPYRECOVER
 summary: Using Azure NetApp Files for SAP HANA, Oracle, and DB2 on Azure provides customers with the advanced data management and data protection features of NetApp ONTAP with the native Microsoft Azure NetApp Files service.
 ---

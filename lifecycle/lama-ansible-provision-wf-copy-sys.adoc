@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: lifecycle/lama-ansible-sap-lama-provisioning-workflow-copy-system.html
+permalink: lifecycle/lama-ansible-provision-wf-copy-sys.html
 keywords: system copy, timeline, storage workflow
 summary: In this chapter, we briefly discuss the differences for the system clone workflow and input screens. 
 ---

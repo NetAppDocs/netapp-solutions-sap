@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: lifecycle/sc-copy-clone-sap-hana-system-refresh-with-snapcenter.html
+permalink: lifecycle/sc-copy-clone-hana-sys-refresh-with-sc.html
 keywords: tr4667, 4667, SAP HANA, cloning, system refresh
 summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 ---
@@ -126,7 +126,7 @@ image:sc-copy-clone-image17.png["Figure showing input/output dialog or represent
 
 The workflow consists of the following steps:
 
-. If SAP HANA persistence encryption is enabled at the source system, the encryption root keys must be imported once. An import is also required if the keys have been changed at the source system. See chapter link:sc-copy-clone-considerations-for-sap-hana-system-refresh-operations-using-snapshot-backups.html[“Considerations for SAP HANA system refresh operations using storage snapshot backups”]
+. If SAP HANA persistence encryption is enabled at the source system, the encryption root keys must be imported once. An import is also required if the keys have been changed at the source system. See chapter link:sc-copy-clone-sys-refresh-using-snapshot-backups.html[“Considerations for SAP HANA system refresh operations using storage snapshot backups”]
 
 . If the target SAP HANA system has been protected in SnapCenter, the protection must be removed first.
 

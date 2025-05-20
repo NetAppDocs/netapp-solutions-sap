@@ -23,7 +23,7 @@ indexpage:
         - title: "SAP HANA Disaster Recovery with Storage Replication"
           url: backup/saphana-dr-sr_pdf_link.html
         - title: "SAP HANA system refresh with LSC and SnapCenter"
-          url: lifecycle/libelle-sc-sap-hana-system-refresh-with-lsc-and-snapcenter.html
+          url: lifecycle/libelle-sc-hana-sys-refresh-lsc-sc.html
         - title: "NetApp SAP Landscape Management Integration using Ansible"
           url: lifecycle/lama-ansible-introduction.html
 #
@@ -32,7 +32,7 @@ indexpage:
         - title: "SAP HANA disaster recovery with Azure NetApp Files"
           url: backup/saphana-dr-anf_data_protection_overview_overview.html
         - title: "SAP HANA system refresh with LSC, AzAcSnap, and Azure NetApp Files"
-          url: lifecycle/libelle-sc-sap-hana-system-refresh-with-lsc,-azacsnap,-and-azure-netapp-files.html
+          url: lifecycle/libelle-sc-hana-sys-refresh-lsc-azacsnap-anf.html
         - title: "SAP HANA data protection on Azure NetApp Files with SnapCenter (blog and video)"
           url: https://techcommunity.microsoft.com/blog/sapapplications/sap-hana-data-protection-on-azure-netapp-files-with-snapcenter/3510031
         - title: "SAP System Refresh and Cloning operations on Azure NetApp Files with SnapCenter (blog and video)"
