@@ -62,7 +62,7 @@ For new LUNs, the policy can be applied directly:
 lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size <size> -ostype <e.g. linux>  -qos-policy-group <policy-name>
 ....
 
-It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-fas-fc-host-setup.html#create-lvm-volume-groups-and-logical-volumes[Host Setup].
+It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section link:hana-fas-fc-host-setup.html#create-lvm-volume-groups-and-logical-volumes[Host Setup].
 
 [NOTE]
 The limit applies also to reads. Therefore use enough LUNs to fulfil the required SLAs for SAP HANA database startup time and for backups.

@@ -28,7 +28,7 @@ The following description and the lab setup focus on the HANA database. Other sh
 
 To enable HANA save-point recovery or forward recovery using the log backups, application-consistent data Snapshot backups must be created at the primary site for the HANA data volume. This can be done for example with the ANF backup tool AzAcSnap (see also https://docs.microsoft.com/en-us/azure/azure-netapp-files/azacsnap-introduction[What is Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs^]). The Snapshot backups created at the primary site are then replicated to the DR site.
 
-In the case of a disaster failover, the replication relationship must be broken, the volumes must be mounted to the DR production server, and the HANA database must be recovered, either to the last HANA save point or with forward recovery using the replicated log backups. The chapter link:hana-dr-anf-failover_overview.html[Disaster recovery failover], describes the required steps.
+In the case of a disaster failover, the replication relationship must be broken, the volumes must be mounted to the DR production server, and the HANA database must be recovered, either to the last HANA save point or with forward recovery using the replicated log backups. The chapter link:hana-dr-anf-failover-overview.html[Disaster recovery failover], describes the required steps.
 
 The following figure depicts the HANA configuration options for cross-region replication.
 

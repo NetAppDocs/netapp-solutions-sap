@@ -18,7 +18,7 @@ entries:
       - title: Backup replication with SnapVault
         entries:
           - title: Overview
-            url: /backup/fsxn-backup-replication-with-snapvault_overview.html
+            url: /backup/fsxn-backup-replication-with-snapvault-overview.html
           - title: Configure replication relationships on FSx for ONTAP file systems
             url: /backup/fsxn-configure-replication-relationships.html
           - title: Add a backup SVM to SnapCenter
@@ -131,7 +131,7 @@ entries:
       - title: ANF Cross-Region Replication with SAP HANA
         entries:
           - title: Cross-Rregion Replication with SAP HANA overview
-            url: /backup/hana-dr-anf-cross-region-replication_overview.html
+            url: /backup/hana-dr-anf-cross-region-replication-overview.html
           - title: Configuration options for Cross-Region Replication with SAP HANA
             url: /backup/hana-dr-anf-config-cross-region-replication.html
           - title: Requirements and best practices
@@ -157,7 +157,7 @@ entries:
       - title: Disaster recovery failover
         entries:
           - title: Disaster recovery failover overview
-            url: /backup/hana-dr-anf-failover_overview.html
+            url: /backup/hana-dr-anf-failover-overview.html
           - title: Prepare the target host
             url: /backup/hana-dr-anf-prepare-target-host_01.html
           - title: Break and delete replication peering
