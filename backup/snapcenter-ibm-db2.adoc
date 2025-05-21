@@ -210,7 +210,7 @@ To learn more about the information that is described in this document, review t
 ** 594301 - DB6: Admin Tools and Split Mirror: https://me.sap.com/notes/594301
 
 * NetApp Product Documentation: https://www.netapp.com/support-and-training/documentation/
-* NetApp SAP Solutions – Information about Use-Cases, Best-Practices and Benefits: https://docs.netapp.com/us-en/netapp-solutions-sap
+* link:../index.html[NetApp SAP Solutions – Information about Use-Cases, Best-Practices and Benefits]
 
 === Version history
 

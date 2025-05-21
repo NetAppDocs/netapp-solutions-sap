@@ -1,0 +1,69 @@
+---
+sidebar: sidebar
+permalink: bp/hana-fas-nfs-update-history.html
+keywords:
+summary:
+---
+
+= Update history
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+The following technical changes have been made to this solution since its original publication.
+
+[cols=2*,options="header",cols="25,50"]
+|===
+| Date
+| Update summary
+ | April 2014 | Initial version
+| August 2014 | Updated disk sizing selection and added SSD configuration
+Added Red Hat Enterprise Linux OS configuration
+Added SAP HANA storage connector information
+Added information about VMware configuration
+| November 2014 | Updated storage sizing section
+| January 2015 | Updated storage connector API section
+Updated aggregate and volume configuration
+ | March 2015 | Added new STONITH implementation for SAP HANA SPS9
+Added compute node setup and HANA installation section
+| October 2015 | Added NFSv4 support for cDOT
+Updated sysctl parameter
+Included I/O parameter for SAP HANA and HWVAL > SPS10
+| March 2016 | Updated capacity sizing
+Updated mount options for /hana/shared
+Updated sysctl parameter
+| February 2017 | New NetApp storage systems and disk shelves
+New features of ONTAP 9
+Support for 40GbE
+New OS releases (SUSE Linux Enterprise Server12 SP1 and Red Hat Enterprise Linux 7.2)
+New SAP HANA release
+| July 2017 | Minor updates
+| September 2018 | New NetApp storage systems
+New OS releases (SUSE Linux Enterprise Server 12 SP3 and Red Hat Enterprise Linux 7.4)
+Additional minor changes
+SAP HANA 2.0 SPS3
+| September 2019 | New OS releases (SUSE Linux Enterprise Server 12 SP4, SUSE Linux Enterprise Server 15, and Red Hat Enterprise Linux 7.6)
+Max data volume size
+Minor changes
+| December 2019 | New NetApp storage systems
+New OS release SUSE Linux Enterprise Server 15 SP1
+| March 2020 | Support of nconnect for NFSv3
+New OS release Red Hat Enterprise Linux 8
+ | May 2020 | Introduced multiple data partition features available since SAP HANA 2.0 SPS4
+ | June 2020 | Additional information about optional functionalities
+Minor updates
+| December 2020 | Support for nconnect for NFSv4.1 starting with ONTAP 9.8
+New operating system releases
+New SAP HANA version
+| February 2021 | Changes in host network settings and other minor changes
+| April 2021 | VMware vSphere-specific information added
+| September 2022 | New OS-Releases 
+|December 2023 | Update of host setup
+Revised nconnect settings
+Added information about NFSv4.1 sessions 
+| September 2024 | New Storage Systems and Minor Updates 
+| February 2025 | New Storage System
+|===

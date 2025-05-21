@@ -1,0 +1,4 @@
+---
+permalink: backup/saphana-dr-anf_disaster_recovery_failover_overview.html
+redirect: backup/hana-dr-anf-failover-overview.html
+---

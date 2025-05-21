@@ -1,0 +1,4 @@
+---
+permalink: bp/saphana_aff_nfs_.html
+redirect: bp/hana-aff-nfs.html
+---

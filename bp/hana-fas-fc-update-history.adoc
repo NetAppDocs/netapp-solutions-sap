@@ -1,0 +1,46 @@
+---
+sidebar: sidebar
+permalink: bp/hana-fas-fc-update-history.html
+keywords:
+summary:
+---
+
+= Update history
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+The following technical changes have been made to this solution since its original publication.
+
+[cols=2*,options="header",cols="25,50"]
+|===
+|Date
+| Update summary
+| February 2015 | Initial version
+| October 2015 | Included I/O parameters for SAP HANA and HWVAL SPS 10 and later
+| February 2016 | Updated capacity sizing
+| February 2017 | New NetApp storage systems and disk shelves
+New features of ONTAP 9
+New OS releases (SLES12 SP1 and Red Hat Enterprise Linux 7.2)
+New SAP HANA release
+| July 2017 | Minor updates
+| September 2018 | New NetApp storage systems
+New OS releases (SLES12 SP3 and Red Hat Enterprise Linux 7.4)
+Additional minor updates
+SAP HANA 2.0 SPS3
+| September 2019 | New OS releases
+Minor updates
+| April 2020 | Introduced multiple data partition features available since SAP HANA 2.0 SPS4
+| June 2020 | Additional information about optional functionalities
+Minor updates
+ | February 2021 | Linux LVM support
+New NetApp storage systems
+New OS releases (SLES15SP2, RHEL 8)
+| April 2021 | VMware vSphere-specific information added
+| September 2022 | New OS-Releases 
+| September 2024 | New Storage Systems 
+| February 2025 | New Storage System
+|===

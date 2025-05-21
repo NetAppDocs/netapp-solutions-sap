@@ -1,0 +1,4 @@
+---
+permalink: backup/amazon-fsx-where-to-find-additional-information.html
+redirect: backup/fsxn-additional-info.html
+---

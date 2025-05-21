@@ -1,0 +1,4 @@
+---
+permalink: bp/saphana_fas_fc_introduction.html
+redirect: bp/hana-fas-fc-introduction.html
+---
