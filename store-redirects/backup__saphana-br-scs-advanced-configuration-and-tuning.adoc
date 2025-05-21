@@ -1,0 +1,4 @@
+---
+permalink: backup/saphana-br-scs-advanced-configuration-and-tuning.html
+redirect: backup/hana-br-scs-advanced-config-tuning.html
+---

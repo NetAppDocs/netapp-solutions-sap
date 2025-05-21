@@ -1,0 +1,4 @@
+---
+permalink: backup/amazon-fsx-create-a-backup-with-replication.html
+redirect: backup/fsxn-create-backup-with-replication.html
+---

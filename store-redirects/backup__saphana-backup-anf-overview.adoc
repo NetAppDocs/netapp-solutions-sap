@@ -1,0 +1,4 @@
+---
+permalink: backup/saphana-backup-anf-overview.html
+redirect: backup/hana-backup-anf-overview.html
+---
