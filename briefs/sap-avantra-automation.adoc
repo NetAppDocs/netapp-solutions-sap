@@ -93,7 +93,7 @@ To learn more about the information that is described in this document, review t
 
 * link:https://www.avantra.com/[Avantra]
 
-* link:https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[Automating SAP HANA System Copy and Clone Operations with SnapCenter]
+* link:../lifecycle/sc-copy-clone-introduction.html[Automating SAP HANA System Copy and Clone Operations with SnapCenter]
 
 * link:https://docs.netapp.com/us-en/snapcenter/sc-automation/reference_supported_rest_apis.html[REST APIs supported for SnapCenter Server and plug-ins]
 

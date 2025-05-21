@@ -1,0 +1,4 @@
+---
+permalink: bp/saphana_aff_fc_storage_controller_setup.html
+redirect: bp/hana-aff-fc-storage-controller-setup.html
+---

@@ -1,0 +1,4 @@
+---
+permalink: bp/saphana_aff_fc_where_to_find_additional_information.html
+redirect: bp/hana-aff-fc-additional-info.html
+---

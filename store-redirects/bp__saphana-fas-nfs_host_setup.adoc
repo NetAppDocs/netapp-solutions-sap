@@ -1,0 +1,4 @@
+---
+permalink: bp/saphana-fas-nfs_host_setup.html
+redirect: bp/hana-fas-nfs-host-setup.html
+---

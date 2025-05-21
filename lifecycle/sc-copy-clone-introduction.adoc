@@ -50,11 +50,11 @@ NetApp SnapCenter with the plug-in for SAP HANA is used to provision the require
 
 A fully automated, end-to-end provision of SAP test systems can be performed by using third-party tools and integration of NetApp features. More details are available at:
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/lama-ansible-introduction.html[TR-4953: NetApp SAP Landscape Management Integration using Ansible]
+link:lama-ansible-introduction.html[TR-4953: NetApp SAP Landscape Management Integration using Ansible]
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html[TR-4929: Automating SAP system copy operations with Libelle SystemCopy (netapp.com)]
+link:libelle-sc-overview.html[TR-4929: Automating SAP system copy operations with Libelle SystemCopy (netapp.com)]
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/briefs/sap-alpaca-automation.html#solution-overview[Automating SAP system copy&#44; refresh&#44; and clone workflows with ALPACA and NetApp SnapCenter]
+link:../briefs/sap-alpaca-automation.html#solution-overview[Automating SAP system copy&#44; refresh&#44; and clone workflows with ALPACA and NetApp SnapCenter]
 
-https://docs.netapp.com/us-en/netapp-solutions-sap/briefs/sap-avantra-automation.html#solution-overview[Automating SAP system copy&#44; refresh&#44; and clone workflows with Avantra and NetApp SnapCenter]
+link:../briefs/sap-avantra-automation.html#solution-overview[Automating SAP system copy&#44; refresh&#44; and clone workflows with Avantra and NetApp SnapCenter]
 

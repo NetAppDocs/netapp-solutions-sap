@@ -1,0 +1,4 @@
+---
+permalink: backup/saphana-sr_pdf_link.html
+redirect: backup/hana-sr-pdf-link.html
+---

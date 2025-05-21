@@ -1,0 +1,4 @@
+---
+permalink: backup/fsx-add-backup-svm-snapcenter.html
+redirect: backup/fsxn-add-backup-svm-snapcenter.html
+---
