@@ -166,7 +166,7 @@ entries:
             url: /backup/hana-dr-anf-mount-volumes-at-target-host.html
           - title: HANA database recovery
             url: /backup/hana-dr-anf-database-recovery_01.html
-      - title: Update history
+          - title: Update history
             url: /backup/hana-dr-anf-update-history.html
   - title: SAP HANA Disaster Recovery with Storage Replication
     url: /backup/hana-dr-sr-pdf-link.html
