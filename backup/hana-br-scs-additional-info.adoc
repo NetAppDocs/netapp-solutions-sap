@@ -22,7 +22,7 @@ To learn more about the information that is described in this document, review t
 
 * SnapCenter Resources Page
 +
-https://www.netapp.com/us/documentation/snapcenter-software.aspx[https://www.netapp.com/us/documentation/snapcenter-software.aspx]
+https://www.netapp.com/us/documentation/snapcenter-software.aspx[https://www.netapp.com/us/documentation/snapcenter-software.aspx^]
 
 * SnapCenter Software Documentation
 +
@@ -30,11 +30,11 @@ https://docs.netapp.com/us-en/snapcenter/index.html[https://docs.netapp.com/us-e
 
 * TR-4667: Automating SAP System Copies Using the SnapCenter
 +
-https://www.netapp.com/pdf.html?item=/media/17111-tr4667pdf.pdf[https://www.netapp.com/pdf.html?item=/media/17111-tr4667pdf.pdf^]
+link:../lifecycle/sc-copy-clone-introduction.html[Automating SAP System Copies Using the SnapCenter]
 
 * TR-4719: SAP HANA System Replication, Backup and Recovery with SnapCenter
 +
-https://www.netapp.com/pdf.html?item=/media/17030-tr4719pdf.pdf[https://www.netapp.com/pdf.html?item=/media/17030-tr4719pdf.pdf^]
+link:hana-sr-scs-system-replication-overview.html[SAP HANA System Replication, Backup and Recovery with SnapCenter]
 
 * TR-4018: Integrating NetApp ONTAP Systems with SAP Landscape Management
 +

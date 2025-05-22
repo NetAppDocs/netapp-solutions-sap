@@ -1,5 +1,5 @@
 section: backup
-title: Backup, Restore and Disaster Recovery
+title: Backup, Restore and Disaster Recovery 
 entries:
   - title: SAP HANA on Amazon FSx for NetApp ONTAP - Backup and recovery with SnapCenter
     entries:
@@ -130,7 +130,7 @@ entries:
         url: /backup/hana-dr-anf-dr-solution-comparison.html
       - title: ANF Cross-Region Replication with SAP HANA
         entries:
-          - title: Cross-Rregion Replication with SAP HANA overview
+          - title: Cross-Region Replication with SAP HANA overview
             url: /backup/hana-dr-anf-cross-region-replication-overview.html
           - title: Configuration options for Cross-Region Replication with SAP HANA
             url: /backup/hana-dr-anf-config-cross-region-replication.html
@@ -159,7 +159,7 @@ entries:
           - title: Disaster recovery failover overview
             url: /backup/hana-dr-anf-failover-overview.html
           - title: Prepare the target host
-            url: /backup/hana-dr-anf-prepare-target-host_01.html
+            url: /backup/hana-dr-anf-prepare-target-host.html
           - title: Break and delete replication peering
             url: /backup/hana-dr-anf-break-delete-replication-peering.html
           - title: Mount the volumes at the target host

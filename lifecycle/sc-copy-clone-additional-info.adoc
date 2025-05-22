@@ -21,8 +21,8 @@ To learn more about the information described in this document, refer to the fol
 * link:../backup/fsxn-overview.html[TR-4926: SAP HANA on Amazon FSx for NetApp ONTAP - Backup and recovery with SnapCenter]
 * link:lama-ansible-introduction.html[TR-4953: NetApp SAP Landscape Management Integration using Ansible]
 * link:libelle-sc-overview.html[TR-4929: Automating SAP system copy operations with Libelle SystemCopy (netapp.com)]
-* https://fieldportal.netapp.com/explore/699265?popupstate=%7B%22state%22:%22app.notebook%22,%22srefParams%22:%7B%22source%22:3,%22sourceId%22:968639,%22notebookId%22:2565224,%22assetComponentId%22:2558241%7D%7D[Automating SAP system copy&#44; refresh&#44; and clone workflows with ALPACA and NetApp SnapCenter]
-* https://fieldportal.netapp.com/explore/699265?popupstate=%7B%22state%22:%22app.notebook%22,%22srefParams%22:%7B%22source%22:3,%22sourceId%22:968639,%22notebookId%22:2565224,%22assetComponentId%22:2558241%7D%7D[Automating SAP system copy&#44; refresh&#44; and clone workflows with Avantra and NetApp SnapCenter]
+* link:../briefs/sap-alpaca-automation.html[Automating SAP system copy&#44; refresh&#44; and clone workflows with ALPACA and NetApp SnapCenter]
+* link:../briefs/sap-avantra-automation.html[Automating SAP system copy&#44; refresh&#44; and clone workflows with Avantra and NetApp SnapCenter]
 
 
 [width="100%",cols="21%,20%,59%",options="header",]
