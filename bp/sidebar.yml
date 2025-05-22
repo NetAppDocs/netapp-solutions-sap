@@ -1,7 +1,7 @@
 section: bp
 title: Best Practices
 entries:
-  - title: SAP HANA on NetApp AFF Systems with FCP Configuration Guide
+  - title: SAP HANA on NetApp AFF Systems with FCP Configuration Guide 
     entries:
       - title: Introduction
         url: /bp/hana-aff-fc-introduction.html
@@ -24,7 +24,7 @@ entries:
           - title: Host setup
             url: /bp/hana-aff-fc-host-setup.html
           - title: I/O Stack configuration for SAP HANA
-            url: /bp/hana-afffc-io-stack-configuration.html
+            url: /bp/hana-aff-fc-io-stack-configuration.html
           - title: SAP HANA software installation
             url: /bp/hana-aff-fc-software-install.html
           - title: Adding additional data volume partitions for SAP HANA single-host systems
