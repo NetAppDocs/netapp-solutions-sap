@@ -69,7 +69,7 @@ The new backup is now visible in the resource view of the non- data volume resou
 
 image:amazon-fsx-image68.png["Figure showing input/output dialog or representing written content"]
 
-=== Restore and recover
+= Restore and recover
 
 With SnapCenter, automated restore and recovery operations are supported for HANA single host MDC systems with a single tenant. For multiple-host systems or MDC systems with multiple tenants, SnapCenter only executes the restore operation and you must perform the recovery manually.
 
