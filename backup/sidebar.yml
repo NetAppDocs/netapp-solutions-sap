@@ -159,14 +159,14 @@ entries:
           - title: Disaster recovery failover overview
             url: /backup/hana-dr-anf-failover-overview.html
           - title: Prepare the target host
-            url: /backup/hana-dr-anf-prepare-target-host.html
+            url: /backup/hana-dr-anf-prepare-target-host_01.html
           - title: Break and delete replication peering
             url: /backup/hana-dr-anf-break-delete-replication-peering.html
           - title: Mount the volumes at the target host
             url: /backup/hana-dr-anf-mount-volumes-at-target-host.html
           - title: HANA database recovery
-            url: /backup/hana-dr-anf-database-recovery.html
-          - title: Update history
+            url: /backup/hana-dr-anf-database-recovery_01.html
+      - title: Update history
             url: /backup/hana-dr-anf-update-history.html
   - title: SAP HANA Disaster Recovery with Storage Replication
     url: /backup/hana-dr-sr-pdf-link.html
