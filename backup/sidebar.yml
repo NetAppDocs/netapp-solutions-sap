@@ -163,7 +163,7 @@ entries:
           - title: Break and delete replication peering
             url: /backup/hana-dr-anf-break-delete-replication-peering.html
           - title: Mount the volumes at the target host
-            url: /backup/hana-dr-anf-mount-volumes-at-target-host.html
+            url: //backup/hana-dr-anf-mount-new-vols-target-host_01.html
           - title: HANA database recovery
             url: /backup/hana-dr-anf-database-recovery_01.html
       - title: Update history
