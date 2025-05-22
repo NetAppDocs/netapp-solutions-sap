@@ -52,7 +52,7 @@ image:sc-sap-maxdb-image01.png[Figure highlighting the demo environment that was
 
 Following least volume Layout must be used to enable backup / recovery and clone use-cases for the SAP MaxDB database. The example configuration use <SID>: M02.
 
-[width=100%,cols="20%, 20%, 30%, 30%", frame=none, grid=rows, options="header"]
+[width=100%,cols="20%, 20%, 20%, 40%", frame=none, grid=rows, options="header"]
 |===
 | *Volume Name* | *Directory (qtree) on Volume* | *Mount Point on Server* | *Comment*
 | <SID> sapmaxdb | sapdb | /sapdb | Parent directory for MaxDB related files
@@ -77,8 +77,7 @@ Following least volume Layout must be used to enable backup / recovery and clone
 
 == Prerequisites on Host
 
-More current information might be available link:https://docs.netapp.com/us-en/snapcenter/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html
-[here].
+More current information might be available link:https://docs.netapp.com/us-en/snapcenter/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html[here].
 
 Before you add a host and install the plug-ins package for Linux, you must complete all the requirements.
 
@@ -113,8 +112,7 @@ Before you add a host and install the plug-ins package for Linux, you must compl
 
 == Deploy SnapCenter Agent to Host sap-lnx25
 
-Further Information could be found in the link:https://docs.netapp.com/us-en/snapcenter/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html
-[SnapCenter documentation].
+Further Information could be found in the link:https://docs.netapp.com/us-en/snapcenter/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html[SnapCenter documentation].
 
 Select SAP MaxDB and Unix File Systems Plugins.
 
