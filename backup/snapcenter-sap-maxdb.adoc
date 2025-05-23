@@ -55,7 +55,7 @@ Following least volume Layout must be used to enable backup / recovery and clone
 [width=100%,cols="20%, 20%, 20%, 40%", frame=none, grid=rows, options="header"]
 |===
 | *Volume Name* | *Directory (qtree) on Volume* | *Mount Point on Server* | *Comment*
-| <SID> sapmaxdb | sapdb | /sapdb | Parent directory for MaxDB related files
+| <SID>_sapmaxdb | sapdb | /sapdb | Parent directory for MaxDB related files
 | | | /sapdb/<SID>/saplog | Redo Logs (might be placed on a different volume)
 | | | /sapdb/<SID>/backup | Dump Backups (Data + Log) (might be placed on a different volume)
 | | <sid>adm | /home/<sid>adm | Home directory of user <sid>adm
