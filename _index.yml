@@ -59,4 +59,6 @@ indexpage:
           url: backup/snapcenter-sap-ase.html
         - title: "SnapCenter Integration for IBM DB2 Database"
           url: backup/snapcenter-ibm-db2.html
+        - title: "SnapCenter Integration for SAP MaxDB Database"
+          url: backup/snapcenter-sap-maxdb.html
 #
