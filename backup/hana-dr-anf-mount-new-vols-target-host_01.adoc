@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/hana-dr-anf-mount-volumes-at-target-host_01.html
+permalink: backup/hana-dr-anf-mount-new-vols-target-host_01.html
 keywords: mount, volume, target, host, sap, hana, azure
 summary: The volumes can now be mounted at the target host, based on the `/etc/fstab` file created before.
 ---
