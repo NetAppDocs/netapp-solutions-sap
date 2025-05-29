@@ -114,7 +114,7 @@ A second option to configure these settings is using a SnapCenter PowerShell com
 . On the SnapCenter server, open a PowerShell. Connect to the SnapCenter server using the command `Open- SmConnection` and specify user name and password in the opening login window.
 . With the command `Set- SmConfigSettings -Plugin - HostName <pluginhostname> - PluginCode hana - configSettings @{"LOG_CLEANUP_DISABLE" = "Y"}`, the changes are configured for the SAP HANA plug-in host `<pluginhostname>` specified by the IP or host name (see the following figure).
 
-image:saphana-br-scs-image154.jpeg["Figure showing input/output dialog or representing written content"]
+image:saphana-br-scs-image154.png["Figure showing input/output dialog or representing written content"]
 
 == Disable warning when running SAP HANA plug-in on a virtual environment
 

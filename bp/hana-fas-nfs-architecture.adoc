@@ -49,7 +49,7 @@ NetApp SnapMirror technology allows Snapshot copies that were created on one sto
 
 The database logs can be backed up directly to the secondary storage by using an NFS mount, as shown in the following figure.
 
-image:saphana-fas-nfs_image6.jpg["Figure showing input/output dialog or representing written content"]
+image:saphana-fas-nfs_image6.png["Figure showing input/output dialog or representing written content"]
 
 Storage-based Snapshot backups provide significant advantages when compared to conventional file-based backups. These advantages include, but are not limited to, the following:
 
