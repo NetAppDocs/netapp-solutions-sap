@@ -106,7 +106,7 @@ image:saphana-br-scs-image98.png["Figure showing input/output dialog or represen
 +
 The restore type options for restore from offsite backup storage.
 +
-image:saphana-br-scs-image99.jpeg["Figure showing input/output dialog or representing written content"]
+image:saphana-br-scs-image99.png["Figure showing input/output dialog or representing written content"]
 +
 The restore type options for restore from primary storage with Fibre Channel SAN.
 +

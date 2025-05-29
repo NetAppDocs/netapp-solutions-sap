@@ -4,18 +4,13 @@ permalink: backup/hana-dr-anf-mount-new-vols-target-host.html
 keywords: mount, new, volumes, target, host, azure, sap, hana
 summary: The new volumes can now be mounted at the target host, based on the /etc/fstab file created before.
 ---
+
 = Mount the new volumes at the target host
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
-
-//
-// This file was created with NDAC Version 2.0 (August 17, 2020)
-//
-// 2021-05-24 12:07:40.377280
-//
 
 [.lead]
 The new volumes can now be mounted at the target host, based on the `/etc/fstab` file created before.

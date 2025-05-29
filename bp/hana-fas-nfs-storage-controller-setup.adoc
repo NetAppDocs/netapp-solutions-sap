@@ -101,7 +101,7 @@ In general, you must configure two aggregates per controller, independent of whi
 
 The following figure shows a configuration of 12 SAP HANA hosts running on a 12Gb SAS shelf configured with ADPv2. Six SAP HANA hosts are attached to each storage controller. Four separate aggregates, two at each storage controller, are configured. Each aggregate is configured with 11 disks with nine data and two parity disk partitions. For each controller, two spare partitions are available.
 
-image:saphana-fas-nfs_image16.jpg["Figure showing input/output dialog or representing written content"]
+image:saphana-fas-nfs_image16.png["Figure showing input/output dialog or representing written content"]
 
 == Storage virtual machine configuration
 
@@ -148,7 +148,7 @@ If only one storage controller of an HA pair is used for the SAP HANA systems, d
 [NOTE]
 If the data and log volumes are stored on the same controller, access from the server to the storage must be performed with two different LIFs: one LIF to access the data volume and one to access the log volume.
 
-image:saphana-fas-nfs_image17.jpg["Figure showing input/output dialog or representing written content"]
+image:saphana-fas-nfs_image17.png["Figure showing input/output dialog or representing written content"]
 
 For each SAP HANA DB host, a data volume, a log volume, and a volume for `/hana/shared` are configured. The following table shows an example configuration for single-host SAP HANA systems.
 
@@ -205,7 +205,7 @@ If only one storage controller of an HA pair is used for the SAP HANA system, th
 [NOTE]
 If the data and log volumes are stored on the same controller, access from the server to the storage must be performed with two different LIFs: one to access the data volume and one to access the log volume.
 
-image:saphana-fas-nfs_image18.jpg["Figure showing input/output dialog or representing written content"]
+image:saphana-fas-nfs_image18.png["Figure showing input/output dialog or representing written content"]
 
 For each SAP HANA host, a data volume and a log volume are created. The `/hana/shared` volume is used by all hosts of the SAP HANA system. The following table shows an example configuration for a multiple-host SAP HANA system with four active hosts.
 
