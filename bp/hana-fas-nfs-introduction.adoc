@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: bp/hana-fas-nfs-introduction.html
 keywords: sap, hana, fas, systems, nfs, configuration, guide
-summary: The NetApp FAS product family has been certified for use with SAP HANA in tailored data center integration (TDI) projects. The certified enterprise storage system is characterized by the NetApp ONTAP software.
+summary: The NetApp FAS product family has been certified for use with SAP HANA in tailored data center integration (TDI) projects. This guide provides best practices for SAP HANA on this platform.
 ---
 
 = SAP HANA on NetApp FAS systems with NFS Configuration guide
@@ -20,9 +20,9 @@ summary: The NetApp FAS product family has been certified for use with SAP HANA 
 //
 
 [.lead]
-The NetApp FAS product family has been certified for use with SAP HANA in tailored data center integration (TDI) projects. The certified enterprise storage system is characterized by the NetApp ONTAP software.
+The NetApp FAS product family has been certified for use with SAP HANA in tailored data center integration (TDI) projects. This guide provides best practices for SAP HANA on this platform with NFS.
 
-Marco Schön, NetApp
+Marco Schoen, NetApp
 
 This certification is currently only valid for the following models:
 

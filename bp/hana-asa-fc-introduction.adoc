@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: bp/hana-asa-fc-introduction.html
 keywords: introduction, raw device mapping, rdm, tailored data center integration, FCP datastore
-summary: The NetApp AFF product family is certified for use with SAP HANA in TDI projects. The certified enterprise storage platform is characterized by the NetApp ONTAP software.
+summary: The NetApp ASA product family is certified for use with SAP HANA in TDI projects. This guide provides best practices for SAP HANA on this platform.
 ---
 
 = SAP HANA on NetApp ASA Systems with Fibre Channel Protocol
@@ -13,7 +13,7 @@ summary: The NetApp AFF product family is certified for use with SAP HANA in TDI
 :imagesdir: ../media/
 
 [.lead]
-The NetApp ASA product family is certified for use with SAP HANA in TDI projects. The certified enterprise storage platform is characterized by the NetApp ONTAP software.
+The NetApp ASA product family is certified for use with SAP HANA in TDI projects. This guide provides best practices for SAP HANA on this platform.
 
 Marco Schoen, NetApp
 

@@ -24,7 +24,7 @@ Different models of the ASA system product family can be mixed and matched at th
 
 The following figure shows an example configuration with eight SAP HANA hosts attached to a storage HA pair.
 
-image:saphana_aff_asa_image2a.png["Eight SAP HANA hosts attached to a storage HA pair"]
+image:saphana_asa_fc_image2a.png["Eight SAP HANA hosts attached to a storage HA pair"]
 
 This architecture can be scaled in two dimensions:
 
