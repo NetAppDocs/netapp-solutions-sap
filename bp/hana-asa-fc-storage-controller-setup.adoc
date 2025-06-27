@@ -73,7 +73,7 @@ The following overview summarizes the required storage configuration steps. Each
 
 Each NS224 NVMe disk shelf is connected with two 100GbE ports per controller, as shown in the following figure. The disks are automatically distributed  to both controllers of the HA pair.
 
-image:saphana_aff_fc_image11a.png["NS224 NVMe disk shelf connection"]
+image:saphana_asa_fc_image11a.png["NS224 NVMe disk shelf connection"]
 
 
 == Initiator groups

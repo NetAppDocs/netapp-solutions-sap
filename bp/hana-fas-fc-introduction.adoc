@@ -37,7 +37,8 @@ The configuration described in this paper is necessary to achieve the required S
 
 The configuration guides for FAS systems using NFS and NetApp AFF systems can be found using the following links:
 
-* link:hana-aff-fc-introduction.html[SAP HANA on NetApp AFF Systems with Fibre Channel Protocol^]
+* link:hana-aff-fc-introduction.html[SAP HANA on NetApp AFF Systems with FCP^]
+* link:hana-asa-fc-introduction.html[SAP HANA on NetApp ASA Systems with FCP^]
 * link:hana-fas-nfs-introduction.html[SAP HANA on NetApp FAS Systems with NFS^]
 * link:hana-aff-nfs-introduction.html[SAP HANA on NetApp AFF Systems with NFS^]
 
