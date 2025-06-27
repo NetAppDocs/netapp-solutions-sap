@@ -1,0 +1,205 @@
+---
+sidebar: sidebar
+permalink: bp/hana-asa-fc-storage-controller-setup.html
+keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm,
+summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding Data ONTAP setup and configuration guides.
+---
+= Storage controller setup
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2024-06-05 16:47:33.741099
+//
+
+[.lead]
+This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding Data ONTAP setup and configuration guides.
+
+== Storage efficiency
+
+Inline deduplication, cross-volume inline deduplication, inline compression, and inline compaction are supported with SAP HANA in an SSD configuration.
+
+
+== Quality of Service
+
+QoS can be used to limit the storage throughput for specific SAP HANA systems or non-SAP applications on a shared controller. 
+
+=== Production and Dev/Test 
+One use case would be to limit the throughput of development and test systems so that they cannot influence production systems in a mixed setup.
+During the sizing process, you should determine the performance requirements of a nonproduction system. Development and test systems can be sized with lower performance values, typically in the range of 20% to 50% of a production-system KPI as defined by SAP.
+Large write I/O has the biggest performance effect on the storage system. Therefore, the QoS throughput limit should be set to a percentage of the corresponding write SAP HANA storage performance KPI values in the data and log volumes.
+
+=== Shared Environments 
+Another use case is to limit the throughput of heavy write workloads, especially to avoid that these workloads have an impact on other latency sensitive write workloads. 
+In such environments it is best practice to apply a non-shared throughput ceiling QoS group-policy to each LUN within each Storage Virtual Machine (SVM) to restrict the max throughput of each individual storage object to the given value. This reduces the possibility that a single workload can negatively influence other workloads.
+
+To do so, a group-policy needs to be created using the CLI of the ONTAP cluster for each SVM:
+....
+qos policy-group create -policy-group <policy-name> -vserver <vserver name> -max-throughput 1000MB/s -is-shared false
+....
+and applied to each LUN within the SVM. Below is an example to apply the policy group to all existing LUNs within an SVM:
+....
+lun modify -vserver <vserver name>  -path * -qos-policy-group  <policy-name>
+....
+This needs to be done for every SVM. The name of the QoS police group for each SVM needs to be different.
+For new LUNs, the policy can be applied directly:
+....
+lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size <size> -ostype <e.g. linux>  -qos-policy-group <policy-name>
+....
+
+It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section link:hana-asa-fc-host-setup.html#create-lvm-volume-groups-and-logical-volumes[Host Setup].
+
+[NOTE]
+The limit applies also to reads. Therefore use enough LUNs to fulfil the required SLAs for SAP HANA database startup time and for backups.
+
+
+== Configure storage
+
+The following overview summarizes the required storage configuration steps. Each step is covered in more detail in the subsequent sections. In this section, we assume that the storage hardware is set up and that the ONTAP software is already installed. Also, the connection of the storage FCP ports to the SAN fabric must already be in place.
+
+. Check the correct disk shelf configuration, as described in <<Disk shelf connection>>.
+. Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:hana-fas-fc-storage-controller-setup.html#initiator-groups <<Initiator groups>>.
+. Create LUNs  described in the section  <<LUN configuration for SAP HANA single-host systems>> and <<LUN configuration for SAP HANA multiple-host systems>>
+. Create initiator groups, volumes, and LUNs within the aggregates, as described in <<#lun_create,Creating LUNs, volumes, and mapping LUNs to initiator groups >>.
+
+== Disk shelf connection
+
+=== NVMe(100GbE)-based disk shelves
+
+Each NS224 NVMe disk shelf is connected with two 100GbE ports per controller, as shown in the following figure. The disks are automatically distributed  to both controllers of the HA pair.
+
+image:saphana_aff_fc_image11a.png["NS224 NVMe disk shelf connection"]
+
+
+== Initiator groups
+
+An igroup can be configured for each server or for a group of servers that require access to a LUN. The igroup configuration requires the worldwide port names (WWPNs) of the servers.
+
+Using the `sanlun` tool, run the following command to obtain the WWPNs of each SAP HANA host:
+
+....
+sapcc-hana-tst:~ # sanlun fcp show adapter
+/sbin/udevadm
+/sbin/udevadm
+
+host0 ...... WWPN:2100000e1e163700
+host1 ...... WWPN:2100000e1e163701
+....
+
+[NOTE]
+The `sanlun` tool is part of the NetApp Host Utilities and must be installed on each SAP HANA host. More details can be found in section link:hana-asa-fc-host-setup.html[Host setup.]
+
+The initiator groups can be created using the CLI of the ONTAP Cluster.
+....
+lun igroup create -igroup <igroup name> -protocol fcp -ostype linux -initiator <list of initiators> -vserver <SVM name>
+....
+
+== LUN configuration for SAP HANA single-host systems
+
+The Linux LVM is being used to increase performance and to address LUN size limitations. 
+At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
+
+|===
+|Logical volume/LUN |Mount point at SAP HANA host |Note
+
+|LV: SID1_data_mnt0000-vol
+|/hana/data/SID1/mnt00001
+|Mounted using /etc/fstab entry
+|LV: SID1_log_mnt00001-vol
+|/hana/log/SID1/mnt00001
+|Mounted using /etc/fstab entry
+|LUN: SID1_shared
+|/hana/shared/SID1
+|Mounted using /etc/fstab entry
+|===
+
+[NOTE]
+With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
+
+
+== Volume and LUN configuration for SAP HANA multiple-host systems
+
+The Linux LVM is being used to increase performance and to address LUN size limitations.
+
+At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
+
+|===
+|Logical volume (LV) or volume |Mount point at SAP HANA host |Note
+
+|LV: SID_data_mnt00001-vol
+|/hana/data/SID/mnt00001
+|Mounted using storage connector
+|LV: SID_log_mnt00001-vol
+|/hana/log/SID/mnt00001
+|Mounted using storage connector
+|LV: SID_data_mnt00002-vol
+|/hana/data/SID/mnt00002
+|Mounted using storage connector
+|LV: SID_log_mnt00002-vol
+|/hana/log/SID/mnt00002
+|Mounted using storage connector
+|Volume: SID_shared
+|/hana/shared
+|Mounted at all hosts using NFS and /etc/fstab entry
+|===
+
+[NOTE]
+With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
+
+
+[#lun_create]
+== Creating LUNs, volumes, and mapping LUNs to initiator groups
+
+You can use NetApp ONTAP System Manager to create storage volumes and LUNs and the map them to the igroups of the servers and the ONTAP CLI. This guide describes the usage of the CLI.
+
+
+[NOTE]
+The `sanlun` tool is part of the NetApp Host Utilities and must be installed on each SAP HANA host. For more information, see the section "host_setup."
+
+
+=== Creating LUNs and mapping LUNs to initiator groups using the CLI
+
+This section shows an example configuration using the command line with ONTAP 9 for a 2+1 SAP HANA multiple host system with SID FC5 using LVM and two LUNs per LVM volume group:
+
+. Create all LUNs.
++
+
+....
+lun create -path  FC5_data_mnt00001   -size 1t -ostype linux  -class regular
+lun create -path FC5_data2_mnt00001 -size 1t -ostype linux  -class regular
+lun create -path FC5_data_mnt00002 -size 1t -ostype linux  -class regular
+lun create -path FC5_data2_mnt00002 -size 1t -ostype linux  -class regular
+lun create -path FC5_log_mnt00001 -size 260g -ostype linux  -class regular
+lun create FC5_log2_mnt00001 -size 260g -ostype linux  -class regular
+lun create FC5_log_mnt00002 -size 260g -ostype linux  -class regular
+lun create FC5_log2_mnt00002 -size 260g -ostype linux  -class regular
+....
+
+
+. Create the initiator group for all servers belonging to system FC5.
++
+
+....
+lun igroup create -igroup HANA-FC5 -protocol fcp -ostype linux -initiator 10000090fadcc5fa,10000090fadcc5fb, 10000090fadcc5c1,10000090fadcc5c2,10000090fadcc5c3,10000090fadcc5c4 -vserver hana
+....
+
+. Map all LUNs to created initiator group.
++
+
+....
+lun map -path FC5_data_mnt00001    -igroup HANA-FC5
+lun map -path FC5_data2_mnt00001  -igroup HANA-FC5
+lun map -path FC5_data_mnt00002  -igroup HANA-FC5
+lun map -path FC5_data2_mnt00002  -igroup HANA-FC5
+lun map -path FC5_log_mnt00001  -igroup HANA-FC5
+lun map -path FC5_log2_mnt00001  -igroup HANA-FC5
+lun map -path FC5_log_mnt00002  -igroup HANA-FC5
+lun map -path FC5_log2_mnt00002  -igroup HANA-FC5
+....
+
+
