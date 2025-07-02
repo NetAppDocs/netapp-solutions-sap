@@ -16,7 +16,7 @@ This chapter describes the installation and configuration of the SAP HANA system
 
 == Storage configuration
 
-To meet the storage performance KPIs set by SAP, dedicated LUNs and datastores must be configured for each filesystem of the HANA system. Datastores should not be shared among multiple HANA systems or other workloads.
+To meet the storage performance KPIs defined by SAP for production HANA systems, dedicated LUNs and datastores must be configured for each filesystem of the HANA system. Datastores must not be shared among multiple HANA systems or other workloads.
 
 ONTAP tools for VMware (OTV) has been used to provision the three datastores for the HANA system VFS.
 

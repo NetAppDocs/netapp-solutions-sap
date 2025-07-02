@@ -111,7 +111,7 @@ entries:
       - title: SAP system refresh 
         url: /backup/hana-sc-vmfs-asar2sap-refresh.html
       - title: Addtional information and version history
-        url: /backup/hana-sc-vmfs-asar-add-info.html
+        url: /backup/hana-sc-vmfs-asar2-add-info.html
 
   - title: BlueXP Backup and Recovery for SAP HANA - Cloud Object storage as backup destination 
     entries:
