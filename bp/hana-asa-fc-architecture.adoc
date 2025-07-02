@@ -49,7 +49,7 @@ NetApp SnapMirror technology allows for Snapshot copies that were created on one
 
 
 
-image:saphana_aff_fc_image5.png["SnapCenter SAP HANA Plug-In"]
+image:saphana_asa_fc_image5a.png["SnapCenter SAP HANA Plug-In"]
 
 Storage-based Snapshot backups provide significant advantages compared to conventional file-based backups. These advantages include, but are not limited to the following:
 
@@ -83,8 +83,14 @@ The servers at the DR sites can be used as dev/test systems during normal operat
 
 Both replication methods allow to you execute DR workflow testing without influencing the RPO and RTO. FlexClone volumes are created on the storage and are attached to the DR testing servers.
 
-image:saphana_aff_fc_image6.png["Figure showing input/output dialog or representing written content"]
+image:saphana_asa_fc_image6a.png["Overview of SnapMirror Storage Replication"]
 
-Synchronous replication offers StrictSync mode. If the write to secondary storage is not completed for any reason, the application I/O fails, thereby ensuring that the primary and secondary storage systems are identical. Application I/O to the primary resumes only after the SnapMirror relationship returns to the InSync status. If the primary storage fails, application I/O can be resumed on the secondary storage after failover with no loss of data. In StrictSync mode, the RPO is always zero.
+=== NetApp SnapMirror active sync
+
+SnapMirror active sync enables business services to continue operating even through a complete site failure, supporting applications to fail over transparently using a secondary copy. There is no manual intervention or custom scripting required to trigger a failover with SnapMirror active sync. SnapMirror active sync is supported on AFF clusters, All-Flash SAN Array (ASA) clusters, and C-Series (AFF or ASA). SnapMirror active sync protects applications with iSCSI or FCP LUNs.
+
+Beginning with ONTAP 9.15.1, SnapMirror active sync supports a symmetric active/active capability. Symmetric active/active enable read and write I/O operations from both copies of a protected LUN with bidirectional synchronous replication so that both LUN copies can serve I/O operations locally.
+
+More details can be found at https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html[SnapMirror active sync overview in ONTAP]..
 
 
