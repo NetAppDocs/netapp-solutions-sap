@@ -93,11 +93,11 @@ entries:
             url: /bp/hana-asa-fc-storage-connector-api.html
           - title: Host setup
             entries:
-             - title: Configuring multipath
+             - title: Configuring multipathing
                url: /bp/hana-asa-fc-host-setup.html
              - title: Single host
                url: /bp/hana-asa-fc-host-setup_single.html
-             - title: Multi host
+             - title: Multi hosts
                url: /bp/hana-asa-fc-host-setup_multi.html
           - title: I/O Stack configuration for SAP HANA
             url: /bp/hana-asa-fc-io-stack-configuration.html

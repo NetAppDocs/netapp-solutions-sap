@@ -62,7 +62,7 @@ The limit applies also to reads. Therefore use enough LUNs to fulfil the require
 
 The following overview summarizes the required storage configuration steps. Each step is covered in more detail in the subsequent sections. In this section, we assume that the storage hardware is set up and that the ONTAP software is already installed. Also, the connection of the storage FCP ports to the SAN fabric must already be in place.
 
-. Check the correct disk shelf configuration, as described in <<Disk shelf connection>>.
+. Check the correct disk shelf configuration, as described in <<NVMe(100GbE)-based disk shelves>>.
 . Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:saphana-asa-fc-storage-controller-setup.html#initiator-groups <<Initiator groups>>.
 . Create LUNs  and map them to the servers described in the section  link:hana-asa-fc-storage-controller-setup_single_host.html[LUN configuration for SAP HANA single-host systems] and link:hana-asa-fc-storage-controller-setup_multiple_hosts.html[LUN configuration for SAP HANA multiple-hosts systems]
 
