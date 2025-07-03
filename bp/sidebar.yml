@@ -82,7 +82,13 @@ entries:
           - title: Time synchronization
             url: /bp/hana-asa-fc-time-synchronization.html
           - title: Storage controller setup
-            url: /bp/hana-asa-fc-storage-controller-setup.html
+            entries:
+              - title: General setup
+                url: /bp/hana-asa-fc-storage-controller-setup.html
+              - title: Single host LUN configuration 
+                url: /bp/hana-asa-fc-storage-controller-setup_single_host.html
+              - title: Multiple hosts LUN configuration 
+                url: /bp/hana-asa-fc-storage-controller-setup_multiple_hosts.html  
           - title: SAP HANA storage connector API
             url: /bp/hana-asa-fc-storage-connector-api.html
           - title: Host setup

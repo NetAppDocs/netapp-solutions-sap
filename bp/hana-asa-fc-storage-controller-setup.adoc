@@ -63,11 +63,10 @@ The limit applies also to reads. Therefore use enough LUNs to fulfil the require
 The following overview summarizes the required storage configuration steps. Each step is covered in more detail in the subsequent sections. In this section, we assume that the storage hardware is set up and that the ONTAP software is already installed. Also, the connection of the storage FCP ports to the SAN fabric must already be in place.
 
 . Check the correct disk shelf configuration, as described in <<Disk shelf connection>>.
-. Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:hana-fas-fc-storage-controller-setup.html#initiator-groups <<Initiator groups>>.
-. Create LUNs  described in the section  <<LUN configuration for SAP HANA single-host systems>> and <<LUN configuration for SAP HANA multiple-host systems>>
-. Create initiator groups, volumes, and LUNs within the aggregates, as described in <<#lun_create,Creating LUNs, volumes, and mapping LUNs to initiator groups >>.
+. Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:saphana-asa-fc-storage-controller-setup.html#initiator-groups <<Initiator groups>>.
+. Create LUNs  and map them to the servers described in the section  link:hana-asa-fc-storage-controller-setup_single_host.html[LUN configuration for SAP HANA single-host systems] and link:hana-asa-fc-storage-controller-setup_multiple_hosts.html[LUN configuration for SAP HANA multiple-hosts systems]
 
-== Disk shelf connection
+
 
 === NVMe(100GbE)-based disk shelves
 
@@ -76,7 +75,7 @@ Each NS224 NVMe disk shelf is connected with two 100GbE ports per controller, as
 image:saphana_asa_fc_image11a.png["NS224 NVMe disk shelf connection"]
 
 
-== Initiator groups
+=== Initiator groups
 
 An igroup can be configured for each server or for a group of servers that require access to a LUN. The igroup configuration requires the worldwide port names (WWPNs) of the servers.
 
@@ -98,112 +97,3 @@ The initiator groups can be created using the CLI of the ONTAP Cluster.
 ....
 lun igroup create -igroup <igroup name> -protocol fcp -ostype linux -initiator <list of initiators> -vserver <SVM name>
 ....
-
-== LUN configuration for SAP HANA single-host systems
-
-The Linux LVM is being used to increase performance and to address LUN size limitations. 
-At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
-
-|===
-|Logical volume/LUN |Mount point at SAP HANA host |Note
-
-|LV: SID1_data_mnt0000-vol
-|/hana/data/SID1/mnt00001
-|Mounted using /etc/fstab entry
-|LV: SID1_log_mnt00001-vol
-|/hana/log/SID1/mnt00001
-|Mounted using /etc/fstab entry
-|LUN: SID1_shared
-|/hana/shared/SID1
-|Mounted using /etc/fstab entry
-|===
-
-[NOTE]
-With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
-
-
-== LUN configuration for SAP HANA multiple-host systems
-
-The Linux LVM is being used to increase performance and to address LUN size limitations.
-
-At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
-
-|===
-|Logical volume (LV) |Mount point at SAP HANA host |Note
-
-|LV: SID_data_mnt00001-vol
-|/hana/data/SID/mnt00001
-|Mounted using storage connector
-|LV: SID_log_mnt00001-vol
-|/hana/log/SID/mnt00001
-|Mounted using storage connector
-|LV: SID_data_mnt00002-vol
-|/hana/data/SID/mnt00002
-|Mounted using storage connector
-|LV: SID_log_mnt00002-vol
-|/hana/log/SID/mnt00002
-|Mounted using storage connector
-|External NFS share: SID_shared
-|/hana/shared
-|Mounted at all hosts using NFS and /etc/fstab entry
-|===
-
-[NOTE]
-SAP HANA multiple-host systems require the `/hana/shared` file system connected to all hosts of a system. Usually this is a NFS share provided by by an NFS server. 
-It is recommended to use a high available NFS server e.g. such as an NetApp FAS ot AFF system. Another option is to use the build-in NFS server of a LINUX host for this.
-
-[NOTE]
-With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends using four additional LUNs for `/usr/sap/SID` file system each host so that each database host has all its file systems on the central storage.
-
-
-[#lun_create]
-== Creating LUNs and mapping LUNs to initiator groups
-
-You can use NetApp ONTAP System Manager to create storage volumes and LUNs and the map them to the igroups of the servers and the ONTAP CLI. This guide describes the usage of the CLI.
-
-
-[NOTE]
-The `sanlun` tool is part of the NetApp Host Utilities and must be installed on each SAP HANA host. For more information, see the section "host_setup."
-
-
-=== Creating LUNs and mapping LUNs to initiator groups using the CLI
-
-This section shows an example configuration using the command line with ONTAP 9 for a 2+1 SAP HANA multiple host system with SID FC5 using LVM and two LUNs per LVM volume group:
-
-. Create all LUNs.
-+
-
-....
-lun create -path  FC5_data_mnt00001   -size 1t -ostype linux  -class regular
-lun create -path FC5_data2_mnt00001 -size 1t -ostype linux  -class regular
-lun create -path FC5_data_mnt00002 -size 1t -ostype linux  -class regular
-lun create -path FC5_data2_mnt00002 -size 1t -ostype linux  -class regular
-lun create -path FC5_log_mnt00001 -size 260g -ostype linux  -class regular
-lun create FC5_log2_mnt00001 -size 260g -ostype linux  -class regular
-lun create FC5_log_mnt00002 -size 260g -ostype linux  -class regular
-lun create FC5_log2_mnt00002 -size 260g -ostype linux  -class regular
-....
-
-
-. Create the initiator group for all servers belonging to system FC5.
-+
-
-....
-lun igroup create -igroup HANA-FC5 -protocol fcp -ostype linux -initiator 10000090fadcc5fa,10000090fadcc5fb, 10000090fadcc5c1,10000090fadcc5c2,10000090fadcc5c3,10000090fadcc5c4 -vserver hana
-....
-
-. Map all LUNs to created initiator group.
-+
-
-....
-lun map -path FC5_data_mnt00001    -igroup HANA-FC5
-lun map -path FC5_data2_mnt00001  -igroup HANA-FC5
-lun map -path FC5_data_mnt00002  -igroup HANA-FC5
-lun map -path FC5_data2_mnt00002  -igroup HANA-FC5
-lun map -path FC5_log_mnt00001  -igroup HANA-FC5
-lun map -path FC5_log2_mnt00001  -igroup HANA-FC5
-lun map -path FC5_log_mnt00002  -igroup HANA-FC5
-lun map -path FC5_log2_mnt00002  -igroup HANA-FC5
-....
-
-
