@@ -4,7 +4,7 @@ permalink: bp/hana-asa-fc-host-setup.html
 keywords: multipathing, fcp, hba, configure
 summary: Before setting up the host, NetApp SAN host utilities must be downloaded from the NetApp Support site and installed on the HANA servers. The host utility documentation includes information about additional software that must be installed depending on the FCP HBA used.
 ---
-= Host setup
+== Host setup
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -16,7 +16,7 @@ Before setting up the host, NetApp SAN host utilities must be downloaded from th
 
 The documentation also contains information on multipath configurations that are specific to the Linux version used. This document covers the required configuration steps for SLES 12 SP1 or higher and RHEL 7. 2 or later, as described in the https://library.netapp.com/ecm/ecm_download_file/ECMLP2547958[Linux Host Utilities 7.1 Installation and Setup Guide^].
 
-== Configure multipathing
+=== Configure multipathing
 
 [NOTE]
 Steps 1 through 6 must be executed on all worker and standby hosts in an SAP HANA multiple-host configuration.

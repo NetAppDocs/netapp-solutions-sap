@@ -153,7 +153,7 @@ SAP HANA multiple-host systems require the `/hana/shared` file system connected 
 It is recommended to use a high available NFS server e.g. such as an NetApp FAS ot AFF system. Another option is to use the build-in NFS server of a LINUX host for this.
 
 [NOTE]
-With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
+With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends using four additional LUNs for `/usr/sap/SID` file system each host so that each database host has all its file systems on the central storage.
 
 
 [#lun_create]

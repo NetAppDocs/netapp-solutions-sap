@@ -4,7 +4,7 @@ permalink: bp/hana-asa-fc-host-setup_multi.html
 keywords: multipathing, fcp, hba, configure
 summary: Before setting up the host, NetApp SAN host utilities must be downloaded from the NetApp Support site and installed on the HANA servers. The host utility documentation includes information about additional software that must be installed depending on the FCP HBA used.
 ---
-= Host setup
+== Multiple hosts setup
 :hardbreaks:
 :nofooter:
 :icons: font
