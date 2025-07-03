@@ -5,7 +5,7 @@ keywords: SAP HANA, VMware, SnapCenter, backup and recovery
 summary: 
 ---
 
-= SAP HANA data protection with SnapCenter with VMware VMFS and NetApp new ASA systems
+= SAP HANA data protection with SnapCenter with VMware VMFS and NetApp ASA systems
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -13,7 +13,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-This document outlines the best practices for data protection using SnapCenter for HANA systems running on VMware with VMFS and data stored on the new NetApp ASA systems.
+This document outlines the best practices for data protection using SnapCenter for HANA systems running on VMware with VMFS and data stored on NetApp ASA systems.
 
 Author: Nils Bauer, NetApp 
 
