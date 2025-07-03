@@ -11,11 +11,7 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
-//
-// This file was created with NDAC Version 2.0 (August 17, 2020)
-//
-// 2021-05-20 16:47:33.673888
-//
+
 
 [.lead]
 SAP HANA hosts are connected to storage controllers using a redundant FCP infrastructure and multipath software. A redundant FCP switch infrastructure is required to provide fault-tolerant SAP HANA host-to-storage connectivity in case of switch or host bus adapter (HBA) failure. Appropriate zoning must be configured at the switch to allow all HANA hosts to reach the required LUNs on the storage controllers.
@@ -58,7 +54,7 @@ Storage-based Snapshot backups provide significant advantages compared to conven
 * No performance degradation of the SAP HANA database host, network, or storage during backup and recovery operations
 * Space-efficient and bandwidth-efficient replication to secondary storage based on block changes
 
-For detailed information about the SAP HANA backup and recovery solution, see link:../backup/hana-br-scs-overview.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter^].
+For detailed information about the SAP HANA backup and recovery solution, see link:../backup/hana-sc-vmware-smas-scope.html[SAP HANA data protection and high availability with SnapCenter, SnapMirror active sync and VMware Metro Storage Cluster^]. 
 
 [NOTE]
 At creation of this documents only VMware based VMs using VMDKs as storage are supported by SnapCenter for ASA.
@@ -71,26 +67,17 @@ For detailed information about the SAP HANA disaster recovery solutions, see lin
 
 === Storage replication based on SnapMirror
 
-The following figure shows a three-site disaster recovery solution using synchronous SnapMirror replication (SMAS) to the local DR datacenter and asynchronous SnapMirror to replicate the data to the remote DR datacenter.
+The following figure shows a three-site disaster recovery solution using synchronous SnapMirror active sync to the local DR datacenter and asynchronous SnapMirror to replicate the data to the remote DR datacenter.
+SnapMirror active sync enables business services to continue operating even through a complete site failure, supporting applications to fail over transparently using a secondary copy (RPO=0 and RTO=0). There is no manual intervention or custom scripting required to trigger a failover with SnapMirror active sync. 
+Beginning with ONTAP 9.15.1, SnapMirror active sync supports a symmetric active/active capability. Symmetric active/active enable read and write I/O operations from both copies of a protected LUN with bidirectional synchronous replication so that both LUN copies can serve I/O operations locally.
 
-Data replication using synchronous SnapMirror provides an RPO of zero. The distance between the primary and the local DR datacenter is limited to around 100km.
+More details can be found at https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html[SnapMirror active sync overview in ONTAP]..
 
-Protection against failures of both the primary and the local DR site is performed by replicating the data to a third remote DR datacenter using asynchronous SnapMirror. The RPO depends on the frequency of replication updates and how fast they can be transferred. In theory, the distance is unlimited, but the limit depends on the amount of data that must be transferred and the connection that is available between the data centers. Typical RPO values are in the range of 30 minutes to multiple hours.
-
-The RTO for both replication methods primarily depends on the time needed to start the HANA database at the DR site and load the data into memory. With the assumption that the data is read with a throughput of 1000MBps, loading 1TB of data would take approximately 18 minutes.
+The RTO for the  asynchronous SnapMirror replication primarily depends on the time needed to start the HANA database at the DR site and load the data into memory. With the assumption that the data is read with a throughput of 1000MBps, loading 1TB of data would take approximately 18 minutes.
 
 The servers at the DR sites can be used as dev/test systems during normal operation. In the case of a disaster,  the dev/test systems would need to be shut down and started as DR production servers.
 
 Both replication methods allow to you execute DR workflow testing without influencing the RPO and RTO. FlexClone volumes are created on the storage and are attached to the DR testing servers.
 
 image:saphana_asa_fc_image6a.png["Overview of SnapMirror Storage Replication"]
-
-=== NetApp SnapMirror active sync
-
-SnapMirror active sync enables business services to continue operating even through a complete site failure, supporting applications to fail over transparently using a secondary copy. There is no manual intervention or custom scripting required to trigger a failover with SnapMirror active sync. SnapMirror active sync is supported on AFF clusters, All-Flash SAN Array (ASA) clusters, and C-Series (AFF or ASA). SnapMirror active sync protects applications with iSCSI or FCP LUNs.
-
-Beginning with ONTAP 9.15.1, SnapMirror active sync supports a symmetric active/active capability. Symmetric active/active enable read and write I/O operations from both copies of a protected LUN with bidirectional synchronous replication so that both LUN copies can serve I/O operations locally.
-
-More details can be found at https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html[SnapMirror active sync overview in ONTAP]..
-
 

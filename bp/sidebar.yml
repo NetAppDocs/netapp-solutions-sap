@@ -86,7 +86,13 @@ entries:
           - title: SAP HANA storage connector API
             url: /bp/hana-asa-fc-storage-connector-api.html
           - title: Host setup
-            url: /bp/hana-asa-fc-host-setup.html
+            entries:
+             - title: Configuring multipath
+               url: /bp/hana-asa-fc-host-setup.html
+             - title: Single host
+               url: /bp/hana-asa-fc-host-setup_single.html
+             - title: Multi host
+               url: /bp/hana-asa-fc-host-setup_multi.html
           - title: I/O Stack configuration for SAP HANA
             url: /bp/hana-asa-fc-io-stack-configuration.html
           - title: SAP HANA software installation

@@ -119,17 +119,17 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 |===
 
 [NOTE]
-With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
+With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
 
 
-== Volume and LUN configuration for SAP HANA multiple-host systems
+== LUN configuration for SAP HANA multiple-host systems
 
 The Linux LVM is being used to increase performance and to address LUN size limitations.
 
 At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
 
 |===
-|Logical volume (LV) or volume |Mount point at SAP HANA host |Note
+|Logical volume (LV) |Mount point at SAP HANA host |Note
 
 |LV: SID_data_mnt00001-vol
 |/hana/data/SID/mnt00001
@@ -143,17 +143,21 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 |LV: SID_log_mnt00002-vol
 |/hana/log/SID/mnt00002
 |Mounted using storage connector
-|Volume: SID_shared
+|External NFS share: SID_shared
 |/hana/shared
 |Mounted at all hosts using NFS and /etc/fstab entry
 |===
+
+[NOTE]
+SAP HANA multiple-host systems require the `/hana/shared` file system connected to all hosts of a system. Usually this is a NFS share provided by by an NFS server. 
+It is recommended to use a high available NFS server e.g. such as an NetApp FAS ot AFF system. Another option is to use the build-in NFS server of a LINUX host for this.
 
 [NOTE]
 With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
 
 
 [#lun_create]
-== Creating LUNs, volumes, and mapping LUNs to initiator groups
+== Creating LUNs and mapping LUNs to initiator groups
 
 You can use NetApp ONTAP System Manager to create storage volumes and LUNs and the map them to the igroups of the servers and the ONTAP CLI. This guide describes the usage of the CLI.
 

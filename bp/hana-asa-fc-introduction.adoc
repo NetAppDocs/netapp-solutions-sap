@@ -44,7 +44,7 @@ In an SAP HANA multiple-host environment, the standard SAP HANA storage connecto
 
 == SAP HANA tailored data center integration
 
-NetApp AFF storage systems are certified in the SAP HANA TDI program using both NFS (NAS) and FC (SAN) protocols. They can be deployed in any of the current SAP HANA scenarios, such as SAP Business Suite on HANA, S/4HANA, BW/4HANA, or SAP Business Warehouse on HANA in either single-host or multiple-host configurations. Any server that is certified for use with SAP HANA can be combined with NetApp certified storage solutions. The following figure shows an architecture overview.
+NetApp ASA storage systems are certified in the SAP HANA TDI program using FC (SAN) protocols They can be deployed in any of the current SAP HANA scenarios, such as SAP Business Suite on HANA, S/4HANA, BW/4HANA, or SAP Business Warehouse on HANA in either single-host or multiple-host configurations. Any server that is certified for use with SAP HANA can be combined with NetApp certified storage solutions. The following figure shows an architecture overview.
 
 image:saphana_aff_fc_image1.png["Figure showing input/output dialog or representing written content"]
 
@@ -54,9 +54,8 @@ For more information regarding the prerequisites and recommendations for product
 
 = SAP HANA using VMware vSphere
 
-There are several options to connect storage to virtual machines (VMs). The preferred one is to connect the storage volumes with NFS directly out of the guest operating system. This option is described in link:hana-aff-nfs-introduction.html[SAP HANA on NetApp AFF Systems with NFS].
-
-Raw device mappings (RDM), FCP datastores, or VVOL datastores with FCP are supported as well. For both datastore options, only one SAP HANA data or log volume must be stored within the datastore for productive use cases. 
+There are several options to connect storage to virtual machines (VMs). 
+Raw device mappings (RDM), FCP datastores, or VVOL datastores with FCP are supported. For both datastore options, only one SAP HANA data or log volume must be stored within the datastore for productive use cases. 
 
 For more information about using vSphere with SAP HANA, see the following links:
 
