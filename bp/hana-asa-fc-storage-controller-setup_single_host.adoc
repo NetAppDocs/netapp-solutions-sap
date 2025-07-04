@@ -25,19 +25,19 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 |===
 |Logical volume/LUN |Mount point at SAP HANA host |Note
 
-|LV: SID1_data_mnt0000-vol
-|/hana/data/SID1/mnt00001
+|LV: FC5_data_mnt0000-vol
+|/hana/data/FC5/mnt00001
 |Mounted using /etc/fstab entry
-|LV: SID1_log_mnt00001-vol
-|/hana/log/SID1/mnt00001
+|LV: FC5_log_mnt00001-vol
+|/hana/log/FC5/mnt00001
 |Mounted using /etc/fstab entry
-|LUN: SID1_shared
-|/hana/shared/SID1
+|LUN: FC5_shared
+|/hana/shared/FC5
 |Mounted using /etc/fstab entry
 |===
 
 [NOTE]
-With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
+With the described configuration, the `/usr/sap/FC5` directory in which the default home directory of user FC5adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/usr/sap/FC5` directory so that all file systems are on the central storage.
 
 
 
