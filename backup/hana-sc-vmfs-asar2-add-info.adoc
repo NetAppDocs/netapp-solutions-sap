@@ -27,7 +27,7 @@ SnapCenter:
 
 Version history:
 
-[width="100%",cols="20%,20%,60%",options="header",]
+[width="100%",cols="25%,25%,50%",options="header",]
 |===
 |Version |Date |Comment
 |Version 1.0 |07/2025 |Initial version
