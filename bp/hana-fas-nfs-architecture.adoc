@@ -37,7 +37,7 @@ image:saphana-fas-nfs_image4.png["Additional SAP HANA Hosts to an existing stora
 
 Independent of the deployed FAS system, the SAP HANA landscape can also be scaled by adding any of the certified storage controllers to meet the desired node density (the following figure).
 
-image:saphana-fas-nfs_image5.png["Additional HA pair added"]
+image:saphana-fas-nfs_image5a.png["Additional HA pair added"]
 
 == SAP HANA backup
 
