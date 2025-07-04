@@ -28,15 +28,15 @@ The SnapCenter for VMware vSphere plugin must be deployed in the VMware environm
 
 === Storage SVM management IP
 
-Storage SVM hosting the LUN’s must have a management interface configured, otherwise SVM will not be listed in SnapCenter when adding storage with the “add cluster” option and auto discovery operation will fail.
+Storage SVMs hosting the LUN’s must have a management interface configured, otherwise the SVMs will not be listed in SnapCenter when adding storage with the “add cluster” option and auto discovery operation will fail.
 
 image:sc-hana-asrr2-vmfs-image9.png["Figure demonstrating the content being discussed"]
 
 image:sc-hana-asrr2-vmfs-image10.png["Figure demonstrating the content being discussed"]
 
-=== VM parameter disk.EnableUUID
+=== VM disk parameter 
 
-The parameter must be set as described in chapter “VM parameter disk.EnableUUID”, otherwise SnapCenter database auto discovery will fail.
+The parameter must be set as described in chapter link:hana-sc-vmfs-asar2-hana-prov.html[“VM parameter disk.EnableUUID”], otherwise SnapCenter database auto discovery will fail.
 
 image:sc-hana-asrr2-vmfs-image11.png["Figure demonstrating the content being discussed"]
 

@@ -16,7 +16,7 @@ summary:
 
 Detailed information on SAP System Refresh operations using SnapCenter can be found at https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[TR-4667: Automating SAP HANA System Copy and Clone Operations with SnapCenter].
 
-The second HANA system QFS has been provisioned in the same way as described in chapter “HANA system provisioning and installation”.
+The second HANA system QFS has been provisioned in the same way as described in chapter link:hana-sc-vmfs-asar2-hana-prov.html[“HANA system provisioning and installation”].
 
 === Prerequisites
 

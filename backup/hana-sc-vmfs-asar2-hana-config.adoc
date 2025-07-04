@@ -23,7 +23,7 @@ image:sc-hana-asrr2-vmfs-image8.png["Figure demonstrating the content being disc
 A user store key must be created for the user vfsadm. The HANA instance number must be set accordingly for communication the port. In our setup instance number “45” is used.
 
 ....
-vfsadm@hana-8:/usr/sap/VFS/HDB45> hdbuserstore SET VFSKEY hana-8:*34513* SNAPCENTER ++<++password++>++
+vfsadm@hana-8:/usr/sap/VFS/HDB45> hdbuserstore SET VFSKEY hana-8:34513 SNAPCENTER <password>
 
 Retroactive report: Operation succeed.
 ....

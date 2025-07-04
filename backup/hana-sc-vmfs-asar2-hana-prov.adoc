@@ -155,8 +155,8 @@ hana-8:/ # cat /etc/fstab
 /dev/system/swap swap swap defaults 0 0
 /dev/system/root /.snapshots btrfs subvol=/@/.snapshots 0 0
 UUID=FB79-24DC /boot/efi vfat utf8 0 2
-### SAPCC++_++share
-192.168.175.86:/sapcc++_++share /mnt/sapcc-share nfs rw,vers=3,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,nolock 0 0
+### SAPCC_share
+192.168.175.86:/sapcc_share /mnt/sapcc-share nfs rw,vers=3,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,nolock 0 0
 /dev/sdb /hana/data/VFS/mnt00001 xfs relatime,inode64 0 0
 /dev/sdc /hana/log/VFS/mnt00001 xfs relatime,inode64 0 0
 /dev/sdd /hana/shared xfs defaults 0 0

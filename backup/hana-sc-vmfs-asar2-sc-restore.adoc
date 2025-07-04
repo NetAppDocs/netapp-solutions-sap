@@ -13,7 +13,7 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
-With virtual resources stored on VMFS/VMDK’s a SnapCenter restore operations are always done by a clone, mount, copy operation.
+With virtual resources stored on VMFS/VMDK’s SnapCenter restore operations are always done by a clone, mount, copy operation.
 
 [arabic]
 . SnapCenter creates a storage clone based on the selected Snapshot
