@@ -188,7 +188,7 @@ tmpfs 1.0M 0 1.0M 0% /run/credentials/systemd-tmpfiles-setup.service
 tmpfs 6.3G 72K 6.3G 1% /run/user/464
 tmpfs 1.0M 0 1.0M 0% /run/credentials/getty@tty1.service
 tmpfs 6.3G 52K 6.3G 1% /run/user/0
-192.168.175.86:/sapcc++_++share 1.4T 840G 586G 59% /mnt/sapcc-share
+192.168.175.86:/sapcc_share 1.4T 840G 586G 59% /mnt/sapcc-share
 /dev/sdb 95G 1.9G 94G 2% /hana/data/VFS/mnt00001
 /dev/sdc 95G 1.9G 94G 2% /hana/log/VFS/mnt00001
 /dev/sdd 95G 1.9G 94G 2% /hana/shared

@@ -36,7 +36,7 @@ image:sc-hana-asrr2-vmfs-image10.png["Figure demonstrating the content being dis
 
 === VM disk parameter 
 
-The parameter must be set as described in chapter link:hana-sc-vmfs-asar2-hana-prov.html[“VM parameter disk.EnableUUID”], otherwise SnapCenter database auto discovery will fail.
+The parameter must be set as described in chapter link:hana-sc-vmfs-asar2-hana-prov.html#vm-parameter-disk-enableuuid[“VM parameter disk.EnableUUID”], otherwise SnapCenter database auto discovery will fail.
 
 image:sc-hana-asrr2-vmfs-image11.png["Figure demonstrating the content being discussed"]
 

@@ -20,8 +20,7 @@ The second HANA system QFS has been provisioned in the same way as described in 
 
 === Prerequisites
 
-The current version of SnapCenter (6.1P1) has some limitations which are planned to get fixed with the SnapCenter 6.2 release.
-
+The current version of SnapCenter (6.1P1) has some limitations which are planned to get fixed with next releases.
 [arabic]
 . It is required to restart the spl process after each “clone create” and “clone delete” workflows using the command “systemctl restart spl” at the target HANA host.
 . The HANA VMs used as source and target of the SAP system refresh operation must run on the same ESX host.

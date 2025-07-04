@@ -70,7 +70,7 @@ tmpfs 1.0M 0 1.0M 0% /run/credentials/systemd-vconsole-setup.service
 /dev/sdd 95G 15G 81G 16% /hana/shared
 /dev/sda1 253M 5.9M 247M 3% /boot/efi
 tmpfs 1.0M 0 1.0M 0% /run/credentials/systemd-tmpfiles-setup.service
-192.168.175.86:/sapcc++_++share 1.4T 858G 568G 61% /mnt/sapcc-share
+192.168.175.86:/sapcc_share 1.4T 858G 568G 61% /mnt/sapcc-share
 tmpfs 6.3G 72K 6.3G 1% /run/user/464
 tmpfs 1.0M 0 1.0M 0% /run/credentials/getty@tty1.service
 tmpfs 6.3G 52K 6.3G 1% /run/user/0
