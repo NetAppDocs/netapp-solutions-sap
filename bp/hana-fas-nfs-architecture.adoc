@@ -24,7 +24,7 @@ A redundant switching infrastructure is recommended to provide fault-tolerant SA
 
 Different models of the FAS system product family can be mixed and matched at the storage layer to allow for growth and differing performance and capacity needs. The maximum number of SAP HANA hosts that can be attached to the storage system is defined by the SAP HANA performance requirements and the model of NetApp controller used. The number of required disk shelves is only determined by the capacity and performance requirements of the SAP HANA systems. The following figure shows an example configuration with eight SAP HANA hosts attached to a storage high availability (HA) pair.
 
-image:saphana-fas-nfs_image2.png["Figure showing input/output dialog or representing written content"]
+image:saphana-fas-nfs_image2.png["Eight SAP HANA hosts attached to a storage high availability (HA) pair"]
 
 The architecture can be scaled in two dimensions:
 
@@ -33,11 +33,11 @@ The architecture can be scaled in two dimensions:
 
 The following figure shows an example configuration in which more SAP HANA hosts are attached to the storage controllers. In this example, more disk shelves are necessary to fulfill both the capacity and performance requirements of 16 SAP HANA hosts. Depending on the total throughput requirements, additional 10GbE (or faster) connections to the storage controllers must be added.
 
-image:saphana-fas-nfs_image4.png["Figure showing input/output dialog or representing written content"]
+image:saphana-fas-nfs_image4.png["Additional SAP HANA Hosts to an existing storage controller HA pair"]
 
 Independent of the deployed FAS system, the SAP HANA landscape can also be scaled by adding any of the certified storage controllers to meet the desired node density (the following figure).
 
-image:saphana-fas-nfs_image5.png["Figure showing input/output dialog or representing written content"]
+image:saphana-fas-nfs_image5.png["Additional HA pair added"]
 
 == SAP HANA backup
 
@@ -49,7 +49,7 @@ NetApp SnapMirror technology allows Snapshot copies that were created on one sto
 
 The database logs can be backed up directly to the secondary storage by using an NFS mount, as shown in the following figure.
 
-image:saphana-fas-nfs_image6.png["Figure showing input/output dialog or representing written content"]
+image:saphana_asa_fc_image5a.png["SnapCenter Overview"]
 
 Storage-based Snapshot backups provide significant advantages when compared to conventional file-based backups. These advantages include, but are not limited to, the following:
 
