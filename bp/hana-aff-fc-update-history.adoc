@@ -47,4 +47,5 @@ New OS releases (SLES15SP2, RHEL 8)
 |September 2024 | New Storage Systems (ASA A-Series)
 | November 2024 | New Storage Systems
 | February 2025 | New Storage Systems
+| July 2025 | Minor updates
 |===
