@@ -209,6 +209,6 @@ The size of the RAM, net data size on the disk of each SAP HANA host, and the Sn
 
 The following figure summarizes the sizing process.
 
-image:saphana_aff_fc_image8a.png["SAP HANA Sizing Process"]
+image:saphana_aff_fc_image8b.png["SAP HANA Sizing Process"]
 
 

@@ -1,0 +1,115 @@
+---
+sidebar: sidebar
+permalink: bp/hana-asa-fc-host-setup_multi.html
+keywords: multipathing, fcp, hba, configure
+summary: Before setting up the host, NetApp SAN host utilities must be downloaded from the NetApp Support site and installed on the HANA servers. The host utility documentation includes information about additional software that must be installed depending on the FCP HBA used.
+---
+== Multiple hosts setup
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+This chapter describes the setup of a 2+1 SAP HANA multiple host system as example.
+
+=== Create LVM volume groups and logical volumes
+
+. Initialize all LUNs as a physical volume.
++
+
+....
+pvcreate /dev/mapper/hana-FC5_data_mnt00001
+pvcreate /dev/mapper/hana-FC5_data2_mnt00001
+pvcreate /dev/mapper/hana-FC5_data_mnt00002
+pvcreate /dev/mapper/hana-FC5_data2_mnt00002
+pvcreate /dev/mapper/hana-FC5_log_mnt00001
+pvcreate /dev/mapper/hana-FC5_log2_mnt00001
+pvcreate /dev/mapper/hana-FC5_log_mnt00002
+pvcreate /dev/mapper/hana-FC5_log2_mnt00002
+....
+
+. Create the volume groups for each data and log partition.
++
+
+....
+vgcreate FC5_data_mnt00001 /dev/mapper/hana-FC5_data_mnt00001 /dev/mapper/hana-FC5_data2_mnt00001
+vgcreate FC5_data_mnt00002 /dev/mapper/hana-FC5_data_mnt00002 /dev/mapper/hana-FC5_data2_mnt00002
+vgcreate FC5_log_mnt00001 /dev/mapper/hana-FC5_log_mnt00001 /dev/mapper/hana-FC5_log2_mnt00001
+vgcreate FC5_log_mnt00002 /dev/mapper/hana-FC5_log_mnt00002 /dev/mapper/hana-FC5_log2_mnt00002
+....
++
+
+. Create a logical volume for each data and log partition. Use a stripe size that is equal to the number of LUNs used per volume group (in this example,  it is two) and a stripe size of 256k for data and 64k for log. SAP only supports one logical volume per volume group.
++
+
+....
+lvcreate --extents 100%FREE -i 2 -I 256k --name vol FC5_data_mnt00001
+lvcreate --extents 100%FREE -i 2 -I 256k --name vol FC5_data_mnt00002
+lvcreate --extents 100%FREE -i 2 -I 64k --name vol FC5_log_mnt00002
+lvcreate --extents 100%FREE -i 2 -I 64k --name vol FC5_log_mnt00001
+....
+
+. Scan the physical volumes, volume groups, and vol groups at all other hosts.
+
+....
+modprobe dm_mod
+pvscan
+vgscan
+lvscan
+....
+
+[NOTE]
+If these commands do not find the volumes, a restart is required.
+
+To mount the logical volumes, the logical volumes must be activated. To activate the volumes, run the following command:
+
+....
+vgchange -a y
+....
+
+=== Create file systems
+
+Create the XFS file system on all data and log logical volumes.
+
+....
+mkfs.xfs FC5_data_mnt00001-vol
+mkfs.xfs FC5_data_mnt00002-vol
+mkfs.xfs FC5_log_mnt00001-vol
+mkfs.xfs FC5_log_mnt00002-vol
+....
+
+
+=== Create mount points
+
+To create the required mount point directories, set permissions and create mount points on all worker and standby hosts.
+
+
+....
+sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
+sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
+sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00002
+sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00002
+sapcc-hana-tst:/ # mkdir -p /hana/shared
+sapcc-hana-tst:/ # chmod –R 777 /hana/log/FC5
+sapcc-hana-tst:/ # chmod –R 777 /hana/data/FC5
+sapcc-hana-tst:/ # chmod 777 /hana/shared
+....
+
+
+=== Mount file systems
+
+To mount the `/hana/shared` file systems during system boot using the `/etc/fstab` configuration file, add the `/hana/shared` file system to the `/etc/fstab` configuration file of each host.
+
+
+....
+sapcc-hana-tst:/ # cat /etc/fstab
+<storage-ip>:/hana_shared /hana/shared nfs rw,vers=3,hard,timeo=600, intr,noatime,nolock 0 0
+....
+[NOTE]
+All the data and log file systems are mounted through the SAP HANA storage connector.
+
+To mount the file systems, run the `mount –a` command at each host.
+
+

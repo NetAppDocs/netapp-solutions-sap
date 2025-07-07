@@ -43,4 +43,5 @@ New OS releases (SLES15SP2, RHEL 8)
 | September 2022 | New OS-Releases 
 | September 2024 | New Storage Systems 
 | February 2025 | New Storage System
+| July 2025 | Minor updates
 |===

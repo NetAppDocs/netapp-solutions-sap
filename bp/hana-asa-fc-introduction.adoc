@@ -1,0 +1,60 @@
+---
+sidebar: sidebar
+permalink: bp/hana-asa-fc-introduction.html
+keywords: introduction, raw device mapping, rdm, tailored data center integration, FCP datastore
+summary: The NetApp ASA product family is certified for use with SAP HANA in TDI projects. This guide provides best practices for SAP HANA on this platform.
+---
+
+= SAP HANA on NetApp ASA Systems with Fibre Channel Protocol
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+The NetApp ASA product family is certified for use with SAP HANA in TDI projects. This guide provides best practices for SAP HANA on this platform.
+
+Marco Schoen, NetApp
+
+== Introduction
+
+The NetApp ASA A-Series and ASA C-Series product families have been certified for use with SAP HANA in tailored data center integration (TDI) projects.
+This guide describes the best practices for the following certified models:
+
+* ASA A20, ASA A30, ASA A50, ASA A70, ASA A90, ASA A1K
+* ASA C30
+
+
+For a complete list of NetApp certified storage solutions for SAP HANA, see the https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13[Certified and supported SAP HANA hardware directory^].
+
+This document describes ASA configurations that use the Fibre Channel Protocol (FCP).
+
+[NOTE]
+The configuration described in this paper is necessary to achieve the required SAP HANA KPIs and the best performance for SAP HANA. Changing any settings or using features not listed herein might cause performance degradation or unexpected behavior and should only be done if advised by NetApp support.
+
+
+In an SAP HANA multiple-host environment, the standard SAP HANA storage connector is used to provide fencing in the event of an SAP HANA host failover. Always refer to the relevant SAP notes for operating system configuration guidelines and HANA specific Linux kernel dependencies. For more information, see https://launchpad.support.sap.com/[SAP Note 2235581 – SAP HANA Supported Operating Systems^].
+
+== SAP HANA tailored data center integration
+
+NetApp ASA storage systems are certified in the SAP HANA TDI program using FC (SAN) protocols They can be deployed in any of the current SAP HANA scenarios, such as SAP Business Suite on HANA, S/4HANA, BW/4HANA, or SAP Business Warehouse on HANA in either single-host or multiple-host configurations. Any server that is certified for use with SAP HANA can be combined with NetApp certified storage solutions. The following figure shows an architecture overview.
+
+image:saphana_aff_fc_image1.png["Figure showing input/output dialog or representing written content"]
+
+For more information regarding the prerequisites and recommendations for productive SAP HANA systems, see the following resource:
+
+* http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html[SAP HANA Tailored Data Center Integration Frequently Asked Questions^]
+
+= SAP HANA using VMware vSphere
+
+There are several options to connect storage to virtual machines (VMs). 
+Raw device mappings (RDM), FCP datastores, or VVOL datastores with FCP are supported. For both datastore options, only one SAP HANA data or log volume must be stored within the datastore for productive use cases. 
+
+For more information about using vSphere with SAP HANA, see the following links:
+
+* https://help.sap.com/docs/SUPPORT_CONTENT/virtualization/3362185751.html[SAP HANA on VMware vSphere - Virtualization - Community Wiki^]
+* https://www.vmware.com/docs/sap_hana_on_vmware_vsphere_best_practices_guide-white-paper[SAP HANA on VMware vSphere Best Practices Guide^]
+* https://launchpad.support.sap.com/[2161991 - VMware vSphere configuration guidelines - SAP ONE Support Launchpad (Login required)^]
+
+

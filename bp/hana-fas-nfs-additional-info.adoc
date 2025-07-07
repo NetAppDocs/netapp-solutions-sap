@@ -31,7 +31,7 @@ https://www.netapp.com/support-and-training/documentation/[https://www.netapp.co
 
 * SAP Certified Enterprise Storage Hardware for SAP HANA
 +
-http://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/enterprise-storage.html[http://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/enterprise-storage.html^]
+https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/[https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/^]
 * SAP HANA Storage Requirements
 +
 https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html[https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html^]
