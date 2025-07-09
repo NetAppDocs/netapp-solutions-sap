@@ -15,7 +15,7 @@ summary:
 
 HANA best practices:
 
-* https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_fc_introduction.html#sap-hana-tailored-data-center-integration[SAP HANA on NetApp AFF Systems with Fibre Channel Protocol]
+* https://https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html[SAP HANA on NetApp ASA Systems with Fibre Channel Protocol].
 
 SnapCenter:
 

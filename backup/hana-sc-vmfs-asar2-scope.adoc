@@ -13,7 +13,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-This document outlines the best practices for data protection using SnapCenter for HANA systems running on VMware with VMFS and data stored on NetApp ASA systems.
+This document outlines the best practices for data protection using SnapCenter for HANA systems running on VMware with datastores using VMFS and LUNs stored on NetApp ASA systems.
 
 Author: Nils Bauer, NetApp 
 
