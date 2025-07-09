@@ -18,10 +18,24 @@ entries:
           - title: Time synchronization
             url: /bp/hana-aff-fc-time-synchronization.html
           - title: Storage controller setup
+            entries:
+              - title: General setup
+                url: /bp/hana-aff-fc-storage-controller-setup.html
+              - title: Single host LUN configuration 
+                url: /bp/hana-aff-fc-storage-controller-setup_single_host.html
+              - title: Multiple hosts LUN configuration 
+                url: /bp/hana-aff-fc-storage-controller-setup_multiple_hosts.html
             url: /bp/hana-aff-fc-storage-controller-setup.html
           - title: SAP HANA storage connector API
             url: /bp/hana-aff-fc-storage-connector-api.html
           - title: Host setup
+            entries:
+             - title: Configuring multipathing
+               url: /bp/hana-aff-fc-host-setup.html
+             - title: Single host
+               url: /bp/hana-aff-fc-host-setup_single.html
+             - title: Multi hosts
+               url: /bp/hana-aff-fc-host-setup_multi.html
             url: /bp/hana-aff-fc-host-setup.html
           - title: I/O Stack configuration for SAP HANA
             url: /bp/hana-aff-fc-io-stack-configuration.html
