@@ -32,7 +32,7 @@ Since HANA non-data volumes are always manual configured resources in SnapCenter
 
 SAP HANA multiple host systems must be configured using a central HANA plugin and are therefore manual configured resources by default. Such HANA systems are not supported by SnapCenter, when using VMware VMFS or SnapMirror active sync.
 
-=== SnapCenter for VMWare vSphere plugin
+=== SnapCenter for VMware vSphere plugin
 
 The SnapCenter for VMware vSphere plugin must be deployed in the VMware environment.
 
