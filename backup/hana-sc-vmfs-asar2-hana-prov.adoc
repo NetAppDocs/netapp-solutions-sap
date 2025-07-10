@@ -16,13 +16,17 @@ This chapter describes the installation and configuration of the SAP HANA system
 
 == Storage configuration
 
-To meet the storage performance KPIs defined by SAP for production HANA systems, dedicated LUNs and datastores must be configured for each filesystem of the HANA system. Datastores must not be shared among multiple HANA systems or other workloads.
+To meet the storage performance KPIs defined by SAP for production HANA systems, dedicated LUNs and datastores must be configured for the data and log filesystems of the HANA system. Datastores must not be shared among multiple HANA systems or other workloads.
 
 ONTAP tools for VMware (OTV) has been used to provision the three datastores for the HANA system VFS.
 
 * hana++_++data++_++VFS
 * hana++_++log++_++VFS
 * hana++_++shared++_++VFS
+
+[NOTE]
+The datastore for the HANA shared filesystem can also be shared across multiple HANA systems.
+
 
 image:sc-hana-asrr2-vmfs-image2.png["Figure demonstrating the content being discussed"]
 
