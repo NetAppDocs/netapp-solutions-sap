@@ -65,6 +65,48 @@ entries:
         url: /bp/hana-aff-nfs-additional-info.html
       - title: Update history
         url: /bp/hana-aff-nfs-update-history.html  
+  - title: SAP HANA on NetApp ASA Systems with FCP Configuration Guide 
+    entries:
+      - title: Introduction
+        url: /bp/hana-asa-fc-introduction.html
+      - title: Architecture
+        url: /bp/hana-asa-fc-architecture.html
+      - title: Storage sizing
+        url: /bp/hana-asa-fc-storage-sizing.html
+      - title: Infrastructure setup and configuration
+        entries:
+          - title: Infrastructure setup and configuration overview
+            url: /bp/hana-asa-fc-infra-setup-config-overview.html
+          - title: SAN fabric setup
+            url: /bp/hana-asa-fc-san-fabric-setup.html
+          - title: Time synchronization
+            url: /bp/hana-asa-fc-time-synchronization.html
+          - title: Storage controller setup
+            entries:
+              - title: General setup
+                url: /bp/hana-asa-fc-storage-controller-setup.html
+              - title: Single host LUN configuration 
+                url: /bp/hana-asa-fc-storage-controller-setup_single_host.html
+              - title: Multiple hosts LUN configuration 
+                url: /bp/hana-asa-fc-storage-controller-setup_multiple_hosts.html  
+          - title: SAP HANA storage connector API
+            url: /bp/hana-asa-fc-storage-connector-api.html
+          - title: Host setup
+            entries:
+             - title: Configuring multipathing
+               url: /bp/hana-asa-fc-host-setup.html
+             - title: Single host
+               url: /bp/hana-asa-fc-host-setup_single.html
+             - title: Multi hosts
+               url: /bp/hana-asa-fc-host-setup_multi.html
+          - title: I/O Stack configuration for SAP HANA
+            url: /bp/hana-asa-fc-io-stack-configuration.html
+          - title: SAP HANA software installation
+            url: /bp/hana-asa-fc-software-install.html
+      - title: Where to find additional information
+        url: /bp/hana-asa-fc-additional-info.html
+      - title: Update history
+        url: /bp/hana-asa-fc-update-history.html      
   - title: SAP HANA on NetApp FAS Systems with NFS Configuration Guide
     entries:
       - title: Introduction

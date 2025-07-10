@@ -1,0 +1,26 @@
+---
+sidebar: sidebar
+permalink: bp/hana-asa-fc-infra-setup-config-overview.html
+keywords:
+summary:
+---
+== Infrastructure setup and configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+//
+// This file was created with NDAC Version 2.0 (August 17, 2020)
+//
+// 2021-05-20 16:47:33.730667
+//
+
+[.lead]
+The following sections provide SAP HANA infrastructure setup and configuration guidelines and describes all the steps needed to set up an SAP HANA system. Within these sections, the following example configurations are used:
+
+* HANA system with SID=FC5
+** SAP HANA single and multiple host
+
+
