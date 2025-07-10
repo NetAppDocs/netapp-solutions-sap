@@ -59,7 +59,7 @@ For new LUNs, the policy can be applied directly:
 lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size <size> -ostype <e.g. linux>  -qos-policy-group <policy-name>
 ....
 
-It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section link:hana-aff-fc-host-setup.html#create-lvm-volume-groups-and-logical-volumes[Host Setup].
+It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section link:hana-aff-fc-host-setup.html[Host Setup].
 
 [NOTE]
 The limit applies also to reads. Therefore use enough LUNs to fulfil the required SLAs for SAP HANA database startup time and for backups.
@@ -83,9 +83,10 @@ The following overview summarizes the required storage configuration steps. Each
 . Create and configure the required aggregates, as described in <<Aggregate configuration>>.
 . Create a storage virtual machine (SVM), as described in <<Storage virtual machine configuration>>.
 . Create logical interfaces (LIFs), as described in <<Logical interface configuration>>.
-. Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:hana-fas-fc-storage-controller-setup.html#initiator-groups <<Initiator groups>>.
-. Create volumes and LUNs within the aggregates as described in the section  <<Volume and LUN configuration for SAP HANA single-host systems>> and <<Volume and LUN configuration for SAP HANA multiple-host systems>>
-. Create initiator groups, volumes, and LUNs within the aggregates, as described in <<#lun_create,Creating LUNs, volumes, and mapping LUNs to initiator groups >>.
+. Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section <<Initiator groups>>.
+. Create and configure volumes and LUNs within the aggregates as described in the section  link:hana-aff-fc-host-setup_single_host.html[Single Host Setup] for single hosts 
+or in section link:hana-aff-fc-host-setup_multiple_hosts.html[Multiple Host Setup]
+
 
 == Disk shelf connection
 
@@ -135,8 +136,7 @@ During the SVM creation with ONTAP System Manager, you can select all of the req
 
 image:saphana_aff_fc_image14a.png["SVM creation"]
 
-[NOTE] 
-ASA systems launched after August 2024 do not require this step as it as automatically done
+
 
 == Initiator groups
 
