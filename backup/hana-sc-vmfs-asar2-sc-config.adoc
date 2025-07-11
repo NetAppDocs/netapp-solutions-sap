@@ -1,0 +1,83 @@
+---
+sidebar: sidebar
+permalink: backup/hana-sc-vmfs-asar2-sc-config.html
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery
+summary: 
+---
+
+= SnapCenter configuration
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+== Pre-requisites
+
+=== SnapCenter HANA resource must be auto discovered
+
+Resources configured with VMware VMFS must be auto discovered by SnapCenter to enable specific operations required for these configurations.
+
+Since HANA non-data volumes are always manually configured resources in SnapCenter, they are not supported by SnapCenter with VMFS.
+
+SAP HANA multiple host systems must be configured using a central HANA plugin and are therefore manually configured by default. Such systems are also not supported by SnapCenter when using VMware VMFS.
+
+=== SnapCenter for VMWare vSphere plugin
+
+The SnapCenter for VMware vSphere plugin must be deployed in the VMware environment.
+
+=== Storage SVM management IP
+
+Storage SVMs hosting the LUN’s must have a management interface configured, otherwise the SVMs will not be listed in SnapCenter when adding storage with the “add cluster” option and auto discovery operation will fail.
+
+image:sc-hana-asrr2-vmfs-image9.png["Figure demonstrating the content being discussed"]
+
+image:sc-hana-asrr2-vmfs-image10.png["Figure demonstrating the content being discussed"]
+
+=== VM disk parameter 
+
+The parameter must be set as described in chapter link:hana-sc-vmfs-asar2-hana-prov.html#vm-parameter-disk-enableuuid[“VM parameter disk.EnableUUID”], otherwise SnapCenter database auto discovery will fail.
+
+image:sc-hana-asrr2-vmfs-image11.png["Figure demonstrating the content being discussed"]
+
+=== Configure SnapCenter to use REST APIs for storage communication
+
+SnapCenter must be configured to use REST APIs for storage communications. Otherwise, the create Snapshot operation will fail with the error message shown below.
+
+image:sc-hana-asrr2-vmfs-image12.png["Figure demonstrating the content being discussed"]
+
+The parameter "IsRestEnabledForStorageConnection" in the configuration file +
+C:++\++Program Files++\++NetApp++\++SMCore++\++SMCoreServiceHost.dll.config must be set to “true”.
+
+++<++add key="IsRestEnabledForStorageConnection" value="true" /++>++
+
+image:sc-hana-asrr2-vmfs-image13.png["Figure demonstrating the content being discussed"]
+
+After the change has been made, SnapCenter SMCore Service must be stopped and started.
+
+image:sc-hana-asrr2-vmfs-image14.png["Figure demonstrating the content being discussed"]
+
+== Add VMware Plugin to SnapCenter
+
+Before the host can be added in SnapCenter the SnapCenter plugin for VMware vSphere must be deployed within the VMware environment. See also https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html[Deploy SnapCenter Plug-in for VMware vSphere].
+
+[NOTE]
+Credentials must be set during host add workflow, where vSphere can be selected as a host type.
+
+image:sc-hana-asrr2-vmfs-image15.png["Figure demonstrating the content being discussed"]
+
+== Add HANA host
+
+[NOTE]
+ No specific requirements. Plugin deployment and auto discovery is done as usual.
+
+image:sc-hana-asrr2-vmfs-image16.png["Figure demonstrating the content being discussed"]
+
+With the auto discovery process SnapCenter detects that the HANA resource is running virtualized with VMFS.
+
+image:sc-hana-asrr2-vmfs-image17.png["Figure demonstrating the content being discussed"]
+
+== Policy and resource protection configuration
+
+Nothing specific to VMware with VMFS.
+
