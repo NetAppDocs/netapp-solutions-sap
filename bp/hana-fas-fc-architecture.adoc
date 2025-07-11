@@ -89,6 +89,6 @@ Synchronous replication offers StrictSync mode. If the write to secondary storag
 
 The following figure shows a high-level overview of the solution. The storage cluster at each site provides local high availability and is used for production workloads. The data at each site is synchronously replicated to the other location and is available in case of disaster failover.
 
-image:saphana_fas_fc_image7.png["Figure showing input/output dialog or representing written content"]
+image:saphana_fas_image8.png["NetApp MetroCluster IP"]
 
 
