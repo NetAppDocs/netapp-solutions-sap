@@ -84,7 +84,7 @@ The servers at the DR sites can be used as dev/test systems during normal operat
 
 Both replication methods allow to you execute DR workflow testing without influencing the RPO and RTO. FlexClone volumes are created on the storage and are attached to the DR testing servers.
 
-image:saphana_aff_nfs_image7a.png["NetApp SnapMirror"]
+image:saphana_aff_nfs_image7b.png["NetApp SnapMirror"]
 
 Synchronous replication offers StrictSync mode. If the write to secondary storage is not completed for any reason, the application I/O fails, thereby ensuring that the primary and secondary storage systems are identical. Application I/O to the primary resumes only after the SnapMirror relationship returns to the InSync status. If the primary storage fails, application I/O can be resumed on the secondary storage after failover with no loss of data. In StrictSync mode, the RPO is always zero.
 
