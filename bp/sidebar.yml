@@ -164,10 +164,20 @@ entries:
           - title: Time synchronization
             url: /bp/hana-fas-fc-time-synchronization.html
           - title: Storage controller setup
+            entries:
+              - title: Single host LUN configuration 
+                url: /bp/hana-fas-fc-storage-controller-setup_single_host.html
+              - title: Multiple hosts LUN configuration 
+                url: /bp/hana-fas-fc-storage-controller-setup_multiple_hosts.html  
             url: /bp/hana-fas-fc-storage-controller-setup.html
           - title: SAP HANA storage connector API
             url: /bp/hana-fas-fc-storage-connector-api.html
           - title: Host setup
+            entries:
+             - title: Single host
+               url: /bp/hana-fas-fc-host-setup_single_host.html
+             - title: Multiple hosts
+               url: /bp/hana-fas-fc-host-setup_multiple_hosts.html
             url: /bp/hana-fas-fc-host-setup.html
           - title: I/O stack configuration for SAP HANA
             url: /bp/hana-fas-fc-io-stack-configuration.html
