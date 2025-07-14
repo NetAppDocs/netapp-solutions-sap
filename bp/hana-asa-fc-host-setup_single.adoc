@@ -78,9 +78,7 @@ The multiple host example commands show a 2+1 multiple-host HANA system.
 
 === Create mount points
 
-To create the required mount point directories, take one of the following actions:
-
-* For a single-host system, set permissions and create mount points on the database host.
+Create the required mount point directories, and set the permissions on the database host:
 
 ....
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
@@ -94,10 +92,8 @@ sapcc-hana-tst:/ # chmod 777 /hana/shared
 
 === Mount file systems
 
-To mount file systems during system boot using the `/etc/fstab` configuration file, complete the following steps:
+To mount file systems during system boot using the `/etc/fstab` configuration file, add the required file systems to the `/etc/fstab` configuration file:
 
-* For a single-host system, add the required file systems to the `/etc/fstab` configuration file.
-+
 
 ....
 # cat /etc/fstab
@@ -107,7 +103,7 @@ To mount file systems during system boot using the `/etc/fstab` configuration fi
 ....
 [NOTE]
 The XFS file systems for the data and log LUNs must be mounted with the `relatime` and `inode64` mount options.
-+
+
 
 To mount the file systems, run the `mount –a` command at the host.
 

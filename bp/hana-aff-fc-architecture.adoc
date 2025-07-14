@@ -72,7 +72,7 @@ The following figure shows a three-site disaster recovery solution using synchro
 SnapMirror active sync enables business services to continue operating even through a complete site failure, supporting applications to fail over transparently using a secondary copy (RPO=0 and RTO=0). There is no manual intervention or custom scripting required to trigger a failover with SnapMirror active sync. 
 Beginning with ONTAP 9.15.1, SnapMirror active sync supports a symmetric active/active capability. Symmetric active/active enable read and write I/O operations from both copies of a protected LUN with bidirectional synchronous replication so that both LUN copies can serve I/O operations locally.
 
-More details can be found at https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html[SnapMirror active sync overview in ONTAP]..
+More details can be found at https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html[SnapMirror active sync overview in ONTAP^].
 
 The RTO for the  asynchronous SnapMirror replication primarily depends on the time needed to start the HANA database at the DR site and load the data into memory. With the assumption that the data is read with a throughput of 1000MBps, loading 1TB of data would take approximately 18 minutes.
 

@@ -84,11 +84,11 @@ The following overview summarizes the required storage configuration steps. Each
 . Create a storage virtual machine (SVM), as described in <<Storage virtual machine configuration>>.
 . Create logical interfaces (LIFs), as described in <<Logical interface configuration>>.
 . Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section <<Initiator groups>>.
-. Create and configure volumes and LUNs within the aggregates as described in the section  link:hana-aff-fc-host-setup_single_host.html[Single Host Setup] for single hosts 
-or in section link:hana-aff-fc-host-setup_multiple_hosts.html[Multiple Host Setup]
+. Create and configure volumes and LUNs within the aggregates as described in the section  link:hana-aff-fc-storage-controller-setup_single_host.html[Single Host Setup] for single hosts 
+or in section link:hana-aff-fc-storage-controller-setup_multiple_hosts.html[Multiple Host Setup]
 
 
-== Disk shelf connection
+== Disk shelf connections
 
 === SAS-based disk shelves
 
@@ -99,7 +99,7 @@ With the DS224C disk shelf, quad-path SAS cabling can also be used but is not re
 
 image:saphana_aff_fc_image10.png["DS224C disk shelf connection"]
 
-=== NVMe(100GbE)-based disk shelves
+=== NVMe-based disk shelves
 
 Each NS224 NVMe disk shelf is connected with two 100GbE ports per controller, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair. ADPv2 is also used for the NS224 disk shelf.
 

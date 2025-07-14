@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-aff-fc-host-setup_single.html
-keywords: multipathing, fcp, hba, configure
-summary: Before setting up the host, NetApp SAN host utilities must be downloaded from the NetApp Support site and installed on the HANA servers. The host utility documentation includes information about additional software that must be installed depending on the FCP HBA used.
+permalink: bp/hana-fas-fc-host-setup_single_host.html
+keywords: configure, multipathing, create, lvm, volume, groups, logical, mount, points, file, systems
+summary: The documentation also contains information about multipath configurations that are specific to the Linux version used.
 ---
 == Single host setup
 :hardbreaks:
@@ -10,6 +10,7 @@ summary: Before setting up the host, NetApp SAN host utilities must be downloade
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
 
 
 [.lead]
@@ -74,9 +75,11 @@ mkfs.xfs /dev/mapper/svm1-FC5_shared
 ....
 
 
+
 === Create mount points
 
 Create the required mount point directories, and set the permissions on the database host:
+
 ....
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
