@@ -4,7 +4,7 @@ permalink: bp/hana-asa-fc-storage-controller-setup_single_host.html
 keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm,
 summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding Data ONTAP setup and configuration guides.
 ---
-== Storage controller setup - single host
+== Single host
 :hardbreaks:
 :nofooter:
 :icons: font

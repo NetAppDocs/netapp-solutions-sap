@@ -4,26 +4,21 @@ permalink: bp/hana-fas-fc-infra-setup-config-overview.html
 keywords: sap, hana, infrastructure, setup, configuration, guidelines, steps, host, data
 summary: The following sections provide SAP HANA infrastructure setup and configuration guidelines.
 ---
-= Overview
+= Infrastructure setup and configuration
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
 
-//
-// This file was created with NDAC Version 2.0 (August 17, 2020)
-//
-// 2021-05-20 16:40:51.327593
-//
+
 
 [.lead]
-The following sections provide SAP HANA infrastructure setup and configuration guidelines. All the steps needed to set up SAP HANA are included. An SVM is created to host the data. Within these sections, the following example configurations are used:
+The following sections provide SAP HANA infrastructure setup and configuration guidelines and describes all the steps needed to set up an SAP HANA system. Within these sections, the following example configurations are used:
 
-* HANA system with SID=SS3 
-** SAP HANA single and multiple host
+
+* HANA system with SID=FC5 
+** SAP HANA single and multiple host using Linux logical volume manager (LVM)
 ** SAP HANA single host using SAP HANA multiple partitions
-* HANA system with SID=FC5 using Linux logical volume manager (LVM)
-** SAP HANA single and multiple host
 
 
