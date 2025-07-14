@@ -4,7 +4,7 @@ permalink: bp/hana-fas-fc-storage-controller-setup_single_host.html
 keywords: storage, controller, setup, storage, efficiency volume, encryption, quality, configure, disk, connection, aggregate
 summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding ONTAP setup and configuration guides.
 ---
-== Storage controller setup - single host
+== Single host
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -109,6 +109,18 @@ At the SAP HANA host, volume groups and logical volumes must be created and moun
 [NOTE]
 With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
 
+== Volume options
+
+The volume options listed in the following table must be verified and set on all volumes used for SAP HANA.
+
+|===
+|Action |ONTAP 9
+
+|Disable automatic Snapshot copies
+|vol modify –vserver <vserver-name> -volume <volname> -snapshot-policy none
+|Disable visibility of Snapshot directory
+|vol modify -vserver <vserver-name> -volume <volname> -snapdir-access false
+|===
 
 === Creating LUNs, volumes, and mapping LUNs to initiator groups
 
