@@ -20,10 +20,10 @@ summary: To learn more about the information described in this document, refer t
 [.lead]
 To learn more about the information described in this document, refer to the following documents and/or websites:
 
-* link:../index.html[SAP HANA Software Solutions]
-* link:../backup/hana-dr-sr-pdf-link.html[TR-4646: SAP HANA Disaster Recovery with Storage Replication]
-* link:../backup/hana-br-scs-overview.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter]
-* link:../lifecycle/sc-copy-clone-introduction.html[TR-4667: Automating SAP System Copies Using the SnapCenter SAP HANA Plug-In]
+* link:../index.html[SAP HANA Software Solutions^]
+* link:../backup/hana-dr-sr-pdf-link.html[TR-4646: SAP HANA Disaster Recovery with Storage Replication^]
+* link:../backup/hana-br-scs-overview.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter^]
+* link:../lifecycle/sc-copy-clone-introduction.html[TR-4667: Automating SAP System Copies Using the SnapCenter SAP HANA Plug-In^]
 * NetApp Documentation Centers
 +
 https://www.netapp.com/support-and-training/documentation/[https://www.netapp.com/support-and-training/documentation/^]

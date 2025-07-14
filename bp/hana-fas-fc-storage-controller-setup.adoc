@@ -83,8 +83,8 @@ The following overview summarizes the required storage configuration steps. Each
 . Create a storage virtual machine (SVM), as described in <<Storage virtual machine configuration>>.
 . Create logical interfaces (LIFs), as described in <<Logical interface configuration>>.
 . Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:hana-fas-fc-storage-controller-setup.html#initiator-groups <<Initiator groups>>.
-. Create and configure volumes and LUNs within the aggregates as described in the section  link:hana-fas-fc-host-setup_single_host.html[Single Host Setup] for single hosts 
-or in section link:hana-fas-fc-host-setup_multiple_hosts.html[Multiple Host Setup] for multiple hosts
+. Create and configure volumes and LUNs within the aggregates as described in the section  link:hana-fas-fc-storage-controller-setup_single_host.html[Single Host Setup] for single hosts 
+or in section link:hana-fas-fc-storage-controller-setup_multiple_hosts.html[Multiple Host Setup] for multiple hosts
 
 With HDDs, a maximum of two DS2246 disk shelves or four DS224C disk shelves can be connected to one SAS stack to provide the required performance for the SAP HANA hosts, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair.
 
@@ -94,7 +94,7 @@ With SSDs, a maximum of one disk shelf can be connected to one SAS stack to prov
 
 image:saphana_fas_fc_image11.png["Figure showing input/output dialog or representing written content"]
 
-=== NVMe (100GbE) disk shelves
+=== NVMe disk shelves
 
 Each NS224 NVMe disk shelf is connected with two 100GbE ports per controller, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair.
 
