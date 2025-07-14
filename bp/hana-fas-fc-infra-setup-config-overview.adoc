@@ -4,7 +4,7 @@ permalink: bp/hana-fas-fc-infra-setup-config-overview.html
 keywords: sap, hana, infrastructure, setup, configuration, guidelines, steps, host, data
 summary: The following sections provide SAP HANA infrastructure setup and configuration guidelines.
 ---
-= Overview
+= Infrastructure setup and configuration
 :hardbreaks:
 :nofooter:
 :icons: font
