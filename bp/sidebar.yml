@@ -11,8 +11,6 @@ entries:
         url: /bp/hana-aff-fc-storage-sizing.html
       - title: Infrastructure setup and configuration
         entries:
-          - title: Infrastructure setup and configuration overview
-            url: /bp/hana-aff-fc-infra-setup-config-overview.html
           - title: SAN fabric setup
             url: /bp/hana-aff-fc-san-fabric-setup.html
           - title: Time synchronization
@@ -39,6 +37,7 @@ entries:
             url: /bp/hana-aff-fc-software-install.html
           - title: Adding additional data volume partitions for SAP HANA single-host systems
             url: /bp/hana-aff-fc-add-data-volume-partitions-single-host-systems.html
+        url: /bp/hana-aff-fc-infra-setup-config-overview.html
       - title: Where to find additional information
         url: /bp/hana-aff-fc-additional-info.html
       - title: Update history
@@ -85,8 +84,6 @@ entries:
         url: /bp/hana-asa-fc-storage-sizing.html
       - title: Infrastructure setup and configuration
         entries:
-          - title: Infrastructure setup and configuration overview
-            url: /bp/hana-asa-fc-infra-setup-config-overview.html
           - title: SAN fabric setup
             url: /bp/hana-asa-fc-san-fabric-setup.html
           - title: Time synchronization
@@ -111,6 +108,7 @@ entries:
             url: /bp/hana-asa-fc-io-stack-configuration.html
           - title: SAP HANA software installation
             url: /bp/hana-asa-fc-software-install.html
+        url: /bp/hana-asa-fc-infra-setup-config-overview.html
       - title: Where to find additional information
         url: /bp/hana-asa-fc-additional-info.html
       - title: Update history
@@ -157,8 +155,6 @@ entries:
         url: /bp/hana-fas-fc-storage-sizing.html
       - title: Infrastructure setup and configuration
         entries:
-          - title: Infrastructure setup and configuration overview
-            url: /bp/hana-fas-fc-infra-setup-config-overview.html
           - title: SAN fabric setup
             url: /bp/hana-fas-fc-san-fabric-setup.html
           - title: Time synchronization
@@ -185,6 +181,7 @@ entries:
             url: /bp/hana-fas-fc-software-install.html
           - title: Adding additional data volume partitions for SAP HANA single-host systems
             url: /bp/hana-fas-fc-add-data-volume-partitions-single-host-systems.html
+        url: /bp/hana-fas-fc-infra-setup-config-overview.html
       - title: Where to find additional information
         url: /bp/hana-fas-fc-additional-info.html
       - title: Update history

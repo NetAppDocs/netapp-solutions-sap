@@ -85,7 +85,7 @@ mkfs.xfs FC5_log_mnt00002-vol
 
 === Create mount points
 
-To create the required mount point directories, set permissions and create mount points on all worker and standby hosts.
+Create the required mount point directories, and set the permissions on all worker and standby hosts:
 
 
 ....

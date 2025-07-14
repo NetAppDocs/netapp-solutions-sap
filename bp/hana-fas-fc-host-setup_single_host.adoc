@@ -4,7 +4,7 @@ permalink: bp/hana-fas-fc-host-setup_single_host.html
 keywords: configure, multipathing, create, lvm, volume, groups, logical, mount, points, file, systems
 summary: The documentation also contains information about multipath configurations that are specific to the Linux version used.
 ---
-= Host setup
+== Single host setup
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -14,9 +14,8 @@ summary: The documentation also contains information about multipath configurati
 
 
 [.lead]
+This chapter describes the setup of an SAP HANA single host.
 
-
-== Create LVM volume groups and logical volumes
 
 === Create LVM volume groups and logical volumes
 
@@ -79,9 +78,7 @@ mkfs.xfs /dev/mapper/svm1-FC5_shared
 
 === Create mount points
 
-To create the required mount point directories, take one of the following actions:
-
-* For a single-host system, set permissions and create mount points on the database host.
+Create the required mount point directories, and set the permissions on the database host:
 
 ....
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
@@ -95,10 +92,7 @@ sapcc-hana-tst:/ # chmod 777 /hana/shared
 
 === Mount file systems
 
-To mount file systems during system boot using the `/etc/fstab` configuration file, complete the following steps:
-
-* For a single-host system, add the required file systems to the `/etc/fstab` configuration file.
-+
+To mount file systems during system boot using the `/etc/fstab` configuration file, add the required file systems to the `/etc/fstab` configuration file:
 
 ....
 # cat /etc/fstab
@@ -108,7 +102,7 @@ To mount file systems during system boot using the `/etc/fstab` configuration fi
 ....
 [NOTE]
 The XFS file systems for the data and log LUNs must be mounted with the `relatime` and `inode64` mount options.
-+
+
 
 To mount the file systems, run the `mount –a` command at the host.
 
