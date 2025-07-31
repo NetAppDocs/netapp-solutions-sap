@@ -18,39 +18,6 @@ This section describes the configuration of the NetApp storage system specific t
 
 
 
-== LUN configuration for SAP HANA multiple-host systems
-
-The Linux LVM is being used to increase performance and to address LUN size limitations.
-
-At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
-
-|===
-|Logical volume (LV) |Mount point at SAP HANA host |Note
-
-|LV: FC5_data_mnt00001-vol
-|/hana/data/FC5/mnt00001
-|Mounted using storage connector
-|LV: FC5_log_mnt00001-vol
-|/hana/log/FC5/mnt00001
-|Mounted using storage connector
-|LV: FC5_data_mnt00002-vol
-|/hana/data/FC5/mnt00002
-|Mounted using storage connector
-|LV: FC5_log_mnt00002-vol
-|/hana/log/FC5/mnt00002
-|Mounted using storage connector
-|External NFS share: FC5_shared
-|/hana/shared
-|Mounted at all hosts using NFS and /etc/fstab entry
-|===
-
-[NOTE]
-SAP HANA multiple-host systems require the `/hana/shared` file system connected to all hosts of a system. Usually this is a NFS share provided by by an NFS server. 
-It is recommended to use a high available NFS server e.g. such as an NetApp FAS ot AFF system. Another option is to use the build-in NFS server of a LINUX host for this.
-
-[NOTE]
-With the described configuration, the `/usr/sap/FC5` directory in which the default home directory of user FC5adm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends using four additional LUNs for `/usr/sap/FC5` file system each host so that each database host has all its file systems on the central storage.
-
 
 [#lun_create]
 == Creating LUNs and mapping LUNs to initiator groups

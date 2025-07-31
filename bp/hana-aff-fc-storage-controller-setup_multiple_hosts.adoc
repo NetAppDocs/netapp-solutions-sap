@@ -28,7 +28,7 @@ The `/hana/shared` volume must be accessible by all HANA hosts and is therefore 
 If only one storage controller of an HA pair is used for the SAP HANA system, data and log volumes can also be stored on the same storage controller.
 
 [NOTE]
-NetApp ASA AFF systems do not support NFS as a protocol. NetApp recommends using an additional AFF or FAS system for the `/hana/shared` file system.
+NetApp ASA systems do not support NFS as a protocol. NetApp recommends using an additional AFF or FAS system for the `/hana/shared` file system.
 
 image:saphana_aff_fc_image17a.png["Figure showing input/output dialog or representing written content"]
 
@@ -106,7 +106,7 @@ With the described configuration, the `/usr/sap/SID` directory in which the defa
 The Linux LVM can be used to increase performance and to address LUN size limitations. The different LUNs of an LVM volume group should be stored within a different aggregate and at a different controller.
 
 [NOTE]
-It is not necessary to use LVM to combine several LUN to fulfill the SAP HANA KPIs. A single LUN setup fulfills the required KPIs.
+It is not necessary to use LVM to combine several LUN to fulfill the SAP HANA KPIs, but it is recommended
 
 The following table shows an example for two LUNs per volume group for a 2+1 SAP HANA multiple host system.
 
@@ -130,30 +130,7 @@ The following table shows an example for two LUNs per volume group for a 2+1 SAP
 |–
 |===
 
-At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
 
-|===
-|Logical volume (LV) or volume |Mount point at SAP HANA host |Note
-
-|LV: SID_data_mnt00001-vol
-|/hana/data/SID/mnt00001
-|Mounted using storage connector
-|LV: SID_log_mnt00001-vol
-|/hana/log/SID/mnt00001
-|Mounted using storage connector
-|LV: SID_data_mnt00002-vol
-|/hana/data/SID/mnt00002
-|Mounted using storage connector
-|LV: SID_log_mnt00002-vol
-|/hana/log/SID/mnt00002
-|Mounted using storage connector
-|Volume: SID_shared
-|/hana/shared
-|Mounted at all hosts using NFS and /etc/fstab entry
-|===
-
-[NOTE]
-With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
 
 === Volume options
 
