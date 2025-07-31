@@ -37,14 +37,14 @@ This section shows an example configuration using the command line with ONTAP 9 
 +
 
 ....
-lun create -path FC5_data_mnt00001   -size 1t -ostype linux  -class regular
-lun create -path FC5_data2_mnt00001 -size 1t -ostype linux  -class regular
-lun create -path FC5_data_mnt00002 -size 1t -ostype linux  -class regular
-lun create -path FC5_data2_mnt00002 -size 1t -ostype linux  -class regular
-lun create -path FC5_log_mnt00001 -size 260g -ostype linux  -class regular
-lun create -path FC5_log2_mnt00001 -size 260g -ostype linux  -class regular
-lun create -path FC5_log_mnt00002 -size 260g -ostype linux  -class regular
-lun create -path FC5_log2_mnt00002 -size 260g -ostype linux  -class regular
+lun create -path FC5_data_mnt00001_1 -size 1t -ostype linux  -class regular
+lun create -path FC5_data_mnt00001_2 -size 1t -ostype linux  -class regular
+lun create -path FC5_data_mnt00002_1 -size 1t -ostype linux  -class regular
+lun create -path FC5_data_mnt00002_2 -size 1t -ostype linux  -class regular
+lun create -path FC5_log_mnt00001_1 -size 260g -ostype linux  -class regular
+lun create -path FC5_log_mnt00001_2 -size 260g -ostype linux  -class regular
+lun create -path FC5_log_mnt00002_1 -size 260g -ostype linux  -class regular
+lun create -path FC5_log_mnt00002_2 -size 260g -ostype linux  -class regular
 ....
 
 
@@ -59,14 +59,14 @@ lun igroup create -igroup HANA-FC5 -protocol fcp -ostype linux -initiator 100000
 +
 
 ....
-lun map -path FC5_data_mnt00001  -igroup HANA-FC5
-lun map -path FC5_data2_mnt00001  -igroup HANA-FC5
-lun map -path FC5_data_mnt00002  -igroup HANA-FC5
-lun map -path FC5_data2_mnt00002  -igroup HANA-FC5
-lun map -path FC5_log_mnt00001  -igroup HANA-FC5
-lun map -path FC5_log2_mnt00001  -igroup HANA-FC5
-lun map -path FC5_log_mnt00002  -igroup HANA-FC5
-lun map -path FC5_log2_mnt00002  -igroup HANA-FC5
+lun map -path FC5_data_mnt00001_1 -igroup HANA-FC5
+lun map -path FC5_data_mnt00001_2 -igroup HANA-FC5
+lun map -path FC5_data_mnt00002_1 -igroup HANA-FC5
+lun map -path FC5_data_mnt00002_2 -igroup HANA-FC5
+lun map -path FC5_log_mnt00001_1 -igroup HANA-FC5
+lun map -path FC5_log_mnt00001_2 -igroup HANA-FC5
+lun map -path FC5_log_mnt00002_1 -igroup HANA-FC5
+lun map -path FC5_log_mnt00002_2 -igroup HANA-FC5
 ....
 
 

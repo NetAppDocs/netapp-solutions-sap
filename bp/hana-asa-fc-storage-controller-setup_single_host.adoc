@@ -22,7 +22,7 @@ This section describes the configuration of the NetApp storage system specific t
 [#lun_create]
 == Creating LUNs and mapping LUNs to initiator groups
 
-You can use NetApp ONTAP System Manager to create storage volumes and LUNs and the map them to the igroups of the servers and the ONTAP CLI. This guide describes the usage of the CLI.
+You can use NetApp ONTAP System Manager to create storage volumes and LUNs and the map them to the igroups of the servers and the ONTAP CLI. 
 
 
 [NOTE]
@@ -37,10 +37,10 @@ This section shows an example configuration using the command line with ONTAP 9 
 +
 
 ....
-lun create -path  FC5_data_mnt00001   -size 1t -ostype linux  -class regular
-lun create -path FC5_data2_mnt00001 -size 1t -ostype linux  -class regular
-lun create -path FC5_log_mnt00001 -size 260g -ostype linux  -class regular
-lun create -path FC5_log2_mnt00001 -size 260g -ostype linux  -class regular
+lun create -path  FC5_data_mnt00001_1 -size 1t -ostype linux  -class regular
+lun create -path FC5_data_mnt00001_2 -size 1t -ostype linux  -class regular
+lun create -path FC5_log_mnt00001_1 -size 260g -ostype linux  -class regular
+lun create -path FC5_log_mnt00001_2 -size 260g -ostype linux  -class regular
 lun create -path FC5_shared -size 260g -ostype linux  -class regular
 
 ....
@@ -57,11 +57,74 @@ lun igroup create -igroup HANA-FC5 -protocol fcp -ostype linux -initiator 100000
 +
 
 ....
-lun map -path FC5_data_mnt00001    -igroup HANA-FC5
-lun map -path FC5_data2_mnt00001  -igroup HANA-FC5
-lun map -path FC5_log_mnt00001  -igroup HANA-FC5
-lun map -path FC5_log2_mnt00001  -igroup HANA-FC5
-lun map -path FC5_shared  -igroup HANA-FC5
+lun map -path FC5_data_mnt00001_1 -igroup HANA-FC5
+lun map -path FC5_data_mnt00001_2 -igroup HANA-FC5
+lun map -path FC5_log_mnt00001_1 -igroup HANA-FC5
+lun map -path FC5_log_mnt00001_2 -igroup HANA-FC5
+lun map -path FC5_shared -igroup HANA-FC5
 ....
+
+=== Creating LUNs and mapping LUNs to initiator groups using the GUI
+
+Log on to the `ONTAP System Manager` of your ONTAP Cluster and choose `Storage` from the left menu. 
+
+. Press `Add` 
++ 
+
+image:saphana_asa_fc_image12.png["ONTAP System Manager - Storage"]
+
+. Choose `More options`
++ 
+
+image:saphana_asa_fc_image13.png["ONTAP System Manager - Add Storage"]
+
+. Provide the required information:  
+.. name of the data LUNs, e.g.`FC5_data_mnt00001`
+.. the mount of LUNs to be combined with LVM, e.g. 2
+.. the size of each LUN, e.g. 1000 GB 
+.. choose `SCSI (FC or iSCSI)` 
+.. choose `Linux` as `Host Operating system`
+.. choose `New host` for the `Host mapping` option, provide a nam, e.g `FC5_host`, pick or add the desired initiators
+.. Keep `Schedule snapshots` unchecked
+.. press 'Add' 
++
+
+image:saphana_asa_fc_image14.png["ONTAP System Manager - Create Data LUNs"]
+
+. After successfull creation of the data LUNs create the log LUNs by pressing `Add` 
++ 
+
+image:saphana_asa_fc_image15.png["ONTAP System Manager - Create log LUNs"]
+
+. Provide the required information:  
+.. name of the log LUNs, e.g. `FC5_log_mnt00001`
+.. the mount of LUNs, e.g. 2
+.. the size of each LUN, e.g. 260 GB 
+.. choose `Linux` as `Host Operating system`
+.. choose the previously created mapping `FC5_host` for the `Host mapping` option
+.. press 'Add' 
++
+
+image:saphana_asa_fc_image16.png["ONTAP System Manager - Create log LUNs"]
+
+. After successfull creation of the log LUNs create the shared LUN by pressing `Add` 
++ 
+
+image:saphana_asa_fc_image17.png["ONTAP System Manager - Create shared LUN"]
+
+. Provide the required information:  
+.. name of the shared LUN, e.g.`FC5_shared`
+.. the mount of LUNs, e.g. 1
+.. the size of the LUN, e.g. 520 GB 
+.. choose `Linux` as `Host Operating system`
+.. choose the previously created mapping `FC5_host` for the `Host mapping` option
+.. press 'Add' 
++
+
+image:saphana_asa_fc_image18.png["ONTAP System Manager - Create Data LUNs"]
+
+All required LUNs for a SAP HANA single-host system have been created.
+
+image:saphana_asa_fc_image19.png["ONTAP System Manager - LUN Overview"]
 
 

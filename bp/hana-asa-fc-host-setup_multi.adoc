@@ -53,24 +53,24 @@ With the described configuration, the `/usr/sap/FC5` directory in which the defa
 +
 
 ....
-pvcreate /dev/mapper/hana-FC5_data_mnt00001
-pvcreate /dev/mapper/hana-FC5_data2_mnt00001
-pvcreate /dev/mapper/hana-FC5_data_mnt00002
-pvcreate /dev/mapper/hana-FC5_data2_mnt00002
-pvcreate /dev/mapper/hana-FC5_log_mnt00001
-pvcreate /dev/mapper/hana-FC5_log2_mnt00001
-pvcreate /dev/mapper/hana-FC5_log_mnt00002
-pvcreate /dev/mapper/hana-FC5_log2_mnt00002
+pvcreate /dev/mapper/svm1-FC5_data_mnt00001_1
+pvcreate /dev/mapper/svm1-FC5_data_mnt00001_2
+pvcreate /dev/mapper/svm1-FC5_data_mnt00002_1
+pvcreate /dev/mapper/svm1-FC5_data_mnt00002_2
+pvcreate /dev/mapper/svm1-FC5_log_mnt00001_1
+pvcreate /dev/mapper/svm1-FC5_log_mnt00001_2
+pvcreate /dev/mapper/svm1-FC5_log_mnt00002_1
+pvcreate /dev/mapper/svm1-FC5_log_mnt00002_2
 ....
 
 . Create the volume groups for each data and log partition.
 +
 
 ....
-vgcreate FC5_data_mnt00001 /dev/mapper/hana-FC5_data_mnt00001 /dev/mapper/hana-FC5_data2_mnt00001
-vgcreate FC5_data_mnt00002 /dev/mapper/hana-FC5_data_mnt00002 /dev/mapper/hana-FC5_data2_mnt00002
-vgcreate FC5_log_mnt00001 /dev/mapper/hana-FC5_log_mnt00001 /dev/mapper/hana-FC5_log2_mnt00001
-vgcreate FC5_log_mnt00002 /dev/mapper/hana-FC5_log_mnt00002 /dev/mapper/hana-FC5_log2_mnt00002
+vgcreate FC5_data_mnt00001 /dev/mapper/svm1-FC5_data_mnt00001_1 /dev/mapper/svm1-FC5_data_mnt00001_2
+vgcreate FC5_data_mnt00002 /dev/mapper/svm1-FC5_data_mnt00002_1 /dev/mapper/svm1-FC5_data_mnt00002_2
+vgcreate FC5_log_mnt00001 /dev/mapper/svm1-FC5_log_mnt00001_1 /dev/mapper/svm1-FC5_log_mnt00001_2
+vgcreate FC5_log_mnt00002 /dev/mapper/svm1-FC5_log_mnt00002_1 /dev/mapper/svm1-FC5_log_mnt00002_2
 ....
 +
 
