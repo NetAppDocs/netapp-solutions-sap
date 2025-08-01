@@ -26,7 +26,7 @@ You can use NetApp ONTAP System Manager to create storage volumes and LUNs and t
 
 
 [NOTE]
-The `sanlun` tool is part of the NetApp Host Utilities and must be installed on each SAP HANA host. For more information, see the section "host_setup."
+The `sanlun` tool is part of the NetApp Host Utilities and must be installed on each SAP HANA host. For more information, see the section link:hana-asa-fc-host-setup.html[Host Setup].
 
 
 === Creating LUNs and mapping LUNs to initiator groups using the CLI
@@ -80,7 +80,7 @@ image:saphana_asa_fc_image13.png["ONTAP System Manager - Add Storage"]
 
 . Provide the required information:  
 .. name of the data LUNs, e.g.`FC5_data_mnt00001`
-.. the mount of LUNs to be combined with LVM, e.g. 2
+.. the amount of LUNs to be combined with LVM, e.g. 2
 .. the size of each LUN, e.g. 1000 GB 
 .. choose `SCSI (FC or iSCSI)` 
 .. choose `Linux` as `Host Operating system`
@@ -98,7 +98,7 @@ image:saphana_asa_fc_image15.png["ONTAP System Manager - Create log LUNs"]
 
 . Provide the required information:  
 .. name of the log LUNs, e.g. `FC5_log_mnt00001`
-.. the mount of LUNs, e.g. 2
+.. the amount of LUNs, e.g. 2
 .. the size of each LUN, e.g. 260 GB 
 .. choose `Linux` as `Host Operating system`
 .. choose the previously created mapping `FC5_host` for the `Host mapping` option
@@ -114,7 +114,7 @@ image:saphana_asa_fc_image17.png["ONTAP System Manager - Create shared LUN"]
 
 . Provide the required information:  
 .. name of the shared LUN, e.g.`FC5_shared`
-.. the mount of LUNs, e.g. 1
+.. the amount of LUNs, e.g. 1
 .. the size of the LUN, e.g. 520 GB 
 .. choose `Linux` as `Host Operating system`
 .. choose the previously created mapping `FC5_host` for the `Host mapping` option
