@@ -13,8 +13,30 @@ summary: Before setting up the host, NetApp SAN host utilities must be downloade
 
 
 [.lead]
-This chapter describes the setup of an SAP HANA single host.
+This chapter describes the setup of an SAP HANA single host using LINUX LVM.
 
+== LUN configuration for SAP HANA single-host systems
+
+At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
+
+|===
+|Logical volume/LUN |Mount point at SAP HANA host |Note
+
+
+|LV: FC5_data_mnt0000-vol
+|/hana/data/FC51/mnt00001
+|Mounted using /etc/fstab entry
+|LV: FC5_log_mnt00001-vol
+|/hana/log/FC5/mnt00001
+|Mounted using /etc/fstab entry
+|LUN: FC5_shared
+|/hana/shared/FC5
+|Mounted using /etc/fstab entry
+|===
+
+
+[NOTE]
+With the described configuration, the `/usr/sap/FC5` directory in which the default home directory of user FC5adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `FC5_shared` volume for the `/usr/sap/FC5` directory so that all file systems are on the central storage.
 
 === Create LVM volume groups and logical volumes
 
