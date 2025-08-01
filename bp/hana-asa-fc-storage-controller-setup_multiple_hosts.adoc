@@ -92,7 +92,7 @@ image:saphana_asa_fc_image13.png["ONTAP System Manager - Add Storage"]
 .. choose `Linux` as `Host Operating system`
 .. choose `New host` for the `Host mapping` option, provide a nam, e.g `FC5_host`, pick or add the desired initiators
 .. Keep `Schedule snapshots` unchecked
-.. press 'Add' 
+.. press `Add` 
 +
 
 image:saphana_asa_fc_image14.png["ONTAP System Manager - Create Data LUNs"]
@@ -100,19 +100,19 @@ image:saphana_asa_fc_image14.png["ONTAP System Manager - Create Data LUNs"]
 . Create the data LUNs for the next worker host by pressing `Add` 
 + 
 
-image:saphana_asa_fc_image15.png["ONTAP System Manager - Create log LUNs"]
+image:saphana_asa_fc_image15.png["ONTAP System Manager - Create additional Data LUNs"]
 
 . Provide the required information:  
-.. name of the log LUNs, e.g. `FC5_data_mnt00002`
-.. the amount of LUNs, e.g. 2
+.. the name of the additional data LUNs , e.g. `FC5_data_mnt00002`
+.. the amount of LUNs to be combined with LVM, e.g. 2
 .. the size of each LUN, e.g. 1000 GB 
 .. choose `Linux` as `Host Operating system`
 .. choose the previously created mapping `FC5_host` for the `Host mapping` option
-.. press 'Add' 
+.. press `Add`  
 
 +
 
-image:saphana_asa_fc_image20.png["ONTAP System Manager - Create log LUNs"]
+image:saphana_asa_fc_image20.png["ONTAP System Manager - Create data LUNs"]
 
 . Repeat steps 4 and 5 for every additional worker host
 
@@ -122,12 +122,12 @@ image:saphana_asa_fc_image20.png["ONTAP System Manager - Create log LUNs"]
 image:saphana_asa_fc_image21.png["ONTAP System Manager - Create log LUNs"]
 
 . Provide the required information:  
-.. name of the log LUNs, e.g. `FC5_log_mnt00001`
-.. the amount of LUNs, e.g. 2
+.. the name of the log LUNsto be combined with LVM, e.g. `FC5_log_mnt00001`
+.. the amount of LUNs to be combined with LVM, e.g. 2
 .. the size of each LUN, e.g. 260 GB 
 .. choose `Linux` as `Host Operating system`
 .. choose the previously created mapping `FC5_host` for the `Host mapping` option
-.. press 'Add' 
+.. press `Add`  
 +
 
 image:saphana_asa_fc_image22.png["ONTAP System Manager - Create log LUNs"]
@@ -135,18 +135,18 @@ image:saphana_asa_fc_image22.png["ONTAP System Manager - Create log LUNs"]
 . Create the log LUNs for the next worker host by pressing `Add` 
 + 
 
-image:saphana_asa_fc_image23.png["ONTAP System Manager - Create shared LUN"]
+image:saphana_asa_fc_image23.png["ONTAP System Manager - Create additional log LUNs"]
 
 . Provide the required information:  
-.. name of the log LUNs, e.g. `FC5_log_mnt00002`
-.. the amount of LUNs, e.g. 2
+.. the name of the additional log LUNs, e.g. `FC5_log_mnt00002`
+.. the amount of LUNs to be combined with LVM, e.g. 2
 .. the size of each LUN, e.g. 260 GB 
 .. choose `Linux` as `Host Operating system`
 .. choose the previously created mapping `FC5_host` for the `Host mapping` option
-.. press 'Add' 
+.. press `Add`  
 +
 
-image:saphana_asa_fc_image24.png["ONTAP System Manager - Create Data LUNs"]
+image:saphana_asa_fc_image24.png["ONTAP System Manager - Create additional log LUNs"]
 
 . Repeat steps 9 and 10 for every additional worker host
 
