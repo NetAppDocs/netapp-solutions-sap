@@ -25,10 +25,6 @@ This section describes the configuration of the NetApp storage system specific t
 You can use NetApp ONTAP System Manager to create storage volumes and LUNs and the map them to the igroups of the servers and the ONTAP CLI. 
 
 
-[NOTE]
-The `sanlun` tool is part of the NetApp Host Utilities and must be installed on each SAP HANA host. For more information, see the section link:hana-asa-fc-host-setup.html[Host Setup].
-
-
 === Creating LUNs and mapping LUNs to initiator groups using the CLI
 
 This section shows an example configuration using the command line with ONTAP 9 for a  SAP HANA single  host system with SID FC5 using LVM and two LUNs per LVM volume group:
@@ -65,10 +61,11 @@ lun map -path FC5_shared -igroup HANA-FC5
 ....
 
 === Creating LUNs and mapping LUNs to initiator groups using the GUI
+This section shows an example configuration using `ONTAP System Manager` for a  SAP HANA single  host system with SID FC5 using LVM and two LUNs per LVM volume group:
 
-Log on to the `ONTAP System Manager` of your ONTAP Cluster and choose `Storage` from the left menu. 
+. Log on to the `ONTAP System Manager` of your ONTAP Cluster and choose `Storage` from the left menu. 
 
-. Press `Add` 
+.. Press `Add` 
 + 
 
 image:saphana_asa_fc_image12.png["ONTAP System Manager - Storage"]

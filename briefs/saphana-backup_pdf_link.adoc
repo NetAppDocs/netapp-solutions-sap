@@ -12,9 +12,6 @@ summary: "This document focuses on Backup and Recovery for SAP HANA."
 :linkattrs:
 :imagesdir: ../media/
 
-[.lead]
-This document focuses on Backup and Recovery for SAP HANA.
-
 == The challenge
 
 With SAP HANA backup and restore operations, your organization faces the following 
