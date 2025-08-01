@@ -15,6 +15,29 @@ summary: Before setting up the host, NetApp SAN host utilities must be downloade
 [.lead]
 This chapter describes the setup of an SAP HANA single host.
 
+== LUN configuration for SAP HANA single-host systems
+
+The Linux LVM is being used to increase performance and to address LUN size limitations. 
+At the SAP HANA host, volume groups and logical volumes need to be created and mounted, as indicated in the following table.
+
+|===
+|Logical volume/LUN |Mount point at SAP HANA host |Note
+
+|LV: FC5_data_mnt00001-vol
+|/hana/data/FC5/mnt00001
+|Mounted using /etc/fstab entry
+|LV: FC5_log_mnt00001-vol
+|/hana/log/FC5/mnt00001
+|Mounted using /etc/fstab entry
+|LUN: FC5_shared
+|/hana/shared/FC5
+|Mounted using /etc/fstab entry
+|===
+
+[NOTE]
+With the described configuration, the `/usr/sap/FC5` directory in which the default home directory of user FC5adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/usr/sap/FC5` directory so that all file systems are on the central storage.
+
+
 
 === Create LVM volume groups and logical volumes
 
@@ -22,18 +45,18 @@ This chapter describes the setup of an SAP HANA single host.
 +
 
 ....
-pvcreate /dev/mapper/hana-FC5_data_mnt00001
-pvcreate /dev/mapper/hana-FC5_data2_mnt00001
-pvcreate /dev/mapper/hana-FC5_log_mnt00001
-pvcreate /dev/mapper/hana-FC5_log2_mnt00001
+pvcreate /dev/mapper/svm1-FC5_data_mnt00001_1
+pvcreate /dev/mapper/svm1-FC5_data_mnt00001_2
+pvcreate /dev/mapper/svm1-FC5_log_mnt00001_1
+pvcreate /dev/mapper/svm1-FC5_log_mnt00001_2
 ....
 
 . Create the volume groups for each data and log partition.
 +
 
 ....
-vgcreate FC5_data_mnt00001 /dev/mapper/hana-FC5_data_mnt00001 /dev/mapper/hana-FC5_data2_mnt00001
-vgcreate FC5_log_mnt00001 /dev/mapper/hana-FC5_log_mnt00001 /dev/mapper/hana-FC5_log2_mnt00001
+vgcreate FC5_data_mnt00001 /dev/mapper/svm1-FC5_data_mnt00001_1 /dev/mapper/svm1-FC5_data_mnt00001_2
+vgcreate FC5_log_mnt00001 /dev/mapper/svm1-FC5_log_mnt00001_1 /dev/mapper/svm1-FC5_log_mnt00001_2
 ....
 +
 
