@@ -91,7 +91,7 @@ image:saphana_asa_fc_image13.png["ONTAP System Manager - Add Storage"]
 
 image:saphana_asa_fc_image14.png["ONTAP System Manager - Create Data LUNs"]
 
-. After successfull creation of the data LUNs create the log LUNs by pressing `Add` 
+. After successful creation of the data LUNs create the log LUNs by pressing `Add` 
 + 
 
 image:saphana_asa_fc_image15.png["ONTAP System Manager - Create log LUNs"]
@@ -107,7 +107,7 @@ image:saphana_asa_fc_image15.png["ONTAP System Manager - Create log LUNs"]
 
 image:saphana_asa_fc_image16.png["ONTAP System Manager - Create log LUNs"]
 
-. After successfull creation of the log LUNs create the shared LUN by pressing `Add` 
+. After successful creation of the log LUNs create the shared LUN by pressing `Add` 
 + 
 
 image:saphana_asa_fc_image17.png["ONTAP System Manager - Create shared LUN"]

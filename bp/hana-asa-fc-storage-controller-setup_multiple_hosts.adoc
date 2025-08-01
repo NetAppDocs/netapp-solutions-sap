@@ -116,7 +116,7 @@ image:saphana_asa_fc_image20.png["ONTAP System Manager - Create log LUNs"]
 
 . Repeat steps 4 and 5 for every additional worker host
 
-. After successfully creation of the data LUNs create the log LUNs by pressing `Add` 
+. After successful creation of the data LUNs create the log LUNs by pressing `Add` 
 + 
 
 image:saphana_asa_fc_image21.png["ONTAP System Manager - Create log LUNs"]
@@ -132,7 +132,7 @@ image:saphana_asa_fc_image21.png["ONTAP System Manager - Create log LUNs"]
 
 image:saphana_asa_fc_image22.png["ONTAP System Manager - Create log LUNs"]
 
-. Create the data LUNs for the next worker host by pressing `Add` 
+. Create the log LUNs for the next worker host by pressing `Add` 
 + 
 
 image:saphana_asa_fc_image23.png["ONTAP System Manager - Create shared LUN"]
@@ -148,7 +148,7 @@ image:saphana_asa_fc_image23.png["ONTAP System Manager - Create shared LUN"]
 
 image:saphana_asa_fc_image24.png["ONTAP System Manager - Create Data LUNs"]
 
-. Repeat steps 4 and 5 for every additional worker host
+. Repeat steps 9 and 10 for every additional worker host
 
 All required LUNs for a SAP HANA multiple-hosts system have been created.
 
