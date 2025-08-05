@@ -1,11 +1,15 @@
 ---
 settings:
-  name: NetApp Solutions SAP
+  name: NetApp solutions for SAP
   internal:
     pdf_enabled: true
   prod:
     pdf_enabled: true
     harmony_enabled: true
+
+product-family:
+  name: NetApp Solutions
+  repo: netapp-solutions-family
 sidebar:
   entries:
     - title: SAP Solutions
