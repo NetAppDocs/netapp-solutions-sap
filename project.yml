@@ -8,11 +8,12 @@ settings:
     harmony_enabled: true
 
 product-family:
-  name: NetApp Solutions
+  name: NetApp solutions
   repo: netapp-solutions-family
+
 sidebar:
   entries:
-    - title: SAP Solutions
+    - title: Solutions for SAP
       url: /index.html
     - section: bp
     - section: backup
