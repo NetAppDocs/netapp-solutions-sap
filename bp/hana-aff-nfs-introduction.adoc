@@ -19,16 +19,14 @@ summary: The NetApp AFF system product family has been certified for use with SA
 //
 
 [.lead]
-The NetApp AFF A-Series and AFF C-Series product families have been certified for use with SAP HANA in tailored data center integration (TDI) projects. This guide provides best practices for SAP HANA on this platform for NFS.
+The NetApp AFF A-Series product family has been certified for use with SAP HANA in tailored data center integration (TDI) projects. This guide provides best practices for SAP HANA on this platform for NFS.
 
 Marco Schoen, NetApp
 
 This certification is valid for the following models:
 
-* AFF A150, AFF A20, AFF A250, AFF A30, AFF A400, AFF A50, AFF A70, AFF A800, AFF A900, AFF A90, AFF A1K
-* AFF C250, AFF C30, AFF C400, AFF C60, AFF C800, AFF C80
-[NOTE]
-NetApp AFF C-Series requires NetApp ONTAP 9.13.1 or later
+* AFF A20, AFF A30, AFF A50, AFF A70, AFF A90, AFF A1K
+
 
 A complete list of NetApp certified storage solutions for SAP HANA can be found at the https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:13[Certified and supported SAP HANA hardware directory^].
 
