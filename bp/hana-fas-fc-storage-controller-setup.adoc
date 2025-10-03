@@ -58,7 +58,7 @@ For new LUNs, the policy can be applied directly:
 lun create -vserver <vserver_name> -path  /vol/<volume_name>/<lun_name>   -size <size> -ostype <e.g. linux>  -qos-policy-group <policy-name>
 ....
 
-It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section link:hana-fas-fc-host-setup.html#create-lvm-volume-groups-and-logical-volumes[Host Setup].
+It is recommended to use 1000MB/s as maximum throughput for a given LUN. If an application requires more throughput, multiple LUNs with LUN striping shall be used to provide the needed bandwidth. This guide provides an example for SAP HANA based on Linux LVM in section link:hana-fas-fc-host-setup.html[Host Setup].
 
 [NOTE]
 The limit applies also to reads. Therefore use enough LUNs to fulfil the required SLAs for SAP HANA database startup time and for backups.
@@ -78,13 +78,15 @@ FabricPool is a good option for moving log backups to another storage tier. Movi
 
 The following overview summarizes the required storage configuration steps. Each step is covered in more detail in the subsequent sections. Before initiating these steps, complete the storage hardware setup, the ONTAP software installation, and the connection of the storage FCP ports to the SAN fabric.
 
-. Check the correct disk shelf configuration, as described in <<Disk shelf connection>>.
+. Check the correct disk shelf configuration, as described in <<Disk shelf connections>>.
 . Create and configure the required aggregates, as described in <<Aggregate configuration>>.
 . Create a storage virtual machine (SVM), as described in <<Storage virtual machine configuration>>.
 . Create logical interfaces (LIFs), as described in <<Logical interface configuration>>.
 . Create initiator groups (igroups) with worldwide names (WWNs) of HANA servers as described in the section link:hana-fas-fc-storage-controller-setup.html#initiator-groups <<Initiator groups>>.
 . Create and configure volumes and LUNs within the aggregates as described in the section  link:hana-fas-fc-storage-controller-setup_single_host.html[Single Host Setup] for single hosts 
 or in section link:hana-fas-fc-storage-controller-setup_multiple_hosts.html[Multiple Host Setup] for multiple hosts
+
+== Disk shelf connections
 
 With HDDs, a maximum of two DS2246 disk shelves or four DS224C disk shelves can be connected to one SAS stack to provide the required performance for the SAP HANA hosts, as shown in the following figure. The disks within each shelf must be distributed equally to both controllers of the HA pair.
 

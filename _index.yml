@@ -22,8 +22,6 @@ indexpage:
           url: backup/hana-sc-vmware-smas-scope.html
         - title: "SAP HANA data protection with SnapCenter with VMware VMFS and NetApp ASA systems"
           url: backup/hana-sc-vmfs-asar2-scope.html
-        - title: "BlueXP Backup and Recovery for SAP HANA - Cloud Object storage as backup destination"
-          url: backup/hana-hycl-backup-overview.html
         - title: "SAP HANA Disaster Recovery with Storage Replication"
           url: backup/hana-dr-sr-pdf-link.html
         - title: "SAP HANA system refresh with LSC and SnapCenter"
@@ -70,3 +68,11 @@ indexpage:
         - title: "Introduction to SAP on FlexPod"
           url: https://docs.netapp.com/us-en/flexpod/ent-db/index.html
 #
+    - title: "Solution requests and feedback"
+      links:
+        - title: "Request automation"
+          url: https://github.com/NetAppDocs/netapp-solutions-family/issues/new?labels=sap,automation&title=Request%20Automation%20-%20%3Crequest_title%3E&body=[Request%20Automation]%0A%0A%20Solution%20Name:%20%0A%20Request%20Title:%20%0A%20Description:%0A%20Suggestions:%0A
+        - title: "Propose a new solution"
+          url: https://github.com/NetAppDocs/netapp-solutions-family/issues/new?labels=sap,solution&title=Request%20Solution%20-%20%3Csolution%3E&body=[Request%20Solution]%0A%0A%20Solution%20Use%20Case:%20%0A%20Solution%20Description:%20%0A%20Additional%20Comments:%0A
+        - title: "Provide solution feedback"
+          url: https://github.com/NetAppDocs/netapp-solutions-family/issues/new?labels=sap,feedback&title=Solution%20Feedback%20-%20%3Csolution%3E&body=[Solution%20Feedback]%0A%0A%20Solution%20Name:%20%0A%20Solution%20Feedback:%20%0A%20Additional%20Comments:%0A
