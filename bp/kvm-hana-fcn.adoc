@@ -1,0 +1,48 @@
+---
+sidebar: sidebar
+permalink: bp/kvm_hana-fcn.html
+keywords: fibre channel,KVM, SAP HANA, tailored data center integration, FCP
+summary: This guide provides information about how to configure SUSE KVM for SAP HANA using NetApp storage.
+
+---
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+= Fibre Channel network
+[.lead]
+This section provides information about how to configure FCP in SUSE KVM for SAP HANA using NetApp storage.
+
+
+== Assigning PCP ports to the VM
+As there is no similar feature like SR-IOV for FCP the physical HBA ports need to be assigned to the VM. Two different physical ports attached to different fabrics need to be used.
+
+[Note] A physical port must only be assigned to one VM.
+
+To do so complete the following steps:
+
+[arabic]
+. Start _virt-manager +
+image:kvm-hana-image2.png[width=601,height=385] +
+
+. Open the desired VM +
+image:kvm-hana-image3.png[width=601,height=385] +
+
+. Press “Add Hardware" +
+image:kvm-hana-image4.png[Virtmanager Add Hardware,width=601,height=443]
+
+. Choose the desired HBA port from the list of PCI Host Device and press finish. +
+In this example 0000.A2:00:0. +
+image:kvm-hana-image9.png[width=601,height=441]
+
+. Choose the desired HBA port from the list of PCI Host Device belonging to the second fabric and press finish. In this example 0000.A2:00:1. +
+image:kvm-hana-image10.png[width=601,height=441]
+
+. Afterwards the physical HBA ports are assigned to the VM and the VM can be started. +
+image:kvm-hana-image11.png[width=601,height=441]
+
+As physical ports have been passed through to the VM no additional preparation needs to be done.
+

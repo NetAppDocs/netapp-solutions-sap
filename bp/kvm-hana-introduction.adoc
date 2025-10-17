@@ -1,0 +1,37 @@
+---
+sidebar: sidebar
+permalink: bp/kvm-hana-introduction.html
+keywords: introduction,KVM, SAP HANA, tailored data center integration, FCP, NFS
+summary: This guide provides information about how to configure SUSE KVM for SAP HANA using NetApp storage.
+---
+
+= SAP HANA single host on SUSE KVM using NetApp Storage
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+This guide provides information about how to configure SUSE KVM for SAP HANA using NetApp storage.
+
+Marco Schoen, NetApp
+
+
+== Introduction
+This document describes additional steps for SAP HANA single hosts on SUSE KVM using NetApp storage. It is based on https://documentation.suse.com/sbp/sap-15/pdf/SBP-SLES4SAP-HANAonKVM-SLES15SP5_en.pdf[SUSE Best Practices for SAP HANA on KVM].
+
+It mainly describes who to use NFS storage for SAP HANA within the VM by configuring network interfaces for SR-IOV on the KVM host, assigning these virtual interfaces to a VM, and configuring the interfaces within the VM.
+
+Also it describes how to setup FCP for SAP HANA usage within the VM.
+
+== Prerequisites
+
+This guide is valid for Linux Enterprise Server for SAP applications 15 SP5/SP6 as KVM host. +
+Certified SAP HANA servers and NetApp storage must be used. Check the SAP HANA Hardware Directory for available options https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN
+
+The setup and configuration of the KVM hosts and the VM must be done according the https://documentation.suse.com/sbp/sap-15/pdf/SBP-SLES4SAP-HANAonKVM-SLES15SP5_en.pdf[SUSE Best Practices for SAP HANA on KVM].
+
+For latest information including supported CPU architecture and limitation check SAP Note +
+https://me.sap.com/notes/3538596[3538596 - SAP HANA on SUSE KVM Virtualization with SLES 15 SP5 - SAP for Me]
+

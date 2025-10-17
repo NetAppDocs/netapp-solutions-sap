@@ -1,0 +1,22 @@
+---
+sidebar: sidebar
+permalink: bp/kvm-hana-update-history.html
+keywords:
+summary:
+---
+
+= Update history
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+The following technical changes have been made to this solution since its original publication.
+
+[cols=2*,options="header",cols="25,50"]
+|===
+| Date
+| Update summary
+ | October 2025 | Initial version
