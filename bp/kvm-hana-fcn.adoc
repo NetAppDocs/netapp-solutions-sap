@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/kvm_hana-fcn.html
+permalink: bp/kvm-hana-fcn.html
 keywords: fibre channel,KVM, SAP HANA, tailored data center integration, FCP
 summary: This guide provides information about how to configure SUSE KVM for SAP HANA using NetApp storage.
 
