@@ -17,7 +17,7 @@ summary: This guide provides information about how to configure SUSE KVM for SAP
 This section provides information about how to configure FCP in SUSE KVM for SAP HANA using NetApp storage.
 
 
-== Assigning PCP ports to the VM
+== Assigning FCP ports to the VM
 As there is no similar feature like SR-IOV for FCP the physical HBA ports need to be assigned to the VM. Two different physical ports attached to different fabrics need to be used.
 
 [NOTE] 
@@ -27,10 +27,10 @@ To do so complete the following steps:
 
 [arabic]
 . Start _virt-manager +
-image:kvm-hana-image2.png[width=601,height=385] +
+image:kvm-hana-image2.png[width=601,height=385] 
 
 . Open the desired VM +
-image:kvm-hana-image3.png[width=601,height=385] +
+image:kvm-hana-image3.png[width=601,height=385] 
 
 . Press “Add Hardware" +
 image:kvm-hana-image4.png[Virtmanager Add Hardware,width=601,height=443]
