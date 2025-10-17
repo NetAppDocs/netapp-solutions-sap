@@ -5,13 +5,13 @@ keywords: Ethernet,KVM, SAP HANA, tailored data center integration,  NFS
 summary: This guide provides information about how to configure SUSE KVM for SAP HANA using NetApp storage.
 ---
 
+= Ethernet Network
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
 
-= Ethernet Network
 [.lead]
 This section provides information about how to configure SR-IOV in SUSE KVM for SAP HANA using NetApp storage.
 
@@ -40,8 +40,11 @@ Loading MST PCI module – Success
 Loading MST PCI configuration module – Success 
 Create devices 
 Unloading MST PCI module (unused) – Success
-. Locate the device 
+....
 
+[arabic, start=2]
+. Locate the device 
+....
 # mst status 
 MST modules: 
 ------------ 
@@ -183,11 +186,8 @@ mlx5_1 port 1 ==> eth5 (Up)
 
 ....
 # cat /sys/class/infiniband/mlx5_0/device/sriov_numvfs
-
 0
-
 # cat /sys/class/infiniband/mlx5_1/device/sriov_numvfs
-
 0
 ....
 
@@ -196,11 +196,13 @@ mlx5_1 port 1 ==> eth5 (Up)
 
 ....
 # echo 4 > /sys/class/infiniband/mlx5_0/device/sriov_numvfs
-
 # echo 4 > /sys/class/infiniband/mlx5_1/device/sriov_numvfs
+....
 
-If your configured already a bond using this two ports the first command needs to be executed against to bond:
+[NOTE] 
+ If your configured already a bond using this two ports the first command needs to be executed against to bond:
 
+....
 # echo 4 > /sys/class/infiniband/mlx5_bond_0/device/sriov_numvfs
 ....
 
@@ -220,7 +222,9 @@ If your configured already a bond using this two ports the first command needs t
 0000:ab:01.3 Ethernet controller: Mellanox Technologies ConnectX Family mlx5Gen Virtual Function
 0000:ab:01.4 Ethernet controller: Mellanox Technologies ConnectX Family mlx5Gen Virtual Function
 0000:ab:01.5 Ethernet controller: Mellanox Technologies ConnectX Family mlx5Gen Virtual Function 
+....
 
+....
 # ibdev2netdev -v
 
 0000:ab:00.0 mlx5_0 (MT4125 - 51TF3A5000XV3) Mellanox ConnectX-6 Dx 100GbE QSFP56 2-port PCIe 4 Ethernet Adapter fw 22.36.1010 port 1 (ACTIVE) ==> eth4 (Up)
