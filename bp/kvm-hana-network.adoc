@@ -5,7 +5,7 @@ keywords: Ethernet,KVM, SAP HANA, tailored data center integration,  NFS
 summary: This guide provides information about how to configure SUSE KVM for SAP HANA using NetApp storage.
 ---
 
-= Ethernet Network
+= Configuring Ethernet Network
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -14,6 +14,7 @@ summary: This guide provides information about how to configure SUSE KVM for SAP
 
 [.lead]
 This section provides information about how to configure SR-IOV in SUSE KVM for SAP HANA using NetApp storage.
+
 
 == Setup of SR-IOV
 
@@ -29,8 +30,14 @@ Prerequisites:
 * PCI Passthrough is enabled by adding “intel_iommu=on” and “iommu=pt” as option at the bootloader
 * Latest MLNX_OFED drivers are installed at KVM hosts and VM.
 
+
+
 == Enabling SR-IOV and set number of VF
-In this chapter the SR-IOV functionality is enabled, the max amount of VFs (virtual interface) per physical port are set at the adapters firmware, and the amount of used VFs per physical port is set, four in this example.
+In this chapter the SR-IOV functionality is enabled, the max amount of VFs (virtual interface) per physical port are set at the adapters firmware, and the amount of used VFs per physical port (100GbE) is set, four in this example.
+
+[NOTE]
+Each VF assigned to a VM requires at least a bandwidth of 10Gbit/s.
+E.g. do not create and assign more as two VFs for a 25GbE physical port. 
 
 [arabic]
 . Run MFT (Mellanox Firmware Tools):
