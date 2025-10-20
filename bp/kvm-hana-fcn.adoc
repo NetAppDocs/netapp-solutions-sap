@@ -18,15 +18,15 @@ This section provides information about how to configure FCP in SUSE KVM for SAP
 
 
 == Assigning FCP ports to the VM
-As there is no similar feature like SR-IOV for FCP the physical HBA ports need to be assigned to the VM. Two different physical ports attached to different fabrics need to be used.
+As there is no similar feature like SR-IOV for FCP, the physical HBA ports need to be assigned to the VM. Two physical ports attached to different fabrics need to be used.
 
 [NOTE] 
-A physical port must only be assigned to one VM.
+A physical port must be assigned to one VM only.
 
 To do so complete the following steps:
 
 [arabic]
-. Start _virt-manager +
+. Start _virt-manager_ +
 image:kvm-hana-image2.png[width=601,height=385] 
 
 . Open the desired VM +
@@ -45,5 +45,5 @@ image:kvm-hana-image10.png[width=601,height=441]
 . Afterwards the physical HBA ports are assigned to the VM and the VM can be started. +
 image:kvm-hana-image11.png[width=601,height=441]
 
-As physical ports have been passed through to the VM no additional preparation needs to be done.
+As physical ports have been passed through to the VM, no additional preparation needs to be done.
 

@@ -18,21 +18,22 @@ This section provides information about how to configure SR-IOV in SUSE KVM for 
 == Setup of SR-IOV
 
 This part shows how to setup SR-IOV using Mellanox Connect-X NICs. It is based on https://enterprise-support.nvidia.com/s/article/HowTo-Configure-SR-IOV-for-ConnectX-4-ConnectX-5-ConnectX-6-with-KVM-Ethernet[NVIDIA Enterprise Support Portal | HowTo Configure SR-IOV for ConnectX-4/ConnectX-5/ConnectX-6 with KVM (Ethernet)]. The SUSE SAP HANA KVM guide describes this based on an INTEL NIC. +
-It is recommended to use redundant ethernet connections. Therefore it is recommended to combine two physical ports as trunk/bond. If the physical ports are trunked also the virtual ports assigned to the VM need to be trunked, a bond needs to be created within the VM.
+It is recommended to use redundant ethernet connections by combining two physical ports as trunk/bond. The virtual ports (VF) assigned to the VM need to be trunked as well within the VM.
 
 image:kvm-hana-image1.png[width=493,height=409]
 
 Prerequisites:
 
 * KVM is installed
-* SR_IOV is enabled in the servers BIOS
-* PCI Paththrough has been enabled by adding “intel_iommu=on” and “iommu=pt” as option at the bootloader
-* Latest MLNX_OFED drivers have been installed at KVM hosts and VM.
+* SR-IOV is enabled in the servers BIOS
+* PCI Passthrough is enabled by adding “intel_iommu=on” and “iommu=pt” as option at the bootloader
+* Latest MLNX_OFED drivers are installed at KVM hosts and VM.
 
 == Enabling SR-IOV and set number of VF
+In this chapter the SR-IOV functionality is enabled, the max amount of VFs (virtual interface) per physical port are set at the adapters firmware, and the amount of used VFs per physical port is set, four in this example.
 
 [arabic]
-. Run MFT 
+. Run MFT (Mellanox Firmware Update Tool)
 ....
 # mst start 
 Starting MST (Mellanox Software Tools) driver set 
@@ -65,21 +66,28 @@ Chip revision is: 00
 [arabic, start=3]
 . Check the status of the device: +
 ....
-mlxconfig -d /dev/mst/mt4125_pciconf0 q |grep -e SRIOV_EN -e NUM_OF_VFS NUM_OF_VFS 8 
+mlxconfig -d /dev/mst/mt4125_pciconf0 q |grep -e SRIOV_EN -e NUM_OF_VFS 
+NUM_OF_VFS 8 
 SRIOV_EN True(1)_
 ....
 
 [arabic, start=4]
-. If necessary, enable SR-IOV and set the amount of VFs 
+. If necessary, enable SR-IOV
 ....
-mlxconfig -d /dev/mst/mt4125_pciconf0 set SRIOV_EN=1 NUM_OF_VFS=8 
+mlxconfig -d /dev/mst/mt4125_pciconf0 set SRIOV_EN=1 
 ....
 
 [arabic, start=5]
-. Reboot the server if the feature needed to be enabled.
+. Set the max amount of VFs 
+....
+mlxconfig -d /dev/mst/mt4125_pciconf0 set  NUM_OF_VFS=4 
+....
 
-=== Creation of Virtual interfaces:
+[arabic, start=6]
+. Reboot the server if the feature needed to be enabled or the amount of max VFs has been changed.
 
+=== Creation of Virtual interfaces
+In this section 4 VFs are created per physical port
 [arabic]
 . Find the device
 ....
@@ -176,9 +184,9 @@ mlx5_1 port 1 ==> eth5 (Up)
 
 ....
 # cat /sys/class/net/eth4/device/sriov_totalvfs
-8
+4
 # cat /sys/class/net/eth5/device/sriov_totalvfs
-8
+4
 ....
 
 [arabic, start=3]
@@ -200,7 +208,7 @@ mlx5_1 port 1 ==> eth5 (Up)
 ....
 
 [NOTE] 
- If your configured already a bond using this two ports the first command needs to be executed against to bond:
+ If your configured already a bond using thess two ports the first command needs to be executed against to bond:
 
 ....
 # echo 4 > /sys/class/infiniband/mlx5_bond_0/device/sriov_numvfs
@@ -267,10 +275,10 @@ altname enp171s0f1np1
 altname ens3f1np1 
 …
 ....
-=== Enabling VFs during boot:
+=== Enabling VFs during boot
 
 The configuration above does not survive a reboot. +
-In order to make it persistent a _systemd_ unit file /etc/ systemd/system/after.local needs to be created with the following content:
+In order to make it persistent a _systemd_ unit file /etc/systemd/system/after.local needs to be created with the following content:
 
 ....
 [Unit]
@@ -301,22 +309,21 @@ echo 4 > /sys/class/infiniband/mlx5_1/device/sriov_numvfs
 Once created ensure that the file can be executed:
 ....
 # cd /etc/init.d/
-# chmod 777 after.local
+# chmod 750 after.local
 ....
 
 == Assigning the virtual interfaces to the VM 
 
-This chapter describes how to assign virtual interfaces to the VM using _virtmanager_
+This chapter describes how to assign virtual interfaces to the VM using _virt-manager_
 
 [arabic]
-. Start _virt-manager +
-image:kvm-hana-image2.png[width=601,height=385] +
+. Start virt-manager +
+image:kvm-hana-image2.png[width=601,height=385] 
 
-. Open the desired VM__ +
-image:kvm-hana-image3.png[width=601,height=385] +
+. Open the desired VM +
+image:kvm-hana-image3.png[width=300,height=385] 
 
 . Press “Add Hardware" +
- +
 image:kvm-hana-image4.png[Virtmanager Add Hardware,width=601,height=443]
 . Choose the desired virtual NIC from the first physical port from the list of PCI Host Device and press finish. +
 In this example 0000.AB:00:2 - 0000.AB:00:4 belong to the first physical port and 0000.AB:01:2 - 0000.AB:01:4 belong to the second physical port. +
@@ -328,7 +335,7 @@ image:kvm-hana-image7.png[width=601,height=443]
 
 == Configuring the network interfaces within the VM
 
-Logon onto the VM and configure the two VFs as bond. Choose either mode 0 or mode 2. Do not use LACP as LACP can only be used on physical ports. The figure below shows a mode 2 configuration using YAST. +
+Log in to the VM and configure the two VFs as bond. Choose either mode 0 or mode 2. Do not use LACP as LACP can only be used on physical ports. The figure below shows a mode 2 configuration using YAST. +
  +
 image:kvm-hana-image8.png[width=601,height=335]
 
