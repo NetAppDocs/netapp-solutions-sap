@@ -33,7 +33,7 @@ Prerequisites:
 In this chapter the SR-IOV functionality is enabled, the max amount of VFs (virtual interface) per physical port are set at the adapters firmware, and the amount of used VFs per physical port is set, four in this example.
 
 [arabic]
-. Run MFT (Mellanox Firmware Update Tool)
+. Run MFT (Mellanox Firmware Tools):
 ....
 # mst start 
 Starting MST (Mellanox Software Tools) driver set 
@@ -44,7 +44,7 @@ Unloading MST PCI module (unused) – Success
 ....
 
 [arabic, start=2]
-. Locate the device 
+. Locate the device: 
 ....
 # mst status 
 MST modules: 
@@ -64,7 +64,7 @@ Chip revision is: 00
 
 
 [arabic, start=3]
-. Check the status of the device: +
+. Check the status of the device:
 ....
 mlxconfig -d /dev/mst/mt4125_pciconf0 q |grep -e SRIOV_EN -e NUM_OF_VFS 
 NUM_OF_VFS 8 
@@ -72,13 +72,13 @@ SRIOV_EN True(1)_
 ....
 
 [arabic, start=4]
-. If necessary, enable SR-IOV
+. If necessary, enable SR-IOV:
 ....
 mlxconfig -d /dev/mst/mt4125_pciconf0 set SRIOV_EN=1 
 ....
 
 [arabic, start=5]
-. Set the max amount of VFs 
+. Set the max amount of VFs: 
 ....
 mlxconfig -d /dev/mst/mt4125_pciconf0 set  NUM_OF_VFS=4 
 ....
@@ -87,9 +87,9 @@ mlxconfig -d /dev/mst/mt4125_pciconf0 set  NUM_OF_VFS=4
 . Reboot the server if the feature needed to be enabled or the amount of max VFs has been changed.
 
 === Creation of Virtual interfaces
-In this section 4 VFs are created per physical port
+In this section 4 VFs are created per physical port.
 [arabic]
-. Find the device
+. Find the device:
 ....
 # ibstat
 
@@ -170,7 +170,7 @@ firmwarenode/ powerstate uevent
 infiniband/ ptp/ vendor
 infinibandmad/ remove vpd
 infinibandverbs/ rescan
-iommu/ reset +
+iommu/ reset 
 ....
 
 ....
@@ -180,7 +180,7 @@ mlx5_1 port 1 ==> eth5 (Up)
 ....
 
 [arabic, start=2]
-. Get the total VFs that are allowed and configured in the firmware.
+. Get the total VFs that are allowed and configured in the firmware:
 
 ....
 # cat /sys/class/net/eth4/device/sriov_totalvfs
@@ -208,7 +208,7 @@ mlx5_1 port 1 ==> eth5 (Up)
 ....
 
 [NOTE] 
- If your configured already a bond using thess two ports the first command needs to be executed against to bond:
+ If you configured already a bond using thess two ports the first command needs to be executed against to bond:
 
 ....
 # echo 4 > /sys/class/infiniband/mlx5_bond_0/device/sriov_numvfs
@@ -247,7 +247,7 @@ mlx5_1 port 1 ==> eth5 (Up)
 0000:ab:01.5 mlx5_9 (MT4126 - NA) fw 22.36.1010 port 1 (DOWN ) ==> eth13 (Down)
 ....
 [arabic, start=6]
-. Check the VFs configuration via the IP tool.
+. Check the VFs configuration via the IP tool:
 
 ....
 # ip link show 
@@ -278,7 +278,7 @@ altname ens3f1np1
 === Enabling VFs during boot
 
 The configuration above does not survive a reboot. +
-In order to make it persistent a _systemd_ unit file /etc/systemd/system/after.local needs to be created with the following content:
+In order to make it persistent a _systemd_ unit file _/etc/systemd/system/after.local_ needs to be created with the following content:
 
 ....
 [Unit]
@@ -295,7 +295,7 @@ WantedBy=multi-user.target
 ....
 
 
-After that, create the script /etc/init.d/after.local:
+After that, create the script _/etc/init.d/after.local_:
 
 ....
 #! /bin/sh
@@ -306,7 +306,7 @@ echo 4 > /sys/class/infiniband/mlx5_bond_0/device/sriov_numvfs
 echo 4 > /sys/class/infiniband/mlx5_1/device/sriov_numvfs
 ....
 
-Once created ensure that the file can be executed:
+Once created, ensure that the file can be executed:
 ....
 # cd /etc/init.d/
 # chmod 750 after.local
@@ -317,13 +317,13 @@ Once created ensure that the file can be executed:
 This chapter describes how to assign virtual interfaces to the VM using _virt-manager_
 
 [arabic]
-. Start virt-manager +
+. Start virt-manager. +
 image:kvm-hana-image2.png[width=601,height=385] 
 
-. Open the desired VM +
+. Open the desired VM. +
 image:kvm-hana-image3.png[width=300,height=385] 
 
-. Press “Add Hardware" +
+. Press “Add Hardware". +
 image:kvm-hana-image4.png[Virtmanager Add Hardware,width=601,height=443]
 . Choose the desired virtual NIC from the first physical port from the list of PCI Host Device and press finish. +
 In this example 0000.AB:00:2 - 0000.AB:00:4 belong to the first physical port and 0000.AB:01:2 - 0000.AB:01:4 belong to the second physical port. +
