@@ -186,3 +186,15 @@ entries:
         url: /bp/hana-fas-fc-additional-info.html
       - title: Update history
         url: /bp/hana-fas-fc-update-history.html    
+  - title: SAP HANA with SUSE KVM and NetApp Storage
+    entries:
+      - title: Introduction
+        url: /bp/kvm-hana-introduction.html
+      - title: Configuring Ethernet Network
+        url: /bp/kvm-hana-network.html
+      - title: Configuring Fibre Channel Network
+        url: /bp/kvm-hana-fcn.html
+      - title: Attaching Storage 
+        url: /bp/kvm-hana-storage.html
+      - title: Update history
+        url: /bp/kvm-hana-update-history.html  
