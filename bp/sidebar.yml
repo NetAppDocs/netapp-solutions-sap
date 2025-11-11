@@ -191,7 +191,7 @@ entries:
       - title: Deployment workflow
         url: /bp/kvm-hana-introduction.html
       - title: Deployment requirements
-        url: bp/kvm-hana-requirements.html
+        url: /bp/kvm-hana-requirements.html
       - title: Configure Ethernet Network
         url: /bp/kvm-hana-network.html
       - title: Configure Fibre Channel Network
