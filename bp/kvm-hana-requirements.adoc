@@ -1,0 +1,48 @@
+---
+sidebar: sidebar
+permalink: bp/kvm-hana-requirements.html
+keywords: requirements,KVM, SAP HANA, tailored data center integration, FCP, NFS, prerequisites
+summary: "Review the requirements for deploying SAP HANA Single-Host on SUSE KVM using NetApp storage with SR-IOV network interfaces and NFS or FCP storage protocols."
+---
+= Deployment requirements for SAP HANA on SUSE KVM with NetApp storage
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Review the requirements for deploying SAP HANA Single-Host on SUSE KVM using NetApp storage with SR-IOV network interfaces and NFS or FCP storage protocols.
+
+The deployment requires certified SAP HANA servers, NetApp storage systems, SR-IOV capable network adapters, and SUSE Linux Enterprise Server for SAP Applications as the KVM host.
+
+== Infrastructure requirements
+
+Make sure the following components and configurations are in place:
+
+* Certified SAP HANA servers and NetApp storage systems. Refer to the https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN[SAP HANA Hardware Directory^] for available options: 
+* SUSE Linux Enterprise Server for SAP Applications 15 SP5/SP6 as the KVM host
+* NetApp ONTAP storage system with Storage Virtual Machine (SVM) configured for NFS and/or FCP traffic
+* Logical interfaces (LIFs) created on the appropriate networks for NFS and FCP traffic
+* SR-IOV capable network adapters (e.g., Mellanox ConnectX series)
+* Fibre Channel HBA adapters for FCP storage access
+* Network infrastructure supporting the required VLANs and network segments
+* VM configured according to the https://documentation.suse.com/sbp/sap-15/pdf/SBP-SLES4SAP-HANAonKVM-SLES15SP5_en.pdf[SUSE Best Practices for SAP HANA on KVM^]
+
+== Important considerations
+
+* SR-IOV must be used for SAP HANA network communication and for storage access using NFS. Each virtual function (VF) assigned to a VM requires at least 10 Gbit/s bandwidth.
+
+* Physical FCP HBA ports must be assigned to the VM as PCI devices for using FCP LUNs. A physical port can only be assigned to one VM.
+
+* SAP HANA Multiple-Host systems are not supported in this configuration.
+
+== Additional resources
+
+* For the latest information including supported CPU architecture and limitations, refer to the SAP Note https://me.sap.com/notes/3538596[3538596 - SAP HANA on SUSE KVM Virtualization with SLES 15 SP5 - SAP for Me].
+* For information about configuring ONTAP storage systems, refer to the https://docs.netapp.com/us-en/ontap[ONTAP 9 documentation].
+* For SAP HANA storage configuration with NetApp systems, refer to the https://docs.netapp.com/us-en/netapp-solutions-sap/[NetApp SAP solutions documentation].
+
+== What's next?
+
+After you've reviewed the deployment requirements, link:kvm-hana-network.html[configure SR-IOV network interfaces].

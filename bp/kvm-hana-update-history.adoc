@@ -20,4 +20,5 @@ The following technical changes have been made to this solution since its origin
 | Date
 | Update summary
  | October 2025 | Initial version
+ | November 2025 | Layout update.
 |===
