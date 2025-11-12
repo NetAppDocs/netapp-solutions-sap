@@ -1,49 +1,58 @@
 ---
 sidebar: sidebar
 permalink: bp/kvm-hana-fcn.html
-keywords: fibre channel,KVM, SAP HANA, tailored data center integration, FCP
-summary: This guide provides information about how to configure SUSE KVM for SAP HANA using NetApp storage.
+keywords: fibre channel,KVM, SAP HANA, FCP, HBA, PCI passthrough, storage
+summary: "Configure Fibre Channel networking for SAP HANA on SUSE KVM by assigning physical HBA ports to VMs as PCI devices. Set up redundant FCP connections using two physical ports attached to different fabric switches."
 ---
 
-= Configuring Fibre Channel Network
+= Configure Fibre Channel networking for SAP HANA on SUSE KVM
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
 
-
 [.lead]
-This section provides information about how to configure FCP in SUSE KVM for SAP HANA using NetApp storage.
-
-
-== Assigning FCP ports to the VM
-As there is no similar feature like SR-IOV for FCP, the physical HBA ports need to be assigned to the VM. Two physical ports attached to different fabrics need to be used.
+Configure Fibre Channel networking for SAP HANA on SUSE KVM by assigning physical HBA ports to VMs as PCI devices. Set up redundant FCP connections using two physical ports attached to different fabric switches.
 
 [NOTE] 
-A physical port must be assigned to one VM only.
+The following steps are only required if FCP is used as storage protocol. IF NFS is used, these steps are not needed.
 
-To do so complete the following steps:
+.About this task
+Since no SR-IOV equivalent feature exists for FCP, assign the physical HBA ports directly to the VM. Use two physical ports attached to different fabrics for redundancy.
 
-[arabic]
-. Start _virt-manager._ +
+[NOTE] 
+A physical port can only be assigned to one VM.
+
+.Steps
+
+. Start virt-manager:
++
 image:kvm-hana-image2.png[width=601,height=385] 
-
-. Open the desired VM. +
++
+. Open the desired VM. 
 image:kvm-hana-image3.png[width=601,height=385] 
-
-. Press “Add Hardware". +
++
+. Select *Add Hardware*. 
++
 image:kvm-hana-image4.png[Virtmanager Add Hardware,width=601,height=443]
-
-. Choose the desired HBA port from the list of PCI Host Device and press finish. +
-In this example 0000.A2:00:0. +
++
+. Choose the desired HBA port from the list of PCI Host Device and press finish. 
++
+In this example 0000.A2:00:0. 
++
 image:kvm-hana-image9.png[width=601,height=441]
-
-. Choose the desired HBA port from the list of PCI Host Device belonging to the second fabric and press finish. In this example 0000.A2:00:1. +
++
+. Choose the desired HBA port from the list of PCI Host Device belonging to the second fabric and press finish. In this example 0000.A2:00:1. 
++
 image:kvm-hana-image10.png[width=601,height=441]
-
-. Afterwards the physical HBA ports are assigned to the VM and the VM can be started. +
++
+. Afterwards the physical HBA ports are assigned to the VM and the VM can be started. 
++
 image:kvm-hana-image11.png[width=601,height=441]
++
+Physical ports are passed through to the VM, so no additional preparation is required within the VM.
 
-As physical ports have been passed through to the VM, no additional preparation needs to be done.
+== What's next?
 
+After you've configured Fibre Channel networking, link:kvm-hana-storage.html[configure NetApp storage for SAP HANA].
