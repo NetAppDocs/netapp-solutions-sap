@@ -11,6 +11,11 @@ summary: Log of recent changes to the NetApp solutions for SAP collateral.
 [.lead]
 Learn what's new in solutions for SAP.
 
+== 12 Novemnber 2025
+New solution link:https://docs.netapp.com/us-en/netapp-solutions-sap/bp/kvm-hana-introduction.html[SAP HANA with SUSE KVM and NetApp Storage^]:
+
+Deploy SAP HANA Single-Host on SUSE KVM using NetApp storage with SR-IOV network interfaces and NFS or FCP storage access. 
+
 == 18 August 2025
 The NetApp Solutions site is now the link:https://docs.netapp.com/us-en/netapp-solutions-family/index.html[NetApp solutions family^], which includes the following sites:
 
