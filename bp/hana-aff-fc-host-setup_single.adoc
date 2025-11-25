@@ -90,8 +90,8 @@ vgchange -a y
 Create the XFS file system on all data and log logical volumes and the hana shared LUN.
 
 ....
-mkfs.xfs FC5_data_mnt00001-vol
-mkfs.xfs FC5_log_mnt00001-vol
+mkfs.xfs /dev/mapper/FC5_data_mnt00001-vol
+mkfs.xfs /dev/mapper/FC5_log_mnt00001-vol
 mkfs.xfs /dev/mapper/svm1-FC5_shared
 ....
 
@@ -103,8 +103,8 @@ Create the required mount point directories, and set the permissions on the data
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/shared
-sapcc-hana-tst:/ # chmod –R 777 /hana/log/FC5
-sapcc-hana-tst:/ # chmod –R 777 /hana/data/FC5
+sapcc-hana-tst:/ # chmod -R 777 /hana/log/FC5
+sapcc-hana-tst:/ # chmod -R 777 /hana/data/FC5
 sapcc-hana-tst:/ # chmod 777 /hana/shared
 ....
 
@@ -115,7 +115,7 @@ To mount file systems during system boot using the `/etc/fstab` configuration fi
 
 ....
 # cat /etc/fstab
-/dev/mapper/hana-FC5_shared /hana/shared xfs defaults 0 0
+/dev/mapper/svm1-FC5_shared /hana/shared xfs defaults 0 0
 /dev/mapper/FC5_log_mnt00001-vol /hana/log/FC5/mnt00001 xfs relatime,inode64 0 0
 /dev/mapper/FC5_data_mnt00001-vol /hana/data/FC5/mnt00001 xfs relatime,inode64 0 0
 ....
@@ -123,5 +123,5 @@ To mount file systems during system boot using the `/etc/fstab` configuration fi
 The XFS file systems for the data and log LUNs must be mounted with the `relatime` and `inode64` mount options.
 
 
-To mount the file systems, run the `mount –a` command at the host.
+To mount the file systems, run the `mount -a` command at the host.
 

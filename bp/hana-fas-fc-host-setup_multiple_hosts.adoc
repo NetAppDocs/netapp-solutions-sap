@@ -104,10 +104,10 @@ vgchange -a y
 Create the XFS file system on all data and log logical volumes.
 
 ....
-mkfs.xfs FC5_data_mnt00001-vol
-mkfs.xfs FC5_data_mnt00002-vol
-mkfs.xfs FC5_log_mnt00001-vol
-mkfs.xfs FC5_log_mnt00002-vol
+mkfs.xfs /dev/mapper/FC5_data_mnt00001-vol
+mkfs.xfs /dev/mapper/FC5_data_mnt00002-vol
+mkfs.xfs /dev/mapper/FC5_log_mnt00001-vol
+mkfs.xfs /dev/mapper/FC5_log_mnt00002-vol
 ....
 
 
@@ -122,8 +122,8 @@ sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00002
 sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00002
 sapcc-hana-tst:/ # mkdir -p /hana/shared
-sapcc-hana-tst:/ # chmod –R 777 /hana/log/FC5
-sapcc-hana-tst:/ # chmod –R 777 /hana/data/FC5
+sapcc-hana-tst:/ # chmod -R 777 /hana/log/FC5
+sapcc-hana-tst:/ # chmod -R 777 /hana/data/FC5
 sapcc-hana-tst:/ # chmod 777 /hana/shared
 ....
 
@@ -140,4 +140,4 @@ sapcc-hana-tst:/ # cat /etc/fstab
 [NOTE]
 All the data and log file systems are mounted through the SAP HANA storage connector.
 
-To mount the file systems, run the `mount –a` command at each host.
+To mount the file systems, run the `mount -a` command at each host.
