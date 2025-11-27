@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: backup/hana-sc-generic-sc-concepts.html
+permalink: backup/hana-sc-generic-concepts.html
 keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP
 summary:
 ---
