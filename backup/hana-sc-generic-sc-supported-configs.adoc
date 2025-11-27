@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-sc-generic-supported-configs.html
+permalink: backup/hana-sc-generic-supported-configs.html
 keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP
 summary:
 ---

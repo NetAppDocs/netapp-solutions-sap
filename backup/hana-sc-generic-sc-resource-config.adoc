@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-sc-generic-sc-resource-config.html
+permalink: backup/hana-sc-generic-sc-resource-config.html
 keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP
 summary:
 ---

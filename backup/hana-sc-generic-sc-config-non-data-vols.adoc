@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: bp/hana-sc-generic-sc-config-non-data-vols.html
+permalink: backup/hana-sc-generic-sc-config-non-data-vols.html
 keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP
 summary:
 ---
