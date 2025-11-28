@@ -46,7 +46,7 @@ and XFS w/ or w/o Linux LVM |ONTAP AFF or ASA (*)
 
 (*): ASA support available starting with SnapCenter 6.2 release
 
-NOTE: The HANA and Linux plug-ins are only available for the Intel CPU platform. For Linux on IBM Power a central HANA plug-in deployment needs to be setup as described in chapter Deployment options for SAP HANA plug-in.
+NOTE: The HANA and Linux plug-ins are only available for the Intel CPU platform. For Linux on IBM Power a central HANA plug-in deployment needs to be setup as described in chapter link: hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana ["Deployment options for SAP HANA plug-in"].
 
 == Supported features and operations
 
