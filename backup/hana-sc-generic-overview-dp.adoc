@@ -40,7 +40,7 @@ The largest part of the overall backup workflow runtime is the time needed to ex
 
 image:hana-sc-generic-image-001.png[width=624,height=267]
 
-===Recovery time objective comparison
+== Recovery time objective comparison
 
 This section provides a recovery time objective (RTO) comparison of file-based and storage-based Snapshot backups. The RTO is defined by the sum of the time needed to restore, recover, and then to start the database.
 

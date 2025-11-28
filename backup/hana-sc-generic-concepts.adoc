@@ -99,8 +99,7 @@ system |High
 |Central verification host used to run hdbpersdiag with FlexClone volumes |None |None
 |===
 
-NetApp recommends using hdbpersdiag to execute HANA block consistency checks. Further details on the implementation are available in chapter Block consistency checks with SnapCenter.
-
+NetApp recommends using hdbpersdiag to execute HANA block consistency checks. Further details on the implementation are available in chapter link:hana-sc-generic-block-check.html["Block consistency checks with SnapCenter"].
 == Data protection strategy
 
 Before configuring SnapCenter and the SAP HANA plug-in, the data protection strategy must be defined based on the RTO and RPO requirements of the various SAP systems.
@@ -141,7 +140,7 @@ NOTE: For ONTAP system or FSx for ONTAP a data protection relationship must be c
 
 NOTE: For ANF backup, no additional configuration is required outside of SnapCenter. The ANF backup secondary retention is managed by SnapCenter.
 
-NOTE: For this example configuration, hdbpersdiag is used for the block integrity check operation. More details can be found in chapter Block consistency checks with SnapCenter.
+NOTE: For this example configuration, hdbpersdiag is used for the block integrity check operation. More details can be found in chapter link:hana-sc-generic-block-check.html["Block consistency checks with SnapCenter"].
 
 The figure below summarizes the schedules and backup retentions. If SnapCenter is used to manage log backup retention, all log backups which are older than the oldest Snapshot backup will be deleted. In other words, log backups are kept as long as required to enable recovery to current in time for every available backup.
 
@@ -201,7 +200,7 @@ SnapCenter handles the housekeeping of file-based backups by deleting the backup
 
 The retention management of backups at the secondary storage (SnapVault) is handled by ONTAP based on the retention defined in the ONTAP protection relationship. To synchronize these changes on the secondary storage in the SnapCenter repository, SnapCenter uses a scheduled cleanup job. This cleanup job synchronizes all secondary storage backups with the SnapCenter repository for all SnapCenter plug-ins and all resources.
 
-The cleanup job is scheduled once per week by default. This weekly schedule results in a delay with deleting backups in SnapCenter and SAP HANA Studio when compared with the backups that have already been deleted at the secondary storage. To avoid this inconsistency, customers can change the schedule to a higher frequency, for example, once per day. For details about how to adapt the schedule of the cleanup job or how to trigger a manual refresh, refer to the section â€œCleanup of secondary backupsâ€.
+The cleanup job is scheduled once per week by default. This weekly schedule results in a delay with deleting backups in SnapCenter and SAP HANA Studio when compared with the backups that have already been deleted at the secondary storage. To avoid this inconsistency, customers can change the schedule to a higher frequency, for example, once per day. For details about how to adapt the schedule of the cleanup job or how to trigger a manual refresh, refer to the chapter link:hana-sc-generic-backup-operations.html#cleanup-of-secondary-backups["Cleanup of secondary backups"].
 
 === Retention management of backups at the secondary storage (ANF backup)
 

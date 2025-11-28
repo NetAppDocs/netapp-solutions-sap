@@ -37,7 +37,7 @@ The following chapters describe the configuration and execution of the different
 
 == Consistency checks with hdbpersdiag using the local snapshot directory
 
-Within SnapCenter a dedicated policy for hdbpersdiag operations is created with a daily schedule and a retention of two. We donâ€™t use the weekly schedule, since we would then have at least 2 Snapshot backups (minimum retention=2), where one of them would be up to two weeks old.
+Within SnapCenter a dedicated policy for hdbpersdiag operations is created with a daily schedule and a retention of two. We don't use the weekly schedule, since we would then have at least 2 Snapshot backups (minimum retention=2), where one of them would be up to two weeks old.
 
 Within the SnapCenter resource protection configuration of the HANA system, a post backup script is added, which executes the hdbpersdiag tool. Since the post backup script will be also called with any other policy configured for the resource, we need to check in the script which policy is currently active. Within the script we also check the current day of the week and run the hdbpersdiag operation only once per week on a Sunday. HANA hdbpersdiag is then called for each data volume in the corresponding hdb* directory of the current Snapshot backup directory. If the consistency check with hdbpersdiag reports any error the SnapCenter job will be marked as failed.
 
@@ -47,7 +47,7 @@ The figure below shows the high-level concept of the consistency check implement
 
 image:hana-sc-generic-image-082.png[width=601,height=248]
 
-As a first step you need to allow access to the snapshot directory, so that the â€œ.snapshotâ€ directory is visible at the HANA database host.
+As a first step you need to allow access to the snapshot directory, so that the "".snapshot" directory is visible at the HANA database host.
 
 * ONTAP systems and FSX for ONTAP: You need to configure the Snapshot directory access volume parameter
 * ANF: You need to configure the Hide Snapshot path volume parameter.
@@ -208,7 +208,7 @@ NOTE: It is important to always use the SID of the HANA system installed at the 
 
 image:hana-sc-generic-image-090.png[width=431,height=115]
 
-In the next screen you need to add the â€œcall-hdbpersdiag-fleclone.shâ€ script as a post clone command.
+In the next screen you need to add the call-hdbpersdiag-fleclone.sh script as a post clone command.
 
 image:hana-sc-generic-image-091.png[width=442,height=169]
 

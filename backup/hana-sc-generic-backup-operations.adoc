@@ -120,7 +120,7 @@ image:hana-sc-generic-image-077.png[width=329,height=404]
 
 == Cleanup of secondary backups
 
-As described in the section https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-br-scs-concepts-best-practices.html#retention-management-of-backups-at-the-secondary-storage[Retention management of backups at the secondary storage&#44;â€] retention management of data backups to an secondary backup storage is handled by ONTAP. SnapCenter periodically checks if ONTAP has deleted backups at the secondary backup storage by running a cleanup job with a weekly default schedule.
+As described in the chapter link:hana-sc-generic-concepts.html#retention-management-of-backups-at-the-secondary-storage-snapvault["Retention mnanagement for secondary backups"],  retention management of data backups to an secondary backup storage is handled by ONTAP. SnapCenter periodically checks if ONTAP has deleted backups at the secondary backup storage by running a cleanup job with a weekly default schedule.
 
 The SnapCenter cleanup job deletes backups in the SnapCenter repository as well as in the SAP HANA backup catalog if any deleted backups at the secondary backup storage have been identified.
 

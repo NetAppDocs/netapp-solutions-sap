@@ -55,7 +55,7 @@ For a restore from a secondary backup you need to select the archive location.
 
 image:hana-sc-generic-image-101.png[width=345,height=323]
 
-With the recovery scope you can select a 'to most recent state', 'point in time' or a save point recovery without using log backups. If you select no recovery, SnapCenter only executes the restore operation and the recovery needs to be done manually as described in chapter Manual recovery with SnapCenter.
+With the recovery scope you can select a 'to most recent state', 'point in time' or a save point recovery without using log backups. If you select no recovery, SnapCenter only executes the restore operation and the recovery needs to be done manually as described in chapter link:hana-sc-generic-restore.html#manual-recovery-with-hana-studio["Manual recovery with HANA Studio"].
 
 NOTE: SnapCenter uses the paths configured in SAP HANA for log backup and catalog backup locations. If you have tiered backups to an additional location, you can add these additional paths.
 
@@ -115,7 +115,7 @@ NOTE: A manual recovery with SAP HANA Cockpit is done with the same steps.
 
 The following section describes the steps of the restore and recovery operations of an SAP HANA MDC system with a single tenant.
 
-In HANA Studio select â€œBackup and Recoveryâ€ and â€œRecover System Databaseâ€.
+In HANA Studio select Backup and Recovery and Recover System Database.
 
 image:hana-sc-generic-image-107.png[width=450,height=368]
 
@@ -149,7 +149,7 @@ Select 'No recovery' to exclude the recovery operations from the SnapCenter work
 
 image:hana-sc-generic-image-114.png[width=358,height=336]
 
-Click on â€œFinishâ€ to start the restore operation.
+Click on Finish to start the restore operation.
 
 image:hana-sc-generic-image-115.png[width=361,height=339]
 
@@ -282,7 +282,7 @@ hdbsql SYSTEMDB=> RECOVER DATABASE FOR SS1 UNTIL TIMESTAMP '2026-08-26 10:55:49'
 ....
 == Single tenant restore and recovery
 
-A single tenant restore and recovery operation with SnapCenter is very similar to the workflow described in the previous chapter Manual recovery with HANA Studio.
+A single tenant restore and recovery operation with SnapCenter is very similar to the workflow described in the previous chapter link:hana-sc-generic-restore.html#manual-recovery-with-hana-studio["Manual recovery with HANA Studio"].
 
 To restore and recover an SAP HANA MDC single-tenant system using SAP HANA Studio and SnapCenter, complete the following steps:
 

@@ -14,7 +14,7 @@ summary:
 :imagesdir: ../media/
 
 
-As discussed in chapter Deployment options for SnapCenter SAP HANA plug-in the HANA plug-in can be deployed outside of the HANA database to support a central plug-in configuration which is required SAP HANA multiple host systems or SAP HANA on IBM Power environments.
+As discussed in chapter link:hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana["Deployment options for SnapCenter plug-in for SAP HANA"], the HANA plug-in can be deployed outside of the HANA database to support a central plug-in configuration which is required SAP HANA multiple host systems or SAP HANA on IBM Power environments.
 
 The central plug-in host can be any Windows or Linux host, but typically the SnapCenter server itself is used as a central plug-in host.
 

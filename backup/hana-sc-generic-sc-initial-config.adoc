@@ -214,7 +214,7 @@ For this policy a daily schedule type has been configured. A daily Snapshot will
 
 NOTE: The schedule itself is configured with the individual HANA resource protection configuration.
 
-The retention which is configured in the policy is only valid for the primary Snapshots. The retention at the SnapVault target is configured with the ONTAP replication relationship for the individual volume(s) of the HANA database as described in chapter Backup operation. The Snapshot label which is configured in the policy must match with the label configured with the ONTAP replication relationship.
+The retention which is configured in the policy is only valid for the primary Snapshots. The retention at the SnapVault target is configured with the ONTAP replication relationship for the individual volume(s) of the HANA database as described in chapter link:hana-sc-generic-backup-operations.html["SAP HANA Snapshot backup operations"]. The Snapshot label which is configured in the policy must match with the label configured with the ONTAP replication relationship.
 
 Snapshot locking (tamperproof Snapshots) can be enabled by clicking the check boxes and defining the locking period. This feature requires a SnapLock license at the storage system and the compliance clock being configured.
 
@@ -256,7 +256,7 @@ image:hana-sc-generic-image-036.png[width=376,height=138]
 
 ==== HANA tool hdbpersdiag
 
-Details are described in chapter SAP HANA hdbpersdiag tool
+Details are described in chapter link:hana-sc-generic-block-check.html["Block consistency checks with SnapCenter"].
 
 ==== File-based backup
 

@@ -27,7 +27,7 @@ The figure below illustrates the different configuration components and their de
 
 All configuration steps are described in detail in the following chapters.
 
-NOTE: The descriptions and screenshots in the document are based on SnapCenter auto discovered HANA systems. Additional or different configuration steps for manual configured resources with a central plug-in host are described in chapter Central plug-in host configuration.
+NOTE: The descriptions and screenshots in the document are based on SnapCenter auto discovered HANA systems. Additional or different configuration steps for manual configured resources with a central plug-in host are described in chapter link:hana-sc-generic-central-plugin.html["Central plug-in host configuration"].
 
 image:hana-sc-generic-image-016.png[width=601,height=319]
 
