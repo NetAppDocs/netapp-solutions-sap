@@ -45,7 +45,7 @@ NOTE: A volume revert operation will delete all Snapshot backups which are newer
 
 NOTE: A restore with SFSR is nearly as fast as a volume revert operation but blocks any Snapshot operation until the background process has finished the meta data operations.
 
-image:hana-sc-generic-image-099.png[width=50%]
+image:hana-sc-generic-image-099.png[width=300]
 
 For HANA systems on bare metal hosts using FC SAN, a volume revert (VBSR) is not supported, instead SFSR is always used for the restore operation. For HANA systems running on VMware with VMFS a clone, mount, copy operation will be used.
 
