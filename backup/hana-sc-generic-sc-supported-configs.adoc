@@ -19,7 +19,7 @@ SnapCenter supports the following HANA configurations and features:
 
 * SAP HANA single host systems
 * SAP HANA multiple host systems
-** Requires a central plug-in deployment as described in â€œDeployment options for SAP HANA plug-inâ€.
+** Requires a central plug-in deployment as described in chapter link:hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana["Deployment options for SnapCenter plug-in for SAP HANA"].
 * SAP HANA MDC systems
 ** with a single or with multiple tenants
 * SAP HANA systems with multiple partitions
