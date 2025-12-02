@@ -13,12 +13,14 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
-
-This technical report provides best practices for SAP HANA data protection with NetApp SnapCenter. The document covers generic and platform-specific SnapCenter configuration and operation guidelines for protecting SAP HANA systems running on the different storage platforms supported by SnapCenter:
+[.lead]
+This guide provides best practices for SAP HANA data protection with NetApp SnapCenter. The document covers generic and platform-specific SnapCenter configuration and operation guidelines for protecting SAP HANA systems running on the different storage platforms supported by SnapCenter.
 
 * ONTAP systems, AFF and ASA
 * Azure NetApp Files
 * Amazon FSx for ONTAP
+
+Author: Nils Bauer, NetApp
 
 Additional use case specific details on SAP system refresh operations and SAP HANA system replication can be found at:
 

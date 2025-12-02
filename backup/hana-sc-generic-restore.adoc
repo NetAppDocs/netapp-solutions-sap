@@ -13,7 +13,6 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
-
 SnapCenter supports the following restore and recovery operations.
 
 * SAP HANA MDC systems with a single tenant

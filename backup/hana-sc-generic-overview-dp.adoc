@@ -13,7 +13,6 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
-
 Companies today require continuous, uninterrupted availability for their SAP applications. They expect consistent performance levels and they need automated daily operations in the face of ever-increasing volumes of data and the need for routine maintenance tasks, such as system backups. Performing backups of SAP databases is a critical task and can have a significant performance impact on the production SAP system.
 
 Backup windows are shrinking while the amount of data to be backed up is increasing. Therefore, it is difficult to find a time when you can perform backups with minimal effect on business processes. The time needed to restore and recover SAP systems is a concern because downtime for SAP production and nonproduction systems must be minimized to reduce costs to the business.

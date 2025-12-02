@@ -13,7 +13,7 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
-== Supported HANA configurations
+== Supported SAP HANA configurations
 
 SnapCenter supports the following HANA configurations and features:
 
@@ -63,17 +63,15 @@ See also https://docs.netapp.com/us-en/snapcenter/protect-hana/reference_types_o
 
 NOTE: Only column 1 (NFS mounts) of the table below is relevant for FSx for ONTAP.
 
-[width="100%",cols="27%,24%,24%,25%",options="header",]
+[width="100%",cols="40%,20%,20%,20%",options="header",]
 |===
 |Operation a|
 NFS mounts
-
 Bare metal or in-guest with VMware or KVM
 
 |FC SAN +
 Bare metal a|
 FC datastore
-
 VMware VMFS
 
 |Snapshot backup and restore operations for HANA database | | |
@@ -103,18 +101,17 @@ VMware VMFS
 |SnapMirror active sync |NA |Yes |Yes
 |===
 
-(*): No VMware integration â€“ crash image Snapshot and full volume restore
+(*): No VMware integration - crash image Snapshot and full volume restore
 
 (**): Workarounds required for SnapCenter releases < 6.2
 
 === ONTAP ASA
 
-[width="100%",cols="27%,33%,40%",options="header",]
+[width="100%",cols="40%,30%,30%",options="header",]
 |===
 |Operation |FC SAN +
 Bare metal (*) a|
 FC datastore
-
 VMware VMFS
 
 |Snapshot backup and restore operations for HANA database | |
@@ -150,7 +147,7 @@ VMware VMFS
 
 === Azure NetApp Files
 
-[width="99%",cols="45%,55%",options="header",]
+[width="100%",cols="60%,40%",options="header",]
 |===
 |Operation |NFS mounts
 |Snapshot backup and restore operations for HANA database |
@@ -161,9 +158,9 @@ VMware VMFS
 |ANF backup and restore operations for HANA database |
 |ANF backup replication |Yes
 |Tamperproof Snapshot |No
-|Full in-place restore |No (*)
-|Single tenant restore |No (*)
-|HANA recovery operation from primary Snapshot ANF backup |
+|Full in-place restore |Yes
+|Single tenant restore |Yes
+|HANA recovery operation from primary Snapshot or ANF backup |
 |Automated recovery MDC single tenant |Yes
 |Automated recovery MDC multiple tenants |No
 |Backup and restore non-data volumes |
