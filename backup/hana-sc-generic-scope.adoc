@@ -5,7 +5,7 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= Scope of this document
+= SAP HANA backup and recovery with SnapCenter
 
 :hardbreaks:
 :nofooter:
