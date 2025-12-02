@@ -100,6 +100,7 @@ system |High
 |===
 
 NetApp recommends using hdbpersdiag to execute HANA block consistency checks. Further details on the implementation are available in chapter link:hana-sc-generic-block-check.html["Block consistency checks with SnapCenter"].
+
 == Data protection strategy
 
 Before configuring SnapCenter and the SAP HANA plug-in, the data protection strategy must be defined based on the RTO and RPO requirements of the various SAP systems.

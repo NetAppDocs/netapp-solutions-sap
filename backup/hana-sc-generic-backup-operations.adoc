@@ -189,7 +189,7 @@ BackupType :
 SnapCenterPS C:\>
 ....
 
-The configuration can also be checked in the Monitor â€“ Schedules view in the SnapCenter UI.
+The configuration can also be checked in the Monitor - Schedules view in the SnapCenter UI.
 
 image:hana-sc-generic-image-080.png[width=601,height=257]
 

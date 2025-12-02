@@ -74,28 +74,28 @@ Bare metal a|
 FC datastore
 VMware VMFS
 
-|Snapshot backup and restore operations for HANA database | | |
+|*Snapshot backup and restore operations for HANA database* | | |
 |Snapshot backup |Yes |Yes |Yes
 |Tamperproof Snapshot |Yes |Yes |Yes
 |Full restore |VBSR or SFSR (selectable) |SFSR of complete LUN |Clone, mount, copy
 |Single tenant restore |SFSR |Clone, mount, copy |Clone, mount, copy
-|SnapVault backup and restore operations for HANA database | | |
+|*SnapVault backup and restore operations for HANA database* | | |
 |SnapVault replication |Yes |Yes |Yes
 |Tamperproof Snapshot |Yes |Yes |Yes
 |Full restore |Yes |Yes |Clone, mount, copy
 |Single tenant restore |Yes |Clone, mount, copy |Clone, mount, copy
-|HANA recovery operation from primary Snapshot or SnapVault target | | |
+|*HANA recovery operation from primary Snapshot or SnapVault target* | | |
 |Automated recovery MDC single tenant |Yes |Yes |Yes
 |Automated recovery MDC multiple tenants |No |No |No
-|Backup and restore non-data volumes | | |
+|*Backup and restore non-data volumes* | | |
 |Snapshot backup |Yes |Yes |Yes (*)
 |Restore from Snapshot |VBSR or SFSR (selectable) |SFSR of complete LUN |VBSR (*)
 |SnapVault replication |Yes |Yes |Yes (*)
 |Restore from SnapVault target |Yes |Yes |Yes (*)
-|SAP System Refresh | | |
+|*SAP System Refresh* | | |
 |From primary Snapshot |Yes |Yes (**) |Yes (**)
 |From SnapVault target |Yes |Yes (**) |Yes (**)
-|HA and DR | | |
+|*HA and DR* | | |
 |HSR support Snapshots and SnapVault |Yes |Yes |Yes
 |SnapMirror replication updates with SC |Yes |Yes |Yes
 |SnapMirror active sync |NA |Yes |Yes
@@ -114,28 +114,28 @@ Bare metal (*) a|
 FC datastore
 VMware VMFS
 
-|Snapshot backup and restore operations for HANA database | |
+|*Snapshot backup and restore operations for HANA database* | |
 |Snapshot backup |Yes |Yes
 |Tamperproof Snapshot |No |No
 |Full restore |SFSR of complete LUN |Clone, mount, copy
 |Single tenant restore |Clone, mount, copy |Clone, mount, copy
-|SnapVault backup and restore operations for HANA database | |
+|*SnapVault backup and restore operations for HANA database* | |
 |SnapVault replication |Yes |Yes
 |Tamperproof Snapshot |No |No
 |Full restore |Yes |Clone, mount, copy
 |Single tenant restore |Clone, mount, copy |Clone, mount, copy
-|HANA recovery operation from primary Snapshot or SnapVault target | |
+|*HANA recovery operation from primary Snapshot or SnapVault target* | |
 |Automated recovery MDC single tenant |Yes |Yes
 |Automated recovery MDC multiple tenants |No |No
-|Backup and restore non-data volumes | |
+|*Backup and restore non-data volumes* | |
 |Snapshot backup |Yes (*) |Yes (*)
 |Restore from Snapshot |SFSR of complete LUN (*) |SFSR of complete LUN (*)
 |SnapVault replication |Yes (*) |Yes (*)
 |Restore from SnapVault target |Yes (*) |Yes (*)
-|SAP System Refresh | |
+|*SAP System Refresh* | |
 |From primary Snapshot |Yes (**) |Yes (**)
 |From SnapVault target |Yes (**) |Yes (**)
-|HA and DR | |
+|*HA and DR* | |
 |HSR support Snapshots and SnapVault |Yes |Yes
 |SnapMirror replication updates triggered by SnapCenter |Yes |Yes
 |SnapMirror active sync |Yes |Yes
@@ -150,28 +150,28 @@ VMware VMFS
 [width="100%",cols="60%,40%",options="header",]
 |===
 |Operation |NFS mounts
-|Snapshot backup and restore operations for HANA database |
+|*Snapshot backup and restore operations for HANA database* |
 |Snapshot backup |Yes
 |Tamperproof Snapshot |No
 |Full in-place restore |Volume revert or SFSR (selectable)
 |Single tenant restore |SFSR
-|ANF backup and restore operations for HANA database |
+|*ANF backup and restore operations for HANA database* |
 |ANF backup replication |Yes
 |Tamperproof Snapshot |No
 |Full in-place restore |Yes
 |Single tenant restore |Yes
-|HANA recovery operation from primary Snapshot or ANF backup |
+|*HANA recovery operation from primary Snapshot or ANF backup* |
 |Automated recovery MDC single tenant |Yes
 |Automated recovery MDC multiple tenants |No
-|Backup and restore non-data volumes |
+|*Backup and restore non-data volumes* |
 |Snapshot backup |Yes
 |Restore from Snapshot |Volume revert
 |ANF backup replication |Yes
 |Full in-place restore from ANF backup |No (*)
-|SAP System Refresh |
+|*SAP System Refresh* |
 |From primary Snapshot |Yes
 |From ANF backup |Yes
-|HA and DR |
+|*HA and DR* |
 |HSR support Snapshots and ANF backup |Yes
 |Cross region replication update triggered by SnapCenter |No
 |===

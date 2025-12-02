@@ -106,11 +106,11 @@ The following figure shows the configured protection relationship for the data v
 
 image:hana-sc-generic-image-043.png[width=601,height=183]
 
-The following figure shows the protection policy, which has been created for our lab setup. The protection policy used for the protection relationship defines the SnapMirror label, as well as the retention of backups at the secondary storage. In our example, the used label is â€œDailyâ€, and the retention is set to 5.
+The following figure shows the protection policy, which has been created for our lab setup. The protection policy used for the protection relationship defines the SnapMirror label, as well as the retention of backups at the secondary storage. In our example, the used label is Daily, and the retention is set to 5.
 
 NOTE: The SnapMirror label in the replication policy must match the label defined in the SnapCenter policy configuration.
 
-NOTE: The schedule of the relationship must be set to â€œNoneâ€, because SnapCenter triggers the SnapVault update as part of the backup operation based on the application consistent Snapshot created before.
+NOTE: The schedule of the relationship must be set to None, because SnapCenter triggers the SnapVault update as part of the backup operation based on the application consistent Snapshot created before.
 
 NOTE: The retention for backups at the secondary backup storage is defined in the policy and controlled by ONTAP.
 
@@ -118,7 +118,7 @@ image:hana-sc-generic-image-044.png[width=601,height=180]
 
 == ANF backup configuration
 
-For ANF backup no specific preparation is required. As soon as the first backup with enabled ANF backup is executed an Azure backup vault with the name â€œsnapcenter-vaultâ€ is created by SnapCenter. This backup vault is then used by all following ANF backup operations executed by SnapCenter.
+For ANF backup no specific preparation is required. As soon as the first backup with enabled ANF backup is executed an Azure backup vault with the name snapcenter-vault is created by SnapCenter. This backup vault is then used by all following ANF backup operations executed by SnapCenter.
 
 image:hana-sc-generic-image-045.png[width=601,height=227]
 
@@ -126,7 +126,7 @@ image:hana-sc-generic-image-045.png[width=601,height=227]
 
 The host requirements are listed at https://docs.netapp.com/us-en/snapcenter/protect-hana/reference_host_requirements_to_install_snapcenter_plug_in_package_for_linux.html[Host requirements for installing the SnapCenter Plug-ins Package for Linux].
 
-The HANA plug-in deployment is done by clicking the â€œAddâ€ button in the Hosts section of the SnapCenter UI.
+The HANA plug-in deployment is done by clicking the Add button in the Hosts section of the SnapCenter UI.
 
 image:hana-sc-generic-image-046.png[width=601,height=145]
 
