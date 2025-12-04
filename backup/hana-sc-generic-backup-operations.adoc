@@ -5,13 +5,16 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= SAP HANA Snapshot backup operations
+= Learn about backup operations for SAP HANA Snapshot in SnapCenter
 
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
+[.lead]
+Perform SAP HANA Snapshot backups using SnapCenter with scheduled or on-demand operations. Learn about database Snapshot backups, block integrity checks, non-data volume backups, and backup replication using SnapVault or Azure NetApp Files backup.
 
 
 In SnapCenter, database backups are typically executed using the schedules defined within the resource protection configuration of each HANA database.
@@ -120,7 +123,7 @@ image:hana-sc-generic-image-077.png[width=329,height=404]
 
 == Cleanup of secondary backups
 
-As described in the chapter link:hana-sc-generic-concepts.html#retention-management-of-backups-at-the-secondary-storage-snapvault["Retention mnanagement for secondary backups"],  retention management of data backups to an secondary backup storage is handled by ONTAP. SnapCenter periodically checks if ONTAP has deleted backups at the secondary backup storage by running a cleanup job with a weekly default schedule.
+As described in link:hana-sc-generic-concepts.html#retention-management-of-backups-at-the-secondary-storage-snapvault["Retention management for secondary backups"],  retention management of data backups to an secondary backup storage is handled by ONTAP. SnapCenter periodically checks if ONTAP has deleted backups at the secondary backup storage by running a cleanup job with a weekly default schedule.
 
 The SnapCenter cleanup job deletes backups in the SnapCenter repository as well as in the SAP HANA backup catalog if any deleted backups at the secondary backup storage have been identified.
 

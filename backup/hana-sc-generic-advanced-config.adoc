@@ -5,7 +5,7 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= Advanced configuration and tuning
+= Configure advanced SnapCenter options for SAP HANA
 
 :hardbreaks:
 :nofooter:
@@ -13,6 +13,8 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+Configure advanced SnapCenter settings for SAP HANA environments, including suppressing VMware warning messages for in-guest NFS mounts, disabling automated log backup housekeeping, and enabling SSL encryption for HANA database connections.
 
 == Warning message with virtualized environments and in-guest mounts
 

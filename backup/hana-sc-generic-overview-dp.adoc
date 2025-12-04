@@ -5,13 +5,16 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= Overview SAP HANA data protection
+= Learn about SAP HANA data protection with NetApp Snapshot technology
 
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
+[.lead]
+Discover how NetApp Snapshot technology protects SAP HANA databases with backups that complete in minutes, regardless of database size. Learn about backup and recovery strategies using Snapshot copies, SnapRestore for fast recovery, and replication with SnapVault or Azure NetApp Files backup for secondary protection.
 
 Companies today require continuous, uninterrupted availability for their SAP applications. They expect consistent performance levels and they need automated daily operations in the face of ever-increasing volumes of data and the need for routine maintenance tasks, such as system backups. Performing backups of SAP databases is a critical task and can have a significant performance impact on the production SAP system.
 

@@ -5,13 +5,16 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= SnapCenter initial configuration
+= Configure initial SnapCenter settings for SAP HANA
 
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
+[.lead]
+Configure initial SnapCenter settings for SAP HANA environments by setting up credentials for Azure service principals and host access, adding storage systems (NetApp accounts for ANF or SVMs for ONTAP and FSx for ONTAP), and creating policies for Snapshot backups, block integrity checks, and secondary replication.
 
 
 The SnapCenter initial configuration includes the following steps:
@@ -272,7 +275,7 @@ As discussed, it is recommended to execute the block integrity check once per we
 
 NOTE: The schedule itself is configured with the individual HANA resource protection configuration.
 
-NOTE: The file system where the file-based backup is written to must provide enough capacity for one backup more than defined in the retention settings, because SnapCenter deletes the old backup after the new one has been created. In our example space for two backups is required with a retention of one. The minimal configurable retention is zero.
+NOTE: The file system where the file-based backup is written to must provide enough capacity for one backup more than defined in the retention settings, because SnapCenter deletes the old backup after the new one has been created. In this example space for two backups is required with a retention of one. The minimal configurable retention is zero.
 
 image:hana-sc-generic-image-039.png[width=351,height=173]
 

@@ -5,7 +5,7 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= Central plug-in host configuration
+= Configure SnapCenter central plug-in host for SAP HANA
 
 :hardbreaks:
 :nofooter:
@@ -13,8 +13,11 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+Deploy the SnapCenter HANA plug-in on a central host to support SAP HANA multiple-host systems or HANA systems on IBM Power. This procedure includes installing the plug-in on a Windows or Linux host, configuring the SAP HANA hdbsql client, and setting up user store keys for each protected HANA system.
 
-As discussed in chapter link:hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana["Deployment options for SnapCenter plug-in for SAP HANA"], the HANA plug-in can be deployed outside of the HANA database to support a central plug-in configuration which is required SAP HANA multiple host systems or SAP HANA on IBM Power environments.
+
+As discussed in link:hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana["Deployment options for SnapCenter plug-in for SAP HANA"], the HANA plug-in can be deployed outside of the HANA database to support a central plug-in configuration which is required SAP HANA multiple host systems or SAP HANA on IBM Power environments.
 
 The central plug-in host can be any Windows or Linux host, but typically the SnapCenter server itself is used as a central plug-in host.
 
@@ -66,7 +69,7 @@ If the SAP HANA plug-in and the SAP hdbsql client are installed on Windows, the 
 hdbuserstore.exe -u SYSTEM set <key> <host>:<port> <database user> <password>
 ....
 
-For an SAP HANA multiple-host setup, SAP HANA user store keys for all hosts must be configured. SnapCenter tries to connect to the database using each of the provided keys and can therefore operate independently of a failover of the system database (HANA name server) to a different host. An SAP HANA user store key is configured for all worker and the standby host. The HANA database user, SNAPCENTER in our example, is the user that has been configured in the system database.
+For an SAP HANA multiple-host setup, SAP HANA user store keys for all hosts must be configured. SnapCenter tries to connect to the database using each of the provided keys and can therefore operate independently of a failover of the system database (HANA name server) to a different host. An SAP HANA user store key is configured for all worker and the standby host. The HANA database user, in this example, SNAPCENTER is the user that has been configured in the system database.
 
 ....
 

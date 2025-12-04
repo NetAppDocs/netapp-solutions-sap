@@ -19,7 +19,7 @@ SnapCenter supports the following HANA configurations and features:
 
 * SAP HANA single host systems
 * SAP HANA multiple host systems
-** Requires a central plug-in deployment as described in chapter link:hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana["Deployment options for SnapCenter plug-in for SAP HANA"].
+** Requires a central plug-in deployment as described in link:hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana["Deployment options for SnapCenter plug-in for SAP HANA"].
 * SAP HANA MDC systems
 ** with a single or with multiple tenants
 * SAP HANA systems with multiple partitions
@@ -46,7 +46,7 @@ and XFS w/ or w/o Linux LVM |ONTAP AFF or ASA (*)
 
 (*): ASA support available starting with SnapCenter 6.2 release
 
-NOTE: The HANA and Linux plug-ins are only available for the Intel CPU platform. For Linux on IBM Power a central HANA plug-in deployment needs to be setup as described in chapter link:hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana["Deployment options for SnapCenter plug-in for SAP HANA"].
+NOTE: The HANA and Linux plug-ins are only available for the Intel CPU platform. For Linux on IBM Power a central HANA plug-in deployment needs to be setup as described in link:hana-sc-generic-concepts.html#deployment-options-for-snapcenter-plug-in-for-sap-hana["Deployment options for SnapCenter plug-in for SAP HANA"].
 
 == Supported features and operations
 

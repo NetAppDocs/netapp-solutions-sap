@@ -5,13 +5,16 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= SnapCenter resource-specific configuration for SAP HANA database backups
+= Configure SnapCenter resources for individual SAP HANA databases
 
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
+[.lead]
+Configure individual SAP HANA databases in SnapCenter by creating backup users and user store keys, setting up storage replication for secondary backups, deploying the HANA plug-in for auto discovery, and configuring resource protection with policies and schedules.
 
 
 The configuration of a HANA database in SnapCenter is done with the following steps:
@@ -26,7 +29,7 @@ The configuration of a HANA database in SnapCenter is done with the following st
 .. Second phase of auto discovery gets started and the HANA resource is added automatically by SnapCenter
 . HANA resource protection must be configured for the new added HANA resource
 
-The initial SnapCenter configuration, as described in the previous chapter, must be done first, since credentials, storage systems and policies are required during the HANA database resource configuration. The figure below summarizes the steps and dependencies.
+The initial SnapCenter configuration, as described in the previous topic link:hana-sc-generic-initial.html["SnapCenter initial configuration"] must be done first, since credentials, storage systems and policies are required during the HANA database resource configuration. The figure below summarizes the steps and dependencies.
 
 The figure below visualizes the different configuration components and dependencies.
 
@@ -41,7 +44,7 @@ The following figure shows the SAP HANA Studio through which the backup user, in
 
 NOTE: The backup user needs to be configured with the privileges backup admin, catalog read, database backup admin, and database recovery operator.
 
-NIOTE: The backup user must be created in the system database because all backup commands for the system and the tenant databases are executed via the system database.
+NOTE: The backup user must be created in the system database because all backup commands for the system and the tenant databases are executed via the system database.
 
 image:hana-sc-generic-image-042.png[width=601,height=382]
 
@@ -102,11 +105,11 @@ The configuration of the data protection relation as well as the initial data tr
 
 The following screenshots show a configuration using ONTAP system manager. For FSx for ONTAP systems the replication must be done using the ONTAP CLI as described at https://docs.netapp.com/us-en/netapp-solutions-sap/backup/fsxn-backup-replication-with-snapvault-overview.html[Overview - Backup replication with SnapVault].
 
-The following figure shows the configured protection relationship for the data volume of the SAP HANA system SS1. With our example, the source volume SS1_data_mnt00001 at the SVM hana-primary is replicated to the SVM hana-backup and the target volume SS1_data_mnt00001_dst.
+The following figure shows the configured protection relationship for the data volume of the SAP HANA system SS1. With this example, the source volume SS1_data_mnt00001 at the SVM hana-primary is replicated to the SVM hana-backup and the target volume SS1_data_mnt00001_dst.
 
 image:hana-sc-generic-image-043.png[width=601,height=183]
 
-The following figure shows the protection policy, which has been created for our lab setup. The protection policy used for the protection relationship defines the SnapMirror label, as well as the retention of backups at the secondary storage. In our example, the used label is Daily, and the retention is set to 5.
+The following figure shows the protection policy, which has been created for this lab setup. The protection policy used for the protection relationship defines the SnapMirror label, as well as the retention of backups at the secondary storage. In this example, the used label is Daily, and the retention is set to 5.
 
 NOTE: The SnapMirror label in the replication policy must match the label defined in the SnapCenter policy configuration.
 
@@ -173,7 +176,7 @@ image:hana-sc-generic-image-052.png[width=601,height=294]
 
 Now policies are attached to the resource and schedules are defined.
 
-In our example we have configured
+In this example we have configured
 
 * A weekly block integrity check, every Sunday
 * A local Snapshot backup, every 4 hours

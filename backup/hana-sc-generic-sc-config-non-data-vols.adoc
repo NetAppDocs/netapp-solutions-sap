@@ -18,7 +18,7 @@ Protecting the database data volume is sufficient to restore and recover the SAP
 
 To recover from situations where other non-data files must be restored, NetApp recommends developing an additional backup strategy for non-data volumes to augment the SAP HANA database backup. Depending on your specific requirements, the backup of non-data volumes might differ in scheduling frequency and retention settings, and you should consider how frequently non-data files are changed. For instance, the HANA volume /hana/shared contains executables, configuration files but also SAP HANA trace files. While executables only change when the SAP HANA database is upgraded, the SAP HANA configuration and trace files might need a higher backup frequency. Also SAP application server volumes can be protected with SnapCenter using non-data volume backups.
 
-SnapCenter non-data volume backup enables Snapshot copies of all relevant volumes to be created in a few seconds with the same space efficiency as SAP HANA database backups. The difference is that there interaction with SAP HANA database required.
+SnapCenter non-data volume backup enables Snapshot copies of all relevant volumes to be created in a few seconds with the same space efficiency as SAP HANA database backups. The difference is that there is no interaction with SAP HANA database required.
 
 From the Resource tab, select Non-Data-Volume and click Add SAP HANA Database.
 
@@ -30,11 +30,11 @@ In step one of the Add SAP HANA Database dialog, in the Resource Type list, sele
 
 image:hana-sc-generic-image-057.png[width=332,height=310]
 
-For ONTAP systems and FSx for ONTAP select storge type ONTAP and add the SVM(s) and the storage volume(s) as storage footprint, then click Next.
+For ONTAP systems and FSx for ONTAP select storage type ONTAP and add the SVM(s) and the storage volume(s) as storage footprint, then click Next.
 
 image:hana-sc-generic-image-058.png[width=332,height=312]
 
-For ANF select storge type Azure NetApp Files select the NetApp Account and capacity pool and add the ANF volume(s) as storage footprint, then click Next.
+For ANF select storage type Azure NetApp Files select the NetApp Account and capacity pool and add the ANF volume(s) as storage footprint, then click Next.
 
 image:hana-sc-generic-image-059.png[width=350,height=337]
 
