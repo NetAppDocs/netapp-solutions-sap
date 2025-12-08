@@ -14,7 +14,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-Perform SAP HANA Snapshot backups using SnapCenter with scheduled or on-demand operations. Learn about database Snapshot backups, block integrity checks, non-data volume backups, and backup replication using SnapVault or Azure NetApp Files backup.
+Perform SAP HANA Snapshot backups using SnapCenter. Learn about database Snapshot backups, block integrity checks, non-data volume backups, and backup replication using SnapVault or Azure NetApp Files backup.
 
 
 In SnapCenter, database backups are typically executed using the schedules defined within the resource protection configuration of each HANA database.

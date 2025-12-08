@@ -14,7 +14,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-Configure initial SnapCenter settings for SAP HANA environments by setting up credentials for Azure service principals and host access, adding storage systems (NetApp accounts for ANF or SVMs for ONTAP and FSx for ONTAP), and creating policies for Snapshot backups, block integrity checks, and secondary replication.
+Configure initial SnapCenter settings for SAP HANA environments by setting up credentials for Azure service principals, adding storage systems, and creating policies for Snapshot backups, block integrity checks, and secondary replication.
 
 
 The SnapCenter initial configuration includes the following steps:

@@ -14,7 +14,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-Execute SAP HANA block consistency checks using the hdbpersdiag tool with existing Snapshot backups or file-based backups. Learn about configuration options including local Snapshot directory access, central verification hosts with FlexClone volumes, and SnapCenter integration for scheduling and automation.
+Execute SAP HANA block consistency checks using the SAP hdbpersdiag tool or by executing file-based backups. Learn about configuration options including local Snapshot directory access, central verification hosts with FlexClone volumes, and SnapCenter integration for scheduling and automation.
 
 
 The table below summarizes the key parameters helping to decide which method for block consistency checks fits best for your environment.

@@ -5,7 +5,10 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= SnapCenter supported configurations
+= Learn about SnapCenter supported configurations for SAP HANA
+
+[.lead]
+SnapCenter supports a wide range of SAP HANA system architectures and deployment scenarios across on-premises and cloud storage platforms. Learn about supported SAP HANA configurations, platform combinations, storage protocols, and available backup and restore operations for each environment.
 
 :hardbreaks:
 :nofooter:

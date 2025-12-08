@@ -5,13 +5,16 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= SnapCenter resource-specific configuration for non-data volume backups
+= Configure SnapCenter to back up non-data volumes
 
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
+
+[.lead]
+Configure SnapCenter to back up non-data volumes such as executables, configuration files, trace files, and application server data.
 
 
 Protecting the database data volume is sufficient to restore and recover the SAP HANA database to a given point in time, provided that the database installation resources, and the required logs are still available.

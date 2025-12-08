@@ -6,7 +6,7 @@ entries:
     entries:
       - title: Solution overview
         url: /backup/hana-sc-generic-scope.html
-      - title: Learn about SAP HANA data protection
+      - title: SAP HANA data protection
         url: /backup/hana-sc-generic-overview-dp.html
       - title: SnapCenter architecture
         url: /backup/hana-sc-generic-sc-architecture.html

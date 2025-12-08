@@ -14,7 +14,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-Restore and recover SAP HANA MDC systems using SnapCenter with automated or manual recovery options. This procedure includes complete system restores, single tenant restores, and volume-based or file-based restore operations for databases on ONTAP, Azure NetApp Files, and FSx for ONTAP.
+Restore and recover SAP HANA systems using SnapCenter with automated or manual recovery options. This includes complete system restores, single tenant restores for HANA databases on ONTAP, Azure NetApp Files, and FSx for ONTAP.
 
 SnapCenter supports the following restore and recovery operations.
 

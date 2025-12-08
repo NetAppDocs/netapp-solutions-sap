@@ -5,7 +5,7 @@ keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for
 summary:
 ---
 
-= SnapCenter for SAP HANA backup solution
+= Learn about SnapCenter backup and recovery for SAP HANA
 
 :hardbreaks:
 :nofooter:
@@ -13,6 +13,8 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+SnapCenter provides comprehensive backup and recovery capabilities for SAP HANA databases using storage-based Snapshot copies, automated retention management, and integration with NetApp ONTAP, Azure NetApp Files, and FSx for NetApp ONTAP. The solution supports application-consistent database backups, non-data volume protection, block integrity checks, and replication to secondary storage using SnapVault or ANF backup.
 
 The SnapCenter backup solution for SAP HANA covers the following areas:
 

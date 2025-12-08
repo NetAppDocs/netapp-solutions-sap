@@ -14,11 +14,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-Protect SAP HANA systems with NetApp SnapCenter using Snapshot-based backups, recovery operations, and data replication. This solution covers SnapCenter configuration and operational best practices for SAP HANA systems on ONTAP AFF and ASA systems, Azure NetApp Files, and Amazon FSx for ONTAP, including backup strategies, consistency checks, and recovery workflows.
-
-* ONTAP systems, AFF and ASA
-* Azure NetApp Files
-* Amazon FSx for ONTAP
+Protect SAP HANA systems with NetApp SnapCenter using Snapshot-based backups and data replication. This solution covers SnapCenter configuration and operational best practices for SAP HANA systems on ONTAP AFF and ASA systems, Azure NetApp Files, and Amazon FSx for ONTAP, including backup strategies, consistency checks, and recovery workflows.
 
 Author: Nils Bauer, NetApp
 
