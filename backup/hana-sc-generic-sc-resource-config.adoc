@@ -29,7 +29,7 @@ The configuration of a HANA database in SnapCenter is done with the following st
 .. Second phase of auto discovery gets started and the HANA resource is added automatically by SnapCenter
 . HANA resource protection must be configured for the new added HANA resource
 
-The initial SnapCenter configuration, as described in the previous topic link:hana-sc-generic-initial-config.html["SnapCenter initial configuration"] must be done first, since credentials, storage systems and policies are required during the HANA database resource configuration. The figure below summarizes the steps and dependencies.
+The initial SnapCenter configuration, as described in the previous topic link:hana-sc-generic-sc-initial-config.html["SnapCenter initial configuration"] must be done first, since credentials, storage systems and policies are required during the HANA database resource configuration. The figure below summarizes the steps and dependencies.
 
 The figure below visualizes the different configuration components and dependencies.
 
