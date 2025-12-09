@@ -62,7 +62,7 @@ Storage-based Snapshot backups provide significant advantages compared to conven
 * Space-efficient and bandwidth-efficient replication to secondary storage based on block changes
 
 [NOTE]
-For detailed information about the SAP HANA backup and recovery solution see link:../backup/hana-sc-generic-scope.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter^].
+For detailed information about the SAP HANA backup and recovery solution see link:../backup/hana-sc-generic-scope.html[SAP HANA Backup and Recovery with SnapCenter^].
 
 == SAP HANA disaster recovery
 

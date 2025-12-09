@@ -15,7 +15,7 @@ summary: NetApp solutions for optimizing SAP lifecycle management are integrated
 To learn more about the information described in this document, refer to the following documents and/or websites:
 
 * link:../index.html[SAP Business Application and SAP HANA Database Solutions (netapp.com)]
-* link:../backup/hana-sc-generic-scope.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter]
+* link:../backup/hana-sc-generic-scope.html[SAP HANA Backup and Recovery with SnapCenter]
 * link:../bp/hana-aff-fc-introduction.html[TR-4436: SAP HANA on NetApp All Flash FAS Systems with Fibre Channel Protocol]
 * link:../bp/hana-aff-nfs-introduction.html[TR-4435: SAP HANA on NetApp All Flash FAS Systems with NFS]
 * link:../backup/fsxn-overview.html[TR-4926: SAP HANA on Amazon FSx for NetApp ONTAP - Backup and recovery with SnapCenter]

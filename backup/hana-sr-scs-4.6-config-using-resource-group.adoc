@@ -151,7 +151,7 @@ The following figure depicts a scenario in which multiple takeovers have been ex
 
 image:saphana-sr-scs-image26.png["Figure showing input/output dialog or representing written content"]
 
-Restore and recovery operations for a SnapCenter 4.6 resource group configuration are identical to an autodiscovered non-System Replication setup. All options for restore and automated recovery are available. For further details, see the technical report link:hana-sc-generic-scope.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter^].
+Restore and recovery operations for a SnapCenter 4.6 resource group configuration are identical to an autodiscovered non-System Replication setup. All options for restore and automated recovery are available. For further details, see the technical report link:hana-sc-generic-scope.html[SAP HANA Backup and Recovery with SnapCenter^].
 
 A restore operation from a backup that was created at the other host is described in the section link:hana-sr-scs-restore-recovery-other-host-backup.html[Restore and Recovery from a Backup Created at the Other Host].
 

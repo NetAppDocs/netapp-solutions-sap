@@ -91,7 +91,7 @@ As an initial step, the target SAP HANA system must be configured within SnapCen
 . Installation of SAP HANA target system
 
 . Configuration of SAP HANA system in SnapCenter 
-as described in link:../backup/hana-sc-generic-scope.html[TR-4614: SAP HANA Backup and Recovery with SnapCenter]
+as described in link:../backup/hana-sc-generic-scope.html[SAP HANA Backup and Recovery with SnapCenter]
 
 .. Configuration of SAP HANA database user for SnapCenter backup operations 
 This user must be identical at the source and the target system.
