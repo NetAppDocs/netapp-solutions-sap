@@ -28,7 +28,7 @@ In this section, the integration between LSC and SnapCenter is described using a
 * *A standard SnapCenter agent and SAP HANA Plug-in installation.* In a standard installation, the SnapCenter agent and the SAP HANA Plug-in are locally installed on the SAP HANA database server.
 * *A SnapCenter installation with a central communication host.* A central communication host is installed with the SnapCenter agent,  the SAP HANA Plug-in, and the HANA database client that handles all database-related operations needed to back up and restore an SAP HANA database for several SAP HANA systems in the landscape. Therefore, a central communication host does not need to have a complete SAP HANA database system installed.
 
-For more details regarding these different SnapCenter agents and SAP HANA database plug-in installation options, see the technical report link:../backup/hana-br-scs-overview.html[TR-4614: SAP HANA backup and recovery with SnapCenter^].
+For more details regarding these different SnapCenter agents and SAP HANA database plug-in installation options, see the technical report link:../backup/hana-sc-generic-scope.html[TR-4614: SAP HANA backup and recovery with SnapCenter^].
 
 The following sections highlight the differences between integrating LSC with SnapCenter using either the standard installation or the central communication host. Notably, all configuration steps that are not highlighted are the same regardless of the installation option and the database used.
 

@@ -16,7 +16,7 @@ This article provides links to additional resources relevant to this solution.
 
 SnapCenter:
 
-link:hana-br-scs-overview.html[TR-4614: SAP HANA backup and recovery with SnapCenter]
+link:hana-sc-generic-scope.html[TR-4614: SAP HANA backup and recovery with SnapCenter]
 
 link:hana-sr-scs-system-replication-overview.html[TR-4719: SAP HANA System Replication - Backup and Recovery with SnapCenter]
 
