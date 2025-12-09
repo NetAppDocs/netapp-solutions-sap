@@ -1,0 +1,101 @@
+---
+sidebar: sidebar
+permalink: backup/hana-sc-generic-advanced-config.html
+keywords: SAP HANA, SnapCenter, backup and recovery, Azure NetApp Files, FSx for NetApp ONTAP
+summary:
+---
+
+= Configure advanced SnapCenter options for SAP HANA
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+Configure advanced SnapCenter settings for SAP HANA environments, including suppressing VMware warning messages for in-guest NFS mounts, disabling automated log backup housekeeping, and enabling SSL encryption for HANA database connections.
+
+== Warning message with virtualized environments and in-guest mounts
+
+When using for example VMware with NFS in-guest mounts, SnapCenter will issue a warning message, that the SnapCenter VMware plug-in should be used. Since the VMWare plug-in is not required for in-guest mounts the warning message can be ignored and switched off. To configure SnapCenter to suppress this warning, the following configuration must be applied:
+
+[arabic]
+. From the Settings tab, select Global Settings.
+. For the hypervisor settings, select VMs Have iSCSI Direct Attached Disks or NFS For All the Hosts and update the settings.
+
+image:hana-sc-generic-image-134.png[width=601,height=176]
+
+== Deactivate automated log backup housekeeping
+
+Log backup housekeeping is enabled by default and can be disabled on the HANA plug-in host level. Use the PowerShell command:
+
+The command Set- SmConfigSettings -Plugin - HostName <pluginhostname> - PluginCode hana - configSettings @{"LOG_CLEANUP_DISABLE" = "Y"} disables the log backup housekeeping for this SAP HANA host.
+
+== Enable secure communication to HANA database
+
+If the HANA databases are configured with secure communication, the hdbsql command that is executed by SnapCenter must use additional command-line options.
+
+There are various options to configure the SSL communication. By default, SnapCenter uses the -e  ssltrustcert hdbsql command-line option. With this option SSL communication without server certificate validation is done and this option also works for HANA systems where SSL is not enabled.
+
+If certificate validation on server and/or client side is required, different hdbsql command line options are needed, and you must configure the PSE environment accordingly as described in the SAP HANA Security Guide.
+
+This can be achieved by using a wrapper script which calls hdbsql with the required options. Instead of configuring the hdbsql executable in the hana.properties files, the wrapper script is added.
+
+....
+
+HANA_HDBSQL_CMD = /usr/sap/SM1/HDB12/exe/hdbsqls
+....
+The wrapper script hdbsqls calls hdbsql with the required command-line options.
+....
+#/bin/bash
+/usr/sap/SM1/HDB12/exe/hdbsql <command line options> $*
+....
+
+== Disable auto discovery on the HANA plug-in host
+
+To disable auto discovery on the HANA plug-in host, complete the following steps:
+
+[arabic]
+. On the SnapCenter Server, open PowerShell. Connect to the SnapCenter Server by running the Open- SmConnection command and specify the username and password in the opening login window.
+. To disable auto discovery, run the Set- SmConfigSettings command.
+
+For a HANA host hana-2, the command is as follows:
+
+....
+
+PS C:\Users\administrator.SAPCC> Set-SmConfigSettings -Agent -Hostname hana-2 -configSettings @{"DISABLE_AUTO_DISCOVERY"="true"}
+
+Name Value
+
+---- -----
+
+DISABLE_AUTO_DISCOVERY true
+
+PS C:\Users\administrator.SAPCC>
+
+Verify the configuration by running the Get- SmConfigSettings command.
+
+PS C:\Users\administrator.SAPCC> Get-SmConfigSettings -Agent -Hostname hana-2 -key all
+
+Key: CUSTOMPLUGINS_OPERATION_TIMEOUT_IN_MSEC Value: 3600000 Details: Plug-in API operation Timeout
+
+Key: CUSTOMPLUGINS_HOSTAGENT_TO_SERVER_TIMEOUT_IN_SEC Value: 1800 Details: Web Service API Timeout
+
+Key: CUSTOMPLUGINS_ALLOWED_CMDS Value: *; Details: Allowed Host OS Commands
+
+Key: DISABLE_AUTO_DISCOVERY Value: true Details:
+
+Key: PORT Value: 8145 Details: Port for server communication
+
+PS C:\Users\administrator.SAPCC>
+
+....
+
+The configuration is written to the agent configuration file on the host and is still available after a plug-in upgrade with SnapCenter.
+....
+
+hana-2:/opt/NetApp/snapcenter/scc/etc # cat /opt/NetApp/snapcenter/scc/etc/agent.properties | grep DISCOVERY
+DISABLE_AUTO_DISCOVERY = true
+hana-2:/opt/NetApp/snapcenter/scc/etc #
+....

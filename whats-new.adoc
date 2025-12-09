@@ -11,6 +11,11 @@ summary: Log of recent changes to the NetApp solutions for SAP collateral.
 [.lead]
 Learn what's new in solutions for SAP.
 
+== 02 December 2025
+New solution: link:https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-generic-scope.html[SAP HANA backup and recovery with SnapCenter^]
+
+This solution provides best practices for SAP HANA data protection with NetApp SnapCenter, covering SnapCenter configuration and operation guidelines for protecting SAP HANA systems on ONTAP AFF and ASA systems, Azure NetApp Files, and Amazon FSx for ONTAP.
+
 == 12 November 2025
 New solution link:https://docs.netapp.com/us-en/netapp-solutions-sap/bp/kvm-hana-introduction.html[SAP HANA with SUSE KVM and NetApp Storage^]:
 
