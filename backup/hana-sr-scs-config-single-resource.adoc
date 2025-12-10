@@ -57,7 +57,7 @@ A user was created in the HANA database to perform backup operations. A user sto
 hdbuserstore.exe -u SYSTEM set SSRKEY ssr-vip:31013 SNAPCENTER <password>
 ....
 
-You can find more information about SAP HANA plug-in deployment options and user store configuration in the technical report TR-4614: link:hana-br-scs-overview.html[SAP HANA Backup and Recovery with SnapCenter^].
+You can find more information about SAP HANA plug-in deployment options and user store configuration in the technical report TR-4614: link:hana-sc-generic-scope.html[SAP HANA Backup and Recovery with SnapCenter^].
 
 In SnapCenter, the resource is configured as shown in the following figure using the user store key, configured before, and the SnapCenter server as the `hdbsql` communication host.
 
