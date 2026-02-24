@@ -4,6 +4,7 @@ permalink: lifecycle/sc-copy-clone-sys-refresh-using-snapshot-backups.html
 keywords: tr4667, 4667, SAP HANA, cloning, system refresh
 summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 ---
+
 = Considerations for SAP HANA system refresh operations using storage snapshot backups
 :hardbreaks:
 :nofooter:
@@ -25,19 +26,27 @@ An exception of this rule is an SAP HANA system with a single tenant, where the 
 [NOTE]
 As soon as any tenant create, rename, or drop operation is executed at the source system, this configuration flag is deleted by the SAP HANA database. Therefore, even if the configuration has been brought back to tenant = SID, the flag is no longer available and the exception regarding tenant recovery with workflow 3 is no longer possible. In this case, option 2 is the required workflow.
 
-image:sc-copy-clone-image10.png["Figure showing input/output dialog or representing written content"]
+image:sc-copy-clone-image10.png[]
 
-image:sc-copy-clone-image11.png["Figure showing input/output dialog or representing written content"]
+image:sc-copy-clone-image11.png[]
 
 == System refresh workflow with enabled SAP HANA encryption
 
-When SAP HANA persistence encryption is enabled, additional steps are required before you can recover the SAP HANA database at the target system.
+When SAP HANA persistence encryption is enable and depending on the used secure store for encryption root keys, instance SFSS or local secure store LSS, additional steps are required before you can recover the SAP HANA database at the target system.
+
+With SFSS root keys are stored within the file system and must be backed up separetely in addtion to the HANA database. The root key backups must then be imported at the target system to enable the recovery of the HANA database. This has to be done only once, If the root keys are not changed. 
+
+With LSS the root keys are backed up and restored together with the HANA database in a single operation. In order to be able to recover the HANA database, you need to have the password that has been used for the backup of the root keys. 
+
+The required operations are described in more details in the following chapters.
+
+=== Secure store SFSS
 
 At the source system you need to create a backup of the encryption root keys for the system database, as well as for all tenant databases. The backup files must be copied to the target system and the root keys must be imported from the backup before the recovery operation is executed.
 
 See also https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/b1e7562e2c704c19bd86f2f9f4feedc4.html[SAP HANA Administration Guide].
 
-=== Backup of root keys
+==== Backup of root keys
 
 A backup of the root keys is always required, if any changes to the root keys have been made.
 The backup command requires the dbid as a CLI parameter. The dbid’s can be identified using the below SQL statement.
@@ -90,7 +99,7 @@ Successfully validated SSFS backup file /usr/sap/SS1/home/root-key-backup-SS1-SY
 done.
 ....
 
-=== Import of root keys at the target system
+==== Import of root keys at the target system
 
 The import of the root keys is required initially for the first system refresh operation. If the root keys are not changed at the source system, no additional import is required.
 The import command requires the dbid as a CLI parameter. The dbid’s can be identified in the same way as described for the root key backup.
@@ -119,10 +128,33 @@ done.
 qs1adm@hana-7:/usr/sap/QS1/HDB11>
 ....
 
-=== Root key import, if dbid does not exist at target
+==== Root key import, if dbid does not exist at target
 
 As described in the chapter before, the dbid is required to import the root key for the system and all tenant databases. While the system database has always dbid=0, the tenant databases can have different dbid’s.
 
-image:sc-copy-clone-image13.png["Figure showing input/output dialog or representing written content"]
+image:sc-copy-clone-image13.png[]
 
 The output above shows two tenants with dbid=3 and dbid=4. If the target system has not yet hosted a tenant with dbid=4, the import of the root key will fail. In that case you need to recover the system database first and then import the key for the tenant with dbid=4.
+
+=== Secure store LSS
+
+In order to recover a HANA system which uses encyrption and LSS, you need the password, that has been used to backup the root keys.
+
+The SQL statement
+.... 
+alter system set encryption root keys backup password <backup-pw-of-source-system>;
+....
+can be used to set the password of the source system in the LSS configuration of the target system. The same statement must be used for the system and tenant database.
+
+If the password has not been set upfront, you can provide the password during the recovery operation.
+
+System database: 
+....
+./exe/Python/bin/python /usr/sap/QM1/HDB22/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG ENCRYPTION ROOT KEYS BACKUP PASSWORD '<backup-pw-of-source-system>'"
+....
+Tenant database:
+....
+hdbsql SYSTEMDB=> RECOVER DATA for QM1 USING SNAPSHOT CLEAR LOG ENCRYPTION ROOT KEYS BACKUP PASSWORD '<backup-pw-of-source-system>';
+
+....
+
