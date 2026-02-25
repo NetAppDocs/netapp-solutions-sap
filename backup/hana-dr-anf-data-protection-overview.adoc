@@ -5,7 +5,7 @@ keywords:
 summary:
 ---
 
-= TR-4891: SAP HANA disaster recovery with Azure NetApp Files
+= SAP HANA disaster recovery with Azure NetApp Files
 
 :hardbreaks:
 :nofooter:

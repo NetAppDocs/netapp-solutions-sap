@@ -4,6 +4,7 @@ permalink: lifecycle/sc-copy-clone-supported-infrastructure.html
 keywords: tr4667, 4667, SAP HANA, cloning, system refresh
 summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 ---
+
 = Supported infrastructure and scenarios
 :hardbreaks:
 :nofooter:
@@ -19,10 +20,13 @@ Within the document, we are using an SAP HANA landscape running on on-premises N
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
 | |*On-premises NetApp systems* |*AWS FSx for NetApp ONTAP* |*Azure NetApp Files*
-|Storage protocol |NFS, Fibre Channel |NFS |NFS
-|Thin clone (FlexClone) |Yes |Yes |No, with the current ANF version, cloned volume is always split
-|Clone split operation |Yes |Yes |N/A
+|Storage protocol and file system|Bare metal: NFS, FC with XFS
+VMware: NFS in-guest mounts, FC with VMDKs and XFS|NFS |NFS
+|Thin clone (FlexClone) |Yes |Yes |Yes, but not integrated into SnapCenter
+|Clone split operation |Yes |Yes |Yes, but not integrated into SnapCenter
 |Cloning from primary |Yes |Yes |Yes
-|Cloning from off-site backup |Yes |Yes |No
+|Cloning from off-site backup |Yes |Yes |Yes, restore to new volume from ANF backup
 |Cloning at DR site |Yes |Yes |Yes, but not integrated into SnapCenter
 |===
+
+Additional information on SAP system refresh operations for HANA with VMware VMFS and NetApp ASAr2 systems can be found at  https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmfs-asar2sap-refresh.html[SAP System Refresh].
