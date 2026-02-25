@@ -28,7 +28,10 @@ SnapCenter supports the following restore and recovery operations.
 
 NOTE: Automated recovery is only supported when the HANA plug-in is deployed on the HANA database host and the HANA system got auto discovered by SnapCenter. With a central plug-in host configuration, recovery needs to be done manually after the restore operation with SnapCenter.
 
-NOTE: Restore from primary ANF volume is supported. A restore form ANF backup is not yet supported. An in-place restore or a restore to a new volume from an ANF backup must be done manually using the Azure portal or CLI.
+NOTE: With Azure NetApp Files, restore operations are supported for primary ANF volumes or ANF backups. For primary ANF volumes a volume revert, for ANF backups an in-place restore with single file restore will be executed. In both cases applicaton volume group configurations will be maintained.
+
+NOTE: If volume encryption is enabled and SAP local secure store (LSS) is used, a recovery with SnapCenter is supported as long as the root key backup password in the LSS has not been changed since the backup has been taken. If the password got changed and a restore and recovery is done using an older Snapshot with a different password, the recovery needs to be done manually and the old password needs to be provided with the recovery statement: "RECOVER DATA USING SNAPSHOT CLEAR LOG ENCRYPTION ROOT KEYS BACKUP PASSWORD 'old-password'"
+
 
 == Automated restore and recovery for SAP HANA MDC systems with a single tenant
 

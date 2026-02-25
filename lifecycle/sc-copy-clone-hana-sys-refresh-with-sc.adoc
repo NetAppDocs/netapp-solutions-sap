@@ -4,6 +4,7 @@ permalink: lifecycle/sc-copy-clone-hana-sys-refresh-with-sc.html
 keywords: tr4667, 4667, SAP HANA, cloning, system refresh
 summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 ---
+
 = SAP HANA system refresh with SnapCenter
 :hardbreaks:
 :nofooter:
@@ -23,7 +24,8 @@ Depending on the SAP HANA database configuration additional steps are executed o
 |Source system |Source system configuration |SnapCenter and SAP HANA operations
 |MDC single tenant +
 SID = tenant name |Standard configuration |SnapCenter clone operation and optional recovery script execution.
-| |SAP HANA persistence encryption |Initially, or if root keys have been changed at the source system, root key backup(s) must be imported at the target system before recovery can be executed.
+| |SAP HANA persistence encryption |SFSS: Initially, or if root keys have been changed at the source system, root key backup(s) must be imported at the target system before recovery can be executed.
+LSS: initially, or if root key backup password has been changed, the password must be set in the LSS configutation.
 | |SAP HANA system replication source |No additional steps required. If target system has no HSR configured it will stay a standalone system.
 | |SAP HANA multiple partitions |No additional steps required, but mount points for SAP HANA volume partitions must be available at the target system with same naming convention (only SID is different).
 a|
@@ -33,7 +35,8 @@ or MDC single tenant +
 with SID <> tenant name
 
 |Standard configuration |SnapCenter clone operation and optional recovery script execution. Script recovers all tenants. If tenants or tenant names does not exist at the target system names, required directories will be automatically created during the SAP HANA recovery operation. Tenant names will be same as source and need to be renamed after recovery, if required.
-| |SAP HANA persistence encryption |If a DBID of the source system does not exist before at the target system, the system database must be recovered first, before the root key backup of this tenant can be imported.
+| |SAP HANA persistence encryption |SFSS: If a DBID of the source system does not exist before at the target system, the system database must be recovered first, before the root key backup of this tenant can be imported.
+LSS: LSS topology will automatically be synced with HANA topology during tenant database(s) recovery.
 | |HANA system replication source |No additional steps required. If target system has no HSR configured it will stay a standalone system.
 | |HANA multiple partitions |No additional steps required, but mount points for SAP HANA volume partitions must be available at the target system with same naming convention (only SID is different).
 |===
@@ -161,7 +164,7 @@ It is crucial that the target system resource and host has been configured in Sn
 
 image:sc-copy-clone-image19.png["Figure showing input/output dialog or representing written content"]
 
-In a Fibre Channel SAN setup, no export IP address is required, but you need to provide the used protocol in the next screen.
+In a Fibre Channel SAN setup, you need to provide the used protocol in the next screen.
 [NOTE]
 The screenshots show a different lab setup using a FibreChannel connectivity.
 
