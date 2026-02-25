@@ -26,9 +26,9 @@ An exception of this rule is an SAP HANA system with a single tenant, where the 
 [NOTE]
 As soon as any tenant create, rename, or drop operation is executed at the source system, this configuration flag is deleted by the SAP HANA database. Therefore, even if the configuration has been brought back to tenant = SID, the flag is no longer available and the exception regarding tenant recovery with workflow 3 is no longer possible. In this case, option 2 is the required workflow.
 
-image:sc-copy-clone-image10.png[]
+image:sc-copy-clone-image10.png[""]
 
-image:sc-copy-clone-image11.png[]
+image:sc-copy-clone-image11.png[""]
 
 == System refresh workflow with enabled SAP HANA encryption
 
@@ -132,7 +132,7 @@ qs1adm@hana-7:/usr/sap/QS1/HDB11>
 
 As described in the chapter before, the dbid is required to import the root key for the system and all tenant databases. While the system database has always dbid=0, the tenant databases can have different dbid’s.
 
-image:sc-copy-clone-image13.png[]
+image:sc-copy-clone-image13.png[""]
 
 The output above shows two tenants with dbid=3 and dbid=4. If the target system has not yet hosted a tenant with dbid=4, the import of the root key will fail. In that case you need to recover the system database first and then import the key for the tenant with dbid=4.
 
