@@ -138,6 +138,8 @@ The output above shows two tenants with dbid=3 and dbid=4. If the target system 
 
 === Secure store LSS
 
+NOTE: You need to use at least HANA version 2.00.088, otherwise described procedure will not work, see also SAP note 3613110.
+
 In order to recover a HANA system which uses encyrption and LSS, you need the password, that has been used to backup the root keys.
 
 The SQL statement

@@ -4,6 +4,7 @@ permalink: backup/hana-sc-vmware-smas-scope.html
 keywords: SAP HANA, VMware, SnapMirror active sync, SnapCenter, backup and recovery
 summary: 
 ---
+
 = SAP HANA data protection and high availability with SnapCenter, SnapMirror active sync and VMware Metro Storage Cluster
 :hardbreaks:
 :nofooter:
