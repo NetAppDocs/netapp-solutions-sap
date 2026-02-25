@@ -5,7 +5,7 @@ keywords: tr4953, introduction, 4953, clone, copy, refresh automation
 summary: SAP Landscape Management (LaMa) enables SAP system administrators to automate SAP system operations, including end-to-end SAP system clone, copy, and refresh operations.
 ---
 
-= TR-4953: NetApp SAP Landscape Management Integration using Ansible
+= NetApp SAP Landscape Management Integration using Ansible
 :hardbreaks:
 :nofooter:
 :icons: font

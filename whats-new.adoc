@@ -11,6 +11,11 @@ summary: Log of recent changes to the NetApp solutions for SAP collateral.
 [.lead]
 Learn what's new in solutions for SAP.
 
+== 26 February 2026
+Updated https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[Automating SAP HANA System Copy and Clone Operations with SnapCenter] solution to cover SAP HANA volume encryption with local secure store (LSS).
+
+Updated https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-generic-scope.html[SAP HANA Backup and Recovery with SnapCenter] solution to cover SAP HANA volume encryption with local secure store (LSS) as well as new supported configurations.
+
 == 02 December 2025
 New solution: link:https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-generic-scope.html[SAP HANA backup and recovery with SnapCenter^]
 

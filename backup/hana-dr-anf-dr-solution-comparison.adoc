@@ -4,6 +4,7 @@ permalink: backup/hana-dr-anf-dr-solution-comparison.html
 keywords: sap, hana, system, replication, data, memory, disaster, recovery, solutions, azure
 summary: A comprehensive disaster recovery solution must enable customers to recover from a complete failure of the primary site.
 ---
+
 = Disaster recovery solution comparison
 :hardbreaks:
 :nofooter:

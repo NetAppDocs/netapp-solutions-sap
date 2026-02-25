@@ -4,6 +4,7 @@ permalink: lifecycle/sc-copy-clone-overview-sys-refresh-wf-sc.html
 keywords: tr4667, 4667, SAP HANA, cloning, system refresh
 summary: NetApp solutions for optimizing SAP lifecycle management are integrated into SAP HANA database and lifecycle management tools, combining efficient application-integrated data protection with the flexible provisioning of SAP test systems.
 ---
+
 = Overview of SAP system refresh workflow with SnapCenter
 :hardbreaks:
 :nofooter:
@@ -42,7 +43,7 @@ In most cases, target test/QA systems are used for at least a couple of weeks. S
 [NOTE]
 When splitting the FlexClone volume, SnapCenter deletes all backups that were created at the target system.
 [NOTE]
-With SnapCenter and Azure NetApp Files, the clone split operation is not available, since Azure NetApp Files always splits the clone after creation.
+With SnapCenter and Azure NetApp Files, the clone split operation is not available, the clone is always split after creation.
 
 The refresh operation including the clone split consists of the following steps.
 
