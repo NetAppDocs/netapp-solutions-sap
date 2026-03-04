@@ -38,9 +38,9 @@ lun create -path FC5_data_mnt00001_2 -size 1t -ostype linux  -class regular
 lun create -path FC5_log_mnt00001_1 -size 260g -ostype linux  -class regular
 lun create -path FC5_log_mnt00001_2 -size 260g -ostype linux  -class regular
 lun create -path FC5_shared -size 260g -ostype linux  -class regular
-
 ....
-
+[NOTE]
+Disable autonomous ransom protection for these LUNs using the GUI
 
 . Create the initiator group for all servers belonging to system FC5.
 +
@@ -124,4 +124,8 @@ All required LUNs for a SAP HANA single-host system have been created.
 
 image:saphana_asa_fc_image19.png["ONTAP System Manager - LUN Overview"]
 
+=== Disable Autonomous Ransomware Protection for all data und log LUNS
 
+Open the context menu of each data and log LUN and disable ransomware-protection
+
+image:saphana_asa_fc_image19_5.png["ONTAP System Manager - LUN Overview"]

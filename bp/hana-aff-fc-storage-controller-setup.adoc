@@ -32,6 +32,12 @@ The usage of NetApp FlexGroup Volumes is not supported for SAP HANA. Due to the 
 
 The use of NetApp Volume Encryption (NVE) and NetApp Aggregate Encryption (NAE) are supported with SAP HANA.
 
+== ONTAP Autonomous Ransomware Protection
+The Snapshots created by ONTAP Autonomous Ransomware Protection can't be used for forward recovery of the SAP database. Therefore it is not recommended  to use it for SAP HANA data and log volumes and should be disabled for these volumes. Use SnapCenter based data protection with Tamperproof Snapshots instead for ransomware protection.
+link:../backup/hana-sc-generic-scope.html[SAP HANA backup and recovery with SnapCenter]
+
+It is possible to disable the automatically activation of this during volume creation for a ONTAP Cluster, however it is recommended to keep the default setting and disable it for volumes where this functionality is not needed.
+
 == Quality of Service
 
 QoS can be used to limit the storage throughput for specific SAP HANA systems or non-SAP applications on a shared controller. 
