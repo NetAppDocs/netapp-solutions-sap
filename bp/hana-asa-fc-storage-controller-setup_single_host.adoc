@@ -16,8 +16,31 @@ summary: This section describes the configuration of the NetApp storage system. 
 [.lead]
 This section describes the configuration of the NetApp storage system specific to SAP HANA single-host systems
 
+== LUN Overview
 
+The following table shows the LUN configuration of a single-host SAP HANA system.
 
+|===
+|Purpose |LUNs |LVM logical volume 
+
+|Data 
+|FC5_data_mnt00001_1
+FC5_data_mnt00001_2
+|FC5_data_mnt00001-vol
+|Log
+|FC5_log_mnt00001_1
+FC5_log_mnt00001_2
+|FC5_log_mnt00001-vol
+|Shared
+|FC5_shared
+| n/a
+|===
+
+[NOTE]
+With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
+
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/lss/shared/SID` directory so that all file systems are on the central storage.
 
 [#lun_create]
 == Creating LUNs and mapping LUNs to initiator groups

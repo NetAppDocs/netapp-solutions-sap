@@ -73,6 +73,9 @@ The next table shows an example of the mount point configuration for a single-ho
 [NOTE]
 With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
 
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
+
 == Volume and LUN configuration for SAP HANA single-host systems using Linux LVM
 
 The Linux LVM can be used to increase performance and to address LUN size limitations. The different LUNs of an LVM volume group should be stored within a different aggregate and at a different controller. The following table shows an example for two LUNs per volume group.

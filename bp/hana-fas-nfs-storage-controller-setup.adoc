@@ -36,10 +36,11 @@ The usage of NetApp FlexGroup Volumes is not supported for SAP HANA. Due to the 
 The use of NetApp Volume Encryption (NVE) and NetApp Aggregate Encryption (NAE) are supported with SAP HANA.
 
 == ONTAP Autonomous Ransomware Protection
-The Snapshots created by ONTAP Autonomous Ransomware Protection can't be used for forward recovery of the SAP database. Therefore it is not recommended  to use it for SAP HANA data and log volumes and should be disabled for these volumes. Use SnapCenter based data protection with Tamperproof Snapshots instead for ransomware protection.
-link:../backup/hana-sc-generic-scope.html[SAP HANA backup and recovery with SnapCenter]
+The Snapshots created by ONTAP Autonomous Ransomware Protection can't be used for forward recovery of the SAP HANA database. Therefore it is not recommended  to use it for SAP HANA data and log volumes and should be disabled for these volumes. Use SnapCenter based data protection with Tamperproof Snapshots instead for ransomware protection:
+link:../backup/hana-sc-generic-scope.html[SAP HANA backup and recovery with SnapCenter].
+ONTAP Autonomous Ransomware Protection  might be beneficial for other volumes such as /hana/shared.
 
-It is possible to disable the automatically activation of this during volume creation for a ONTAP Cluster, however it is recommended to keep the default setting and disable it for volumes where this functionality is not needed.
+It is possible to disable the automatically activation of this feature during volume creation for an ONTAP Cluster, however it is recommended to keep the default setting and disable it for volumes where this functionality is not needed.
 
 == Quality of service
 
@@ -201,6 +202,9 @@ shared
 /hana/shared
 |===
 
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating a directory within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
+
 == Volume configuration for SAP HANA multiple-host systems
 
 The following figure shows the volume configuration of a 4+1 SAP HANA system. The data and log volumes of each SAP HANA host are distributed to different storage controllers. For example, volume `SID1_data1_mnt00001` is configured on controller A, and volume `SID1_log1_mnt00001` is configured on controller B.
@@ -307,6 +311,9 @@ The following table shows the configuration and the mount points of a multiple-h
 |/usr/sap/SID
 |Mounted at host 5
 |===
+
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating a directory within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
 
 == Volume options
 

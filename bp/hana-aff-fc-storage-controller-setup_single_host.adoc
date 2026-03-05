@@ -4,6 +4,7 @@ permalink: bp/hana-aff-fc-storage-controller-setup_single_host.html
 keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm,
 summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding Data ONTAP setup and configuration guides.
 ---
+
 == Single host
 :hardbreaks:
 :nofooter:
@@ -71,6 +72,9 @@ The following table shows an example of the mount point configuration for a sing
 
 [NOTE]
 With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
+
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
 
 == Volume and LUN configuration for SAP HANA single-host systems using Linux LVM
 
