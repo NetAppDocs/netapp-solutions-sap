@@ -4,6 +4,7 @@ permalink: bp/hana-aff-fc-host-setup_multi.html
 keywords: multipathing, fcp, hba, configure
 summary: Before setting up the host, NetApp SAN host utilities must be downloaded from the NetApp Support site and installed on the HANA servers. The host utility documentation includes information about additional software that must be installed depending on the FCP HBA used.
 ---
+
 == Multiple hosts setup
 :hardbreaks:
 :nofooter:
@@ -120,9 +121,11 @@ sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00002
 sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00002
 sapcc-hana-tst:/ # mkdir -p /hana/shared
+sapcc-hana-tst:/ # mkdir -p /lss/shared
 sapcc-hana-tst:/ # chmod -R 777 /hana/log/FC5
 sapcc-hana-tst:/ # chmod -R 777 /hana/data/FC5
 sapcc-hana-tst:/ # chmod 777 /hana/shared
+sapcc-hana-tst:/ # chmod 777 /lss/shared
 ....
 
 
@@ -134,10 +137,9 @@ To mount the `/hana/shared` file systems during system boot using the `/etc/fsta
 ....
 sapcc-hana-tst:/ # cat /etc/fstab
 <storage-ip>:/hana_shared /hana/shared nfs rw,vers=3,hard,timeo=600, intr,noatime,nolock 0 0
+<storage-ip>:/lss_shared /lss/shared nfs rw,vers=3,hard,timeo=600, intr,noatime,nolock 0 0
 ....
 [NOTE]
 All the data and log file systems are mounted through the SAP HANA storage connector.
 
 To mount the file systems, run the `mount -a` command at each host.
-
-

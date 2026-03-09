@@ -4,6 +4,7 @@ permalink: bp/hana-aff-nfs-storage-controller-setup.html
 keywords: storage, controller, efficiency, volume encryption, quality of service, qos, fabricpool, DS224C, svm, configuration
 summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding ONTAP setup and configuration guides.
 ---
+
 = Storage controller setup
 :hardbreaks:
 :nofooter:
@@ -174,6 +175,9 @@ For each SAP HANA host, a data volume, a log volume, and a volume for `/hana/sha
 
 The following table shows an example of the mount point configuration for a single-host system. To place the home directory of the `sidadm` user on the central storage, the `/usr/sap/SID` file system should be mounted from the `SID_shared` volume.
 
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating a directory within the `SID_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
+
 |===
 |Junction path |Directory |Mount point at HANA host
 
@@ -183,15 +187,15 @@ The following table shows an example of the mount point configuration for a sing
 |SID_log_mnt00001
 |
 |/hana/log/SID/mnt00001
-|SID_shared
-|usr-sap
-shared
-|/usr/sap/SID
-/hana/shared/
+|SID-shared
+|usr-sap +
+shared +
+lss-shared
+|/usr/sap/SID +
+/hana/shared +
+/lss/shared/SID
 |===
 
-[NOTE]
-If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating a directory within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
 
 == Volume configuration for SAP HANA multiple-host systems
 
@@ -239,6 +243,9 @@ For each SAP HANA host, a data volume and a log volume are created. The `/hana/s
 
 The following table shows the configuration and the mount points of a multiple-host system with four active SAP HANA hosts.  To place the home directories of the `sidadm` user of each host on the central storage,  the `/usr/sap/SID` file systems are mounted from the `SID_shared` volume.
 
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating a directory within the `SID_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
+
 |===
 |Junction path |Directory |Mount point at SAP HANA host |Note
 
@@ -279,6 +286,10 @@ The following table shows the configuration and the mount points of a multiple-h
 |/hana/shared/SID
 |Mounted at all hosts
 |SID_shared
+|lss-shared
+|/lss/shared/SID
+|Mounted at all hosts
+|SID_shared
 |usr-sap-host1
 |/usr/sap/SID
 |Mounted at host 1
@@ -300,8 +311,6 @@ The following table shows the configuration and the mount points of a multiple-h
 |Mounted at host 5
 |===
 
-[NOTE]
-If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating a directory within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
 
 == Volume options
 

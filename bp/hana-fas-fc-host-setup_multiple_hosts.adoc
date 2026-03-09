@@ -4,14 +4,13 @@ permalink: bp/hana-fas-fc-host-setup_multiple_hosts.html
 keywords: configure, multipathing, create, lvm, volume, groups, logical, mount, points, file, systems
 summary: The documentation also contains information about multipath configurations that are specific to the Linux version used.
 ---
+
 == Multiple hosts setup
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
-
-
  
 [.lead]
 This chapter describes the setup of a 2+1 SAP HANA multiple host system as example.
@@ -122,9 +121,11 @@ sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00002
 sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00002
 sapcc-hana-tst:/ # mkdir -p /hana/shared
+sapcc-hana-tst:/ # mkdir -p /lss/shared
 sapcc-hana-tst:/ # chmod -R 777 /hana/log/FC5
 sapcc-hana-tst:/ # chmod -R 777 /hana/data/FC5
 sapcc-hana-tst:/ # chmod 777 /hana/shared
+sapcc-hana-tst:/ # chmod 777 /lss/shared
 ....
 
 
@@ -136,6 +137,7 @@ To mount the `/hana/shared` file systems during system boot using the `/etc/fsta
 ....
 sapcc-hana-tst:/ # cat /etc/fstab
 <storage-ip>:/hana_shared /hana/shared nfs rw,vers=3,hard,timeo=600, intr,noatime,nolock 0 0
+<storage-ip>:/lss_shared /lss/shared nfs rw,vers=3,hard,timeo=600, intr,noatime,nolock 0 0
 ....
 [NOTE]
 All the data and log file systems are mounted through the SAP HANA storage connector.

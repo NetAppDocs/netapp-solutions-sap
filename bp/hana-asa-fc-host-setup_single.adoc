@@ -4,6 +4,7 @@ permalink: bp/hana-asa-fc-host-setup_single.html
 keywords: multipathing, fcp, hba, configure
 summary: Before setting up the host, NetApp SAN host utilities must be downloaded from the NetApp Support site and installed on the HANA servers. The host utility documentation includes information about additional software that must be installed depending on the FCP HBA used.
 ---
+
 == Single host setup
 :hardbreaks:
 :nofooter:
@@ -31,6 +32,9 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 |Mounted using /etc/fstab entry
 |LUN: FC5_shared
 |/hana/shared/FC5
+|Mounted using /etc/fstab entry
+|LUN: FC5-lss_shared
+|/lss/shared/FC5
 |Mounted using /etc/fstab entry
 |===
 
@@ -94,6 +98,7 @@ Create the XFS file system on all data and log logical volumes and the hana shar
 mkfs.xfs /dev/mapper/FC5_data_mnt00001-vol
 mkfs.xfs /dev/mapper/FC5_log_mnt00001-vol
 mkfs.xfs /dev/mapper/svm1-FC5_shared
+mkfs.xfs /dev/mapper/svm1-FC5-lss_shared
 ....
 
 [NOTE]
@@ -107,9 +112,11 @@ Create the required mount point directories, and set the permissions on the data
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/shared
+sapcc-hana-tst:/ # mkdir -p /lss/shared
 sapcc-hana-tst:/ # chmod -R 777 /hana/log/FC5
 sapcc-hana-tst:/ # chmod -R 777 /hana/data/FC5
 sapcc-hana-tst:/ # chmod 777 /hana/shared
+sapcc-hana-tst:/ # chmod 777 /lss/shared
 ....
 
 
@@ -121,6 +128,7 @@ To mount file systems during system boot using the `/etc/fstab` configuration fi
 ....
 # cat /etc/fstab
 /dev/mapper/hana-FC5_shared /hana/shared xfs defaults 0 0
+/dev/mapper/hana-FC5-lss_shared /lss/shared xfs defaults 0 0
 /dev/mapper/FC5_log_mnt00001-vol /hana/log/FC5/mnt00001 xfs relatime,inode64 0 0
 /dev/mapper/FC5_data_mnt00001-vol /hana/data/FC5/mnt00001 xfs relatime,inode64 0 0
 ....

@@ -4,6 +4,7 @@ permalink: bp/hana-aff-fc-storage-controller-setup_multiple_hosts.html
 keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm,
 summary: This section describes how to create LUNS for a multiple host system
 ---
+
 == Multiple hosts
 :hardbreaks:
 :nofooter:
@@ -22,17 +23,17 @@ This section describes the configuration of the NetApp storage system specific t
 
 The following figure shows the volume configuration of a 4+1 multiple-host SAP HANA system. The data volumes and log volumes of each SAP HANA host are distributed to different storage controllers. For example, the volume `SID_data_mnt00001` is configured on controller A and the volume `SID_log_mnt00001` is configured on controller B. One LUN is configured within each volume.
 
-The `/hana/shared` volume must be accessible by all HANA hosts and is therefore exported by using NFS. Even though there are no specific performance KPIs for the `/hana/shared` file system, NetApp recommends using a 10Gb Ethernet connection.
+The `/hana/shared` volume must be accessible by all HANA hosts and is therefore exported by using NFS. Even though there are no specific performance KPIs for the `/hana/shared` and `/lss/shared` file systems, NetApp recommends using a 10Gb Ethernet connection.
 
 [NOTE]
 If only one storage controller of an HA pair is used for the SAP HANA system, data and log volumes can also be stored on the same storage controller.
 
 [NOTE]
-NetApp ASA systems do not support NFS as a protocol. NetApp recommends using an additional AFF or FAS system for the `/hana/shared` file system.
+NetApp ASA systems do not support NFS as a protocol. NetApp recommends using an additional AFF or FAS system for the `/hana/shared` and `/lss/shared` file systems.
 
 image:saphana_aff_fc_image17a.png["Figure showing input/output dialog or representing written content"]
 
-For each SAP HANA host, a data volume and a log volume are created. The `/hana/shared` volume is used by all hosts of the SAP HANA system. The following table shows an example configuration for a 4+1 multiple-host SAP HANA system.
+For each SAP HANA host, a data volume and a log volume are created. The `/hana/shared` and `/lss/shared` volumes are used by all hosts of the SAP HANA system. The following table shows an example configuration for a 4+1 multiple-host SAP HANA system.
 
 |===
 |Purpose |Aggregate 1 at Controller A |Aggregate 2 at Controller A |Aggregate 1 at Controller B |Aggregate 2 at Controller B
@@ -94,7 +95,10 @@ The following table shows the configuration and the mount points of a multiple-h
 |/hana/log/SID/mnt00004
 |Mounted using storage connector
 |Volume: SID_shared
-|/hana/shared
+|/hana/shared/SID
+|Mounted at all hosts using NFS and /etc/fstab entry
+|Volume: lss_shared
+|/lss/shared
 |Mounted at all hosts using NFS and /etc/fstab entry
 |===
 
@@ -102,11 +106,13 @@ The following table shows the configuration and the mount points of a multiple-h
 With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
 
 [NOTE]
-If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an volume  for the `/lss/shared/SID` directory so that all file systems are on the central storage as shown in the table above.
 
 == Volume and LUN configuration for SAP HANA multiple-host systems using Linux LVM
 
 The Linux LVM can be used to increase performance and to address LUN size limitations. The different LUNs of an LVM volume group should be stored within a different aggregate and at a different controller.
+
+LUNs of an LVM volume group should be stored within a different aggregate and at a different controller. The following table shows an example for two LUNs per volume group for a 2+1 SAP HANA multiple host system.
 
 [NOTE]
 It is not necessary to use LVM to combine several LUN to fulfill the SAP HANA KPIs, but it is recommended
@@ -128,7 +134,7 @@ The following table shows an example for two LUNs per volume group for a 2+1 SAP
 |Log volume: SID_log_mnt00002
 |Shared volume for all hosts
 |Shared volume: SID_shared
-|–
+|Shared volume: lss_shared
 |–
 |–
 |===

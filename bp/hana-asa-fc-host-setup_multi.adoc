@@ -4,6 +4,7 @@ permalink: bp/hana-asa-fc-host-setup_multi.html
 keywords: multipathing, fcp, hba, configure
 summary: Before setting up the host, NetApp SAN host utilities must be downloaded from the NetApp Support site and installed on the HANA servers. The host utility documentation includes information about additional software that must be installed depending on the FCP HBA used.
 ---
+
 == Multiple hosts setup
 :hardbreaks:
 :nofooter:
@@ -35,13 +36,18 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 |LV: FC5_log_mnt00002-vol
 |/hana/log/FC5/mnt00002
 |Mounted using storage connector
-|External NFS share: FC5_shared
+|External NFS share: +
+FC5_shared
 |/hana/shared
+|Mounted at all hosts using NFS and /etc/fstab entry
+|External NFS share: +
+FC5-lss_shared
+|/lss/shared
 |Mounted at all hosts using NFS and /etc/fstab entry
 |===
 
 [NOTE]
-SAP HANA multiple-host systems require the `/hana/shared` file system connected to all hosts of a system. Usually this is a NFS share provided by by an NFS server. 
+SAP HANA multiple-host systems require the `/hana/shared` and `/lss/shared` file systems connected to all hosts of a system. Usually this is a NFS share provided by by an NFS server. 
 It is recommended to use a high available NFS server e.g. such as an NetApp FAS ot AFF system. Another option is to use the build-in NFS server of a LINUX host for this.
 
 [NOTE]
