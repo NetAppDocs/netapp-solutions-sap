@@ -40,14 +40,10 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 FC5_shared
 |/hana/shared
 |Mounted at all hosts using NFS and /etc/fstab entry
-|External NFS share: +
-FC5-lss_shared
-|/lss/shared
-|Mounted at all hosts using NFS and /etc/fstab entry
 |===
 
 [NOTE]
-SAP HANA multiple-host systems require the `/hana/shared` and `/lss/shared` file systems connected to all hosts of a system. Usually this is a NFS share provided by by an NFS server. 
+SAP HANA multiple-host systems require the `/hana/shared` file system  and the `/lss/shared` file systems, in case SAP Local Secure Store service(LSS) is used, connected to all hosts of a system. Usually this is a NFS share provided by by an NFS server. 
 It is recommended to use a high available NFS server e.g. such as an NetApp FAS ot AFF system. Another option is to use the build-in NFS server of a LINUX host for this.
 
 [NOTE]

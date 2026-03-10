@@ -35,9 +35,6 @@ FC5_log_mnt00001_2
 |Shared
 |FC5_shared
 | n/a
-|LSS
-|FC5-lss_shared
-| n/a
 |===
 
 [NOTE]
@@ -65,7 +62,6 @@ lun create -path FC5_data_mnt00001_2 -size 1t -ostype linux  -class regular
 lun create -path FC5_log_mnt00001_1 -size 260g -ostype linux  -class regular
 lun create -path FC5_log_mnt00001_2 -size 260g -ostype linux  -class regular
 lun create -path FC5_shared -size 260g -ostype linux  -class regular
-lun create -path FC5-lss_shared -size 60g -ostype linux  -class regular 
 ....
 [NOTE]
 Disable autonomous ransom protection for these LUNs using the GUI
@@ -86,7 +82,6 @@ lun map -path FC5_data_mnt00001_2 -igroup HANA-FC5
 lun map -path FC5_log_mnt00001_1 -igroup HANA-FC5
 lun map -path FC5_log_mnt00001_2 -igroup HANA-FC5
 lun map -path FC5_shared -igroup HANA-FC5
-lun map -path FC5-lss_shared -igroup HANA-FC5
 ....
 
 === Creating LUNs and mapping LUNs to initiator groups using the GUI
@@ -149,7 +144,7 @@ image:saphana_asa_fc_image17.png["ONTAP System Manager - Create shared LUN"]
 
 image:saphana_asa_fc_image18.png["ONTAP System Manager - Create shared LUNs"]
 
-All required LUNs for a SAP HANA single-host system have been created. May create an additional FC-lss_shared if Local Secure Store Service (LSS) is used.
+All required LUNs for a SAP HANA single-host system have been created. 
 
 image:saphana_asa_fc_image19.png["ONTAP System Manager - LUN Overview"]
 

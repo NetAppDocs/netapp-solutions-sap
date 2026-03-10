@@ -21,7 +21,7 @@ This section describes the configuration of the NetApp storage system specific t
 
 The following figure shows the volume configuration of a 4+1 multiple-host SAP HANA system. The data volumes and log volumes of each SAP HANA host are distributed to different storage controllers. For example, the volume `SID_data_mnt00001` is configured on controller A and the volume `SID_log_mnt00001` is configured on controller B. One LUN is configured within each volume.
 
-The `/hana/shared` volume must be accessible by all HANA hosts and is therefore exported by using NFS. Even though there are no specific performance KPIs for the `/hana/shared` and `/lss/shared` file systems, NetApp recommends using a 10Gb Ethernet connection.
+The `/hana/shared` volume must be accessible by all HANA hosts and is therefore exported by using NFS. Even though there are no specific performance KPIs for the `/hana/shared` a file system, NetApp recommends using a 10Gb Ethernet connection.
 
 [NOTE]
 If only one storage controller of an HA pair is used for the SAP HANA system, data and log volumes can also be stored on the same storage controller.
@@ -92,16 +92,13 @@ The next table shows the configuration and the mount points of a multiple-host s
 |Volume: SID_shared
 |/hana/shared/SID
 |Mounted at all hosts using NFS and /etc/fstab entry
-|Volume: lss_shared
-|/lss/shared
-|Mounted at all hosts using NFS and /etc/fstab entry
 |===
 
 [NOTE]
 With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
 
 [NOTE]
-If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an volume  for the `/lss/shared/SID` directory so that all file systems are on the central storage as shown in the table above.
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory must be accessible at all hosts. NetApp recommends creating a volume for the `/lss/shared/SID` directory and mount it using NFS to all hosts.
 
 == Volume and LUN configuration for SAP HANA multiple-host systems using Linux LVM
 
@@ -127,7 +124,7 @@ It is not necessary to use LVM to combine several LUN to fulfil the SAP HANA KPI
 |Log volume: SID_log_mnt00002
 |Shared volume for all hosts
 |Shared volume: SID_shared
-|Shared volume: lss_shared
+|–
 |–
 |–
 |===
@@ -175,7 +172,6 @@ vol create -volume FC5_log2_mnt00002  -aggregate aggr2_2 -size 280g -snapshot-po
 vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-policy none -foreground true -encrypt false  -snapdir-access false -space-guarantee none -anti-ransomware-state disabled
 vol create -volume FC5_data2_mnt00002  -aggregate aggr2_1 -size 1200g -snapshot-policy none -foreground true -encrypt false  -snapdir-access false -space-guarantee none -anti-ransomware-state disabled
 vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -snapdir-access false -space-guarantee none
-vol create -volume lss_shared -aggregate aggr2_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -snapdir-access false -space-guarantee none
 ....
 
 . Create all LUNs.

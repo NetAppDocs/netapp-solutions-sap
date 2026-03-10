@@ -68,9 +68,6 @@ The following table shows an example of the mount point configuration for a sing
 |SID1_shared
 |/hana/shared/SID1
 |Mounted using /etc/fstab entry
-|SID1-lss_shared
-|/lls/shared/SID1
-|Mounted using /etc/fstab entry
 |===
 
 [NOTE]
@@ -97,10 +94,6 @@ Log2 volume: SID1_log2_mnt00001
 |Log volume: SID1_log_mnt00001
 |===
 
-
-
-[NOTE]
-With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
 
 == Volume options
 
@@ -144,7 +137,6 @@ lun create -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001 -size 1t -ostype lin
 lun create -path /vol/FC5_log_mnt00001/FC5_log_mnt00001 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_shared/FC5_shared -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
-lun create -path /vol/FC5_shared/FC5-lss_shared -size 60g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 ....
 
 . Create the initiator group for all ports belonging to sythe hosts of FC5.
@@ -163,5 +155,4 @@ lun map -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001  -igroup HANA-FC5
 lun map -path /vol/FC5_log_mnt00001/FC5_log_mnt00001  -igroup HANA-FC5
 lun map -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001  -igroup HANA-FC5
 lun map -path /vol/FC5_shared/FC5_shared -igroup HANA-FC5
-lun map -path /vol/FC5_shared/FC5-lss_shared -igroup HANA-FC5
 ....

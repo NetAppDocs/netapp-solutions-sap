@@ -109,7 +109,7 @@ sapcc-hana-tst-06:/mnt # umount /mnt/tmp
 == Create mount points
 
 [NOTE]
-The examples show an SAP HANA database with SID=NF2.
+The examples show an SAP HANA database with SID=NF2 using LSS.
 
 To create the required mount point directories, take one of the following actions:
 

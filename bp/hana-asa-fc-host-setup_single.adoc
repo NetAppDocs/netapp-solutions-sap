@@ -33,14 +33,13 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 |LUN: FC5_shared
 |/hana/shared/FC5
 |Mounted using /etc/fstab entry
-|LUN: FC5-lss_shared
-|/lss/shared/FC5
-|Mounted using /etc/fstab entry
 |===
 
 [NOTE]
 With the described configuration, the `/usr/sap/FC5` directory in which the default home directory of user FC5adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/usr/sap/FC5` directory so that all file systems are on the central storage.
 
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/lss/shared/SID` directory so that all file systems are on the central storage.
 
 
 === Create LVM volume groups and logical volumes
@@ -98,7 +97,6 @@ Create the XFS file system on all data and log logical volumes and the hana shar
 mkfs.xfs /dev/mapper/FC5_data_mnt00001-vol
 mkfs.xfs /dev/mapper/FC5_log_mnt00001-vol
 mkfs.xfs /dev/mapper/svm1-FC5_shared
-mkfs.xfs /dev/mapper/svm1-FC5-lss_shared
 ....
 
 [NOTE]
@@ -112,11 +110,9 @@ Create the required mount point directories, and set the permissions on the data
 sapcc-hana-tst:/ # mkdir -p /hana/data/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/log/FC5/mnt00001
 sapcc-hana-tst:/ # mkdir -p /hana/shared
-sapcc-hana-tst:/ # mkdir -p /lss/shared
 sapcc-hana-tst:/ # chmod -R 777 /hana/log/FC5
 sapcc-hana-tst:/ # chmod -R 777 /hana/data/FC5
 sapcc-hana-tst:/ # chmod 777 /hana/shared
-sapcc-hana-tst:/ # chmod 777 /lss/shared
 ....
 
 
@@ -128,7 +124,6 @@ To mount file systems during system boot using the `/etc/fstab` configuration fi
 ....
 # cat /etc/fstab
 /dev/mapper/hana-FC5_shared /hana/shared xfs defaults 0 0
-/dev/mapper/hana-FC5-lss_shared /lss/shared xfs defaults 0 0
 /dev/mapper/FC5_log_mnt00001-vol /hana/log/FC5/mnt00001 xfs relatime,inode64 0 0
 /dev/mapper/FC5_data_mnt00001-vol /hana/data/FC5/mnt00001 xfs relatime,inode64 0 0
 ....
