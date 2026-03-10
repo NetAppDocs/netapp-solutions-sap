@@ -120,7 +120,6 @@ To mount file systems during system boot using the `/etc/fstab` configuration fi
 ....
 # cat /etc/fstab
 /dev/mapper/svm1-FC5_shared /hana/shared xfs defaults 0 0
-/dev/mapper/svm1-FC5-lss_shared /lss/shared xfs defaults 0 0
 /dev/mapper/FC5_log_mnt00001-vol /hana/log/FC5/mnt00001 xfs relatime,inode64 0 0
 /dev/mapper/FC5_data_mnt00001-vol /hana/data/FC5/mnt00001 xfs relatime,inode64 0 0
 ....

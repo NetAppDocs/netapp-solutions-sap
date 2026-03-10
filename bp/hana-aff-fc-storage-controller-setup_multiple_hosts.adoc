@@ -103,7 +103,7 @@ The following table shows the configuration and the mount points of a multiple-h
 With the described configuration, the `/usr/sap/SID` directory in which the default home directory of user SIDadm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `SID_shared` volume for the `/usr/sap/SID` file system so that each database host has all its file systems on the central storage.
 
 [NOTE]
-If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory must be accessible at all hosts. NetApp recommends creating a volume for the `/lss/shared/SID` directory and mount it using NFS to all hosts.
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory must be accessible at all hosts. NetApp recommends creating a volume for the `/lss/shared/SID` directory and mount it  at all hosts using NFS.
 
 == Volume and LUN configuration for SAP HANA multiple-host systems using Linux LVM
 
@@ -178,7 +178,6 @@ vol create -volume FC5_log2_mnt00002  -aggregate aggr2_2 -size 280g -snapshot-po
 vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-policy none -foreground true -encrypt false  -snapdir-access false -space-guarantee none -anti-ransomware-state disabled
 vol create -volume FC5_data2_mnt00002  -aggregate aggr2_1 -size 1200g -snapshot-policy none -foreground true -encrypt false -snapdir-access false -space-guarantee none -anti-ransomware-state disabled 
 vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false   -space-guarantee none -anti-ransomware-state disabled
-vol create -volume FC5-lss_shared -aggregate aggr2_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5-lss_shared -encrypt false   -space-guarantee none -anti-ransomware-state disabled
 ....
 
 

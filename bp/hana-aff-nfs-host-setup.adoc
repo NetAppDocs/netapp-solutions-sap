@@ -156,7 +156,6 @@ sapcc-hana-tst-07:~ # mkdir -p /hana/log/NF2/mnt00002
 sapcc-hana-tst-07:~ # mkdir -p /hana/shared
 sapcc-hana-tst-07:/ # mkdir -p /lss/shared/
 sapcc-hana-tst-07:~ # mkdir -p /usr/sap/NF2
-
 sapcc-hana-tst-07:~ # chmod -R 777 /hana/log/NF2
 sapcc-hana-tst-07:~ # chmod -R 777 /hana/data/NF2
 sapcc-hana-tst-07:~ # chmod -R 777 /hana/shared
@@ -174,7 +173,6 @@ sapcc-hana-tst-08:~ # mkdir -p /hana/log/NF2/mnt00002
 sapcc-hana-tst-08:~ # mkdir -p /hana/shared
 sapcc-hana-tst-07:/ # mkdir -p /lss/shared/
 sapcc-hana-tst-08:~ # mkdir -p /usr/sap/NF2
-
 sapcc-hana-tst-08:~ # chmod -R 777 /hana/log/NF2
 sapcc-hana-tst-08:~ # chmod -R 777 /hana/data/NF2
 sapcc-hana-tst-08:~ # chmod -R 777 /hana/shared
