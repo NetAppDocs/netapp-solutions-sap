@@ -4,6 +4,7 @@ permalink: bp/hana-fas-fc-storage-controller-setup_single_host.html
 keywords: storage, controller, setup, storage, efficiency volume, encryption, quality, configure, disk, connection, aggregate
 summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding ONTAP setup and configuration guides.
 ---
+
 == Single host
 :hardbreaks:
 :nofooter:
@@ -73,12 +74,16 @@ The next table shows an example of the mount point configuration for a single-ho
 [NOTE]
 With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
 
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
+
 == Volume and LUN configuration for SAP HANA single-host systems using Linux LVM
 
 The Linux LVM can be used to increase performance and to address LUN size limitations. The different LUNs of an LVM volume group should be stored within a different aggregate and at a different controller. The following table shows an example for two LUNs per volume group.
 
 [NOTE]
 It is not necessary to use LVM with multiple LUNs to fulfil the SAP HANA KPIs, but it is recommended
+
 |===
 |Purpose |Aggregate 1 at Controller A |Aggregate 2 at Controller A |Aggregate 1 at Controller B |Aggregate 2 at Controller B
 
@@ -89,10 +94,6 @@ Log2 volume: SID1_log2_mnt00001
 |Data2 volume: SID1_data2_mnt00001
 |Log volume: SID1_log_mnt00001
 |===
-
-
-[NOTE]
-With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
 
 == Volume options
 
@@ -105,7 +106,12 @@ The volume options listed in the following table must be verified and set on all
 |vol modify –vserver <vserver-name> -volume <volname> -snapshot-policy none
 |Disable visibility of Snapshot directory
 |vol modify -vserver <vserver-name> -volume <volname> -snapdir-access false
+|Disable ransomware protection, except of the SID_shared volume
+|vol modify -vserver <vserver-name> -volume <volname> -anti-ransomware-state disabled
 |===
+
+[NOTE]
+The example below sets these options during volume creation
 
 === Creating LUNs, volumes, and mapping LUNs to initiator groups
 
@@ -120,11 +126,11 @@ This section shows an example configuration using the command line with ONTAP 9 
 +
 
 ....
-vol create -volume FC5_data_mnt00001 -aggregate aggr1_1 -size 1200g  -snapshot-policy none -foreground true -encrypt false  -space-guarantee none
-vol create -volume FC5_log_mnt00001  -aggregate aggr1_2 -size 280g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
-vol create -volume FC5_data2_mnt00001 -aggregate aggr1_2 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none
-vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-policy none -foreground true -encrypt false  -space-guarantee none
-vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none
+vol create -volume FC5_data_mnt00001 -aggregate aggr1_1 -size 1200g  -snapshot-policy none -foreground true -encrypt false  -space-guarantee none -snapdir-access false -anti-ransomware-state disabled
+vol create -volume FC5_log_mnt00001  -aggregate aggr1_2 -size 280g -snapshot-policy none -foreground true -encrypt false -space-guarantee none -snapdir-access false -anti-ransomware-state disabled
+vol create -volume FC5_data2_mnt00001 -aggregate aggr1_2 -size 1200g -snapshot-policy none -foreground true -encrypt false -space-guarantee none -snapdir-access false -anti-ransomware-state disabled
+vol create -volume FC5_log2_mnt00001  -aggregate aggr1_1 -size 280g -snapshot-policy none -foreground true -encrypt false  -space-guarantee none -snapdir-access false -anti-ransomware-state disabled
+vol create -volume FC5_shared -aggregate aggr1_1 -size 512g -state online -policy default -snapshot-policy none -junction-path /FC5_shared -encrypt false  -space-guarantee none -snapdir-access false 
 ....
 
 
@@ -136,6 +142,7 @@ lun create -path  /vol/FC5_data_mnt00001/FC5_data_mnt00001   -size 1t -ostype li
 lun create -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001 -size 1t -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log_mnt00001/FC5_log_mnt00001 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 lun create -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001 -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
+lun create -path /vol/FC5_shared/FC5_shared -size 260g -ostype linux -space-reserve disabled -space-allocation disabled -class regular
 ....
 
 . Create the initiator group for all ports belonging to sythe hosts of FC5.
@@ -153,4 +160,5 @@ lun map -path /vol/FC5_data_mnt00001/FC5_data_mnt00001    -igroup HANA-FC5
 lun map -path /vol/FC5_data2_mnt00001/FC5_data2_mnt00001  -igroup HANA-FC5
 lun map -path /vol/FC5_log_mnt00001/FC5_log_mnt00001  -igroup HANA-FC5
 lun map -path /vol/FC5_log2_mnt00001/FC5_log2_mnt00001  -igroup HANA-FC5
+lun map -path /vol/FC5_shared/FC5_shared -igroup HANA-FC5
 ....

@@ -4,14 +4,13 @@ permalink: bp/hana-fas-fc-host-setup_multiple_hosts.html
 keywords: configure, multipathing, create, lvm, volume, groups, logical, mount, points, file, systems
 summary: The documentation also contains information about multipath configurations that are specific to the Linux version used.
 ---
+
 == Multiple hosts setup
 :hardbreaks:
 :nofooter:
 :icons: font
 :linkattrs:
 :imagesdir: ../media/
-
-
  
 [.lead]
 This chapter describes the setup of a 2+1 SAP HANA multiple host system as example.
@@ -43,6 +42,9 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 
 [NOTE]
 With the described configuration, the `/usr/sap/FC5` directory in which the default home directory of user FC5adm is stored, is on the local disk for each HANA host. In a disaster recovery setup with disk-based replication, NetApp recommends creating four additional subdirectories in the `FC5_shared` volume for the `/usr/sap/FC5` file system so that each database host has all its file systems on the central storage.
+
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory must be accessible at all hosts. NetApp recommends creating a volume for the `/lss/shared/SID` directory and mount it at all hosts using NFS.
 
 === Create LVM volume groups and logical volumes
 
