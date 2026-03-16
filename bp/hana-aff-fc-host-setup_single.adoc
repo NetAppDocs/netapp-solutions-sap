@@ -4,6 +4,7 @@ permalink: bp/hana-aff-fc-host-setup_single.html
 keywords: multipathing, fcp, hba, configure
 summary: Before setting up the host, NetApp SAN host utilities must be downloaded from the NetApp Support site and installed on the HANA servers. The host utility documentation includes information about additional software that must be installed depending on the FCP HBA used.
 ---
+
 == Single host setup
 :hardbreaks:
 :nofooter:
@@ -37,6 +38,9 @@ At the SAP HANA host, volume groups and logical volumes need to be created and m
 
 [NOTE]
 With the described configuration, the `/usr/sap/FC5` directory in which the default home directory of user FC5adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `FC5_shared` volume for the `/usr/sap/FC5` directory so that all file systems are on the central storage.
+
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN within the `SID1_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
 
 === Create LVM volume groups and logical volumes
 
