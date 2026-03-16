@@ -4,6 +4,7 @@ permalink: bp/hana-asa-fc-storage-controller-setup_single_host.html
 keywords: storage efficiency, netapp volume encryption, quality of service, qos, fabricpool, Disk shelf, sas, fcp port sets, linux lvm,
 summary: This section describes the configuration of the NetApp storage system. You must complete the primary installation and setup according to the corresponding Data ONTAP setup and configuration guides.
 ---
+
 == Single host
 :hardbreaks:
 :nofooter:
@@ -16,8 +17,31 @@ summary: This section describes the configuration of the NetApp storage system. 
 [.lead]
 This section describes the configuration of the NetApp storage system specific to SAP HANA single-host systems
 
+== LUN Overview
 
+The following table shows the LUN configuration of a single-host SAP HANA system.
 
+|===
+|Purpose |LUNs |LVM logical volume 
+
+|Data 
+|FC5_data_mnt00001_1
+FC5_data_mnt00001_2
+|FC5_data_mnt00001-vol
+|Log
+|FC5_log_mnt00001_1
+FC5_log_mnt00001_2
+|FC5_log_mnt00001-vol
+|Shared
+|FC5_shared
+| n/a
+|===
+
+[NOTE]
+With the described configuration, the `/usr/sap/SID1` directory in which the default home directory of user SID1adm is stored, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/usr/sap/SID1` directory so that all file systems are on the central storage.
+
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS, is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating an additional LUN for the `/lss/shared/SID` directory so that all file systems are on the central storage.
 
 [#lun_create]
 == Creating LUNs and mapping LUNs to initiator groups
@@ -38,9 +62,9 @@ lun create -path FC5_data_mnt00001_2 -size 1t -ostype linux  -class regular
 lun create -path FC5_log_mnt00001_1 -size 260g -ostype linux  -class regular
 lun create -path FC5_log_mnt00001_2 -size 260g -ostype linux  -class regular
 lun create -path FC5_shared -size 260g -ostype linux  -class regular
-
 ....
-
+[NOTE]
+Disable autonomous ransom protection for these LUNs using the GUI
 
 . Create the initiator group for all servers belonging to system FC5.
 +
@@ -120,8 +144,12 @@ image:saphana_asa_fc_image17.png["ONTAP System Manager - Create shared LUN"]
 
 image:saphana_asa_fc_image18.png["ONTAP System Manager - Create shared LUNs"]
 
-All required LUNs for a SAP HANA single-host system have been created.
+All required LUNs for a SAP HANA single-host system have been created. 
 
 image:saphana_asa_fc_image19.png["ONTAP System Manager - LUN Overview"]
 
+=== Disable Autonomous Ransomware Protection for all data und log LUNS
 
+Open the context menu of each data and log LUN and disable ransomware-protection
+
+image:saphana_asa_fc_image19_5.png["ONTAP System Manager - LUN Overview"]

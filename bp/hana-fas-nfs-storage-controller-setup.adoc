@@ -35,6 +35,13 @@ The usage of NetApp FlexGroup Volumes is not supported for SAP HANA. Due to the 
 
 The use of NetApp Volume Encryption (NVE) and NetApp Aggregate Encryption (NAE) are supported with SAP HANA.
 
+== ONTAP Autonomous Ransomware Protection
+The Snapshots created by ONTAP Autonomous Ransomware Protection can't be used for forward recovery of the SAP HANA database. Therefore it is not recommended  to use it for SAP HANA data and log volumes and should be disabled for these volumes. Use SnapCenter based data protection with Tamperproof Snapshots instead for ransomware protection:
+link:../backup/hana-sc-generic-scope.html[SAP HANA backup and recovery with SnapCenter].
+ONTAP Autonomous Ransomware Protection  might be beneficial for other volumes such as /hana/shared.
+
+It is possible to disable the automatically activation of this feature during volume creation for an ONTAP Cluster, however it is recommended to keep the default setting and disable it for volumes where this functionality is not needed.
+
 == Quality of service
 
 QoS can be used to limit the storage throughput for specific SAP HANA systems or other applications on a shared-use controller. One use case would be to limit the throughput of development and test systems so that they cannot influence production systems in a mixed setup.
@@ -179,6 +186,9 @@ For each SAP HANA DB host, a data volume, a log volume, and a volume for `/hana/
 
 The following table shows an example of the mount point configuration for a single-host system. To place the home directory of the `sidadm` user on the central storage, the `/usr/sap/SID` file system should be mounted from the `SID_shared` volume.
 
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory, the default installation directory of LSS is on the local disk. In a disaster recovery setup with disk-based replication, NetApp recommends creating a directory within the `SID_shared` volume for the `/lss/shared/SID` directory so that all file systems are on the central storage.
+
 |===
 |Junction Path |Directory |Mount point at HANA host
 
@@ -188,12 +198,16 @@ The following table shows an example of the mount point configuration for a sing
 |SID_log_mnt00001
 |–
 |/hana/log/SID/mnt00001
-|SID_shared
-|usr-sap
-shared
-|/usr/sap/SID
-/hana/shared
+|SID-shared
+|usr-sap +
+shared +
+lss-shared
+|/usr/sap/SID +
+/hana/shared +
+/lss/shared/SID
 |===
+
+
 
 == Volume configuration for SAP HANA multiple-host systems
 
@@ -214,7 +228,7 @@ For each SAP HANA host, a data volume and a log volume are created. The `/hana/s
 
 |Data and log volumes for node 1
 |Data volume: SID_data_mnt00001
-|–
+|– 
 |Log volume: SID_log_mnt00001
 |–
 |Data and log volumes for node 2
@@ -240,6 +254,9 @@ For each SAP HANA host, a data volume and a log volume are created. The `/hana/s
 |===
 
 The following table shows the configuration and the mount points of a multiple-host system with four active SAP HANA hosts. To place the home directories of the `sidadm` user of each host on the central storage, the `/usr/sap/SID` file systems are mounted from the `SID_shared` volume.
+
+[NOTE]
+If SAP Local Secure Store service (LSS) is used, the `/lss/shared/SID` directory must be accessible at all hosts. NetApp recommends creating a directory within the `SID_shared` volume for the `/lss/shared/SID` directory.
 
 |===
 |Junction path |Directory |Mount point at SAP HANA host |Note
@@ -281,6 +298,10 @@ The following table shows the configuration and the mount points of a multiple-h
 |/hana/shared/
 |Mounted at all hosts
 |SID_shared
+|lss-shared
+|/lss/shared/
+|Mounted at all hosts
+|SID_shared
 |usr-sap-host1
 |/usr/sap/SID
 |Mounted at host 1
@@ -302,6 +323,8 @@ The following table shows the configuration and the mount points of a multiple-h
 |Mounted at host 5
 |===
 
+
+
 == Volume options
 
 You must verify and set the volume options listed in the following table on all SVMs. For some of the commands, you must switch to the advanced privilege mode within ONTAP.
@@ -312,7 +335,9 @@ You must verify and set the volume options listed in the following table on all 
 |Disable visibility of Snapshot directory
 |vol modify -vserver <vserver-name> -volume <volname> -snapdir-access false
 |Disable automatic Snapshot copies
-|vol modify –vserver <vserver-name> -volume <volname> -snapshot-policy none
+|vol modify -vserver <vserver-name> -volume <volname> -snapshot-policy none
+|Disable ransomware protection, except of the SID_shared volume
+|vol modify -vserver <vserver-name> -volume <volname> -anti-ransomware-state disabled
 |Disable access time update except of the SID_shared volume
 |set advanced
 vol modify -vserver <vserver-name> -volume <volname> -atime-update false
