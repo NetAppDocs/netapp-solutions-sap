@@ -37,7 +37,7 @@ https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/[https://www.sap.com/d
 
 * SAP HANA Storage Requirements
 +
-https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html^]
+https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html[https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html^]
 * SAP HANA Tailored Data Center Integration 
 +
 https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html[https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html^]
