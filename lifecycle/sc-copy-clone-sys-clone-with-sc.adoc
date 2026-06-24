@@ -25,7 +25,7 @@ The figure below summarizes the required steps for an SAP system clone operation
 [NOTE]
 If you must reset the system to a different Snapshot backup, then step 6 and step 4 are sufficient. The SAP HANA shared volume can continue to be mounted.
 +
-If the system is not needed anymore, the clean-up process is performed with the following steps:
+If the system is no longer needed, the clean-up process is performed with the following steps:
 
 .. SnapCenter clone delete workflow for the SAP HANA data volume including database shutdown.
 +
@@ -33,8 +33,7 @@ If the system is not needed anymore, the clean-up process is performed with the 
 ========
 The SnapCenter clone delete workflow does not delete the `fstab` entry by default.
 
-In order for the `fstab` entry to be deleted automatically during the clone deletion process, the clone must first be recovered and made an auto-discovered resource.
-If this step is not performed, the `fstab` entry is not deleted automatically and needs to be cleared manually.
+In order for the `fstab` entry to be deleted automatically during the clone deletion process, the clone must first be recovered and made an auto-discovered resource. If this step is not performed, the `fstab` entry is not automatically deleted and needs to be removed manually.
 ========
 .. Stop SAP HANA services.
 .. SnapCenter clone delete workflow for the SAP HANA shared volume.
