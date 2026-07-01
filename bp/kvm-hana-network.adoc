@@ -14,7 +14,7 @@ summary: "Configure SR-IOV network interfaces on SUSE KVM for SAP HANA using Mel
 
 [.lead]
 Configure SR-IOV network interfaces on SUSE KVM for SAP HANA. Set up virtual functions (VFs), assign them to VMs, and configure redundant network connections for optimal performance and storage access.
-
+Bridged networking is supported as well.
 
 == Step 1: Setup SR-IOV 
 
