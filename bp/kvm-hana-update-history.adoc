@@ -20,5 +20,6 @@ The following technical changes have been made to this solution since its origin
 | Date
 | Update summary
  | October 2025 | Initial version
- | November 2025 | Layout update.
+ | November 2025 | Layout update
+ | June 2026 | SUSE SLES 15SP7 update
 |===
