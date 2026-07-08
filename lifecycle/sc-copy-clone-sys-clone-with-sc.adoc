@@ -27,7 +27,7 @@ If you must reset the system to a different Snapshot backup, then step 6 and ste
 +
 If the system is no longer needed, the clean-up process is performed with the following steps:
 
-.. SnapCenter clone delete workflow for the SAP HANA data volume including database shutdown.
+.. Perform the SnapCenter clone delete workflow for the SAP HANA data volume, including database shutdown.
 +
 [NOTE]
 ========
@@ -36,7 +36,7 @@ The SnapCenter clone delete workflow does not delete the `/etc/fstab` entry by d
 In order for the `/etc/fstab` entry to be deleted automatically during the clone deletion process, the clone must first be recovered and made an auto discovered resource. If this step is not performed, the `/etc/fstab` entry is not automatically deleted and needs to be removed manually.
 ========
 .. Stop SAP HANA services.
-.. SnapCenter clone delete workflow for the SAP HANA shared volume.
+.. Perform the SnapCenter clone delete workflow for the SAP HANA shared volume.
 
 
 image:sc-copy-clone-image9.png["Figure showing input/output dialog or representing written content"]
