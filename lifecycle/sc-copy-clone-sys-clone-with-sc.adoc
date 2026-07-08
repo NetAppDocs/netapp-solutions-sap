@@ -31,9 +31,9 @@ If the system is no longer needed, the clean-up process is performed with the fo
 +
 [NOTE]
 ========
-The SnapCenter clone delete workflow does not delete the `fstab` entry by default.
+The SnapCenter clone delete workflow does not delete the `/etc/fstab` entry by default.
 
-In order for the `fstab` entry to be deleted automatically during the clone deletion process, the clone must first be recovered and made an auto-discovered resource. If this step is not performed, the `fstab` entry is not automatically deleted and needs to be removed manually.
+In order for the `/etc/fstab` entry to be deleted automatically during the clone deletion process, the clone must first be recovered and made an auto discovered resource. If this step is not performed, the `/etc/fstab` entry is not automatically deleted and needs to be removed manually.
 ========
 .. Stop SAP HANA services.
 .. SnapCenter clone delete workflow for the SAP HANA shared volume.
