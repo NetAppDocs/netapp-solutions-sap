@@ -95,6 +95,19 @@ entries:
       - title: Additional information and version history
         url: /backup/hana-sc-vmware-smas-additional-info.html
 
+  - title: SSAP HANA data protection with SnapCenter with bare metal servers and NetApp ASA systems
+    entries:
+      - title: Scope of this document
+        url: /backup/hana-sc-bare-metal-asar2-scope.html
+      - title: Lab setup used for this document
+        url: /backup/hana-sc-bare-metal-asar2-lab-setup.html
+      - title: HANA system provisioning and installation
+        url: /backup/hana-sc-bare-metal-asar2-hana-provisioning.html
+      - title: SnapCenter operations
+        url: /backup/hana-sc-bare-metal-asar2-snapcenter-operations.html
+      - title: Addtional information and version history
+        url: /backup/hana-sc-bare-metal-asar2-additional-info.html
+
   - title: SAP HANA data protection with SnapCenter with VMware VMFS and NetApp ASA systems
     entries:
       - title: Scope of this document
