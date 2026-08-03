@@ -104,7 +104,7 @@ entries:
       - title: HANA system provisioning and installation
         url: /backup/hana-sc-bare-metal-asar2-hana-provisioning.html
       - title: SnapCenter operations
-        url: /backup/hana-sc-bare-metal-asar2-snapcenter-operations.html
+        url: /backup/hana-sc-bare-metal-asar2-sc-operations.html
       - title: Addtional information and version history
         url: /backup/hana-sc-bare-metal-asar2-additional-info.html
 
