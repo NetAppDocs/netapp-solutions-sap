@@ -13,7 +13,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-to be done
+This chapter provides links to additional resources relevant to this solution.
 
 HANA best practices:
 

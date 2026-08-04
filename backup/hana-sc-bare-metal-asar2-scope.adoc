@@ -5,7 +5,7 @@ keywords: SAP HANA, SnapCenter, backup and recovery
 summary: 
 ---
 
-= SAP HANA data protection with SnapCenter with bare metal servers and NetApp ASA systems
+= SAP HANA data protection with SnapCenter running on bare metal servers and NetApp ASA systems
 :hardbreaks:
 :nofooter:
 :icons: font
@@ -26,5 +26,5 @@ This document does not serve as a step-by-step guide for configuring the entire 
 * Specifics for SnapCenter backup, restore, and recovery operations
 * Specifics for SnapCenter SAP System Refresh operations
 
-For further information and detailed configuration instructions, refer to the documents listed in the â€œAdditional informationâ€ chapter.
+For further information and detailed configuration instructions, refer to the documents listed in the link:hana-sc-bare-metal-asar2-additional-info.html[Additional information] chapter.
 

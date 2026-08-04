@@ -13,7 +13,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-to be done
+This chapter summarizes the backup, restore and recovery, SAP system refresh and asynchronous replication operations with SnapCenter.
 
 == Backup operations
 
@@ -43,7 +43,7 @@ The MirrorAndVault policy includes different SnapMirror labels and retentions.
 
 image:hana-sc-bare-metal-asar2-image-011.png[width=601,height=235]
 
-In SnapCenter a policy has been configured to match the SnapMirror label â€œdailyâ€ of the ONTAP MirrorAndVault policy.
+In SnapCenter a policy has been configured to match the SnapMirror label "daily" of the ONTAP MirrorAndVault policy.
 
 image:hana-sc-bare-metal-asar2-image-012.png[width=378,height=354]
 
@@ -63,7 +63,7 @@ With the first step in the cloning workflow the targe host and target SID must b
 
 image:hana-sc-bare-metal-asar2-image-014.png[width=333,height=313]
 
-Protocol selection must be â€œFCPâ€.
+Protocol selection must be "FCP".
 
 image:hana-sc-bare-metal-asar2-image-015.png[width=334,height=312]
 

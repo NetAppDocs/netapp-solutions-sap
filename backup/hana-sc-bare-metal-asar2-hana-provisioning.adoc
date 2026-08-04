@@ -23,7 +23,7 @@ The following screenshots show the creation of the storage unit BM1++_++data++_+
 
 image:hana-sc-bare-metal-asar2-image-002.png[width=601,height=319]
 
-The WWPN of the HANA host FCP adapters can be listed with the â€œsanlunâ€ command which is part of the NetApp host utilities as described in chapter â€œHANA host configurationâ€.
+The WWPN of the HANA host FCP adapters can be listed with the sanlun command which is part of the NetApp host utilities as described in chapter link:hana-sc-bare-metal-asar2-hana-provisioning.html#hana-host-configuration[HANA host configuratio].
 
 ....
 sapcc-hana-tst-02:~ # sanlun fcp show adapter
