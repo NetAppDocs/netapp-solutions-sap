@@ -23,7 +23,7 @@ The following screenshots show the creation of the storage unit BM1++_++data++_+
 
 image:hana-sc-bare-metal-asar2-image-002.png[width=601,height=319]
 
-The WWPN of the HANA host FCP adapters can be listed with the sanlun command which is part of the NetApp host utilities as described in chapter link:hana-sc-bare-metal-asar2-hana-provisioning.html#hana-host-configuration[HANA host configuratio].
+The WWPN of the HANA host FCP adapters can be listed with the sanlun command which is part of the NetApp host utilities as described in chapter link:hana-sc-bare-metal-asar2-hana-provisioning.html#hana-host-configuration[HANA host configuration].
 
 ....
 sapcc-hana-tst-02:~ # sanlun fcp show adapter
@@ -160,7 +160,7 @@ size=250G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 sapcc-hana-tst-02:~ #
 ....
 
-====Host file system configuration
+=== Host file system configuration
 
 ==== Create file systems
 
@@ -285,7 +285,7 @@ tmpfs                                            26G   24K   26G   1% /run/user/
 sapcc-hana-tst-02:~ #
 ....
 
-HANA installation
+=== HANA installation
 
 The HANA installation can now be executed.
 
