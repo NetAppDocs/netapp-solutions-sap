@@ -25,4 +25,4 @@ eCommerce organizations could face a direct impact on their revenue.
 NetApp has developed a full portfolio of technologies and tools to help IT organizations 
 build or adapt their disaster recovery plans to respond to all business demands:
 
-link:https://www.netapp.com/pdf.html?item=/media/6998-sb-3968pdf.pdf[https://www.netapp.com/pdf.html?item=/media/6998-sb-3968pdf.pdf]
+link:https://www.netapp.com/pdf.html?item=/media/6998-sb-3968.pdf[https://www.netapp.com/pdf.html?item=/media/6998-sb-3968pdf.pdf]
