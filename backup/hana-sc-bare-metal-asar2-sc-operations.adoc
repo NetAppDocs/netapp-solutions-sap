@@ -59,7 +59,7 @@ More detailed information on SAP system refresh and cloning operations using Sna
 
 Operation details and pre-requisites are described in https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-hana-sys-refresh-with-sc.html#prerequisites-and-limitations[SAP HANA system refresh with SnapCenter]. Specifically, the target system must be added to SnapCenter before you can execute the first refresh/cloning operation.
 
-With the first step in the cloning workflow the targe host and target SID must be provided.
+With the first step in the cloning workflow the target host and target SID must be provided.
 
 image:hana-sc-bare-metal-asar2-image-014.png[width=333,height=313]
 

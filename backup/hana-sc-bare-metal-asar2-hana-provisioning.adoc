@@ -13,7 +13,7 @@ summary:
 :imagesdir: ../media/
 
 [.lead]
-This chapter describes the specifc installation and configuration of the SAP HANA system BM1 used for this solution documentation. The HANA system QM1 has been deployed in the same way.
+This chapter describes the specific installation and configuration of the SAP HANA system BM1 used for this solution documentation. The HANA system QM1 has been deployed in the same way.
 
 Additional generic deployment information and best practices can be found https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html[SAP HANA on NetApp ASA Systems with Fibre Channel Protocol].
 
