@@ -1,0 +1,30 @@
+---
+sidebar: sidebar
+permalink: backup/hana-sc-bare-metal-asar2-scope.html
+keywords: SAP HANA, SnapCenter, backup and recovery
+summary: 
+---
+
+= SAP HANA data protection with SnapCenter running on bare metal servers and NetApp ASA systems
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+[.lead]
+This document outlines the best practices for data protection using SnapCenter for HANA systems running on X64 bare metal servers with data stored on NetApp ASA systems.
+
+Author: Nils Bauer, NetApp
+
+== Scope of this document
+
+This document does not serve as a step-by-step guide for configuring the entire environment but focuses on details specific to SnapCenter and HANA with bare metal servers connected to NetApp ASA storage systems.
+
+* Setting up SAP HANA systems
+* Specific SnapCenter configurations
+* Specifics for SnapCenter backup, restore, and recovery operations
+* Specifics for SnapCenter SAP System Refresh operations
+
+For further information and detailed configuration instructions, refer to the documents listed in the link:hana-sc-bare-metal-asar2-additional-info.html[Additional information] chapter.
+
