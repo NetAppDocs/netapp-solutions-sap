@@ -29,4 +29,4 @@ ONTAP software, you can create backups or execute restore operations of any size
 dataset in a matter of seconds. SAP HANA supports the use of storage-based Snapshot 
 copies as a valid backup operation.
 
-link:https://www.netapp.com/pdf.html?item=/media/6997-sb-3965pdf.pdf[https://www.netapp.com/pdf.html?item=/media/6997-sb-3965pdf.pdf]
+link:https://www.netapp.com/pdf.html?item=/media/6997-sb-3965.pdf[https://www.netapp.com/pdf.html?item=/media/6997-sb-3965.pdf]
