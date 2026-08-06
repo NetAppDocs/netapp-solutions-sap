@@ -1,0 +1,159 @@
+---
+sidebar: sidebar
+permalink: backup/hana-sc-vmfs-asar2-sc_config.html
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active/active, NetApp ASA R2
+summary: 
+---
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+== SnapCenter Configuration 
+
+This chapter describes how to set up SnapCenter for SAP HANA backup:
+
+* Adding the NetApp ASA Storage Clusters to SnapCenter
+* Creating of SAP HANA Backup policies
+* Creating a database user for SnapCenter
+* Registering SAP HANA host at SnapCenter
+* Configuring of SAP HANA Instance at SnapCenter
+
+=== Add Storage Clusters to SnapCenter
+
+Add the NetApp ASA Storage Clusters to SnapCenter.
+
+[NOTE]
+Management and monitoring of SnapMirror active sync requires REST API access. Therefore, SnapCenter must be configured to use REST APIs for storage communications. The parameter "IsRestEnabledForStorageConnection" in the configuration file +
+C:++\++Program Files++\++NetApp++\++SMCore++\++SMCoreServiceHost.dll.config must be set to true: +
+_++<++add key="IsRestEnabledForStorageConnection" value="true"++>++_
+
+[arabic]
+. Logon to the SnapCenter GUI. +
+image:hana-sc-vmfs-asar2-smas-image-044.jpeg[image]
+. Navigate the “Storage Systems” at left menu. +
+image:hana-sc-vmfs-asar2-smas-image-045.png[image]
+. Choose “ONTAP Clusters” as type +
+image:hana-sc-vmfs-asar2-smas-image-046.png[image]
+. Press “New” to add your storage system +
+image:hana-sc-vmfs-asar2-smas-image-047.png[image]
+. Provide the connection details of your system and press “Submit”. +
+image:hana-sc-vmfs-asar2-smas-image-048.png[image]
+. The storage system has been added succesfully. +
+image:hana-sc-vmfs-asar2-smas-image-049.png[image]
+
+[NOTE] 
+Even if the cluster has been added as whole all SVMs being management need a management IP address assigned. Otherwise, the different workflows will fail.
+
+=== Add VMware Plugin to SnapCenter
+
+Before the host can be added in SnapCenter the SnapCenter plugin for VMware vSphere must be deployed within the VMware environment. See also https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html[Deploy SnapCenter Plug-in for VMware vSphere].
+
+Note: Credentials must be set during host add workflow, where vSphere can be selected as a host type.
+
+image:hana-sc-vmfs-asar2-smas-image-050.png[Figure demonstrating the content being discussed,width=604,height=307]
+
+=== Create SAP HANA Backup policies
+
+This chapter describes how to define backup policies for SAP HANA using SMas for synchronously replication and SnapVault/SnapMirror for Backup purposes.
+
+[arabic]
+. Navigate to “Settings” at the left menu and choose the “Policies” tab. Click the “plus sign” to add new policy
+image:hana-sc-vmfs-asar2-smas-image-051.png[image]
+. Provide a name for the new policy, e.g. SMAS HANA – Hourly and details if desired. Press “Next” to continue.
+image:hana-sc-vmfs-asar2-smas-image-052.png[image]
+. Keep to default settings and press “Next” to continue.
+image:hana-sc-vmfs-asar2-smas-image-053.png[image]
+. Choose “Hourly” as schedule frequency, set the amount or time of Snapshots to keep and select “Update SnapMirror after creating a local Snapshot copy” as this enables SnapCenter discover the Snapshots at the SMaS destination as well. Press “Next”.
+image:hana-sc-vmfs-asar2-smas-image-054.png[image]
+. Check the Summary and press finish to create the new policy.
+image:hana-sc-vmfs-asar2-smas-image-055.png[image]
+. After the Hourly policy for the SanpMirror Active Sync replication has been created, create an additional daily policy for backup replication using SnapVault.
+image:hana-sc-vmfs-asar2-smas-image-056.png[image]
+. Provide a name for the new policy, e.g. SMAS HANA – Daily and details if desired. Press “Next” to continue.
+image:hana-sc-vmfs-asar2-smas-image-057.png[image]
+. Keep to default settings and press “Next” to continue.
+image:hana-sc-vmfs-asar2-smas-image-053.png[image]
+. Choose “Daily” as schedule frequency and define the amount or time to keep the snapshots. Choose “Update SnapVault after creating a local Snapshot copy”. Pree “Next” to continue.
+image:hana-sc-vmfs-asar2-smas-image-058.png[image]
+. Check the Summary and press finish
+image:hana-sc-vmfs-asar2-smas-image-059.png[image]
+. A daily and hourly backup policy has been defined. If desired create additional policies with different schedule types.
+image:hana-sc-vmfs-asar2-smas-image-060.png[image]
+
+=== Create SnapCenter user at SAP HANA Instance
+
+SnapCenter needs to communicate with the SAP HANA Instance to be able to create consistent backups. Therefore, a user needs to be created at the database for SnapCenter:
+
+[arabic]
+. Logon to your servers shell and switch to user SIDadm. +
+and connect to the systemdb of your SAP HANA system: +
+_hdbsql -i ++<++instance++_++number++>++ -d SYSTEMDB -u SYSTEM_
+. Create the user and assign the priviliges BACKUP ADMIN, CATALOG READ, DATABASE BACKUPADMIN, and DATABASE RECOVERY OPERATOR: +
+ +
+__CREATE USER SNAPCENTER PASSWORD "++<++InitialPassword++>++" +
+NO FORCE++_++FIRST++_++PASSWORD++_++CHANGE; +
+ALTER USER SNAPCENTER2 DISABLE PASSWORD LIFETIME; +
+GRANT BACKUP ADMIN TO SNAPCENTER; +
+GRANT CATALOG READ TO SNAPCENTER; +
+GRANT DATABASE BACKUP ADMIN TO SNAPCENTER; +
+GRANT DATABASE RECOVERY OPERATOR TO SNAPCENTER;__
+. The user for SnapCenter has been created succesfully.
+. Create hdbuserstore key +
+Logon to your servers shell and switch to user SIDadm. +
+Execute the following command to create the key used by SnapCenter later on: +
+_hdbuserstore set ++<++SIDKEY++>++ ++<++hana-server++>++:3++<++instance-number++>++13 ++<++USER++>++ ++<++password++>++_
+
+=== Register SAP HANA Instance at SnapCenter
+
+Once the database user has been created for SnapCenter, the SAP HANA Instance will be added to SnapCenter.
+
+[arabic]
+. Logon at the SnapCenter GUI +
+image:hana-sc-vmfs-asar2-smas-image-061.png[image]
+. Choose “Hosts” at the side menu and click on the “Add” button (plus sign). +
+image:hana-sc-vmfs-asar2-smas-image-062.png[image]
+. Choose “Linux” as “Host Type”, provide the hostname or IP address of your host and the SID of your SAP HANA system. Choose already available Credentials or create new one by clicking on the plus sign next to “Credentials”. Select “SAP HANA” as Plug-in to be installed. +
+image:hana-sc-vmfs-asar2-smas-image-063.png[image]
+[loweralpha]
+.. If you want to create new credentionals provide the required information and press “Ok”.
+image:hana-sc-vmfs-asar2-smas-image-064.png[image]
+.. Once the credential have been choosen press “Submit”.
+. Check the fingerprint and press the “Confirm and Submit” button afterwards. +
+image:hana-sc-vmfs-asar2-smas-image-065.png[image]
+. The host has been succesfully added to SnapCenter. +
+image:hana-sc-vmfs-asar2-smas-image-066.png[image]
+
+=== Configuring of SAP HANA Instance at SnapCenter
+
+Once the database host has been added to SnapCenter, the backup for the SAP HANA Instance can be configured.
+
+[arabic]
+. Choose ressources on the left menu and SAP HANA as Resource +
+image:hana-sc-vmfs-asar2-smas-image-067.png[image]
+. Change the view to the type of your system, e.g. “Multitenant Database Container” and click on the line of your database +
+image:hana-sc-vmfs-asar2-smas-image-068.png[image]
+. Provide the pricously created HDB Secure User Store key and press “OK”. +
+image:hana-sc-vmfs-asar2-smas-image-069.png[image]
+. Define your desired snapshot name and press next. +
+image:hana-sc-vmfs-asar2-smas-image-070.png[image]
+. Press ”Next” as for auto discovered system usually nothings needs to be set +
+image:hana-sc-vmfs-asar2-smas-image-071.png[image]
+. Choose or create and choose your desired policies, e.g. one daily and one hourly policy. Press the plus sign to configure the schedules +
+image:hana-sc-vmfs-asar2-smas-image-072.png[image]
+. Set the start data and time and an expire date (optional) for the daily policy and press ok. +
+image:hana-sc-vmfs-asar2-smas-image-073.png[image]
+. Clieck on the plus sign to configure the hourly policy. +
+image:hana-sc-vmfs-asar2-smas-image-074.png[image]
+. Set the start data and time and an expire date (optional) for the hourly policy and press ok +
+image:hana-sc-vmfs-asar2-smas-image-075.png[image]
+. Press “Next” to continue +
+image:hana-sc-vmfs-asar2-smas-image-076.png[image]
+. Setup the notification as desired and press “Next”, +
+image:hana-sc-vmfs-asar2-smas-image-077.png[image]
+. Check the summary of your settings and press “Finish”. +
+image:hana-sc-vmfs-asar2-smas-image-078.png[image]
+. Once the backups have been run successfully you will see on overview of the existing backups. +
+image:hana-sc-vmfs-asar2-smas-image-079.png[image]
