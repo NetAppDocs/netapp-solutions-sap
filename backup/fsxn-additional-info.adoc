@@ -25,10 +25,6 @@ To learn more about the information that is described in this document, review t
 +
 https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html
 
-* SnapCenter resources page
-+
-https://www.netapp.com/us/documentation/snapcenter-software.aspx[https://www.netapp.com/us/documentation/snapcenter-software.aspx]
-
 * SnapCenter Software documentation
 +
 https://docs.netapp.com/us-en/snapcenter/index.html[https://docs.netapp.com/us-en/snapcenter/index.html]

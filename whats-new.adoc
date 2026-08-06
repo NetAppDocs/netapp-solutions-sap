@@ -11,6 +11,9 @@ summary: Log of recent changes to the NetApp solutions for SAP collateral.
 [.lead]
 Learn what's new in solutions for SAP.
 
+== 05 August 2026
+New solution https://review.docs.netapp.com/us-en/netapp-solutions-sap_hana-sc-bare-metal-asar2/backup/hana-sc-bare-metal-asar2-scope.html[NetApp SnapCenter for SAP HANA on bare metal servers with NetApp ASA systems^] provides best practices for SAP HANA data protection with NetApp SnapCenter, covering SnapCenter configuration and operation guidelines for protecting SAP HANA systems on ONTAP ASA systems with bare metal servers.
+
 == 26 February 2026
 Updated https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/sc-copy-clone-introduction.html[Automating SAP HANA System Copy and Clone Operations with SnapCenter] solution to cover SAP HANA volume encryption with local secure store (LSS).
 
