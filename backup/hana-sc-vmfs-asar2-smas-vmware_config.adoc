@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
-permalink: backup/hana-sc-vmfs-asar2-vmware_config.html
-keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active/active, NetApp ASA R2
+permalink: backup/hana-sc-vmfs-asar2-smas-vmware_config.html
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active-active, NetApp ASA R2
 summary: 
 ---
 

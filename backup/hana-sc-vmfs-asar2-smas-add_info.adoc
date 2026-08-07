@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
-permalink: backup/hana-sc-vmfs-asar2-add_info.html
-keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active/active, NetApp ASA R2
+permalink: backup/hana-sc-vmfs-asar2-smas-add_info.html
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active-active, NetApp ASA R2
 summary: 
 ---
 
@@ -25,12 +25,11 @@ summary:
 * https://docs.netapp.com/us-en/netapp-solutions-sap/backup/hana-sc-vmware-smas-scope.html[SAP HANA data protection and high availability with SnapCenter&#44; SnapMirror active sync and VMware Metro Storage Cluster]
 * https://docs.netapp.com/us-en/snapcenter/index.html[SnapCenter Software documentation]
 * https://docs.netapp.com/us-en/snapcenter/protect-hana/concept_snapcenter_plug_in_for_sap_hana_database_overview.html[SnapCenter Plug-in for SAP HANA overview]
-* https://docs.netapp.com/us-en/snapcenter/protect-hana/task_add_hosts_and_install_snapcenter_plug_in_packages.html[Add hosts and install SnapCenter plug-in packages]
+* https://docs.netapp.com/us-en/snapcenter/protect-hana/task_add_hosts_and_install_plug_in_packages_on_remote_hosts_sap_hana.html[Add hosts and install SnapCenter plug-in packages]
 
 *NetApp ASA storage systems* for SAN-based block storage access
 
-* https://docs.netapp.com/us-en/ontap-systems/asa-overview.html[NetApp ASA systems documentation]
-* https://docs.netapp.com/us-en/asa-r2/[ASA r2 documentation]
+* https://docs.netapp.com/us-en/ontap-systems/asa-r2/index.html[NetApp ASA R2 systems documentation]
 * https://docs.netapp.com/us-en/ontap/san-admin/index.html[ONTAP SAN administration]
 
 *ONTAP consistency groups* to manage SAP HANA-related storage units as a single protected entity

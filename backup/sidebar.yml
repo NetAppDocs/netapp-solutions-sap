@@ -142,7 +142,7 @@ entries:
       - title: Conclusion
         url: /backup/hana-sc-vmfs-asar2-smas-conclusion.html 
       - title: Additional information 
-        url: /backup/hana-sc-vmfs-asar2-smas-additional-info.html
+        url: /backup/hana-sc-vmfs-asar2-smas-add_info.html
 
   - title: SAP HANA System Replication Backup and Recovery with SnapCenter
     entries:
