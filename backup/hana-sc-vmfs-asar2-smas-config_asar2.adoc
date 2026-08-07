@@ -13,6 +13,7 @@ summary:
 
 == Configuring ONTAP ASA systems
 
+[.lead]
 This chapter shows how to create the necessary LUNs for an SAP HANA system, how to setup the replication using SMas in active/active mode, and how to install and configure ONTAP Mediator.
 
 === Creating LUNs

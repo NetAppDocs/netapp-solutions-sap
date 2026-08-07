@@ -11,7 +11,10 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
-== Additional information
+== *Additional information*
+
+[.lead]
+This article provides links to additional resources relevant to this solution.
 
 *SAPHANA best practices*
 

@@ -13,7 +13,10 @@ summary:
 
 == VMware configuration Datastore and VM creation
 
-Create the datastore using the previously created LUNs for the VM used for SAP HANA followed by creating the VM using these datastores. Each LUN will be used for one datastore, so datastores for data, log, shared, and OS will be created.
+[.lead]
+Create the datastore using the previously created LUNs for the VM used for SAP HANA followed by creating the VM using these datastores.
+ 
+Each LUN will be used for one datastore, so datastores for data, log, shared, and OS will be created.
 
 === Datastore creation
 

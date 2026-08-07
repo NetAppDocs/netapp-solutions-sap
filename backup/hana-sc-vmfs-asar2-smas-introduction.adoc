@@ -5,7 +5,7 @@ keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active s
 summary: 
 ---
 
-= SAP HANA data protection with SnapCenter using VMware VMFS and SnapMirror active sync on NetApp ASA R2.
+= SAP HANA data protection with SnapCenter using VMware VMFS and SnapMirror active sync on NetApp ASA R2
 
 :hardbreaks:
 :nofooter:

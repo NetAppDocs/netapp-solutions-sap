@@ -13,6 +13,7 @@ summary:
 
 == SnapCenter Configuration 
 
+[.lead]
 This chapter describes how to set up SnapCenter for SAP HANA backup:
 
 * Adding the NetApp ASA Storage Clusters to SnapCenter

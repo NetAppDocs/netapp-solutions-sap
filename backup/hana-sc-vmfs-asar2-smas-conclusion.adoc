@@ -13,6 +13,7 @@ summary:
 
 == *Conclusion*
 
+[.lead]
 The deployment described in this document demonstrates how SAP HANA workloads running on VMware can be protected with a highly available, application-consistent, and operationally efficient data protection architecture based on NetApp ASA, ONTAP, SnapMirror active sync, and SnapCenter.
 
 By using SnapMirror active sync with ONTAP consistency groups, SAP HANA storage volumes can be synchronously replicated between two ONTAP clusters while maintaining write-order consistency across the database data, log, and shared volumes. This design enables continuous access to storage resources and supports automated failover capabilities in the event of a storage or site-level failure. The integration of ONTAP Mediator further strengthens the solution by supporting automated decision-making during failure scenarios.
