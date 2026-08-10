@@ -5,7 +5,7 @@ keywords: SAP HANA, SnapCenter, backup and recovery, system copy
 summary: 
 ---
 
-== SnapCenter Backup&Recovery and SAP HANA System Copy
+== SnapCenter Backup & Recovery and SAP HANA System Copy
 
 :hardbreaks:
 :nofooter:

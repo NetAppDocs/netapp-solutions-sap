@@ -139,6 +139,8 @@ entries:
         url: /backup/hana-sc-vmfs-asar2-smas-vmware_config.html
       - title: SnapCenter configuration
         url: /backup/hana-sc-vmfs-asar2-smas-sc_config.html
+      - title: SnapCenter Backup & Recovery and SAP HANA System Copy
+        url: /backup/hana-sc-vmfs-asar2-smas-sc-br-syscopy.html
       - title: Conclusion
         url: /backup/hana-sc-vmfs-asar2-smas-conclusion.html 
       - title: Additional information 
