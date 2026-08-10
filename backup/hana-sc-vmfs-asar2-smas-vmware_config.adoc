@@ -33,13 +33,13 @@ image:hana-sc-vmfs-asar2-smas-image-027.png[image]
 image:hana-sc-vmfs-asar2-smas-image-028.png[image]
 . Review the summary and press “Finish”. +
 image:hana-sc-vmfs-asar2-smas-image-029.png[image]
-. Repeat the previous steps for the datstores for log, shared, and the OS. +
+. Repeat the previous steps for the datastores for log, shared, and the OS. +
 image:hana-sc-vmfs-asar2-smas-image-030.png[image]
 
 === VM creation
 
 [arabic]
-. After all datastores have been created, navigate to “VMs and templates” tab. Choose “New Virtual Maschine…” from the context menu of your datacenter. +
+. After all datastores have been created, navigate to “VMs and templates” tab. Choose “New Virtual Machine…” from the context menu of your datacenter. +
 image:hana-sc-vmfs-asar2-smas-image-031.png[image]
 . Select the way ho to create a VM. This example uses the “Create a new virtual machine” workflow. +
 image:hana-sc-vmfs-asar2-smas-image-032.png[image] 
@@ -51,7 +51,7 @@ image:hana-sc-vmfs-asar2-smas-image-034.png[image]
 image:hana-sc-vmfs-asar2-smas-image-035.png[image]
 . Select the desired virtual machine. +
 image:hana-sc-vmfs-asar2-smas-image-036.png[image]
-. Select the OS version beeing used for the SAP HANA system. This example uses SUSE Linux Enterprise (SLES) 15. +
+. Select the OS version being used for the SAP HANA system. This example uses SUSE Linux Enterprise (SLES) 15. +
 image:hana-sc-vmfs-asar2-smas-image-037.png[image]
 . Configure the VM with the required CPU and Memory. Beside the hard disk for the OS, add additional disks for the data, log and shared using the datastores created before. +
 image:hana-sc-vmfs-asar2-smas-image-038.png[image]
@@ -63,6 +63,6 @@ image:hana-sc-vmfs-asar2-smas-image-040.png[image]
 image:hana-sc-vmfs-asar2-smas-image-041.png[image]
 . Power On the new VM. +
 image:hana-sc-vmfs-asar2-smas-image-042.png[image]
-. Connect to the Console and install the operating system according SAP’s gudelines. +
+. Connect to the Console and install the operating system according SAP’s guidelines. +
 image:hana-sc-vmfs-asar2-smas-image-043.png[image]
 . Install your SAP HANA system after the OS installation. Use the dedicated disks for the /hana/data, /hana/log, and /hana/shared directories.

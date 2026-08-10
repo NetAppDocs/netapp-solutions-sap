@@ -16,7 +16,7 @@ summary:
 [.lead]
 This article provides links to additional resources relevant to this solution.
 
-*SAPHANA best practices*
+*SAP HANA best practices*
 
 * https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html[SAP HANA on NetApp ASA Systems with Fibre Channel Protocol].
 

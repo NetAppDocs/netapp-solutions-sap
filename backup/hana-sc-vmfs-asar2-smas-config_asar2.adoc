@@ -47,7 +47,7 @@ image:hana-sc-vmfs-asar2-smas-image-014.png[image]
 
 === Setting up the replication
 
-Once the LUNs have been created, the replication using SMas in symmetric active/active mode and an asynchronously SnapVault/Snapmirror replication as backup destination will be configured. The asynchronously replication is optional but allows the store additional backups at a third storage system for longer time.
+Once the LUNs have been created, the replication using SMas in symmetric active/active mode and an asynchronously SnapVault/SnapMirror replication as backup destination will be configured. The asynchronously replication is optional but allows the store additional backups at a third storage system for longer time.
 
 [arabic]
 . Choose “Consistency groups” within “Protection” from the left menu of ONTAP System Manager and “{plus} add” a new consistency group “Using existing storage units” +
