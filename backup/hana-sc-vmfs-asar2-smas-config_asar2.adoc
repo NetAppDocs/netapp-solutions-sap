@@ -11,17 +11,17 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
-== Configuring ONTAP ASA systems
+== Configuring ONTAP ASA R2 systems
 
 [.lead]
 This chapter shows how to create the necessary LUNs for an SAP HANA system, how to setup the replication using SMas in active/active mode, and how to install and configure ONTAP Mediator.
 
 === Creating LUNs
 
-This chapter describes how to create the LUNs for an SAP HANA using the ONTAP System Manager of a NetApp ASA storage system.
+This chapter describes how to create the LUNs for an SAP HANA using the ONTAP System Manager of a NetApp ASA R2 storage system.
 
 [arabic]
-. Log into ONTAP System Manager of the ASA Storage Cluster +
+. Log into ONTAP System Manager of the ASA R2 Storage Cluster +
 image:hana-sc-vmfs-asar2-smas-image-004.jpeg[image]
 . The dashboard will be shown +
 image:hana-sc-vmfs-asar2-smas-image-005.png[image]
