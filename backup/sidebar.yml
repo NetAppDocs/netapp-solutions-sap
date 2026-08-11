@@ -133,7 +133,7 @@ entries:
     entries:
       - title: Introduction
         url: /backup/hana-sc-vmfs-asar2-smas-introduction.html
-      - title: Configuring ONTAP ASA systems
+      - title: Configuring ONTAP ASA R2 systems
         url: /backup/hana-sc-vmfs-asar2-smas-config_asar2.html
       - title: VMware configuration - Datastore and VM creation
         url: /backup/hana-sc-vmfs-asar2-smas-vmware_config.html
