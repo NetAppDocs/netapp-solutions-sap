@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: bp/hana-asa-fc-io-stack-configuration.html
-keywords: io, i/o, stack, configuration, database
-summary: Starting with SAP HANA 1.0 SPS10, SAP introduced parameters to adjust the I/O behavior and optimize the database for the file and storage system used.
+keywords: io, io-stack, configuration, database
+summary: Starting with SAP HANA 1.0 SPS10, SAP introduced parameters to adjust the IO behavior and optimize the database for the file and storage system used.
 ---
 == I/O Stack configuration for SAP HANA
 :hardbreaks:
@@ -12,7 +12,7 @@ summary: Starting with SAP HANA 1.0 SPS10, SAP introduced parameters to adjust t
 :imagesdir: ../media/
 
 
-
+[.lead]
 Starting with SAP HANA 1.0 SPS10, SAP introduced parameters to adjust the I/O behavior and optimize the database for the file and storage system used.
 
 NetApp conducted performance tests to define the ideal values. The following table lists the optimal values as inferred from the performance tests.

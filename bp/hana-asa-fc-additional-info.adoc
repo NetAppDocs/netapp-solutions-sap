@@ -4,7 +4,9 @@ permalink: bp/hana-asa-fc-additional-info.html
 keywords:
 summary:
 ---
-= Where to find additional information
+
+== Where to find additional information
+
 :hardbreaks:
 :nofooter:
 :icons: font
