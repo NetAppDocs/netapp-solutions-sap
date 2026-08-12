@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: backup/hana-sc-vmfs-asar2-smas-conclusion.html
+keywords: SAP HANA, VMware, SnapCenter, backup and recovery, SnapMirror active sync, symmetric active-active, NetApp ASA R2
+summary: 
+---
+
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ../media/
+
+== *Conclusion*
+
+[.lead]
+The deployment described in this document demonstrates how SAP HANA workloads running on VMware can be protected with a highly available, application-consistent, and operationally efficient data protection architecture based on NetApp ASA, ONTAP, SnapMirror active sync, and SnapCenter.
+
+By using SnapMirror active sync with ONTAP consistency groups, SAP HANA storage volumes can be synchronously replicated between two ONTAP clusters while maintaining write-order consistency across the database data, log, and shared volumes. This design enables continuous access to storage resources and supports automated failover capabilities in the event of a storage or site-level failure. The integration of ONTAP Mediator further strengthens the solution by supporting automated decision-making during failure scenarios.
+
+SnapCenter adds the required application awareness for SAP HANA backup and recovery operations. Through SAP HANA-integrated Snapshot backups, SnapCenter enables fast, space-efficient, and consistent backups while simplifying scheduling, retention, monitoring, and replication workflows. When combined with additional asynchronous replication, the solution can also provide extended backup retention and an additional recovery layer at a secondary location.
+
+Overall, this architecture provides a robust foundation for protecting business-critical SAP HANA systems. It combines high availability, synchronous replication, application-consistent backup, and simplified operational management in a single integrated solution. Organizations using this approach can improve service availability, reduce recovery time, strengthen data protection, and simplify the administration of SAP HANA environments running on VMware with NetApp storage.
