@@ -4,6 +4,7 @@ permalink: bp/hana-aff-nfs-architecture.html
 keywords: host, storage controller, nfs, 10gbe, architecture, back up, disaster recovery, dr, replication, snapmirror, metrocluster
 summary: SAP HANA hosts are connected to storage controllers by using a redundant 10GbE or faster network infrastructure. Data communication between SAP HANA hosts and storage controllers is based on the NFS protocol. A redundant switching infrastructure is required to provide fault-tolerant SAP HANA host-to-storage connectivity in case of switch or network interface card (NIC) failure.
 ---
+
 = Architecture
 :hardbreaks:
 :nofooter:
@@ -87,6 +88,16 @@ Both replication methods allow to you execute DR workflow testing without influe
 image:saphana_aff_nfs_image7b.png["NetApp SnapMirror"]
 
 Synchronous replication offers StrictSync mode. If the write to secondary storage is not completed for any reason, the application I/O fails, thereby ensuring that the primary and secondary storage systems are identical. Application I/O to the primary resumes only after the SnapMirror relationship returns to the InSync status. If the primary storage fails, application I/O can be resumed on the secondary storage after failover with no loss of data. In StrictSync mode, the RPO is always zero.
+
+==== SnapMirror active sync for NAS
+NetApp SnapMirror active sync for NAS with SAP HANA over NFSv4.1 is based on SVM mirroring between two ONTAP clusters. This architecture synchronously replicates both NAS data and the relevant SVM configuration, helping provide continuous availability and zero-RPO protection for mission-critical SAP HANA workloads.
+
+By using SVM replication, key NAS components such as volumes, logical interfaces, export policies, NFS settings, and access configuration are mirrored to the secondary site. This reduces operational complexity and enables the secondary environment to take over quickly if the primary site or storage system becomes unavailable.
+
+The ONTAP Mediator monitors the participating ONTAP systems and supports quorum decisions during failure scenarios. It helps prevent split-brain conditions and enables controlled failover behavior. Together, SnapMirror active sync for NAS, and the ONTAP Mediator provide a resilient storage foundation for SAP HANA environments that require high availability, synchronous replication, and strong recovery objectives.
+
+image:saphana_aff_nfs_image6.png["NetApp SnapMirror active sync"]
+
 
 === Storage replication based on MetroCluster
 
