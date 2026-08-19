@@ -94,7 +94,7 @@ NetApp SnapMirror active sync for NAS with SAP HANA over NFSv4.1 is based on SVM
 
 By using SVM replication, key NAS components such as volumes, logical interfaces, export policies, NFS settings, and access configuration are mirrored to the secondary site. This reduces operational complexity and enables the secondary environment to take over quickly if the primary site or storage system becomes unavailable.
 
-The ONTAP Mediator monitors the participating ONTAP systems and supports quorum decisions during failure scenarios. It helps prevent split-brain conditions and enables controlled failover behavior. Together, SnapMirror active sync for NAS, and the ONTAP Mediator provide a resilient storage foundation for SAP HANA environments that require high availability, synchronous replication, and strong recovery objectives.
+The ONTAP Mediator monitors the participating ONTAP systems and supports quorum decisions during failure scenarios. It helps prevent split-brain conditions and enables controlled failover behavior. Together, SnapMirror active sync for NAS and the ONTAP Mediator provide a resilient storage foundation for SAP HANA environments that require high availability, synchronous replication, and strong recovery objectives.
 
 image:saphana_aff_nfs_image6.png["NetApp SnapMirror active sync"]
 
