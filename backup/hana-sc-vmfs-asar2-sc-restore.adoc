@@ -13,6 +13,7 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
 With virtual resources stored on VMFS/VMDK’s SnapCenter restore operations are always done by a clone, mount, copy operation.
 
 [arabic]
