@@ -12,7 +12,8 @@ summary: "This document focuses on Disaster Recovery for SAP HANA."
 :linkattrs:
 :imagesdir: ../media/
 
-
+[.lead]
+Use the NetApp portfolio of technologies and tools to build or adapt disaster recovery plans that keep mission-critical SAP HANA applications available.
 
 == The challenge
 
