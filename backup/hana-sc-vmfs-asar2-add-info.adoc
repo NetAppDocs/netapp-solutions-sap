@@ -13,6 +13,9 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+Find links to related SAP HANA, SnapCenter, and NetApp documentation, and review the version history of this solution.
+
 HANA best practices:
 
 * https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-asa-fc-introduction.html[SAP HANA on NetApp ASA Systems with Fibre Channel Protocol].

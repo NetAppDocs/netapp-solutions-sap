@@ -12,6 +12,7 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
 Nothing specific to VMware with VMFS.
 
 image:sc-hana-asrr2-vmfs-image18.png["Figure demonstrating the content being discussed"]
