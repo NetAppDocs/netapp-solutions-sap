@@ -12,6 +12,9 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+Review the prerequisites and configure SnapCenter to protect SAP HANA systems that use VMware VMFS datastores.
+
 == Pre-requisites
 
 === SnapCenter HANA resource must be auto discovered

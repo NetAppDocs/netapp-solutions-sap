@@ -12,6 +12,9 @@ summary: "This document focuses on Backup and Recovery for SAP HANA."
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+Use NetApp ONTAP storage, Snapshot technology, and SnapCenter software to back up and restore SAP HANA databases of any size in seconds without affecting production performance.
+
 == The challenge
 
 With SAP HANA backup and restore operations, your organization faces the following 

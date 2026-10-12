@@ -12,6 +12,9 @@ summary:
 :linkattrs:
 :imagesdir: ../media/
 
+[.lead]
+Configure the SAP HANA database user and the hdb userstore key that SnapCenter uses to communicate with the HANA system.
+
 == Configure SnapCenter database user
 
 A user store for a system database user must be created, which should be used by SnapCenter.
